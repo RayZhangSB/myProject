@@ -3,17 +3,19 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <title>登录页</title>
+<script type="text/javascript" src="../js/jquery-easyui-1.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery-easyui-1.4.1/jquery.easyui.min.js"></script>
 <body>
 <div style="color:#00FF00" align="center">
-    <H1>欢迎进入易记空间</H1>
+    <H1> 欢迎进入易记空间</H1>
 </div>
 
 <div align="center">
-    <form action="userAccess/login" method="post">
+    <form action="${pageContext.request.contextPath}/toIndex" method="post">
         <table width="100%"  >
             <tr>
                 <td width="50%" height="30" align="right">用户名：</td>
-                <td width="50%" height="30" align="left">
+                <td width="50%" height="30" align="left" a>
                     <input type="text" name="UserName" >
                 </td>
             </tr>
@@ -26,7 +28,7 @@
             <tr >
                 <td width="100%" height="40" align="center" colspan="2" >
                     <input type="submit" name="login" value="登录">
-                    <input type="reset" value="重填">
+                    <input type="reset" value="重置">
                 </td>
 
             </tr>
@@ -34,10 +36,13 @@
 
         </table>
 </form>
-<form action="userAccess/register" method="post">
+
+    <form action="${pageContext.request.contextPath}/toRegister" method="post">
 
     <input type="submit" name="register" value="注册">
-</form>
+
+    </form>
+
 </div>
 
 

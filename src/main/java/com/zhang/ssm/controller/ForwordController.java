@@ -1,6 +1,7 @@
 package com.zhang.ssm.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -14,11 +15,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ForwordController {
 
     @RequestMapping("/")
-    public String forwordToMain(){
+    public String forwordToLogin() {
         return "login";
     }
 
+    @RequestMapping("/{page}")
+    public String pageForward(@PathVariable String page) {
+
+        return page;
+    }
 
 
+    @RequestMapping("/toIndex")
+    public String forwordToMain() {
+        return "index";
+    }
+
+    @RequestMapping("/toRegister")
+    public String forwordToRegister() {
+        return "register";
+    }
 
 }
