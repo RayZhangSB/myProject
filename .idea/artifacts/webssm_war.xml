@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="webssm:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="web-ssm-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="webssm:war exploded" />
+    </root>
+  </artifact>
+</component>

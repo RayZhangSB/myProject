@@ -1,0 +1,3 @@
+[INFO][main][2018-03-22 10:57:08][org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [test.xml]
+[INFO][main][2018-03-22 10:58:51][org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [test.xml]
+[INFO][main][2018-03-22 10:59:37][org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [test.xml]
