@@ -3,8 +3,6 @@ package com.zhang.ssm.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
-
 /**
  * @ClassName LoginController
  * @Description:
@@ -26,8 +24,4 @@ public class LoginController {
     }
 
 
-    @RequestMapping("/nest")
-    public String forwordTo(HttpServletRequest request) {
-        return "redirect:" + request.getContextPath() + "/error.html";
-    }
 }

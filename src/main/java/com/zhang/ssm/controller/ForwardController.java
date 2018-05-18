@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Version 1.0
  **/
 @Controller
-public class ForwordController {
+public class ForwardController {
 
     @RequestMapping("/")
     public String forwordToLogin() {

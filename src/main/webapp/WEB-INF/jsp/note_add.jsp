@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <link href="../../js/kindeditor-4.1.10/themes/default/default.css" type="text/css" rel="stylesheet">
 <!--富文本编辑器的引入-->
 <script type="text/javascript" charset="utf-8" src="../../js/kindeditor-4.1.10/kindeditor-all-min.js"></script>
@@ -19,25 +21,32 @@
                 </td>
             </tr>
             <tr>
-                <td>大标题：<input type="text" name="Title"></td>
+                <td>大标题：<label>
+                    <input type="text" name="Title">
+                </label></td>
             </tr>
             <tr>
-                <td>小标题：<input type="text" name="subTitle"></td>
+                <td>小标题：<label>
+                    <input type="text" name="subTitle">
+                </label></td>
             </tr>
             <tr>
+                <td>图片上传：
+
+                    <input type="file" name="doc" id="selectFile" onchange="setImg(this);"/>
+                    <input type="hidden" name="img" id="thumbUrl"/>
+                </td>
                 <td>
-                    <form action="UploadServlet.do" method="post" enctype="multipart/form-data">
-                        <input type="file" name="doc" id="doc" onchange="setImagePreview()">
-                        <img id="preview" width=-1 height=-1>
-                        <input type="submit" value="上传图片"/>
-                    </form>
+                    <span><img id="thumbUrlShow" src="" width="100" height="100"/></span>
                 </td>
             </tr>
             <tr>
                 <td>笔记内容:</td>
                 <td>
                     <!--该标签直接代表一块编辑区域，可以使用name初始化该区域-->
-                    <textarea style="width:800px;height:300px;visibility:hidden;" name="desc"></textarea>
+                    <label>
+                        <textarea style="width:800px;height:300px;visibility:hidden;" name="desc"></textarea>
+                    </label>
                 </td>
             </tr>
 
@@ -56,7 +65,12 @@
         //创建富文本编辑器
         itemAddEditor = TAOTAO.createEditor("#itemAddForm [name=desc]", TT.kingEditorParams);
         //初始化类目选择和图片上传器
-
+        TAOTAO.init({
+            fun: function (node) {
+                //根据商品的分类id取商品 的规格模板，生成规格信息。第四天内容。
+                TAOTAO.changeItemParam(node, "itemAddForm");
+            }
+        });
     });
 
     //提交表单
@@ -117,4 +131,44 @@
         return true;
     }
 
+
+    function setImg(obj) {//用于进行图片上传，返回地址
+        var f = $(obj).val();
+        if (f == null || f === undefined || f === '') {
+            return false;
+        }
+        if (!/\.(?:png|jpg|bmp|gif|PNG|JPG|BMP|GIF)$/.test(f)) {
+            alert("类型必须是图片(.png|jpg|bmp|gif|PNG|JPG|BMP|GIF)");
+            $(obj).val('');
+            return false;
+        }
+        var data = new FormData();
+        $.each($(obj)[0].files, function (i, file) {
+            data.append('file', file);
+        });
+        $.ajax({
+            type: "POST",
+            url: ${pageContext.request.contextPath}+"/pic/upload",
+            data: data,
+            cache: false,
+            contentType: false,    //不可缺
+            processData: false,    //不可缺
+            dataType: "json",
+            success: function (suc) {
+                if (suc.code === 0) {
+                    $("#thumbUrl").val(suc.message);//将地址存储好
+                    $("#thumbUrlShow").attr("src", suc.message);//显示图片
+                } else {
+                    alert("上传失败");
+                    $("#url").val("");
+                    $(obj).val('');
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("上传失败，请检查网络后重试" + XMLHttpRequest + textStatus + errorThrown);
+                $("#url").val("");
+                $(obj).val('');
+            }
+        });
+    }
 </script>
