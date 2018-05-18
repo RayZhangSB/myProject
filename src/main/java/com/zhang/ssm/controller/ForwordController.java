@@ -26,14 +26,4 @@ public class ForwordController {
     }
 
 
-    @RequestMapping("/toIndex")
-    public String forwordToMain() {
-        return "index";
-    }
-
-    @RequestMapping("/toRegister")
-    public String forwordToRegister() {
-        return "register";
-    }
-
 }

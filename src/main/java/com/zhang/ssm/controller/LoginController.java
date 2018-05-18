@@ -3,6 +3,8 @@ package com.zhang.ssm.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @ClassName LoginController
  * @Description:
@@ -11,16 +13,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Version 1.0
  **/
 @Controller
-@RequestMapping("/userAccess")
 public class LoginController {
 
-    @RequestMapping("/login")
-    public String login(){
+    @RequestMapping("/toIndex")
+    public String forwordToMain() {
         return "index";
     }
 
-    @RequestMapping("/register")
-    public String register(){
+    @RequestMapping("/toRegister")
+    public String forwordToRegister() {
         return "register";
+    }
+
+
+    @RequestMapping("/nest")
+    public String forwordTo(HttpServletRequest request) {
+        return "redirect:" + request.getContextPath() + "/error.html";
     }
 }
