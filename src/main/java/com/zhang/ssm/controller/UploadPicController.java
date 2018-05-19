@@ -1,6 +1,8 @@
 package com.zhang.ssm.controller;
 
 import com.zhang.ssm.service.PictureService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,13 +21,19 @@ import javax.servlet.http.HttpServletRequest;
  **/
 @Controller
 public class UploadPicController {
+    private static final Logger LOGGER = LoggerFactory.getLogger(UploadPicController.class);
     @Autowired
     private PictureService pictureService;
 
     @RequestMapping("/pic/upload")
     @ResponseBody
-    public String uploadPicture(@RequestParam(value = "file", required = false) MultipartFile file,
+    public String uploadPicture(@RequestParam(value = "file") MultipartFile file,
                                 HttpServletRequest request) {
+        if (file != null) {
+            System.out.println(file.getOriginalFilename());
+        }
+        System.out.println("文件数据没进来");
+
         return pictureService.uploadPicture(file, request);
     }
 

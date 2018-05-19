@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ForwardController {
 
     @RequestMapping("/")
-    public String forwordToLogin() {
+    public String forwardToLogin() {
         return "login";
     }
 
