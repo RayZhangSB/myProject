@@ -29,11 +29,6 @@ public class UploadPicController {
     @ResponseBody
     public String uploadPicture(@RequestParam(value = "file") MultipartFile file,
                                 HttpServletRequest request) {
-        if (file != null) {
-            System.out.println(file.getOriginalFilename());
-        }
-        System.out.println("文件数据没进来");
-
         return pictureService.uploadPicture(file, request);
     }
 

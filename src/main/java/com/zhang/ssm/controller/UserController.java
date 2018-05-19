@@ -9,10 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 
 @Controller
-@RequestMapping("/user")
 public class UserController {
 
     private Logger log = Logger.getLogger(UserController.class);
 
+    @RequestMapping("/user/add")
+    public String addUser() {
+        return "index";
+    }
 
 }

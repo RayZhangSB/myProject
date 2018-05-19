@@ -23,6 +23,10 @@
             cache: false,
             contentType: false,    //不可缺
             processData: false,    //不可缺
+            xhrFields: {
+                withCredentials: true
+            },
+            // async: false,
             dataType: "json",
             success: function (suc) {
                 if (suc.code === 0) {
@@ -46,7 +50,7 @@
         alert("上传成功");
     }
 
-    function check() {
+    function checkImg() {
         var maxSize = 2 * 1024 * 1024;  //2M
         var img = document.getElementById("doc");
 
@@ -63,8 +67,29 @@
         return true;
     }
 
+    function validationNoteForm() {
+        if (document.getElementById("contentType").value === "noneType") {
+            alert("请先选择内容类型");
+            return false;
+        }
+        if (document.getElementById("title").value === '') {
+            alert("大标题不能为空");
+            return false;
+        }
+        var s = document.getElementById("preview").src;
+        if (s == null || s === undefined || s === "") {
+            alert("请至少上传一张图片");
+            return false;
+        }
+
+        if (document.getElementById("desc").value === '') {
+            alert("描述不能为空");
+            return false;
+        }
+
+    }
     function setImagePreview() {
-        if (!check())
+        if (!checkImg())
             return;
         var docObj = document.getElementById("doc");
         var imgObjPreview = document.getElementById("preview");
@@ -102,29 +127,29 @@
     }
 
     function changeType_Note() {
-        var slecctS = document.querySelectorAll(".select");
-        var countrys = new Array();
-        countrys["0"] = ["请选择笔记类型"];
-        countrys["随笔"] = ["技术知识", "趣闻"];
-        countrys["日记"] = ["工作记录", "生活记录", "情感记录"];
-        var value = slecctS[0].value;
-        slecctS[1].options.length = 0;
+        var selectS = document.querySelectorAll(".select");
+        var noteTypes = [];
+        noteTypes["0"] = ["请选择笔记类型"];
+        noteTypes["随笔"] = ["技术知识", "趣闻"];
+        noteTypes["日记"] = ["工作记录", "生活记录", "情感记录"];
+        var value = selectS[0].value;
+        selectS[1].options.length = 0;
         var option;
-        for (i = 0; i < countrys[value].length; i++) {
-            option = new Option(countrys[value][i], countrys[value][i]);
-            slecctS[1].options.add(option);
-            slecctS[1].options.selected = countrys[value][0];
+        for (i = 0; i < noteTypes[value].length; i++) {
+            option = new Option(noteTypes[value][i], noteTypes[value][i]);
+            selectS[1].options.add(option);
+            selectS[1].options.selected = noteTypes[value][0];
         }
-        if (slecctS[0].value == "0") {
-            slecctS[1].disabled = true;
+        if (selectS[0].value === "0") {
+            selectS[1].disabled = true;
         }
         else {
-            slecctS[1].disabled = false;
+            selectS[1].disabled = false;
         }
     }
 
     function add_Note_Submit() {
-
+        validationNoteForm();
     }
 </script>
 <body>
@@ -134,18 +159,18 @@
         <table id="typeSelect" style="background-color:#EEEEEE;float:left;">
             <tr>
                 <td>
-                    <select name="noteType" onChange="changeType_Note()" class="select">
+                    <select id="noteType" name="noteType" onChange="changeType_Note()" class="select">
                         <option value="0">请选择笔记类型</option>
                         <option value="随笔">随笔</option>
                         <option value="日记">日记</option>
                     </select>
-                    <select name="contentType" class="select">
-                        <option>请选择内容类型</option>
+                    <select id="contentType" name="contentType" class="select">
+                        <option value="noneType">请选择内容类型</option>
                     </select>
                 </td>
             </tr>
             <tr>
-                <td>大标题：<input type="text" name="Title"></td>
+                <td>大标题：<input type="text" name="title" id="title"></td>
             </tr>
             <tr>
                 <td>小标题：<input type="text" name="subTitle"></td>
@@ -169,17 +194,19 @@
                         <input type="file" name="doc" id="doc" accept="image/*" onchange="setImagePreview();">
                         <input id="submit_form" name="submit_form" type="button" value="上传图片" onclick="uploadImg();"/>
                     </form>
-                    <img id="preview" width=-1 height=-1>
+                    <img id="preview" width="100px" height="100px">
                     <input type="text" name="imgUrl" id="imgUrl" hidden="hidden"/>
                 </td>
             </tr>
             <tr>
-                <td>内容描述：<textarea autofocus="autofocus" style="width:600px;height:300px;" name="desc"></textarea>
+                <td>内容描述：<textarea autofocus="autofocus" style="width:600px;height:300px;" name="desc"
+                                   id="desc"></textarea>
                 </td>
             </tr>
             <tr>
-                <input type="button" name="addSubmit" id="addSubmit" onclick="add_Note_Submit();"/>
-                <input type="reset" name="reset" value="重置"/>
+                <td><input type="button" name="addSubmit" id="addSubmit" onclick="add_Note_Submit();" value="添加"/></td>
+                <td><input type="reset" name="reset" value="重置"/></td>
+
             </tr>
         </table>
 
