@@ -15,7 +15,7 @@ public class LoginController {
 
     @RequestMapping("/toIndex")
     public String forwordToMain() {
-        return "index";
+        return "index1";
     }
 
     @RequestMapping("/toRegister")

@@ -15,7 +15,7 @@ public class UserController {
 
     @RequestMapping("/user/add")
     public String addUser() {
-        return "index";
+        return "index1";
     }
 
 }

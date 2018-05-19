@@ -14,14 +14,14 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * @ClassName UploadPicController
- * @Description: 图片上传
+ * @Description: 图片处理
  * @Author Raymond Zhang
  * @Date 2018/5/18 13:51
  * @Version 1.0
  **/
 @Controller
-public class UploadPicController {
-    private static final Logger LOGGER = LoggerFactory.getLogger(UploadPicController.class);
+public class PicController {
+    private static final Logger LOGGER = LoggerFactory.getLogger(PicController.class);
     @Autowired
     private PictureService pictureService;
 
@@ -29,6 +29,7 @@ public class UploadPicController {
     @ResponseBody
     public String uploadPicture(@RequestParam(value = "file") MultipartFile file,
                                 HttpServletRequest request) {
+        String s = "";
         return pictureService.uploadPicture(file, request);
     }
 

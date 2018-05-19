@@ -40,7 +40,7 @@ public class PictureServiceImpl implements PictureService {
         int code = 1;
         LOGGER.debug("文件是：" + file.getName());
         String fileName = file.getOriginalFilename();//获取文件名加后缀
-        if (fileName != null && fileName != "") {
+        if (fileName != null && !fileName.equals("")) {
             String returnUrl = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/upload/imgs/";//存储路径
             LOGGER.debug("文件存储路径前缀是：" + returnUrl);
             String path = request.getSession().getServletContext().getRealPath("upload/imgs"); //文件存储位置

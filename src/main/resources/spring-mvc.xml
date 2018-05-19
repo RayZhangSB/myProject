@@ -23,13 +23,13 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
         </property>
     </bean>
 
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-        <property name="messageConverters">
-            <list>
-                <ref bean="mappingJacksonHttpMessageConverter"/>
-            </list>
-        </property>
-    </bean>
+    <!--<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">-->
+    <!--<property name="messageConverters">-->
+    <!--<list>-->
+    <!--<ref bean="mappingJacksonHttpMessageConverter"/>-->
+    <!--</list>-->
+    <!--</property>-->
+    <!--</bean>-->
 
 <mvc:annotation-driven> </mvc:annotation-driven>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
