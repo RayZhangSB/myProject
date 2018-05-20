@@ -6,7 +6,19 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
+
+<head>
+    <title>主页</title>
+    <base href="<%=basePath%>">
+</head>
+<body>
 <script language="javascript">
     function dom(id) {
         return document.getelementbyid(id);
@@ -39,13 +51,6 @@
     }
 
 </script>
-
-
-<head>
-    <title>主页</title>
-</head>
-<body onload='init()'>
-
 
 <div id="container" style="width:1100px;height:800px">
 

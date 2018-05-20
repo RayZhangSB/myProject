@@ -3,8 +3,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <title>登录页</title>
-<script type="text/javascript" src="../../js/jquery-easyui-1.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="../../js/jquery-easyui-1.4.1/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-easyui-1.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-easyui-1.4.1/jquery.easyui.min.js"></script>
 <body>
 <div style="color:#00FF00" align="center">
     <H1> 欢迎进入易记空间</H1>
