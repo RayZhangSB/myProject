@@ -7,9 +7,6 @@ public class ExceptionUtil {
 
     /**
      * 获取异常的堆栈信息
-     *
-     * @param t
-     * @return
      */
     public static String getStackTrace(Throwable t) {
         StringWriter sw = new StringWriter();

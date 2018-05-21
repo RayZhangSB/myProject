@@ -21,21 +21,8 @@
 <body>
 <script language="javascript">
     function dom(id) {
-        return document.getelementbyid(id);
+        return document.getElementById(id);
     }
-
-    function createframe(frameid) {
-        var artframe = dom(frameid);
-        if (artframe == null) {
-
-            artframe = document.createElement("<iframe name='" + frameid + "' id='" + frameid + "'></iframe>");
-        }
-
-        dom('content').appendChild(artframe);
-
-    }
-
-
     function showWritePage() {
         var ele = document.getElementById("writeNote");
         ele.hidden = false;

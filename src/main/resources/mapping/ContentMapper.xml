@@ -1,325 +1,288 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.zhang.ssm.mapper.ContentMapper">
-    <resultMap id="BaseResultMap" type="com.zhang.ssm.pojo.Content">
-        <result column="uid" property="uid" jdbcType="BIGINT"/>
-        <result column="cid" property="cid" jdbcType="TINYINT"/>
-        <result column="title" property="title" jdbcType="VARCHAR"/>
-        <result column="pic1" property="pic1" jdbcType="VARCHAR"/>
-        <result column="pic2" property="pic2" jdbcType="VARCHAR"/>
-        <result column="pic3" property="pic3" jdbcType="VARCHAR"/>
-        <result column="pic4" property="pic4" jdbcType="VARCHAR"/>
-        <result column="pic5" property="pic5" jdbcType="VARCHAR"/>
-        <result column="pic6" property="pic6" jdbcType="VARCHAR"/>
-        <result column="pic7" property="pic7" jdbcType="VARCHAR"/>
-        <result column="pic8" property="pic8" jdbcType="VARCHAR"/>
-        <result column="pic9" property="pic9" jdbcType="VARCHAR"/>
-        <result column="subtitle" property="subtitle" jdbcType="VARCHAR"/>
-    </resultMap>
-    <resultMap id="ResultMapWithBLOBs" type="com.zhang.ssm.pojo.Content" extends="BaseResultMap">
-        <result column="content" property="content" jdbcType="LONGVARCHAR"/>
-    </resultMap>
-    <sql id="Example_Where_Clause">
-        <where>
-            <foreach collection="oredCriteria" item="criteria" separator="or">
-                <if test="criteria.valid">
-                    <trim prefix="(" suffix=")" prefixOverrides="and">
-                        <foreach collection="criteria.criteria" item="criterion">
-                            <choose>
-                                <when test="criterion.noValue">
-                                    and ${criterion.condition}
-                                </when>
-                                <when test="criterion.singleValue">
-                                    and ${criterion.condition} #{criterion.value}
-                                </when>
-                                <when test="criterion.betweenValue">
-                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                                </when>
-                                <when test="criterion.listValue">
-                                    and ${criterion.condition}
-                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
-                                             separator=",">
-                                        #{listItem}
-                                    </foreach>
-                                </when>
-                            </choose>
-                        </foreach>
-                    </trim>
-                </if>
+  <resultMap id="BaseResultMap" type="com.zhang.ssm.pojo.Content">
+    <id column="note_id" property="noteId" jdbcType="SMALLINT"/>
+    <result column="uid" property="uid" jdbcType="BIGINT"/>
+    <result column="cid" property="cid" jdbcType="TINYINT"/>
+    <result column="title" property="title" jdbcType="VARCHAR"/>
+    <result column="img_url" property="imgUrl" jdbcType="VARCHAR"/>
+    <result column="sub_title" property="subTitle" jdbcType="VARCHAR"/>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.zhang.ssm.pojo.Content" extends="BaseResultMap">
+    <result column="desc" property="desc" jdbcType="LONGVARCHAR"/>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" suffix=")" prefixOverrides="and">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
             </foreach>
-        </where>
-    </sql>
-    <sql id="Update_By_Example_Where_Clause">
-        <where>
-            <foreach collection="example.oredCriteria" item="criteria" separator="or">
-                <if test="criteria.valid">
-                    <trim prefix="(" suffix=")" prefixOverrides="and">
-                        <foreach collection="criteria.criteria" item="criterion">
-                            <choose>
-                                <when test="criterion.noValue">
-                                    and ${criterion.condition}
-                                </when>
-                                <when test="criterion.singleValue">
-                                    and ${criterion.condition} #{criterion.value}
-                                </when>
-                                <when test="criterion.betweenValue">
-                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                                </when>
-                                <when test="criterion.listValue">
-                                    and ${criterion.condition}
-                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
-                                             separator=",">
-                                        #{listItem}
-                                    </foreach>
-                                </when>
-                            </choose>
-                        </foreach>
-                    </trim>
-                </if>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" suffix=")" prefixOverrides="and">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
             </foreach>
-        </where>
-    </sql>
-    <sql id="Base_Column_List">
-        uid, cid, title, pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8, pic9, subtitle
-    </sql>
-    <sql id="Blob_Column_List">
-        content
-    </sql>
-    <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs"
-            parameterType="com.zhang.ssm.pojo.ContentExample">
-        select
-        <if test="distinct">
-            distinct
+          </trim>
         </if>
-        <include refid="Base_Column_List"/>
-        ,
-        <include refid="Blob_Column_List"/>
-        from content
-        <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
-        </if>
-        <if test="orderByClause != null">
-            order by ${orderByClause}
-        </if>
-    </select>
-    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.ssm.pojo.ContentExample">
-        select
-        <if test="distinct">
-            distinct
-        </if>
-        <include refid="Base_Column_List"/>
-        from content
-        <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
-        </if>
-        <if test="orderByClause != null">
-            order by ${orderByClause}
-        </if>
-    </select>
-    <delete id="deleteByExample" parameterType="com.zhang.ssm.pojo.ContentExample">
-        delete from content
-        <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
-        </if>
-    </delete>
-    <insert id="insert" parameterType="com.zhang.ssm.pojo.Content">
-        INSERT INTO content (uid, cid, title,
-                             pic1, pic2, pic3, pic4,
-                             pic5, pic6, pic7, pic8,
-                             pic9, subtitle, content
-        )
-        VALUES (#{uid,jdbcType=BIGINT}, #{cid,jdbcType=TINYINT}, #{title,jdbcType=VARCHAR},
-                                        #{pic1,jdbcType=VARCHAR}, #{pic2,jdbcType=VARCHAR}, #{pic3,jdbcType=VARCHAR},
-                                        #{pic4,jdbcType=VARCHAR},
-                                        #{pic5,jdbcType=VARCHAR}, #{pic6,jdbcType=VARCHAR}, #{pic7,jdbcType=VARCHAR},
-                                        #{pic8,jdbcType=VARCHAR},
-                #{pic9,jdbcType=VARCHAR}, #{subtitle,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
-        )
-    </insert>
-    <insert id="insertSelective" parameterType="com.zhang.ssm.pojo.Content">
-        insert into content
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="uid != null">
-                uid,
-            </if>
-            <if test="cid != null">
-                cid,
-            </if>
-            <if test="title != null">
-                title,
-            </if>
-            <if test="pic1 != null">
-                pic1,
-            </if>
-            <if test="pic2 != null">
-                pic2,
-            </if>
-            <if test="pic3 != null">
-                pic3,
-            </if>
-            <if test="pic4 != null">
-                pic4,
-            </if>
-            <if test="pic5 != null">
-                pic5,
-            </if>
-            <if test="pic6 != null">
-                pic6,
-            </if>
-            <if test="pic7 != null">
-                pic7,
-            </if>
-            <if test="pic8 != null">
-                pic8,
-            </if>
-            <if test="pic9 != null">
-                pic9,
-            </if>
-            <if test="subtitle != null">
-                subtitle,
-            </if>
-            <if test="content != null">
-                content,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="uid != null">
-                #{uid,jdbcType=BIGINT},
-            </if>
-            <if test="cid != null">
-                #{cid,jdbcType=TINYINT},
-            </if>
-            <if test="title != null">
-                #{title,jdbcType=VARCHAR},
-            </if>
-            <if test="pic1 != null">
-                #{pic1,jdbcType=VARCHAR},
-            </if>
-            <if test="pic2 != null">
-                #{pic2,jdbcType=VARCHAR},
-            </if>
-            <if test="pic3 != null">
-                #{pic3,jdbcType=VARCHAR},
-            </if>
-            <if test="pic4 != null">
-                #{pic4,jdbcType=VARCHAR},
-            </if>
-            <if test="pic5 != null">
-                #{pic5,jdbcType=VARCHAR},
-            </if>
-            <if test="pic6 != null">
-                #{pic6,jdbcType=VARCHAR},
-            </if>
-            <if test="pic7 != null">
-                #{pic7,jdbcType=VARCHAR},
-            </if>
-            <if test="pic8 != null">
-                #{pic8,jdbcType=VARCHAR},
-            </if>
-            <if test="pic9 != null">
-                #{pic9,jdbcType=VARCHAR},
-            </if>
-            <if test="subtitle != null">
-                #{subtitle,jdbcType=VARCHAR},
-            </if>
-            <if test="content != null">
-                #{content,jdbcType=LONGVARCHAR},
-            </if>
-        </trim>
-    </insert>
-    <select id="countByExample" parameterType="com.zhang.ssm.pojo.ContentExample" resultType="java.lang.Integer">
-        select count(*) from content
-        <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
-        </if>
-    </select>
-    <update id="updateByExampleSelective" parameterType="map">
-        update content
-        <set>
-            <if test="record.uid != null">
-                uid = #{record.uid,jdbcType=BIGINT},
-            </if>
-            <if test="record.cid != null">
-                cid = #{record.cid,jdbcType=TINYINT},
-            </if>
-            <if test="record.title != null">
-                title = #{record.title,jdbcType=VARCHAR},
-            </if>
-            <if test="record.pic1 != null">
-                pic1 = #{record.pic1,jdbcType=VARCHAR},
-            </if>
-            <if test="record.pic2 != null">
-                pic2 = #{record.pic2,jdbcType=VARCHAR},
-            </if>
-            <if test="record.pic3 != null">
-                pic3 = #{record.pic3,jdbcType=VARCHAR},
-            </if>
-            <if test="record.pic4 != null">
-                pic4 = #{record.pic4,jdbcType=VARCHAR},
-            </if>
-            <if test="record.pic5 != null">
-                pic5 = #{record.pic5,jdbcType=VARCHAR},
-            </if>
-            <if test="record.pic6 != null">
-                pic6 = #{record.pic6,jdbcType=VARCHAR},
-            </if>
-            <if test="record.pic7 != null">
-                pic7 = #{record.pic7,jdbcType=VARCHAR},
-            </if>
-            <if test="record.pic8 != null">
-                pic8 = #{record.pic8,jdbcType=VARCHAR},
-            </if>
-            <if test="record.pic9 != null">
-                pic9 = #{record.pic9,jdbcType=VARCHAR},
-            </if>
-            <if test="record.subtitle != null">
-                subtitle = #{record.subtitle,jdbcType=VARCHAR},
-            </if>
-            <if test="record.content != null">
-                content = #{record.content,jdbcType=LONGVARCHAR},
-            </if>
-        </set>
-        <if test="_parameter != null">
-            <include refid="Update_By_Example_Where_Clause"/>
-        </if>
-    </update>
-    <update id="updateByExampleWithBLOBs" parameterType="map">
-        update content
-        set uid = #{record.uid,jdbcType=BIGINT},
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    note_id, uid, cid, title, img_url, sub_title
+  </sql>
+  <sql id="Blob_Column_List">
+    DESC
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs"
+          parameterType="com.zhang.ssm.pojo.ContentExample">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List"/>
+    ,
+    <include refid="Blob_Column_List"/>
+    from content
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause"/>
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.ssm.pojo.ContentExample">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List"/>
+    from content
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause"/>
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Short">
+    select
+    <include refid="Base_Column_List"/>
+    ,
+    <include refid="Blob_Column_List"/>
+    from content
+    where note_id = #{noteId,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    DELETE FROM content
+    WHERE note_id = #{noteId,jdbcType=SMALLINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zhang.ssm.pojo.ContentExample">
+    delete from content
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause"/>
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zhang.ssm.pojo.Content">
+    INSERT INTO content (note_id, uid, cid,
+                         title, img_url, sub_title,
+                         desc)
+    VALUES (#{noteId,jdbcType=SMALLINT}, #{uid,jdbcType=BIGINT}, #{cid,jdbcType=TINYINT},
+            #{title,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR}, #{subTitle,jdbcType=VARCHAR},
+            #{desc,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhang.ssm.pojo.Content">
+    insert into content
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="noteId != null">
+        note_id,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="imgUrl != null">
+        img_url,
+      </if>
+      <if test="subTitle != null">
+        sub_title,
+      </if>
+      <if test="desc != null">
+        desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="noteId != null">
+        #{noteId,jdbcType=SMALLINT},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=TINYINT},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="imgUrl != null">
+        #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="subTitle != null">
+        #{subTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        #{desc,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zhang.ssm.pojo.ContentExample" resultType="java.lang.Integer">
+    select count(*) from content
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause"/>
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update content
+    <set>
+      <if test="record.noteId != null">
+        note_id = #{record.noteId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=BIGINT},
+      </if>
+      <if test="record.cid != null">
         cid = #{record.cid,jdbcType=TINYINT},
+      </if>
+      <if test="record.title != null">
         title = #{record.title,jdbcType=VARCHAR},
-        pic1 = #{record.pic1,jdbcType=VARCHAR},
-        pic2 = #{record.pic2,jdbcType=VARCHAR},
-        pic3 = #{record.pic3,jdbcType=VARCHAR},
-        pic4 = #{record.pic4,jdbcType=VARCHAR},
-        pic5 = #{record.pic5,jdbcType=VARCHAR},
-        pic6 = #{record.pic6,jdbcType=VARCHAR},
-        pic7 = #{record.pic7,jdbcType=VARCHAR},
-        pic8 = #{record.pic8,jdbcType=VARCHAR},
-        pic9 = #{record.pic9,jdbcType=VARCHAR},
-        subtitle = #{record.subtitle,jdbcType=VARCHAR},
-        content = #{record.content,jdbcType=LONGVARCHAR}
-        <if test="_parameter != null">
-            <include refid="Update_By_Example_Where_Clause"/>
-        </if>
-    </update>
-    <update id="updateByExample" parameterType="map">
-        update content
-        set uid = #{record.uid,jdbcType=BIGINT},
-        cid = #{record.cid,jdbcType=TINYINT},
-        title = #{record.title,jdbcType=VARCHAR},
-        pic1 = #{record.pic1,jdbcType=VARCHAR},
-        pic2 = #{record.pic2,jdbcType=VARCHAR},
-        pic3 = #{record.pic3,jdbcType=VARCHAR},
-        pic4 = #{record.pic4,jdbcType=VARCHAR},
-        pic5 = #{record.pic5,jdbcType=VARCHAR},
-        pic6 = #{record.pic6,jdbcType=VARCHAR},
-        pic7 = #{record.pic7,jdbcType=VARCHAR},
-        pic8 = #{record.pic8,jdbcType=VARCHAR},
-        pic9 = #{record.pic9,jdbcType=VARCHAR},
-        subtitle = #{record.subtitle,jdbcType=VARCHAR}
-        <if test="_parameter != null">
-            <include refid="Update_By_Example_Where_Clause"/>
-        </if>
-    </update>
+      </if>
+      <if test="record.imgUrl != null">
+        img_url = #{record.imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subTitle != null">
+        sub_title = #{record.subTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.desc != null">
+        desc = #{record.desc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause"/>
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update content
+    set note_id = #{record.noteId,jdbcType=SMALLINT},
+    uid = #{record.uid,jdbcType=BIGINT},
+    cid = #{record.cid,jdbcType=TINYINT},
+    title = #{record.title,jdbcType=VARCHAR},
+    img_url = #{record.imgUrl,jdbcType=VARCHAR},
+    sub_title = #{record.subTitle,jdbcType=VARCHAR},
+    desc = #{record.desc,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause"/>
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update content
+    set note_id = #{record.noteId,jdbcType=SMALLINT},
+    uid = #{record.uid,jdbcType=BIGINT},
+    cid = #{record.cid,jdbcType=TINYINT},
+    title = #{record.title,jdbcType=VARCHAR},
+    img_url = #{record.imgUrl,jdbcType=VARCHAR},
+    sub_title = #{record.subTitle,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause"/>
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.ssm.pojo.Content">
+    update content
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=BIGINT},
+      </if>
+      <if test="cid != null">
+        cid = #{cid,jdbcType=TINYINT},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="imgUrl != null">
+        img_url = #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="subTitle != null">
+        sub_title = #{subTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="desc != null">
+        desc = #{desc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where note_id = #{noteId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zhang.ssm.pojo.Content">
+    UPDATE content
+    SET uid     = #{uid,jdbcType=BIGINT},
+      cid       = #{cid,jdbcType=TINYINT},
+      title     = #{title,jdbcType=VARCHAR},
+      img_url   = #{imgUrl,jdbcType=VARCHAR},
+      sub_title = #{subTitle,jdbcType=VARCHAR},
+      desc      = #{desc,jdbcType=LONGVARCHAR}
+    WHERE note_id = #{noteId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhang.ssm.pojo.Content">
+    UPDATE content
+    SET uid     = #{uid,jdbcType=BIGINT},
+      cid       = #{cid,jdbcType=TINYINT},
+      title     = #{title,jdbcType=VARCHAR},
+      img_url   = #{imgUrl,jdbcType=VARCHAR},
+      sub_title = #{subTitle,jdbcType=VARCHAR}
+    WHERE note_id = #{noteId,jdbcType=SMALLINT}
+  </update>
 </mapper>

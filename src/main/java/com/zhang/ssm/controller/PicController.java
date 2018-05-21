@@ -18,9 +18,10 @@ import javax.servlet.http.HttpServletRequest;
  * @Version 1.0
  **/
 @Controller
+@RequestMapping("/pic")
 public class PicController {
     @ResponseBody
-    @RequestMapping("/pic/upload")
+    @RequestMapping("/upload")
     public String uploadPicture(@RequestParam(value = "doc") MultipartFile files,
                                 HttpServletRequest request) {
 

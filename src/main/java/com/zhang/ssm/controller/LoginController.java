@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
 
     @RequestMapping("/toIndex")
-    public String forwordToMain() {
+    public String forwardToMain() {
         return "homePage";
     }
 
     @RequestMapping("/toRegister")
-    public String forwordToRegister() {
+    public String forwardToRegister() {
         return "register";
     }
 

@@ -3,66 +3,108 @@
 
 <html>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.3.1.js"></script>
-
-
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.form.js"></script>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
+%>
 <script language="javascript">
-    $(function () {
-        //必须填的，就需要加入红星标记
-        $("form :input.required").each(function () {
-            var $required = $("<strong class='high'>*</strong>");
-            $(this).parent().append($required);
-        });
-        $('form :input').blur(function () {
-            var $parent = $(this).parent();
-            $parent.find(".formtips").remove();//删除以前的提醒元素
-            //验证用户名
-            if ($(this).is('#userName')) {
-                if (this.value === "" || this.value.length < 6) {
-                    var errorMsg = "请输入至少6位的用户名.";
-                    $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
-                } else {
-                    var okMsg = "输入正确.";
-                    $parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
-                }
-            }
-            if ($(this).is('#useAge')) {
-                if (this.value.length < 1 || this.value.length > 3) {
-                    var errorMsg = "请输入正确年龄";
-                    $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
-                } else {
-                    var okMsg = "输入正确.";
-                    $parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
-                }
-            }
+    function checkRegisterInfo() {
+        var uid = $("input[name=userId]").val();
+        var uName = $("input[name=userName]").val();
+        var uPwd = $("input[name=userPassword]").val();
+        var uAge = $("input[name=userAge]").val();
+        var uEmail = $("input[name=userEmail]").val();
+        var errorMsg;
+        if (!(/^\d{6,10}$/.test(uid))) {
+            errorMsg = "id格式不正确";
+            alert(errorMsg);
+            return false;
+        }
+        //验证用户名
+        if (!/^[a-zA-z]\w{6,15}$/.test(uName)) {
+            errorMsg = "无效用户名";
+            alert(errorMsg);
+            return false;
+        }
+        //验证密码
+        if (!/^[a-zA-z]\w{6,15}$/.test(uPwd)) {
+            errorMsg = "密码格式不正确";
+            alert(errorMsg);
+            return false;
+        }
+        //验证年龄
+        if (!/^\d{2}$/.test(uAge)) {
+            errorMsg = "无效的年龄输入";
+            alert(errorMsg);
+            return false;
+        }
+        //验证邮箱
+        if (uEmail === "" || (uEmail !== "" && !(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(uEmail)))) {
+            errorMsg = "请输入正确的E-mail 地址";
+            alert(errorMsg);
+            return false;
+        }
+        return true;
 
-            //验证邮箱
-            if ($(this).is('#userEmail')) {
-                if (this.value === "" || (this.value !== "" && !/.+@.+\.[a-zA-Z]{2,4}$/.test(this.value))) {
-                    var errorMsg = "请输入正确的E-mail 地址";
-                    $parent.append('<span class="formtips onError">' + errorMsg + '</span>');
-                } else {
-                    var okMsg = "输入正确";
-                    $parent.append('<span class="formtips onSuccess">' + okMsg + '</span>');
-                }
-            }
-        }).keyup(function () {
-            //这样再输入的时候只要满足条件就能提示，而不用等到失去焦点后再提示
-            $(this).triggerHandler("blur");
-        }).focus(function () {
-            $(this).triggerHandler("blur");
-        });
+    }
 
-        //最终验证
-        $("#send").click(function () {
-            $("form .required:input").trigger("blur");
-            var numError = $("form .onError").length;
-            //numError>0,有错，false.阻止表单提交》return false
-            if (numError) {
+    function getDateNow(date) {
+        return date.getFullYear().toString() + "-" + (date.getMonth() + 1).toString() + "-" + date.getDate().toString();
+    }
+
+    function clearR() {
+        $('#registerUser').resetForm();
+    }
+
+    function getJsonFormData(form) {
+        //将form表单变成map数组
+        var form_array = $(form).serializeArray();
+        var mapped_array = {};
+
+        $.map(form_array, function (n, i) {
+            mapped_array[n['name']] = n['value'];
+        });
+        return mapped_array;
+    }
+
+    function addUser() {
+        if (!checkRegisterInfo()) {
+            return false;
+        }
+        var array = getJsonFormData("#userR");
+        array["userCreatetime"] = getDateNow(new Date());
+        //注册用户
+        $.ajax({
+            type: "POST",
+            url: "<%=basePath%>" + "/user/add",
+            data: JSON.stringify(array),
+            cache: false,
+            contentType: "application/json",    //不可缺
+            processData: false,    //不可缺
+            dataType: "json",
+            success: function (suc) {
+                if (suc.code === 0) {
+                    alert("用户创建成功!");
+                    // $("#user").resetForm();
+                    //回到登录页面
+                    window.location.replace("<%=basePath%>" + "/login");
+                    return false;
+                } else {
+                    alert("用户创建失败,原因未知");
+                    return false;
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("网络错误，请检查网络后重试" + XMLHttpRequest + textStatus + errorThrown);
                 return false;
             }
-            alert("注册成功，密码已发送至邮箱，注意查收！");
         });
-    })
+        return false;
+
+
+    }
+
 </script>
 
 <body>
@@ -72,34 +114,35 @@
 
 <div align="center">
     <hr>
-    <form action="${pageContext.request.contextPath}/user/add" method="post">
+    <form id="userR" name="userR" enctype="multipart/form-data">
         <table>
             <tr>
-                <td>ID号：<input id="userId" name="userId" type="text" required="required" maxlength="16"
-                               placeholder="请输入用户id，长度6-16只能由数字组成"></td>
+                <td>ID号&nbsp;：<input id="userId" name="userId" type="text" required="required" maxlength="16"
+                                     style="width:250px" placeholder="请输入用户id，6-10位纯数字"></td>
             </tr>
             <tr>
                 <td>用户名：<input id="userName" name="userName" type="text" required="required" maxlength="16"
-                               placeholder="输入您的用户名"></td>
+                               style="width:250px" placeholder="输入您的用户名，6-15位数字或字母"></td>
             </tr>
             <tr>
-                <td>密码：<input id="userPassword" name="userPassword" type="text" required="required" maxlength="16"
-                              placeholder="输入您的密码"></td>
+                <td>密码&nbsp;：<input id="userPassword" name="userPassword" type="text" required="required"
+                                    style="width:250px" placeholder="输入您的密码，6-15位数字或字母"></td>
             </tr>
             <tr>
-                <td>年龄：<input id="userAge" name="userAge" type="text" maxlength="3" placeholder="输入您的年龄"></td>
+                <td>年龄&nbsp;：<input id="userAge" name="userAge" type="text" required="required" maxlength="3"
+                                    style="width:250px" placeholder="输入您的年龄"></td>
             </tr>
 
             <tr>
-                <td>邮箱：<input id="userEmail" name="userEmail" type="text" minlength="5" placeholder="输入您的邮箱"></td>
+                <td>邮箱&nbsp;：<input id="userEmail" name="userEmail" type="text" required="required" minlength="5"
+                                    style="width:250px" placeholder="输入您的邮箱"></td>
             </tr>
             <tr>
-                <td><input name="submit" type="submit" value="提交">
-                    <input type="reset" value="重置"></td>
-
             </tr>
         </table>
     </form>
+    <input type="button" value="注册" onclick="addUser()">
+    <input type="button" value="清空" onclick="clearR()">
     <hr>
 </div>
 </body>

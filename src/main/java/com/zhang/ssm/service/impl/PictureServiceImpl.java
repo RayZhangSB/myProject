@@ -22,19 +22,6 @@ import java.util.Date;
 @Service
 public class PictureServiceImpl implements PictureService {
     private static final Logger LOGGER = LoggerFactory.getLogger(PictureServiceImpl.class);
-    private String savePathPrefix = "F:" + File.separator + "learning" + File.separator + "upload" + File.separator + "img";//存储路径
-//	@Value("${FTP_ADDRESS}")
-//	private String FTP_ADDRESS;
-//	@Value("${FTP_PORT}")
-//	private String FTP_PORT;
-//	@Value("${FTP_USERNAME}")
-//	private String FTP_USERNAME;
-//	@Value("${FTP_PASSWORD}")
-//	private String FTP_PASSWORD;
-//	@Value("${FTP_BASE_PATH}")
-//	private String FTP_BASE_PATH;
-//	@Value("${IMAGE_BASE_URL}")
-//	private String IMAGE_BASE_URL;
 
     public String uploadPicture(MultipartFile file, HttpServletRequest request) {
 
@@ -48,7 +35,6 @@ public class PictureServiceImpl implements PictureService {
             String newFileName = fileName + fileF;
             //先判断文件是否存在
             String fileAdd = DateUtil.format(new Date(), "yyyyMMdd");
-
             File saveDir = new File(savePathPrefix + File.separator + fileAdd + File.separator);
             String saveFileRefPath = saveDir + File.separator + newFileName;
             targetFile = new File(saveFileRefPath);
@@ -61,7 +47,6 @@ public class PictureServiceImpl implements PictureService {
                 }
             }
             try {
-
                 file.transferTo(targetFile);
                 code = 0;
                 msg = saveFileRefPath;
@@ -70,8 +55,7 @@ public class PictureServiceImpl implements PictureService {
                 LOGGER.error(msg);
             }
         }
-        String res = JSON.toJSONString(ResponseResult.result(code, msg));
-        return res;
+        return JSON.toJSONString(ResponseResult.build(code, msg));
     }
 
 }

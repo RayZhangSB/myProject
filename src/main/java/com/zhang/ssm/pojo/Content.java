@@ -1,33 +1,27 @@
 package com.zhang.ssm.pojo;
 
 public class Content {
+    private Short noteId;
+
     private Long uid;
 
     private Byte cid;
 
     private String title;
 
-    private String pic1;
+    private String imgUrl;
 
-    private String pic2;
+    private String subTitle;
 
-    private String pic3;
+    private String desc;
 
-    private String pic4;
+    public Short getNoteId() {
+        return noteId;
+    }
 
-    private String pic5;
-
-    private String pic6;
-
-    private String pic7;
-
-    private String pic8;
-
-    private String pic9;
-
-    private String subtitle;
-
-    private String content;
+    public void setNoteId(Short noteId) {
+        this.noteId = noteId;
+    }
 
     public Long getUid() {
         return uid;
@@ -53,91 +47,27 @@ public class Content {
         this.title = title == null ? null : title.trim();
     }
 
-    public String getPic1() {
-        return pic1;
+    public String getImgUrl() {
+        return imgUrl;
     }
 
-    public void setPic1(String pic1) {
-        this.pic1 = pic1 == null ? null : pic1.trim();
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl == null ? null : imgUrl.trim();
     }
 
-    public String getPic2() {
-        return pic2;
+    public String getSubTitle() {
+        return subTitle;
     }
 
-    public void setPic2(String pic2) {
-        this.pic2 = pic2 == null ? null : pic2.trim();
+    public void setSubTitle(String subTitle) {
+        this.subTitle = subTitle == null ? null : subTitle.trim();
     }
 
-    public String getPic3() {
-        return pic3;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setPic3(String pic3) {
-        this.pic3 = pic3 == null ? null : pic3.trim();
-    }
-
-    public String getPic4() {
-        return pic4;
-    }
-
-    public void setPic4(String pic4) {
-        this.pic4 = pic4 == null ? null : pic4.trim();
-    }
-
-    public String getPic5() {
-        return pic5;
-    }
-
-    public void setPic5(String pic5) {
-        this.pic5 = pic5 == null ? null : pic5.trim();
-    }
-
-    public String getPic6() {
-        return pic6;
-    }
-
-    public void setPic6(String pic6) {
-        this.pic6 = pic6 == null ? null : pic6.trim();
-    }
-
-    public String getPic7() {
-        return pic7;
-    }
-
-    public void setPic7(String pic7) {
-        this.pic7 = pic7 == null ? null : pic7.trim();
-    }
-
-    public String getPic8() {
-        return pic8;
-    }
-
-    public void setPic8(String pic8) {
-        this.pic8 = pic8 == null ? null : pic8.trim();
-    }
-
-    public String getPic9() {
-        return pic9;
-    }
-
-    public void setPic9(String pic9) {
-        this.pic9 = pic9 == null ? null : pic9.trim();
-    }
-
-    public String getSubtitle() {
-        return subtitle;
-    }
-
-    public void setSubtitle(String subtitle) {
-        this.subtitle = subtitle == null ? null : subtitle.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
+    public void setDesc(String desc) {
+        this.desc = desc == null ? null : desc.trim();
     }
 }

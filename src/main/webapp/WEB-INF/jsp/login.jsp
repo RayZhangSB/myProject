@@ -7,7 +7,7 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-easyui-1.4.1/jquery.easyui.min.js"></script>
 <body>
 <div style="color:#00FF00" align="center">
-    <H1> 欢迎进入易记空间</H1>
+    <H1>易笔记登录</H1>
 </div>
 
 <div align="center">
@@ -16,13 +16,13 @@
             <tr>
                 <td width="50%" height="30" align="right">用户名：</td>
                 <td width="50%" height="30" align="left" a>
-                    <input type="text" name="UserName" >
+                    <input type="text" name="UserName" PLACEHOLDER="用户名或id">
                 </td>
             </tr>
             <tr>
                 <td width="50%" height="30" align="right">密&nbsp;码：</td>
                 <td width="70%" height="30" align="left">
-                    <input type="password" name="UserPassword" inputmode="">
+                    <input type="password" name="UserPassword" PLACEHOLDER="密码">
                 </td>
             </tr>
             <tr >
