@@ -20,9 +20,7 @@
 </head>
 <body>
 <script language="javascript">
-    function dom(id) {
-        return document.getElementById(id);
-    }
+
     function showWritePage() {
         var ele = document.getElementById("writeNote");
         ele.hidden = false;
@@ -42,7 +40,7 @@
 <div id="container" style="width:1100px;height:800px">
 
     <div id="header" style="background-color:#FFD7FA;">
-        <h1 style="margin-bottom:0;">Main Title of Web Page</h1></div>
+        <h1 style="margin-bottom:0;">欢迎来到易笔记主页</h1></div>
 
     <div id="menu" style="background-color:#FFD7CF;height:700px;width:100px;float:left;">
         <input type="button" value="写笔记" onclick="showWritePage()">

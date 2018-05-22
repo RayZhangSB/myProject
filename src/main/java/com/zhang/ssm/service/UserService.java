@@ -8,4 +8,6 @@ import com.zhang.ssm.pojo.User;
 public interface UserService {
 
     String registerUser(User user);
+
+    String validationUser(String userNameOrId, String userPassword);
 }

@@ -25,8 +25,17 @@ public class UserController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
     public String addUser(@RequestBody User user) {
-        String resJson = userService.registerUser(user);
-        return resJson;
+        return userService.registerUser(user);
+    }
+
+    /*
+    用户登录验证
+     */
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @ResponseBody
+    public String validationUser(String userId, String userPassword) {
+
+        return userService.validationUser(userId, userPassword);
     }
 
 }

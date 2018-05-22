@@ -15,10 +15,9 @@
     <base href="<%=basePath%>">
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.form.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/my.js"></script>
 <script language="javascript">
-    function dom(id) {
-        return document.getElementById(id);
-    }
+
 
     function uploadImg() {
         var pathShow = document.getElementById("imgUrl");
@@ -117,25 +116,8 @@
 
 
     }
-
-    function checkImgFormat() {
-        var maxSize = 2 * 1024 * 1024;
-        var img = document.getElementById("doc");
-        if (img.value === "" || img.value === undefined || img.value == null) {
-            alert("请选择文件!");
-            return false;
-        } else if (!/\.(gif|jpg|jpeg|png|GIF|JPG|JPEF|PNG)$/.test(img.value)) {
-            alert("图片类型必须为gif|jpg|jpeg|png中的一种!");
-            return false;
-        } else if (img.files[0].size > maxSize) {
-            alert("上传图片不能超过2M !");
-            return false;
-        }
-        return true;
-    }
-
     function setImagePreview() {
-        if (!checkImgFormat()) {
+        if (!checkImgFormat("doc")) {
             return false;
         }
         uploadImg();
