@@ -6,12 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
 %>
-<head>
+
     <base href="<%=basePath%>">
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.form.js"></script>
@@ -82,9 +82,19 @@
         if (!validationNoteForm()) {
             return;
         }
+        var uid = get_cookie("userId");
+        console.log(uid);
+        if (uid === null || uid === undefined || uid === "") {
+            alert("请先登录!");
+            return;
+        }
+
+
         var formData = new FormData();
+        formData.append("uid", uid);
         formData.append("cid", ($("#contentType").find("option:selected").val()));
         formData.append("title", dom("title").value);
+        formData.append("subTitle", dom("subTitle").value);
         formData.append("imgUrl", dom("imgUrl").value);
         formData.append("desc", dom("desc").value);
         $.ajax({
@@ -94,9 +104,6 @@
             cache: false,
             contentType: false,    //不可缺
             processData: false,    //不可缺;
-            // xhrFields: {
-            //     withCredentials: true
-            // },
             dataType: "json",
             success: function (suc) {
                 if (suc.code === 0) {
@@ -179,12 +186,10 @@
 
 </script>
 
-</head>
-<body>
 
-<div id="add_note">
-    <form id="content" name="content">
-    <table id="typeSelect" style="background-color:#EEEEEE;float:left;">
+<div id="add_note" style="padding:10px 10px 10px 10px">
+
+    <table>
         <tr>
             <td><select id="noteType" name="noteType" onChange="changeType_Note()" class="select">
                 <option value="-1">请选择笔记类型</option>
@@ -205,9 +210,15 @@
         <tr>
             <td>
                 <input type="file" name="doc" id="doc" onchange="setImagePreview();">
+
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <img id="preview" width=-1 height=-1>
                 <input type="text" id="imgUrl" name="imgUrl" hidden="hidden" width="300px"/>
             </td>
+
         </tr>
         <tr>
             <td><textarea autofocus="autofocus" style="width:400px;height:200px;" name="desc"
@@ -221,11 +232,5 @@
             <td><input type="reset" name="reset" value="重置"/></td>
         </tr>
     </table>
-
-    </form>
-
 </div>
 
-
-</body>
-</html>

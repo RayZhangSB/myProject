@@ -69,7 +69,7 @@
 
 </script>
 <body onload="initId()">
-<div style="color:#00FF00" align="center">
+<div align="center">
     <H1>易笔记登录</H1>
 </div>
 
@@ -96,14 +96,6 @@
             </td>
         </tr>
     </table>
-
-    <form action="toRegister" method="post">
-
-        <input type="submit" name="register" value="注册">
-
-    </form>
-
-
 </div>
 
 
