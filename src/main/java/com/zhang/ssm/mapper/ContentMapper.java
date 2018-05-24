@@ -11,7 +11,7 @@ public interface ContentMapper {
 
     int deleteByExample(ContentExample example);
 
-    int deleteByPrimaryKey(Short noteId);
+    int deleteByPrimaryKey(Integer noteId);
 
     int insert(Content record);
 
@@ -21,7 +21,7 @@ public interface ContentMapper {
 
     List<Content> selectByExample(ContentExample example);
 
-    Content selectByPrimaryKey(Short noteId);
+    Content selectByPrimaryKey(Integer noteId);
 
     int updateByExampleSelective(@Param("record") Content record, @Param("example") ContentExample example);
 
