@@ -75,8 +75,8 @@ public class UserServiceImpl implements UserService {
 
                 code = 0;
                 msg = "登录成功";
-                String token = addLoginTicket(res.getUserId());
-                map.put("token", token);
+                String ticket = addLoginTicket(res.getUserId());
+                map.put("ticket", ticket);
             } else {
                 msg = "用户名或密码错误";
             }

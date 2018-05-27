@@ -51,8 +51,9 @@ function get_cookie(Name) {
     return returnValue;
 }//使用方式：get_cookie("name");
 
-function setCookie(name, value, date) {
+function setCookie(name, value, date, duration) {
     var Days = 30;
-    date.setTime(date.getTime() + 3600 * 2000);//过期时间 10分钟
+
+    date.setTime(date.getTime() + duration);//过期时间
     document.cookie = name + "=" + value + ";expires=" + date.toGMTString();
 }

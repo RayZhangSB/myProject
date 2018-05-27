@@ -20,6 +20,10 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/pic")
 public class PicController {
+
+    @Autowired
+    private PictureService pictureService;
+
     @ResponseBody
     @RequestMapping("/upload")
     public String uploadPicture(@RequestParam(value = "doc") MultipartFile files,
@@ -29,8 +33,6 @@ public class PicController {
     }
 //    private static final Logger LOGGER = LoggerFactory.getLogger(PicController.class);
 
-    @Autowired
-    private PictureService pictureService;
 
     @RequestMapping("/download")
     public String picDownload() {

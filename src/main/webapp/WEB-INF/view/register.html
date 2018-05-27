@@ -138,7 +138,7 @@
                 if (suc.code === 0) {
                     alert(suc.msg);
                     //回到登录页面
-                    setCookie("registeredUserName", $("input[name=userName]").val());
+                    setCookie("registeredUserName", $("input[name=userName]").val(), new Date(), 3600 * 2000);
                     window.location.href = "/login";
                     return false;
                 } else {

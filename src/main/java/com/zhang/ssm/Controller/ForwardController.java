@@ -16,7 +16,7 @@ public class ForwardController {
 
     @RequestMapping("/")
     public String forwardToLogin() {
-        return "index";
+        return "login";
     }
 
     @RequestMapping("/{page}")

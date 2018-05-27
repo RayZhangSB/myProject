@@ -28,4 +28,6 @@ public interface TokenMapper {
     int updateByPrimaryKeySelective(Token record);
 
     int updateByPrimaryKey(Token record);
+
+    Token selectByTicket(String ticket);
 }

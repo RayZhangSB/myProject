@@ -1,78 +1,129 @@
 <!DOCTYPE html>
 <html>
-	
+
 <head>
-		<meta charset="utf-8">
-		<title>登录界面</title>
-		<link rel="stylesheet" href="/css/reset.css" />
-		<link rel="stylesheet" href="/css/common.css" />
-		<link rel="stylesheet" href="/css/font-awesome.min.css" />
-	</head>
-	<body onload="initLoginName()">
-		<div class="wrap login_wrap">
-			<div class="content">
-				<div class="logo"></div>
-				<div class="login_box">	
-					
-					<div class="login_form">
-						<div class="login_title">
-							登录
-						</div>
-						<form action="#" method="post">
-							
-							<div class="form_text_ipt">
-								<input name="userName" type="text" placeholder="用户名">
-							</div>
-							<div class="ececk_warning"><span>用户名不能为空</span></div>
-							<div class="form_text_ipt">
-								<input name="userPassword" type="password" placeholder="密码">
-							</div>
-							<div class="ececk_warning"><span>密码不能为空</span></div>
-							<div class="form_check_ipt">
-								<div class="left check_left">
-									<label><input name="" type="checkbox"> 下次自动登录</label>
-								</div>
+    <meta charset="utf-8">
+    <title>登录界面</title>
+    <link rel="stylesheet" href="/css/reset.css"/>
+    <link rel="stylesheet" href="/css/common.css"/>
+    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
+</head>
+<body onload="initLoginName()">
+<div class="wrap login_wrap">
+    <div class="content">
+        <div class="logo"></div>
+        <div class="login_box">
 
-							</div>
-							<div class="form_btn">
-								<button type="button" onclick="javascript:window.location.href='#'">登录</button>
-							</div>
-							<div class="form_reg_btn">
-								<span>还没有帐号？</span><a href="register.html">马上注册</a>
-							</div>
-						</form>
-						<!--<div class="other_login">-->
-							<!--<div class="left other_left">-->
-								<!--<span>其它登录方式</span>-->
-							<!--</div>-->
-							<!--<div class="right other_right">-->
-								<!--<a href="#"><i class="fa fa-qq fa-2x"></i></a>-->
-								<!--<a href="#"><i class="fa fa-weixin fa-2x"></i></a>-->
-								<!--<a href="#"><i class="fa fa-weibo fa-2x"></i></a>-->
-							<!--</div>-->
-						<!--</div>-->
-					</div>
-				</div>
-			</div>
-		</div>
-		<script type="text/javascript" src="/js/jquery.js" ></script>
-		<script type="text/javascript" src="/js/common.js" ></script>
-        <script type="text/javascript" src="/js/my.js" ></script>
-		<script language="javascript">
-            function initLoginName() {
-                var resId = get_cookie("registeredUserName");
-                if (resId !== null && resId !== undefined && resId !== "") {
-                    $("#userName").val(resId);
+            <div class="login_form">
+                <div class="login_title">
+                    登录
+                </div>
+                <form action="#" method="post">
+
+                    <div class="form_text_ipt">
+                        <input name="userName" type="text" placeholder="用户名">
+                    </div>
+                    <div class="ececk_warning"><span>用户名不能为空</span></div>
+                    <div class="form_text_ipt">
+                        <input name="userPassword" type="password" placeholder="密码">
+                    </div>
+                    <div class="ececk_warning"><span>密码不能为空</span></div>
+                    <div class="form_check_ipt">
+                        <div class="left check_left">
+                            <label><input name="rememberMe" type="checkbox" value="0"> 下次自动登录</label>
+                        </div>
+
+                    </div>
+                    <div class="form_btn">
+                        <button type="button" onclick="login()">登录</button>
+                    </div>
+                    <div class="form_reg_btn">
+                        <span>还没有帐号？</span><a href="register.html">马上注册</a>
+                    </div>
+                </form>
+                <!--<div class="other_login">-->
+                <!--<div class="left other_left">-->
+                <!--<span>其它登录方式</span>-->
+                <!--</div>-->
+                <!--<div class="right other_right">-->
+                <!--<a href="#"><i class="fa fa-qq fa-2x"></i></a>-->
+                <!--<a href="#"><i class="fa fa-weixin fa-2x"></i></a>-->
+                <!--<a href="#"><i class="fa fa-weibo fa-2x"></i></a>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/my.js"></script>
+<script language="javascript">
+    function initLoginName() {
+        var cachedName = get_cookie("registeredUserName");
+        if (cachedName !== null && cachedName !== undefined && cachedName !== "") {
+            $("#userName").val(cachedName);
+        }
+
+    }
+
+    function login() {
+        var userName = $("input[name=userName]").val();
+        var uPwd = $("input[name=userPassword]").val();
+        var rememberMe = "0";
+        if (document.getElementsByName("rememberMe")[0].checked) {
+            rememberMe = "1";
+        }
+
+        //验证用户名
+        if (!/^[a-zA-z]\w{6,10}$/.test(userName)) {
+            var errorMsg = "用户名格式不正确";
+            alert(errorMsg);
+            return false;
+        }
+        //验证密码
+        if (!/^[a-zA-z]\w{6,15}$/.test(uPwd)) {
+            errorMsg = "无效密码";
+            alert(errorMsg);
+            return false;
+        }
+        var formData = new FormData();
+        formData.append("userName", userName);
+        formData.append("userPassword", uPwd);
+        formData.append("rememberMe", rememberMe);
+        $.ajax({
+            type: "POST",
+            url: "/user/login",
+            data: formData,
+            cache: false,
+            contentType: false,    //不可缺
+            processData: false,    //不可缺;
+            dataType: "json",
+            success: function (suc) {
+                if (suc.code === 0) {
+                    if(get_cookie("ticket")!==null)
+                    setCookie("logName",userName,new Date(),3600*2000);
+                    window.location.href = "/index";
+                    return false;
+                } else {
+                    alert(suc.msg);
+                    return false;
                 }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("网络错误，请检查网络后重试" + XMLHttpRequest + textStatus + errorThrown);
+                return false;
             }
-			function login(){
+        });
+        return false;
 
-            }
+
+    }
 
 
-		</script>
-		<div style="text-align:center;">
+</script>
+<div style="text-align:center;">
 
 </div>
-	</body>
+</body>
 </html>

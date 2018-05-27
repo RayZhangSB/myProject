@@ -57,4 +57,5 @@ public class PictureServiceImpl implements PictureService {
         return JSON.toJSONString(ResponseResult.build(code, msg));
     }
 
+
 }
