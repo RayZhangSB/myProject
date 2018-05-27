@@ -3,23 +3,33 @@ package com.zhang.ssm.pojo;
 import java.util.Date;
 
 public class User {
-    private Long userId;
+    private Integer userId;
 
     private String userName;
 
     private String userPassword;
 
-    private Byte userAge;
+    private String userSalt;
+
+    private String userHeadurl;
+
+    private String userPosition;
+
+    private String userWorkgroup;
+
+    private Date userCreateddate;
+
+    private Integer userAge;
 
     private String userEmail;
 
-    private Date userCreatetime;
+    private String userPhone;
 
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -39,11 +49,51 @@ public class User {
         this.userPassword = userPassword == null ? null : userPassword.trim();
     }
 
-    public Byte getUserAge() {
+    public String getUserSalt() {
+        return userSalt;
+    }
+
+    public void setUserSalt(String userSalt) {
+        this.userSalt = userSalt == null ? null : userSalt.trim();
+    }
+
+    public String getUserHeadurl() {
+        return userHeadurl;
+    }
+
+    public void setUserHeadurl(String userHeadurl) {
+        this.userHeadurl = userHeadurl == null ? null : userHeadurl.trim();
+    }
+
+    public String getUserPosition() {
+        return userPosition;
+    }
+
+    public void setUserPosition(String userPosition) {
+        this.userPosition = userPosition == null ? null : userPosition.trim();
+    }
+
+    public String getUserWorkgroup() {
+        return userWorkgroup;
+    }
+
+    public void setUserWorkgroup(String userWorkgroup) {
+        this.userWorkgroup = userWorkgroup == null ? null : userWorkgroup.trim();
+    }
+
+    public Date getUserCreateddate() {
+        return userCreateddate;
+    }
+
+    public void setUserCreateddate(Date userCreateddate) {
+        this.userCreateddate = userCreateddate;
+    }
+
+    public Integer getUserAge() {
         return userAge;
     }
 
-    public void setUserAge(Byte userAge) {
+    public void setUserAge(Integer userAge) {
         this.userAge = userAge;
     }
 
@@ -55,11 +105,11 @@ public class User {
         this.userEmail = userEmail == null ? null : userEmail.trim();
     }
 
-    public Date getUserCreatetime() {
-        return userCreatetime;
+    public String getUserPhone() {
+        return userPhone;
     }
 
-    public void setUserCreatetime(Date userCreatetime) {
-        this.userCreatetime = userCreatetime;
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone == null ? null : userPhone.trim();
     }
 }

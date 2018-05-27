@@ -1,15 +1,17 @@
 package com.zhang.ssm.Utils;
 
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 自定义响应结构
  */
-public class JsonUtils {
+public final class JsonUtils {
 
     // 定义jackson对象
     private static final ObjectMapper MAPPER = new ObjectMapper();
@@ -56,5 +58,24 @@ public class JsonUtils {
 
         return null;
     }
+
+
+    public static String getJSONString(int code, String msg) {
+        JSONObject json = new JSONObject();
+        json.put("code", code);
+        json.put("msg", msg);
+        return json.toJSONString();
+    }
+
+    public static String getJSONString(int code, String msg, Map<String, Object> map) {
+        JSONObject json = new JSONObject();
+        json.put("code", code);
+        json.put("msg", msg);
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            json.put(entry.getKey(), entry.getValue());
+        }
+        return json.toJSONString();
+    }
+
 
 }

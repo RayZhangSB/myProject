@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.ssm.mapper.AbnormalInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.zhang.ssm.pojo.AbnormalInfo" >
+    <id column="abnormal_infoid" property="abnormalInfoid" jdbcType="INTEGER" />
+    <result column="dev_id" property="devId" jdbcType="INTEGER" />
+    <result column="abnormal_code" property="abnormalCode" jdbcType="INTEGER" />
+    <result column="abnormal_imgurl" property="abnormalImgurl" jdbcType="VARCHAR" />
+    <result column="abnormal_desc" property="abnormalDesc" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    abnormal_infoid, dev_id, abnormal_code, abnormal_imgurl, abnormal_desc
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.ssm.pojo.AbnormalInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from abnormal_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from abnormal_info
+    where abnormal_infoid = #{abnormalInfoid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from abnormal_info
+    where abnormal_infoid = #{abnormalInfoid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zhang.ssm.pojo.AbnormalInfoExample" >
+    delete from abnormal_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zhang.ssm.pojo.AbnormalInfo" >
+    insert into abnormal_info (abnormal_infoid, dev_id, abnormal_code, 
+      abnormal_imgurl, abnormal_desc)
+    values (#{abnormalInfoid,jdbcType=INTEGER}, #{devId,jdbcType=INTEGER}, #{abnormalCode,jdbcType=INTEGER}, 
+      #{abnormalImgurl,jdbcType=VARCHAR}, #{abnormalDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhang.ssm.pojo.AbnormalInfo" >
+    insert into abnormal_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="abnormalInfoid != null" >
+        abnormal_infoid,
+      </if>
+      <if test="devId != null" >
+        dev_id,
+      </if>
+      <if test="abnormalCode != null" >
+        abnormal_code,
+      </if>
+      <if test="abnormalImgurl != null" >
+        abnormal_imgurl,
+      </if>
+      <if test="abnormalDesc != null" >
+        abnormal_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="abnormalInfoid != null" >
+        #{abnormalInfoid,jdbcType=INTEGER},
+      </if>
+      <if test="devId != null" >
+        #{devId,jdbcType=INTEGER},
+      </if>
+      <if test="abnormalCode != null" >
+        #{abnormalCode,jdbcType=INTEGER},
+      </if>
+      <if test="abnormalImgurl != null" >
+        #{abnormalImgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="abnormalDesc != null" >
+        #{abnormalDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zhang.ssm.pojo.AbnormalInfoExample" resultType="java.lang.Integer" >
+    select count(*) from abnormal_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update abnormal_info
+    <set >
+      <if test="record.abnormalInfoid != null" >
+        abnormal_infoid = #{record.abnormalInfoid,jdbcType=INTEGER},
+      </if>
+      <if test="record.devId != null" >
+        dev_id = #{record.devId,jdbcType=INTEGER},
+      </if>
+      <if test="record.abnormalCode != null" >
+        abnormal_code = #{record.abnormalCode,jdbcType=INTEGER},
+      </if>
+      <if test="record.abnormalImgurl != null" >
+        abnormal_imgurl = #{record.abnormalImgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.abnormalDesc != null" >
+        abnormal_desc = #{record.abnormalDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update abnormal_info
+    set abnormal_infoid = #{record.abnormalInfoid,jdbcType=INTEGER},
+      dev_id = #{record.devId,jdbcType=INTEGER},
+      abnormal_code = #{record.abnormalCode,jdbcType=INTEGER},
+      abnormal_imgurl = #{record.abnormalImgurl,jdbcType=VARCHAR},
+      abnormal_desc = #{record.abnormalDesc,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.ssm.pojo.AbnormalInfo" >
+    update abnormal_info
+    <set >
+      <if test="devId != null" >
+        dev_id = #{devId,jdbcType=INTEGER},
+      </if>
+      <if test="abnormalCode != null" >
+        abnormal_code = #{abnormalCode,jdbcType=INTEGER},
+      </if>
+      <if test="abnormalImgurl != null" >
+        abnormal_imgurl = #{abnormalImgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="abnormalDesc != null" >
+        abnormal_desc = #{abnormalDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where abnormal_infoid = #{abnormalInfoid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhang.ssm.pojo.AbnormalInfo" >
+    update abnormal_info
+    set dev_id = #{devId,jdbcType=INTEGER},
+      abnormal_code = #{abnormalCode,jdbcType=INTEGER},
+      abnormal_imgurl = #{abnormalImgurl,jdbcType=VARCHAR},
+      abnormal_desc = #{abnormalDesc,jdbcType=VARCHAR}
+    where abnormal_infoid = #{abnormalInfoid,jdbcType=INTEGER}
+  </update>
+</mapper>

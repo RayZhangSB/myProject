@@ -13,6 +13,7 @@ public class ResponseResult {
     // 定义jackson对象
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
+
     // 响应业务状态
     private Integer code;
 
@@ -23,6 +24,7 @@ public class ResponseResult {
     private Object data;
 
     public static ResponseResult build(Integer code, String msg, Object data) {
+
         return new ResponseResult(code, msg, data);
     }
 

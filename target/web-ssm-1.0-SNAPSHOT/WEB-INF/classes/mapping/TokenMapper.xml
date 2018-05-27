@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.ssm.mapper.TokenMapper" >
+  <resultMap id="BaseResultMap" type="com.zhang.ssm.pojo.Token" >
+    <id column="token_id" property="tokenId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="token_expired" property="tokenExpired" jdbcType="TIMESTAMP" />
+    <result column="token_status" property="tokenStatus" jdbcType="INTEGER" />
+    <result column="token_ticket" property="tokenTicket" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    token_id, user_id, token_expired, token_status, token_ticket
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.ssm.pojo.TokenExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from token
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from token
+    where token_id = #{tokenId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from token
+    where token_id = #{tokenId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zhang.ssm.pojo.TokenExample" >
+    delete from token
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zhang.ssm.pojo.Token" >
+    insert into token (token_id, user_id, token_expired, 
+      token_status, token_ticket)
+    values (#{tokenId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{tokenExpired,jdbcType=TIMESTAMP}, 
+      #{tokenStatus,jdbcType=INTEGER}, #{tokenTicket,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhang.ssm.pojo.Token" >
+    insert into token
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tokenId != null" >
+        token_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="tokenExpired != null" >
+        token_expired,
+      </if>
+      <if test="tokenStatus != null" >
+        token_status,
+      </if>
+      <if test="tokenTicket != null" >
+        token_ticket,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tokenId != null" >
+        #{tokenId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="tokenExpired != null" >
+        #{tokenExpired,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tokenStatus != null" >
+        #{tokenStatus,jdbcType=INTEGER},
+      </if>
+      <if test="tokenTicket != null" >
+        #{tokenTicket,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zhang.ssm.pojo.TokenExample" resultType="java.lang.Integer" >
+    select count(*) from token
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update token
+    <set >
+      <if test="record.tokenId != null" >
+        token_id = #{record.tokenId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.tokenExpired != null" >
+        token_expired = #{record.tokenExpired,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.tokenStatus != null" >
+        token_status = #{record.tokenStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.tokenTicket != null" >
+        token_ticket = #{record.tokenTicket,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update token
+    set token_id = #{record.tokenId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      token_expired = #{record.tokenExpired,jdbcType=TIMESTAMP},
+      token_status = #{record.tokenStatus,jdbcType=INTEGER},
+      token_ticket = #{record.tokenTicket,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.ssm.pojo.Token" >
+    update token
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="tokenExpired != null" >
+        token_expired = #{tokenExpired,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tokenStatus != null" >
+        token_status = #{tokenStatus,jdbcType=INTEGER},
+      </if>
+      <if test="tokenTicket != null" >
+        token_ticket = #{tokenTicket,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where token_id = #{tokenId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhang.ssm.pojo.Token" >
+    update token
+    set user_id = #{userId,jdbcType=INTEGER},
+      token_expired = #{tokenExpired,jdbcType=TIMESTAMP},
+      token_status = #{tokenStatus,jdbcType=INTEGER},
+      token_ticket = #{tokenTicket,jdbcType=VARCHAR}
+    where token_id = #{tokenId,jdbcType=INTEGER}
+  </update>
+</mapper>

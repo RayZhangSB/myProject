@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<title>注册界面</title>
+		<link rel="stylesheet" href="/css/reset.css" />
+		<link rel="stylesheet" href="/css/common.css" />
+		<link rel="stylesheet" href="/css/font-awesome.min.css" />
+	</head>
+	<body>
+		<div class="wrap login_wrap">
+			<div class="content">
+				
+				<div class="logo"></div>
+				
+				<div class="login_box">	
+					
+					<div class="login_form">
+						<div class="login_title">
+							注册
+						</div>
+						<form id="registerUser" name="registerUser" method="post">
+							
+							<div class="form_text_ipt">
+								<input name="userName" type="text" placeholder="用户名：以字母开头的6-10位字母或数字">
+							</div>
+							<div class="ececk_warning"><span>用户名不能为空</span></div>
+							<div class="form_text_ipt">
+								<input name="userPassword" type="password" placeholder="密码:以字母开头的6-15位字母或数字">
+							</div>
+							<div class="ececk_warning"><span>密码不能为空</span></div>
+							<div class="form_text_ipt">
+								<input name="userPosition" type="text" placeholder="职位">
+							</div>
+							<div class="ececk_warning"><span>职位不能为空</span></div>
+							<!--<div class="form_text_ipt">-->
+							<div class="form_text_ipt">
+								<input name="userAge" type="text" placeholder="年龄" maxlength="3" minlength="1">
+							</div>
+							<div class="ececk_warning"><span>年龄不能为空</span></div>
+							<div class="form_text_ipt">
+
+								<input name="userWorkgroup" type="text" placeholder="工作组">
+							</div>
+							<div class="ececk_warning"><span>工作组不能为空</span></div>
+							<div class="form_text_ipt">
+								<input name="userEmail" type="text" placeholder="工作/私人邮箱">
+							</div>
+							<div class="ececk_warning"><span>邮箱不能为空</span></div>
+							<div class="form_text_ipt">
+								<input name="userPhone" type="text" placeholder="联系电话">
+							</div>
+							<div class="ececk_warning"><span>联系电话不能为空</span></div>
+								<!--<input name="code" type="text" placeholder="验证码">-->
+							<!--</div>-->
+							<!--<div class="ececk_warning"><span>验证码不能为空</span></div>-->
+							
+							<div class="form_btn">
+								<button type="button" onclick="addUser()">注册</button>
+							</div>
+							<div class="form_reg_btn">
+								<span>已有帐号？</span><a href="login.html">马上登录</a>
+							</div>
+						</form>
+						<!--<div class="other_login">-->
+							<!--<div class="left other_left">-->
+								<!--<span>其它登录方式</span>-->
+							<!--</div>-->
+							<!--<div class="right other_right">-->
+								<!--<a href="#"><i class="fa fa-qq fa-2x"></i></a>-->
+								<!--<a href="#"><i class="fa fa-weixin fa-2x"></i></a>-->
+								<!--<a href="#"><i class="fa fa-weibo fa-2x"></i></a>-->
+							<!--</div>-->
+						<!--</div>-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="/js/jquery.js" ></script>
+		<script type="text/javascript" src="/js/common.js" ></script>
+        <script type="text/javascript" src="/js/my.js" ></script>
+        <script type="text/javascript">
+            function checkRegisterInfo() {
+                var uName = $("input[name=userName]").val();
+                var uPwd = $("input[name=userPassword]").val();
+                var uAge = $("input[name=userAge]").val();
+                var uEmail = $("input[name=userEmail]").val();
+                var uPhone = $("input[name=userPhone]").val();
+                var errorMsg;
+                //验证用户名
+                if (!/^[a-zA-z]\w{6,15}$/.test(uName)) {
+                    errorMsg = "无效用户名";
+                    alert(errorMsg);
+                    return false;
+                }
+                //验证密码
+                if (!/^[a-zA-z]\w{6,15}$/.test(uPwd)) {
+                    errorMsg = "密码格式不正确";
+                    alert(errorMsg);
+                    return false;
+                }
+                //验证年龄
+                if (!/^\d{2}$/.test(uAge)) {
+                    errorMsg = "无效的年龄输入";
+                    alert(errorMsg);
+                    return false;
+                }
+                //验证邮箱
+                if (uEmail === "" ||  !(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(uEmail))) {
+                    errorMsg = "请输入正确的E-mail 地址";
+                    alert(errorMsg);
+                    return false;
+                }
+                if(uPhone === "" || !(/^[1][3,4,5,7,8][0-9]{9}$/.test(uPhone))){
+                    errorMsg = "请输入正确的联系电话";
+                    alert(errorMsg);
+                    return false;
+                }
+                return true;
+
+            }
+            function addUser() {
+                if (!checkRegisterInfo()) {
+                    return false;
+                }
+                var array = getJsonFormData("#registerUser");
+                //注册用户
+                $.ajax({
+                    type: "POST",
+                    url: "/user/register",
+                    data: JSON.stringify(array),
+                    cache: false,
+                    contentType: "application/json",    //不可缺
+                    processData: false,    //不可缺
+                    dataType: "json",
+                    success: function (suc) {
+                        if (suc.code === 0) {
+                            alert(suc.msg);
+                            //回到登录页面
+                            setCookie("registeredUserName",$("input[name=userName]").val());
+                            window.location.href="/login";
+                            return false;
+                        } else {
+                            alert(suc.msg);
+                            return false;
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("网络错误，请检查网络后重试" + XMLHttpRequest + textStatus + errorThrown);
+                        return false;
+                    }
+                });
+                return false;
+            }
+        </script>
+		<div style="text-align:center;">
+
+</div>
+	</body>
+</html>
