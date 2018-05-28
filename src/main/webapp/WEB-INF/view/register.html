@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>注册界面</title>
-    <link rel="stylesheet" href="/css/reset.css"/>
-    <link rel="stylesheet" href="/css/common.css"/>
-    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href=" /css/reset.css"/>
+    <link rel="stylesheet" href=" /css/common.css"/>
+    <link rel="stylesheet" href=" /css/font-awesome.min.css"/>
 </head>
 <body>
 <div class="wrap login_wrap">
@@ -76,9 +76,9 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/common.js"></script>
-<script type="text/javascript" src="/js/my.js"></script>
+<script type="text/javascript" src=" /js/jquery.js"></script>
+<script type="text/javascript" src=" /js/common.js"></script>
+<script type="text/javascript" src=" /js/my.js"></script>
 <script type="text/javascript">
     function checkRegisterInfo() {
         var uName = $("input[name=userName]").val();
@@ -136,9 +136,9 @@
             dataType: "json",
             success: function (suc) {
                 if (suc.code === 0) {
-                    alert(suc.msg);
                     //回到登录页面
                     setCookie("registeredUserName", $("input[name=userName]").val(), new Date(), 3600 * 2000);
+                    alert(suc.msg);
                     window.location.href = "/login";
                     return false;
                 } else {

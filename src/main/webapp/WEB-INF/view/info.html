@@ -6,171 +6,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta name="renderer" content="webkit">
     <title>网站信息</title>
-    <link rel="stylesheet" href="/css/pintuer.css">
-    <link rel="stylesheet" href="/css/admin.css">
-    <script src="/js/jquery.js"></script>
-    <script src="/js/pintuer.js"></script>
+    <link rel="stylesheet" href=" /css/pintuer.css">
+    <link rel="stylesheet" href=" /css/admin.css">
+    <script src=" /js/jquery.js"></script>
+    <script src=" /js/pintuer.js"></script>
+    <script src="/js/chart/highcharts.js"></script>
+    <script src="/js/chart/modules/series-label.js"></script>
+    <script src="/js/chart/modules/exporting.js"></script>
+    <script src="/js/chart/modules/export-data.js"></script>
+
+    <style type="text/css">
+        #container {
+            /*width: 1000px;*/
+            height: 600px;
+            margin: 0 auto
+        }
+    </style>
 </head>
 <body>
 <div class="panel admin-panel">
-    <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 网站信息</strong></div>
+    <div class="panel-head"> 当前时间:
+        <div id="tStamp">###</div>
+    </div>
     <div class="body-content">
-        <form method="post" class="form-x" action="">
-            <div class="form-group">
-                <div class="label">
-                    <label>网站标题：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input" name="stitle" value=""/>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>网站LOGO：</label>
-                </div>
-                <div class="field">
-                    <input type="text" id="url1" name="slogo" class="input tips" style="width:25%; float:left;" value=""
-                           data-toggle="hover" data-place="right" data-image=""/>
-                    <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>网站域名：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input" name="surl" value=""/>
-                </div>
-            </div>
-            <div class="form-group" style="display:none">
-                <div class="label">
-                    <label>副加标题：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input" name="sentitle" value=""/>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>网站关键字：</label>
-                </div>
-                <div class="field">
-                    <textarea class="input" name="skeywords" style="height:80px"></textarea>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>网站描述：</label>
-                </div>
-                <div class="field">
-                    <textarea class="input" name="sdescription"></textarea>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>联系人：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input" name="s_name" value=""/>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>手机：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input" name="s_phone" value=""/>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>电话：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input" name="s_tel" value=""/>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group" style="display:none;">
-                <div class="label">
-                    <label>400电话：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input" name="s_400" value=""/>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>传真：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input" name="s_fax" value=""/>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>QQ：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input" name="s_qq" value=""/>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group" style="display:none">
-                <div class="label">
-                    <label>QQ群：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input" name="s_qqu" value=""/>
-                    <div class="tips"></div>
-                </div>
-            </div>
 
-            <div class="form-group">
-                <div class="label">
-                    <label>Email：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input" name="s_email" value=""/>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>地址：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input" name="s_address" value=""/>
-                    <div class="tips"></div>
-                </div>
-            </div>
+        <div id="container" class="lineChart"></div>
+        <div class="message1"></div>
+        <script src=" /js/my.js"></script>
+        <script type="text/javascript">
+            //获取一定格式的当前时间 xxxx年xx月xx日 12:00:00
 
-            <div class="form-group">
-                <div class="label">
-                    <label>底部信息：</label>
-                </div>
-                <div class="field">
-                    <textarea name="scopyright" class="input" style="height:120px;"></textarea>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label></label>
-                </div>
-                <div class="field">
-                    <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
-                </div>
-            </div>
-        </form>
+            $(function () {
+                setInterval(function () {
+                    getFormatDate("tStamp");
+                }, 1000); //每隔一秒执行一次
+            });
+            Highcharts.setOptions({
+                global: {
+                    useUTC: false
+                }
+            });
+
+            function activeLastPointToolip(chart) {
+                var points = chart.series[0].points;
+                chart.tooltip.refresh(points[points.length - 1]);
+            }
+
+            var chart = Highcharts.chart('container', {
+                chart: {
+                    type: 'spline',
+                    marginRight: 10,
+                    events: {
+                        load: function () {
+                            var series = this.series[0],
+                                chart = this;
+                            activeLastPointToolip(chart);
+                            setInterval(function () {
+                                var x = (new Date()).getTime(), // 当前时间
+                                    y = Math.random();          // 随机值
+                                series.addPoint([x, y], true, true);
+                                activeLastPointToolip(chart);
+                            }, 1000);
+                        }
+                    }
+                },
+                title: {
+                    text: 'Multi-channel video monitoring real-time value chart'
+                },
+                xAxis: {
+                    type: 'datetime',
+                    tickPixelInterval: 150
+                },
+                yAxis: {
+                    title: {
+                        text: null
+                    }
+                },
+                tooltip: {
+                    formatter: function () {
+                        return '<b>' + this.series.name + '</b><br/>' +
+                            Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                            Highcharts.numberFormat(this.y, 2);
+                    }
+                },
+                legend: {
+                    enabled: false
+                },
+                series: [{
+                    name: '随机数据',
+                    data: (function () {
+                        // 生成随机值
+                        var data = [],
+                            time = (new Date()).getTime(),
+                            i;
+                        for (i = -19; i <= 0; i += 1) {
+                            data.push({
+                                x: time + i * 1000,
+                                y: Math.random()
+                            });
+                        }
+                        return data;
+                    }())
+                }]
+            });
+
+
+        </script>
     </div>
 </div>
 </body>

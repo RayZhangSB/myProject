@@ -31,7 +31,7 @@ public class PassportInterceptor implements HandlerInterceptor {
     private UserHolder userHolder;
 
     /*
-    对所有访问拦截查询是否已登录，是则将用户信息写入到线程意私有变量
+    对所有访问拦截查询是否已登录，是则将用户信息写入到线程私有变量
      */
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         String ticket = null;

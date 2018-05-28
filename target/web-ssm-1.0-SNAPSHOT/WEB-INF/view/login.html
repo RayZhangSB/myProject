@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <title>登录界面</title>
-    <link rel="stylesheet" href="/css/reset.css"/>
-    <link rel="stylesheet" href="/css/common.css"/>
-    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href=" /css/reset.css"/>
+    <link rel="stylesheet" href=" /css/common.css"/>
+    <link rel="stylesheet" href=" /css/font-awesome.min.css"/>
 </head>
 <body onload="initLoginName()">
 <div class="wrap login_wrap">
@@ -41,28 +41,29 @@
                         <span>还没有帐号？</span><a href="register.html">马上注册</a>
                     </div>
                 </form>
-                <!--<div class="other_login">-->
-                <!--<div class="left other_left">-->
-                <!--<span>其它登录方式</span>-->
-                <!--</div>-->
-                <!--<div class="right other_right">-->
-                <!--<a href="#"><i class="fa fa-qq fa-2x"></i></a>-->
-                <!--<a href="#"><i class="fa fa-weixin fa-2x"></i></a>-->
-                <!--<a href="#"><i class="fa fa-weibo fa-2x"></i></a>-->
-                <!--</div>-->
-                <!--</div>-->
+                <div class="other_login">
+                <div class="left other_left">
+                <span>其它登录方式</span>
+                </div>
+                <div class="right other_right">
+                <a href="#"><i class="fa fa-qq fa-2x"></i></a>
+                <a href="#"><i class="fa fa-weixin fa-2x"></i></a>
+                <a href="#"><i class="fa fa-weibo fa-2x"></i></a>
+                </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/common.js"></script>
-<script type="text/javascript" src="/js/my.js"></script>
+<script type="text/javascript" src=" /js/jquery.js"></script>
+<!--<script type="text/javascript" src=" /js/common.js"></script>-->
+<script type="text/javascript" src=" /js/my.js"></script>
 <script language="javascript">
     function initLoginName() {
         var cachedName = get_cookie("registeredUserName");
+        console.log(cachedName);
         if (cachedName !== null && cachedName !== undefined && cachedName !== "") {
-            $("#userName").val(cachedName);
+            $("input[name=userName]").val(cachedName);
         }
 
     }
@@ -101,8 +102,8 @@
             dataType: "json",
             success: function (suc) {
                 if (suc.code === 0) {
-                    if(get_cookie("ticket")!==null)
-                    setCookie("logName",userName,new Date(),3600*2000);
+                    if (get_cookie("ticket") !== null)
+                        setCookie("logName", userName, new Date(), 3600 * 2000);
                     window.location.href = "/index";
                     return false;
                 } else {

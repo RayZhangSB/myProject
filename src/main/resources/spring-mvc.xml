@@ -31,7 +31,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
     <!--</property>-->
     <!--</bean>-->
 
-<mvc:annotation-driven> </mvc:annotation-driven>
+    <mvc:annotation-driven></mvc:annotation-driven>
     <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
     <!--<property name="prefix" value="/WEB-INF/jsp/"/>-->
     <!--<property name="suffix" value=".jsp"/>-->
@@ -74,15 +74,13 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
     <!--<bean id="viewResolver"-->
     <!--class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">-->
     <!--<property name="cache" value="false"/>-->
-    <!--<property name="prefix" value=""/>-->
+    <!--&lt;!&ndash;<property name="prefix" value=""/>&ndash;&gt;-->
     <!--<property name="suffix" value=".html"/>-->
-    <!--<property name="contentType" value="text/html;charset=utf-8"/>-->
-    <!--&lt;!&ndash;<property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml"/>&ndash;&gt;-->
     <!--<property name="exposeSpringMacroHelpers" value="true"/>-->
-    <!--<property name="exposeRequestAttributes" value="true"/>-->
-    <!--<property name="exposeSessionAttributes" value="true"/>-->
-    <!--<property name="allowSessionOverride" value="true"/>-->
-    <!--<property name="allowRequestOverride" value="true"/>-->
+    <!--<property name="contentType" value="text/html;charset=utf-8"/>-->
+    <!--<property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml"/>-->
+    <!--<property name="dateToolAttribute" value="dateTool"/>-->
+    <!--<property name="numberToolAttribute" value="numberTool"/>-->
     <!--</bean>-->
 
 
@@ -95,18 +93,10 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
         <mvc:interceptor>
             <!-- /**的意思是所有文件夹及里面的子文件夹 /*是所有文件夹，不含子文件夹 /是web项目的根目录 -->
             <mvc:mapping path="/**"/>
-            <!-- 需排除拦截的地址 -->
-            <!-- <mvc:exclude-mapping path="/userController/login"/> -->
-            <bean id="commonInterceptor0" class="com.zhang.ssm.interceptor.LoginRequiredInterceptor"/>
-
-        </mvc:interceptor>
-
-        <mvc:interceptor>
-            <!-- /**的意思是所有文件夹及里面的子文件夹 /*是所有文件夹，不含子文件夹 /是web项目的根目录 -->
-            <mvc:mapping path="/**"/>
-            <!-- 需排除拦截的地址 -->
-            <!-- <mvc:exclude-mapping path="/userController/login"/> -->
-            <bean id="commonInterceptor0" class="com.zhang.ssm.interceptor.PassportInterceptor"/>
+            <!-- 登录是生成通行证数据-->
+            <mvc:exclude-mapping path="/"/>
+            <mvc:exclude-mapping path="/login"/>
+            <bean id="commonInterceptor1" class="com.zhang.ssm.interceptor.PassportInterceptor"/>
 
         </mvc:interceptor>
 
