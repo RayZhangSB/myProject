@@ -24,7 +24,7 @@ public class UserHolder {
 
     public void clear() {
         users.remove();
-        ;
+
     }
 
 }

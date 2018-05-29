@@ -9,6 +9,7 @@ public interface RealMonitorDataService {
     int ADDABLE = 5;
     int DELETABLE = 7;
 
-    String getRealMonitorData(User user);
+    String getRealMonitorData();
 
+    String getScope(User user);
 }

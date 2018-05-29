@@ -1,5 +1,7 @@
 package com.zhang.ssm.utils;
 
+import java.util.ArrayList;
+
 /**
  * @ClassName AuthUtil
  * @Description:
@@ -13,9 +15,22 @@ public final class AuthUtil {
     /*
        权限码解析
         */
-    public static int[] parseAuthCode(Integer authCode) {
-        return new int[4];
+    public static ArrayList<Integer> parseAuthCode(Integer authCode) {
+        ArrayList<Integer> primes = new ArrayList<Integer>();
+        if (authCode % 2 == 0) {
+            primes.add(2);
+        }
+        if (authCode % 3 == 0) {
+            primes.add(3);
+        }
+        if (authCode % 5 == 0) {
+            primes.add(5);
+        }
+        if (authCode % 7 == 0) {
+            primes.add(7);
+        }
 
+        return primes;
     }
 
 

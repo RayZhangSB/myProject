@@ -10,11 +10,15 @@ package com.zhang.ssm.utils;
 public final class StringUtil {
     public static final String SEPARATOR = String.valueOf((char) 29);
 
-    public static boolean isNotEmpty(String fileName) {
-        return fileName != null && !("".equals(fileName));
+    public static boolean isNotEmpty(String s) {
+        return s != null && !("".equals(s));
     }
 
+    public static boolean isEmpty(String s) {
+        return !isNotEmpty(s);
+    }
     public static String[] splitString(String str, String regex) {
         return str.split(regex);
     }
+
 }

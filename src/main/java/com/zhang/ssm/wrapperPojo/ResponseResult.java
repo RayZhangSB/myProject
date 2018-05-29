@@ -43,7 +43,7 @@ public class ResponseResult {
 
     public ResponseResult(Object data) {
         this.code = 0;
-        this.msg = "成功";
+        this.msg = "success";
         this.data = data;
     }
 

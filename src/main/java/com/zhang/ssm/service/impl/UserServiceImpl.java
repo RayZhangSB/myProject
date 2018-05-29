@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
         String msg = "";
         if (u != null) {
             code = 1;
-            msg = "用户已经注册过了";
+            msg = "The user is already registered";
             return JsonUtil.getJSONString(code, msg);
         }
         String salt = IDUtil.genSalt();
@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
         int res = userMapper.insert(user);
 
         code = res > 0 ? 0 : 1;
-        msg = res > 0 ? "注册成功" : "注册失败";
+        msg = res > 0 ? "register success" : "register failed";
         return JsonUtil.getJSONString(code, msg);
 
     }
@@ -69,16 +69,16 @@ public class UserServiceImpl implements UserService {
         String msg;
         Map<String, Object> map = new HashMap<String, Object>();
         if (res == null) {
-            msg = "用户不存在";
+            msg = "user do not exist";
         } else {
             if (IDUtil.encodedString(userPassword + res.getUserSalt()).equals(res.getUserPassword())) {
 
                 code = 0;
-                msg = "登录成功";
+                msg = "login success";
                 String ticket = addLoginTicket(res.getUserId());
                 map.put("ticket", ticket);
             } else {
-                msg = "用户名或密码错误";
+                msg = "wrong user name or password";
             }
         }
         map.put("resultJson", JsonUtil.getJSONString(code, msg));

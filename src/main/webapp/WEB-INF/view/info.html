@@ -34,6 +34,7 @@
         <div class="message1"></div>
         <script src=" /js/my.js"></script>
         <script type="text/javascript">
+
             $(function () {
                 setInterval(function () {
                     getFormatDate("tStamp");
@@ -46,14 +47,14 @@
                 }
             });
 
-            function activeLastPointToolip(chart) {
-                var points = chart.series[0].points;
+            function activeLastPointToolip(serie, chart) {
+                var points = serie.points;
                 chart.tooltip.refresh(points[points.length - 1]);
             }
 
             function updateDataByAdd(serie, chart) {
                 var xdate, yval;
-                activeLastPointToolip(chart);
+                activeLastPointToolip(serie, chart);
                 setInterval(function () {
 
                     $.ajax({
@@ -65,22 +66,18 @@
                         dataType: "json",
                         success: function (suc) {
                             if (suc.code === 0) {
-                                xdate = suc.data.datetime;
-                                yval = suc.data.val;
+                                var data = suc.data;
+                                xdate = data[serie.name].datetime;
+                                yval = data[serie.name].val;
                             }
-                            console.log(suc.data.val);
-
                         },
                         error: function (XMLHttpRequest, textStatus, errorThrown) {
-                            alert("网络错误，请检查网络后重试" + XMLHttpRequest + textStatus + errorThrown);
+                            alert("Network error, please check the network and try again" + XMLHttpRequest + textStatus + errorThrown);
                             return false;
                         }
                     });
-                    // //这里向后台发送ajax请求，取到6组最新的数据点
-                    // var x = (new Date()).getTime(), // 当前时间
-                    //     y = Math.random()*100;          // 随机值
                     serie.addPoint([xdate, yval], true, true);
-                    activeLastPointToolip(chart);
+                    activeLastPointToolip(serie, chart);
                 }, 1000);
             }
 
@@ -91,8 +88,36 @@
                     events: {
                         load: function () {
                             var chart = this;
+                            var series = this.series;
                             var serie = this.series[0];
-                            updateDataByAdd(serie, chart);
+
+                            $.ajax({
+                                type: "POST",
+                                url: "/monitor/getScope",
+                                contentType: false,    //不可缺
+                                processData: false,    //不可缺;
+                                dataType: "json",
+                                success: function (suc) {
+                                    if (suc.code === 0) {
+                                        for (i = 0; i < series.length; i++) {
+                                            if (series[i].name in suc.data) {
+                                                updateDataByAdd(series[i], chart);
+                                            } else {
+                                                series[i].hide();
+                                            }
+                                        }
+
+                                    } else {
+                                        alert(suc.msg);
+                                        return false;
+                                    }
+                                },
+                                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                    alert("Network error, please check the network and try again" + XMLHttpRequest + textStatus + errorThrown);
+                                    return false;
+                                }
+                            });
+                            // updateDataByAdd(serie, chart);
                         }
                     }
                 },
@@ -102,13 +127,10 @@
                         color: "#5F5F5F",
                         fontFamily: "SimHei",
                         fontSize: "24px",
-
                     }
                 },
                 xAxis: {
-                    tickAmount: 50,
                     type: 'datetime',
-                    tickPixelInterval: 50
                 },
                 yAxis: {
                     title: {
@@ -118,29 +140,75 @@
                 tooltip: {
                     formatter: function () {
                         return '<b>' + this.series.name + '</b><br/>' +
-                            Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                            Highcharts.dateFormat('%m-%d %H:%M:%S', this.x) + '<br/>' +
                             Highcharts.numberFormat(this.y, 2);
                     }
                 },
                 legend: {
                     enabled: false
                 },
+                visible: false,
                 series: [
                     {
-                    name: '随机数据',
-                    data: (function () {
-                        // 生成随机值
-                        var data = [],
-                            time = (new Date()).getTime(),
-                            i;
-                        for (i = -5; i <= 0; i++) {
-                            data.push({
-                                x: time + i * 1000,
-                                y: Math.random()
-                            });
-                        }
-                        return data;
-                    }())
+                        name: 'monitor1',
+                        data: (function () {
+                            var data = [], time = (new Date()).getTime(), i;
+                            for (i = -5; i <= 0; i++) {
+                                data.push({
+                                    x: time + i * 1000,
+                                    y: Math.random()
+                                });
+                            }
+                            return data;
+                        }())
+                    },
+                    {
+                        name: 'monitor2',
+                        data: (function () {
+                            // 生成随机值
+                            var data = [],
+                                time = (new Date()).getTime(),
+                                i;
+                            for (i = -5; i <= 0; i++) {
+                                data.push({
+                                    x: time + i * 1000,
+                                    y: Math.random()
+                                });
+                            }
+                            return data;
+                        }())
+                    },
+                    {
+                        name: 'monitor3',
+                        data: (function () {
+                            // 生成随机值
+                            var data = [],
+                                time = (new Date()).getTime(),
+                                i;
+                            for (i = -5; i <= 0; i++) {
+                                data.push({
+                                    x: time + i * 1000,
+                                    y: Math.random()
+                                });
+                            }
+                            return data;
+                        }())
+                    },
+                    {
+                        name: 'monitor4',
+                        data: (function () {
+                            // 生成随机值
+                            var data = [],
+                                time = (new Date()).getTime(),
+                                i;
+                            for (i = -5; i <= 0; i++) {
+                                data.push({
+                                    x: time + i * 1000,
+                                    y: Math.random()
+                                });
+                            }
+                            return data;
+                        }())
                     }
 
                 ]

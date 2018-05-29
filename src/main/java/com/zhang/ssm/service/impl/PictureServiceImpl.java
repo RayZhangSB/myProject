@@ -41,7 +41,7 @@ public class PictureServiceImpl implements PictureService {
                 try {
                     saveDir.mkdirs();
                 } catch (Exception e) {
-                    msg = "创建文件夹失败";
+                    msg = "failed to create photo save dir";
                     LOGGER.error(msg);
                 }
             }
@@ -50,7 +50,7 @@ public class PictureServiceImpl implements PictureService {
                 code = 0;
                 msg = saveFileRefPath;
             } catch (Exception e) {
-                msg = "文件存储异常";
+                msg = "ocurred Exception while saving img file";
                 LOGGER.error(msg);
             }
         }

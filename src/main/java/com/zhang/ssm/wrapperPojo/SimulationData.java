@@ -1,5 +1,6 @@
 package com.zhang.ssm.wrapperPojo;
 
+import com.zhang.ssm.utils.DateUtil;
 import org.apache.commons.lang.math.RandomUtils;
 
 import java.util.Date;
@@ -12,28 +13,17 @@ import java.util.Date;
  * @Version 1.0
  **/
 public class SimulationData {
-    private String name;
+
 
     private Date datetime;
     private Integer val;
 
-    private SimulationData(String name, Date datetime, Integer val) {
-        this.name = name;
+    private SimulationData(Date datetime, Integer val) {
         this.datetime = datetime;
         this.val = val;
     }
 
-    private SimulationData(Date datetime, Integer val) {
-        this("随机", datetime, val);
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Date getDatetime() {
         return datetime;
@@ -52,12 +42,12 @@ public class SimulationData {
     }
 
     public static SimulationData genRandomData() {
-        return new SimulationData(new Date(), RandomUtils.nextInt(100));
+        return new SimulationData(DateUtil.genFormatDate(new Date()), RandomUtils.nextInt(100));
     }
 
 
-    public static SimulationData build(String name, Date datetime, Integer val) {
-        return new SimulationData(name, datetime, val);
+    public static SimulationData build(Date datetime, Integer val) {
+        return new SimulationData(datetime, val);
     }
 
 }

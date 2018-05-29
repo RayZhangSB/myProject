@@ -26,18 +26,22 @@ public class MonitorController {
     private RealMonitorDataService realMonitorDataService;
 
 
-    @RequestMapping(value = "/getData", method = RequestMethod.POST)
+    @RequestMapping(value = "/getScope", method = RequestMethod.POST)
     @ResponseBody
-    public String getRealMonitorData() {
+    public String getScope() {
         User user = userHolder.getUser();
         if (user == null) {
             return JsonUtil.getJSONString(6, "用户身份过期，请重新登录!");
         }
-        return realMonitorDataService.getRealMonitorData(user);
+        return realMonitorDataService.getScope(user);
 
     }
 
-
+    @RequestMapping(value = "/getData", method = RequestMethod.POST)
+    @ResponseBody
+    public String getRealMonitorData() {
+        return realMonitorDataService.getRealMonitorData();
+    }
 
 
 }
