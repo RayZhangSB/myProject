@@ -58,21 +58,25 @@ function setCookie(name, value, date, duration) {
     document.cookie = name + "=" + value + ";expires=" + date.toGMTString();
 }
 
-function getFormatDate(id){
-    var date=new Date();
-    var year=date.getFullYear();//当前年份
-    var month=date.getMonth();//当前月份
-    var day=date.getDate();//天
-    var hours=date.getHours();//小时
-    var minute=date.getMinutes();//分
-    var second=date.getSeconds();//秒
-    var time=year+"年"+fnW((month+1).toString())+"月"+fnW(day.toString())+"日"+" "+fnW(hours.toString())+":"+fnW(minute.toString())+":"+fnW(second);
-    document.getElementById(id).innerText=time;
+function getFormatDate(id) {
+    var date = new Date();
+    var year = date.getFullYear();//当前年份
+    var month = date.getMonth();//当前月份
+    var day = date.getDate();//天
+    var hours = date.getHours();//小时
+    var minute = date.getMinutes();//分
+    var second = date.getSeconds();//秒
+    var time = year + "年" + fnW((month + 1).toString()) + "月" + fnW(day.toString()) + "日" + " " + fnW(hours.toString()) + ":" + fnW(minute.toString()) + ":" + fnW(second);
+    document.getElementById(id).innerText = time;
 }
 
 //补位 当某个字段不是两位数时补0
-function fnW(str){
+function fnW(str) {
     var num;
-    str>10?num=str:num="0"+str;
+    str > 10 ? num = str : num = "0" + str;
     return num;
+}
+
+function checkPassword(uPwd){
+
 }

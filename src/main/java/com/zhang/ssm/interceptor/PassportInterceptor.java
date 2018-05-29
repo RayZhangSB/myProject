@@ -1,10 +1,10 @@
 package com.zhang.ssm.interceptor;
 
-import com.zhang.ssm.WrapperPOJO.UserHolder;
 import com.zhang.ssm.mapper.TokenMapper;
 import com.zhang.ssm.mapper.UserMapper;
 import com.zhang.ssm.pojo.Token;
 import com.zhang.ssm.pojo.User;
+import com.zhang.ssm.wrapperPojo.UserHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;

@@ -76,3 +76,7 @@ function fnW(str) {
     str > 10 ? num = str : num = "0" + str;
     return num;
 }
+
+function checkPassword(uPwd) {
+
+}

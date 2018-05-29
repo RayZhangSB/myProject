@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta name="renderer" content="webkit">
-    <title>网站信息</title>
+    <title>监控信息</title>
     <link rel="stylesheet" href=" /css/pintuer.css">
     <link rel="stylesheet" href=" /css/admin.css">
     <script src=" /js/jquery.js"></script>
@@ -34,13 +34,12 @@
         <div class="message1"></div>
         <script src=" /js/my.js"></script>
         <script type="text/javascript">
-            //获取一定格式的当前时间 xxxx年xx月xx日 12:00:00
-
             $(function () {
                 setInterval(function () {
                     getFormatDate("tStamp");
                 }, 1000); //每隔一秒执行一次
             });
+
             Highcharts.setOptions({
                 global: {
                     useUTC: false
@@ -52,34 +51,68 @@
                 chart.tooltip.refresh(points[points.length - 1]);
             }
 
-            var chart = Highcharts.chart('container', {
+            function updateDataByAdd(serie, chart) {
+                var xdate, yval;
+                activeLastPointToolip(chart);
+                setInterval(function () {
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/monitor/getData",
+                        cache: false,
+                        contentType: false,    //不可缺
+                        processData: false,    //不可缺;
+                        dataType: "json",
+                        success: function (suc) {
+                            if (suc.code === 0) {
+                                xdate = suc.data.datetime;
+                                yval = suc.data.val;
+                            }
+                            console.log(suc.data.val);
+
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            alert("网络错误，请检查网络后重试" + XMLHttpRequest + textStatus + errorThrown);
+                            return false;
+                        }
+                    });
+                    // //这里向后台发送ajax请求，取到6组最新的数据点
+                    // var x = (new Date()).getTime(), // 当前时间
+                    //     y = Math.random()*100;          // 随机值
+                    serie.addPoint([xdate, yval], true, true);
+                    activeLastPointToolip(chart);
+                }, 1000);
+            }
+
+            Highcharts.chart('container', {
                 chart: {
                     type: 'spline',
                     marginRight: 10,
                     events: {
                         load: function () {
-                            var series = this.series[0],
-                                chart = this;
-                            activeLastPointToolip(chart);
-                            setInterval(function () {
-                                var x = (new Date()).getTime(), // 当前时间
-                                    y = Math.random();          // 随机值
-                                series.addPoint([x, y], true, true);
-                                activeLastPointToolip(chart);
-                            }, 1000);
+                            var chart = this;
+                            var serie = this.series[0];
+                            updateDataByAdd(serie, chart);
                         }
                     }
                 },
                 title: {
-                    text: 'Multi-channel video monitoring real-time value chart'
+                    text: 'Multi-Channel Video Monitoring Real-Time Chart',
+                    style: {
+                        color: "#5F5F5F",
+                        fontFamily: "SimHei",
+                        fontSize: "24px",
+
+                    }
                 },
                 xAxis: {
+                    tickAmount: 50,
                     type: 'datetime',
-                    tickPixelInterval: 150
+                    tickPixelInterval: 50
                 },
                 yAxis: {
                     title: {
-                        text: null
+                        text: "侦测值"
                     }
                 },
                 tooltip: {
@@ -92,14 +125,15 @@
                 legend: {
                     enabled: false
                 },
-                series: [{
+                series: [
+                    {
                     name: '随机数据',
                     data: (function () {
                         // 生成随机值
                         var data = [],
                             time = (new Date()).getTime(),
                             i;
-                        for (i = -19; i <= 0; i += 1) {
+                        for (i = -5; i <= 0; i++) {
                             data.push({
                                 x: time + i * 1000,
                                 y: Math.random()
@@ -107,7 +141,9 @@
                         }
                         return data;
                     }())
-                }]
+                    }
+
+                ]
             });
 
 

@@ -11,7 +11,7 @@ http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
 
-    <context:component-scan base-package="com.zhang.ssm.Controller"/>
+    <context:component-scan base-package="com.zhang.ssm.controller"/>
 
 
     <bean id="mappingJacksonHttpMessageConverter"
@@ -38,49 +38,49 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
     <!--</bean>-->
 
     <bean id="freemarkerConfig"
-    class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-    <property name="templateLoaderPath" value="/WEB-INF/view/"/>
-    <property name="freemarkerSettings">
-    <props>
-    <prop key="template_update_delay">0</prop>
-    <prop key="default_encoding">UTF-8</prop>
-    <prop key="number_format">0.##########</prop>
-    <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
-    <prop key="classic_compatible">true</prop>
-    <prop key="template_exception_handler">ignore</prop>
-    </props>
-    </property>
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/view/"/>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">0</prop>
+                <prop key="default_encoding">UTF-8</prop>
+                <prop key="number_format">0.##########</prop>
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+                <prop key="classic_compatible">true</prop>
+                <prop key="template_exception_handler">ignore</prop>
+            </props>
+        </property>
     </bean>
 
     <bean id="htmlViewResolver"
-    class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-    <property name="exposeRequestAttributes" value="true"/>
-    <property name="exposeSessionAttributes" value="true"/>
-    <property name="suffix" value=".html"/>
-    <property name="order" value="0"/>
-    <property name="contentType" value="text/html;charset=UTF-8"/>
-    <property name="exposeSpringMacroHelpers" value="true"/>
-    <property name="requestContextAttribute" value="requestContext"/>
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="exposeRequestAttributes" value="true"/>
+        <property name="exposeSessionAttributes" value="true"/>
+        <property name="suffix" value=".html"/>
+        <property name="order" value="0"/>
+        <property name="contentType" value="text/html;charset=UTF-8"/>
+        <property name="exposeSpringMacroHelpers" value="true"/>
+        <property name="requestContextAttribute" value="requestContext"/>
     </bean>
 
 
     <!--<bean id="velocityConfig"-->
-          <!--class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">-->
-        <!--<property name="resourceLoaderPath" value="/WEB-INF/view"/>-->
-        <!--<property name="configLocation" value="classpath:velocity.properties"/>-->
+    <!--class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">-->
+    <!--<property name="resourceLoaderPath" value="/WEB-INF/view"/>-->
+    <!--<property name="configLocation" value="classpath:velocity.properties"/>-->
     <!--</bean>-->
 
     <!--&lt;!&ndash;配置试图解析器&ndash;&gt;-->
     <!--<bean id="viewResolver"-->
-          <!--class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">-->
-        <!--<property name="cache" value="false"/>-->
-        <!--&lt;!&ndash;<property name="prefix" value=""/>&ndash;&gt;-->
-        <!--<property name="suffix" value=".html"/>-->
-        <!--<property name="exposeSpringMacroHelpers" value="true"/>-->
-        <!--<property name="contentType" value="text/html;charset=utf-8"/>-->
-        <!--<property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml"/>-->
-        <!--<property name="dateToolAttribute" value="dateTool"/>-->
-        <!--<property name="numberToolAttribute" value="numberTool"/>-->
+    <!--class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">-->
+    <!--<property name="cache" value="false"/>-->
+    <!--&lt;!&ndash;<property name="prefix" value=""/>&ndash;&gt;-->
+    <!--<property name="suffix" value=".html"/>-->
+    <!--<property name="exposeSpringMacroHelpers" value="true"/>-->
+    <!--<property name="contentType" value="text/html;charset=utf-8"/>-->
+    <!--<property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml"/>-->
+    <!--<property name="dateToolAttribute" value="dateTool"/>-->
+    <!--<property name="numberToolAttribute" value="numberTool"/>-->
     <!--</bean>-->
 
 
@@ -94,8 +94,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
             <!-- /**的意思是所有文件夹及里面的子文件夹 /*是所有文件夹，不含子文件夹 /是web项目的根目录 -->
             <mvc:mapping path="/**"/>
             <!-- 登录是生成通行证数据-->
-             <mvc:exclude-mapping path="/"/>
-             <mvc:exclude-mapping path="/login"/>
+            <mvc:exclude-mapping path="/"/>
+            <mvc:exclude-mapping path="/login"/>
             <bean id="commonInterceptor1" class="com.zhang.ssm.interceptor.PassportInterceptor"/>
 
         </mvc:interceptor>
