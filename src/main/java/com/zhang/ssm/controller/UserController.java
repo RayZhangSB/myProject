@@ -6,12 +6,11 @@ import com.zhang.ssm.utils.JsonUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
@@ -67,5 +66,46 @@ public class UserController {
     public String rememberLogin(String ticket) {
         return userService.rememberLogin(ticket);
     }
+
+    @RequestMapping(value = "/initShowInfo", method = RequestMethod.GET)
+    @ResponseBody
+    public String forUserSimpleInfo() {
+        return userService.initUserInfoShow();
+    }
+
+
+    @RequestMapping(value = "/getUserInfo", method = RequestMethod.GET)
+    @ResponseBody
+    public String forUserInfo() {
+        return userService.getUserInfo();
+    }
+
+
+    @RequestMapping(value = "/updatePwd", method = RequestMethod.POST)
+    @ResponseBody
+    public String updatePwd(String opass, String npass) {
+        return userService.updatePwd(opass, npass);
+    }
+
+
+    @RequestMapping(value = "/updateUserInfo", method = RequestMethod.POST)
+    @ResponseBody
+    public String updateUserInfo(User user) {
+        return userService.updateUserInfo(user);
+    }
+
+
+    @ResponseBody
+    @RequestMapping("/uploadUserHead")
+    public String uploadUserHead(@RequestParam(value = "head") MultipartFile file,
+                                 HttpServletRequest request) {
+
+        return userService.uploadUserHead(file, request);
+    }
+
+
+
+
+
 
 }

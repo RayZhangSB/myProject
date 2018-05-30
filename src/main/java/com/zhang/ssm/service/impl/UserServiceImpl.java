@@ -9,10 +9,13 @@ import com.zhang.ssm.utils.DateUtil;
 import com.zhang.ssm.utils.IDUtil;
 import com.zhang.ssm.utils.JsonUtil;
 import com.zhang.ssm.wrapperPojo.ResponseResult;
+import com.zhang.ssm.wrapperPojo.UserHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +32,10 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
     @Autowired
     private TokenMapper tokenMapper;
+
+    @Autowired
+    private UserHolder userHolder;
+
 
     public String registerUser(User user) {
         User u = userMapper.selectByName(user.getUserName());
@@ -88,7 +95,7 @@ public class UserServiceImpl implements UserService {
     }
 
 
-    private String addLoginTicket(int userId) {
+    public String addLoginTicket(int userId) {
         Token ticket = new Token();
         ticket.setUserId(userId);
         Date date = new Date();
@@ -112,6 +119,68 @@ public class UserServiceImpl implements UserService {
         }
 
         return JsonUtil.objectToJson(responseResult);
+    }
+
+
+    public String initUserInfoShow() {
+        ResponseResult responseResult = ResponseResult.ok();
+        User user = userHolder.getUser();
+        if (user == null) {
+            responseResult.setCode(1);
+            responseResult.setMsg("failed to fetch user info ,please  try after login");
+        } else {
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("userName", user.getUserName());
+            map.put("headUrl", user.getUserHeadurl());
+            responseResult.setData(map);
+        }
+
+        return JsonUtil.objectToJson(responseResult);
+    }
+
+    public String getUserInfo() {
+        ResponseResult responseResult = ResponseResult.ok();
+        User user = userHolder.getUser();
+        if (user == null) {
+            responseResult.setCode(1);
+            responseResult.setMsg("failed to fetch user info ,please  try after login");
+        } else {
+            responseResult.setData(user);
+        }
+        return JsonUtil.objectToJson(responseResult);
+    }
+
+    public String updatePwd(String opass, String npass) {
+
+        ResponseResult responseResult = ResponseResult.ok();
+        User user = userHolder.getUser();
+        if (user == null) {
+            responseResult.setCode(1);
+            responseResult.setMsg("failed to fetch user info ,please  try after login");
+        } else {
+            if (IDUtil.encodedString(opass + user.getUserSalt()).equals(user.getUserPassword())) {
+                //old password right
+                User u = user;
+                u.setUserPassword(IDUtil.encodedString(npass + user.getUserSalt()));
+                userMapper.updateByPrimaryKeySelective(u);
+                responseResult.setMsg("password update success,please login again");
+            } else {
+                responseResult.setCode(1);
+                responseResult.setMsg("error password");
+            }
+        }
+        return JsonUtil.objectToJson(responseResult);
+
+
+    }
+
+
+    public String updateUserInfo(User user) {
+        return null;
+    }
+
+    public String uploadUserHead(MultipartFile file, HttpServletRequest request) {
+        return null;
     }
 
 

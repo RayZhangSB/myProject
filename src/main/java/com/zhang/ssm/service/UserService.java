@@ -1,7 +1,9 @@
 package com.zhang.ssm.service;
 
 import com.zhang.ssm.pojo.User;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -18,4 +20,16 @@ public interface UserService {
     Map<String, Object> userLogin(String userNameOrId, String userPassword);
 
     String rememberLogin(String ticket);
+
+    String initUserInfoShow();
+
+    String getUserInfo();
+
+
+    String updatePwd(String opass, String npass);
+
+
+    String updateUserInfo(User user);
+
+    String uploadUserHead(MultipartFile file, HttpServletRequest request);
 }
