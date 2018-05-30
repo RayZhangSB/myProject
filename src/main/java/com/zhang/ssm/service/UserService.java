@@ -16,4 +16,6 @@ public interface UserService {
     User getUserByName(String userName);
 
     Map<String, Object> userLogin(String userNameOrId, String userPassword);
+
+    String rememberLogin(String ticket);
 }

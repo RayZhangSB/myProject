@@ -17,6 +17,9 @@ public final class AuthUtil {
         */
     public static ArrayList<Integer> parseAuthCode(Integer authCode) {
         ArrayList<Integer> primes = new ArrayList<Integer>();
+        if (authCode == null) {
+            return primes;
+        }
         if (authCode % 2 == 0) {
             primes.add(2);
         }

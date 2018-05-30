@@ -8,6 +8,7 @@ import com.zhang.ssm.service.UserService;
 import com.zhang.ssm.utils.DateUtil;
 import com.zhang.ssm.utils.IDUtil;
 import com.zhang.ssm.utils.JsonUtil;
+import com.zhang.ssm.wrapperPojo.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -86,6 +87,7 @@ public class UserServiceImpl implements UserService {
 
     }
 
+
     private String addLoginTicket(int userId) {
         Token ticket = new Token();
         ticket.setUserId(userId);
@@ -97,6 +99,21 @@ public class UserServiceImpl implements UserService {
         tokenMapper.insert(ticket);
         return ticket.getTokenTicket();
     }
+
+    public String rememberLogin(String ticket) {
+        ResponseResult responseResult = ResponseResult.ok();
+        if (ticket != null) {
+            Token token = tokenMapper.selectByTicket(ticket);
+            if (token == null || token.getTokenExpired().before(new Date()) || token.getTokenStatus() != 0) {
+                responseResult.setCode(1);
+            }
+        } else {
+            responseResult.setCode(1);
+        }
+
+        return JsonUtil.objectToJson(responseResult);
+    }
+
 
 }
 

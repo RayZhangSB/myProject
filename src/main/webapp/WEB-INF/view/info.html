@@ -89,8 +89,6 @@
                         load: function () {
                             var chart = this;
                             var series = this.series;
-                            var serie = this.series[0];
-
                             $.ajax({
                                 type: "POST",
                                 url: "/monitor/getScope",
@@ -99,14 +97,15 @@
                                 dataType: "json",
                                 success: function (suc) {
                                     if (suc.code === 0) {
-                                        for (i = 0; i < series.length; i++) {
-                                            if (series[i].name in suc.data) {
-                                                updateDataByAdd(series[i], chart);
-                                            } else {
-                                                series[i].hide();
-                                            }
+                                        var j = 0;
+                                        for (var key in suc.data) {
+                                            series[j].name = key;
+                                            updateDataByAdd(series[j], chart);
+                                            j = j + 1;
                                         }
-
+                                        for (; j < series.length; j++) {
+                                            series[j].hide();
+                                        }
                                     } else {
                                         alert(suc.msg);
                                         return false;
@@ -150,7 +149,7 @@
                 visible: false,
                 series: [
                     {
-                        name: 'monitor1',
+                        name: '',
                         data: (function () {
                             var data = [], time = (new Date()).getTime(), i;
                             for (i = -5; i <= 0; i++) {
@@ -163,7 +162,7 @@
                         }())
                     },
                     {
-                        name: 'monitor2',
+                        name: '',
                         data: (function () {
                             // 生成随机值
                             var data = [],
@@ -179,7 +178,7 @@
                         }())
                     },
                     {
-                        name: 'monitor3',
+                        name: '',
                         data: (function () {
                             // 生成随机值
                             var data = [],
@@ -195,7 +194,7 @@
                         }())
                     },
                     {
-                        name: 'monitor4',
+                        name: '',
                         data: (function () {
                             // 生成随机值
                             var data = [],

@@ -1,7 +1,5 @@
 package com.zhang.ssm.service;
 
-import com.zhang.ssm.pojo.User;
-
 public interface RealMonitorDataService {
 
     int READABLE = 2;
@@ -11,5 +9,5 @@ public interface RealMonitorDataService {
 
     String getRealMonitorData();
 
-    String getScope(User user);
+    String getScope();
 }

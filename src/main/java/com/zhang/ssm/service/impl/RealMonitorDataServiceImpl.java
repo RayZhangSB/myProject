@@ -1,15 +1,11 @@
 package com.zhang.ssm.service.impl;
 
-import com.zhang.ssm.mapper.AuthGroupMapper;
-import com.zhang.ssm.mapper.AuthOpreatorMapper;
-import com.zhang.ssm.pojo.AuthGroup;
-import com.zhang.ssm.pojo.AuthOpreator;
-import com.zhang.ssm.pojo.User;
 import com.zhang.ssm.service.RealMonitorDataService;
 import com.zhang.ssm.utils.AuthUtil;
 import com.zhang.ssm.utils.JsonUtil;
 import com.zhang.ssm.utils.StringUtil;
-import com.zhang.ssm.wrapperPojo.MonitorsHolder;
+import com.zhang.ssm.wrapperPojo.AuthCodeHolder;
+import com.zhang.ssm.wrapperPojo.MonitorsScopeHolder;
 import com.zhang.ssm.wrapperPojo.ResponseResult;
 import com.zhang.ssm.wrapperPojo.SimulationData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +25,11 @@ import java.util.Map;
 @Service
 public class RealMonitorDataServiceImpl implements RealMonitorDataService {
 
+
     @Autowired
-    private AuthGroupMapper authGroupMapper;
+    private MonitorsScopeHolder monitors;
     @Autowired
-    private AuthOpreatorMapper authOpreatorMapper;
-    @Autowired
-    private MonitorsHolder monitors;
+    private AuthCodeHolder authCodeHolder;
 
 
     /*
@@ -58,11 +53,9 @@ public class RealMonitorDataServiceImpl implements RealMonitorDataService {
         return JsonUtil.objectToJson(responseResult);
     }
 
-    public String getScope(final User user) {
-        AuthGroup authGroup = authGroupMapper.selectByPrimaryKey(user.getUserWorkgroup());
-        String limitDevs = authGroup.getLimitContent();//查询限制查看的监视器
-        AuthOpreator authOpreator = authOpreatorMapper.selectByPrimaryKey(user.getUserPosition());
-        ArrayList<Integer> auth = AuthUtil.parseAuthCode(authOpreator.getUserAuthority());//查询权限码
+    public String getScope() {
+        Integer authCode = authCodeHolder.getAuthCode();
+        ArrayList<Integer> auth = AuthUtil.parseAuthCode(authCode);//解析权限码
         ResponseResult responseResult = ResponseResult.ok();
         //验证读取权限
         boolean isAllowedRead = false;
@@ -77,7 +70,7 @@ public class RealMonitorDataServiceImpl implements RealMonitorDataService {
             responseResult.setMsg("No read permission");
 
         } else {
-            monitors.setMonitors(limitDevs);
+            String limitDevs = monitors.getMonitors();
             Map<String, Object> map = new HashMap<String, Object>();
             String[] limits = StringUtil.splitString(limitDevs, "-");
             for (String limit : limits) {

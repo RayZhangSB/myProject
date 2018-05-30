@@ -1,9 +1,15 @@
 package com.zhang.ssm.interceptor;
 
+import com.zhang.ssm.mapper.AuthGroupMapper;
+import com.zhang.ssm.mapper.AuthOpreatorMapper;
 import com.zhang.ssm.mapper.TokenMapper;
 import com.zhang.ssm.mapper.UserMapper;
+import com.zhang.ssm.pojo.AuthGroup;
+import com.zhang.ssm.pojo.AuthOpreator;
 import com.zhang.ssm.pojo.Token;
 import com.zhang.ssm.pojo.User;
+import com.zhang.ssm.wrapperPojo.AuthCodeHolder;
+import com.zhang.ssm.wrapperPojo.MonitorsScopeHolder;
 import com.zhang.ssm.wrapperPojo.UserHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -29,7 +35,15 @@ public class PassportInterceptor implements HandlerInterceptor {
 
     @Autowired
     private UserHolder userHolder;
+    @Autowired
+    private MonitorsScopeHolder monitors;
+    @Autowired
+    private AuthCodeHolder authCodeHolder;
 
+    @Autowired
+    private AuthGroupMapper authGroupMapper;
+    @Autowired
+    private AuthOpreatorMapper authOpreatorMapper;
     /*
     对所有访问拦截查询是否已登录，是则将用户信息写入到线程私有变量
      */
@@ -43,14 +57,17 @@ public class PassportInterceptor implements HandlerInterceptor {
                 }
             }
         }
-
         if (ticket != null) {
             Token token = tokenMapper.selectByTicket(ticket);
             if (token == null || token.getTokenExpired().before(new Date()) || token.getTokenStatus() != 0) {
                 return true;
             }
-
             User user = userMapper.selectByPrimaryKey(token.getUserId());
+            AuthGroup authGroup = authGroupMapper.selectByPrimaryKey(user.getUserWorkgroup());
+            String limitDevs = authGroup.getLimitContent();//查询限制查看的监视器
+            AuthOpreator authOpreator = authOpreatorMapper.selectByPrimaryKey(user.getUserPosition());
+            monitors.setMonitors(limitDevs);
+            authCodeHolder.setAuthCode(authOpreator.getUserAuthority());
             userHolder.setUser(user);
         }
         return true;

@@ -31,10 +31,10 @@ public class MonitorController {
     public String getScope() {
         User user = userHolder.getUser();
         if (user == null) {
+            //这里可以使用拦截器统一处理
             return JsonUtil.getJSONString(6, "用户身份过期，请重新登录!");
         }
-        return realMonitorDataService.getScope(user);
-
+        return realMonitorDataService.getScope();
     }
 
     @RequestMapping(value = "/getData", method = RequestMethod.POST)

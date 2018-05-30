@@ -61,4 +61,11 @@ public class UserController {
         return JsonUtil.getJSONString(1, "map数据异常");
     }
 
+
+    @RequestMapping(value = "/rememberLogin", method = RequestMethod.POST)
+    @ResponseBody
+    public String rememberLogin(String ticket) {
+        return userService.rememberLogin(ticket);
+    }
+
 }

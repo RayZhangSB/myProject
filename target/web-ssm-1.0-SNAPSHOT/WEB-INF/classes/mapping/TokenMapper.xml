@@ -95,7 +95,7 @@
         select
         <include refid="Base_Column_List"/>
         from token
-        where token_ticket = #{tokenTicket,jdbcType=INTEGER}
+        where token_ticket = #{tokenTicket,jdbcType=VARCHAR}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
         DELETE FROM token

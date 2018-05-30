@@ -77,6 +77,6 @@ function fnW(str) {
     return num;
 }
 
-function checkPassword(uPwd) {
-
+function checkObjValid(obj) {
+    return (obj !== null && obj !== undefined && obj !== "");
 }

@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
  * @Version 1.0
  **/
 @Component
-public class MonitorsHolder {
-    private ThreadLocal<String> monitors = new ThreadLocal<String>();
+public class MonitorsScopeHolder {
+    private static ThreadLocal<String> monitors = new ThreadLocal<String>();
 
     public String getMonitors() {
         return monitors.get();

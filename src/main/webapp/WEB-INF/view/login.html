@@ -14,10 +14,32 @@
     <script language="javascript">
         function initLoginName() {
             var cachedName = get_cookie("registeredUserName");
-            console.log(cachedName);
-            if (cachedName !== null && cachedName !== undefined && cachedName !== "") {
+            if (checkObjValid(cachedName)) {
                 $("input[name=userName]").val(cachedName);
             }
+
+            var ticket = get_cookie("ticket");
+            console.log(ticket);
+            if (checkObjValid(ticket)) {
+                var formData = new FormData();
+                formData.append("ticket", ticket);
+                $.ajax({
+                    type: "POST",
+                    url: "/user/rememberLogin",
+                    data: formData,
+                    contentType: false,    //不可缺
+                    processData: false,    //不可缺;
+                    dataType: "json",
+                    success: function (suc) {
+                        if (suc.code === 0) {
+                            window.location.href = "/index";
+                            return false;
+                        }
+                    },
+                });
+
+            }
+
 
         }
 
@@ -41,7 +63,6 @@
                 alert(errorMsg);
                 return false;
             }
-            checkPassword(uPwd);
             var formData = new FormData();
             formData.append("userName", userName);
             formData.append("userPassword", uPwd);
