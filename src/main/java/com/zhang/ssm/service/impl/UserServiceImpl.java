@@ -1,21 +1,24 @@
 package com.zhang.ssm.service.impl;
 
+import com.zhang.ssm.holder.UserHolder;
 import com.zhang.ssm.mapper.TokenMapper;
 import com.zhang.ssm.mapper.UserMapper;
 import com.zhang.ssm.pojo.Token;
 import com.zhang.ssm.pojo.User;
 import com.zhang.ssm.service.UserService;
-import com.zhang.ssm.utils.DateUtil;
-import com.zhang.ssm.utils.IDUtil;
-import com.zhang.ssm.utils.JsonUtil;
+import com.zhang.ssm.utils.*;
 import com.zhang.ssm.wrapperPojo.ResponseResult;
-import com.zhang.ssm.wrapperPojo.UserHolder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +31,8 @@ import java.util.UUID;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
+
     @Autowired
     private UserMapper userMapper;
     @Autowired
@@ -37,28 +42,33 @@ public class UserServiceImpl implements UserService {
     private UserHolder userHolder;
 
 
-    public String registerUser(User user) {
+    public String registerUser(final User user) {
         User u = userMapper.selectByName(user.getUserName());
-        int code = 0;
-        String msg = "";
+        ResponseResult responseResult = ResponseResult.ok();
         if (u != null) {
-            code = 1;
-            msg = "The user is already registered";
-            return JsonUtil.getJSONString(code, msg);
-        }
-        String salt = IDUtil.genSalt();
-        user.setUserSalt(salt);
-        user.setUserPassword(IDUtil.encodedString(user.getUserPassword() + salt));
-        Date date = DateUtil.genFormatDate(new Date());
-        user.setUserCreateddate(date);
-        if (user.getUserHeadurl() == null) {
-            user.setUserHeadurl("/images/y.jpg");
-        }
-        int res = userMapper.insert(user);
+            responseResult.setCode(1);
+            responseResult.setMsg("The user is already registered");
+        } else {
+            String salt = IDUtil.genSalt();
+            user.setUserSalt(salt);
+            user.setUserPassword(IDUtil.encodedString(user.getUserPassword() + salt));
+            Date date = DateUtil.genFormatDate(new Date());
+            user.setUserCreateddate(date);
+            if (user.getUserHeadurl() == null) {
+                user.setUserHeadurl("/images/y.jpg");
+            }
+            try {
+                userMapper.insert(user);
+                responseResult.setMsg("register success");
+            } catch (Exception e) {
+                String msg = "register failed";
+                responseResult.setCode(1);
+                responseResult.setMsg(msg);
+                LOGGER.error(e.getMessage() + "--->" + msg);
+            }
 
-        code = res > 0 ? 0 : 1;
-        msg = res > 0 ? "register success" : "register failed";
-        return JsonUtil.getJSONString(code, msg);
+        }
+        return JsonUtil.objectToJson(responseResult);
 
     }
 
@@ -175,12 +185,63 @@ public class UserServiceImpl implements UserService {
     }
 
 
-    public String updateUserInfo(User user) {
-        return null;
+    public String updateUserInfo(final User user) {
+
+        ResponseResult responseResult = ResponseResult.ok();
+        try {
+            userMapper.updateByPrimaryKeySelective(user);
+            responseResult.setMsg("info update success");
+        } catch (Exception e) {
+            String msg = "info update failed";
+            responseResult.setCode(1);
+            responseResult.setMsg(msg);
+            LOGGER.error(e.getMessage() + "--->" + msg);
+        }
+
+        return JsonUtil.objectToJson(responseResult);
     }
 
-    public String uploadUserHead(MultipartFile file, HttpServletRequest request) {
-        return null;
+    public String uploadUserHead(final MultipartFile file, HttpServletRequest request) {
+        File targetFile = null;
+        ResponseResult responseResult = ResponseResult.ok();
+        String msg;
+        String fileName = file.getOriginalFilename();//获取文件名加后缀
+        if (StringUtil.isNotEmpty(fileName)) {
+            String suffix = FileUtil.getFileSuffix(fileName);
+            fileName = IDUtil.genImageName();
+            String newFileName = fileName + suffix;//新的文件名
+            // 获得项目的路径
+            ServletContext sc = request.getSession().getServletContext();
+            // 上传位置
+            String savePath = sc.getRealPath(File.separator + "WEB-INF" + FileUtil.HEAD_SAVE_DIR) + File.separator; // 设定文件保存的目录
+
+
+            File saveDir = new File(savePath);
+            String saveFullPath = savePath + File.separator + newFileName;
+            targetFile = new File(saveFullPath);
+            if (!saveDir.exists() && !saveDir.isDirectory()) {
+                try {
+                    saveDir.mkdirs();
+                } catch (Exception e) {
+                    responseResult.setCode(1);
+                    msg = "failed to create photo save dir";
+                    responseResult.setMsg(msg);
+                    LOGGER.error(e.getMessage() + "--->" + msg);
+                }
+            } else {
+                try {
+                    file.transferTo(targetFile);
+                    msg = FileUtil.HEAD_SAVE_DIR + newFileName;
+                    responseResult.setMsg(msg);
+                } catch (IOException e) {
+                    msg = "occurred Exception while saving img file";
+                    responseResult.setCode(1);
+                    responseResult.setMsg(msg);
+                    LOGGER.error(e.getMessage() + "--->" + msg);
+                }
+            }
+        }
+        return JsonUtil.objectToJson(responseResult);
     }
 
 

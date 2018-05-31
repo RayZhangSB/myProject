@@ -14,18 +14,18 @@
 </head>
 <body style="background-color:#f2f9fd;" onload="initUserInfo()">
 <script type="text/css">
-    #logName{
-        background-color:yellow;
-        font-family :NSimSun;
-        font-size : 28px;
-        font-style:italic
+    #logName {
+        background-color: yellow;
+        font-family: NSimSun;
+        font-size: 28px;
+        font-style: italic
     }
 </script>
 <div class="header bg-main">
     <div class="logo margin-big-left fadein-top">
         <img id="headImg" class="radius-circle " height="50" alt="" src="/images/loading.gif"/>
     </div>
-    <div class="head-l"><a id="logName" ></a><a class="button button-little bg-green" href="#" target="_blank"><span
+    <div class="head-l"><a id="logName"></a><a class="button button-little bg-green" href="#" target="_blank"><span
             class="icon-home"></span> 前台首页</a> &nbsp;&nbsp;<a href="#" class="button button-little bg-blue"><span
             class="icon-wrench"></span> 清除缓存</a> &nbsp;&nbsp;<a class="button button-little bg-red"
                                                                 href="login.html"><span class="icon-power-off"></span>
@@ -85,8 +85,8 @@
             // async: false,
             success: function (suc) {
                 if (suc.code === 0) {
-                    document.getElementById("logName").innerText ="  "+ suc.data.userName+ " Welcome!";
-                    $("#headImg").attr("src",suc.data.headUrl);
+                    document.getElementById("logName").innerText = "  " + suc.data.userName + " Welcome!";
+                    $("#headImg").attr("src", suc.data.headUrl);
 
                 } else {
                     alert(suc.msg);

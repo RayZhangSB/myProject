@@ -91,7 +91,8 @@ public class UserController {
     @RequestMapping(value = "/updateUserInfo", method = RequestMethod.POST)
     @ResponseBody
     public String updateUserInfo(User user) {
-        return userService.updateUserInfo(user);
+        return null;
+//        return userService.updateUserInfo(user);
     }
 
 

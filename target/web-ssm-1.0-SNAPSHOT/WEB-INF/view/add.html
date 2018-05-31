@@ -10,117 +10,14 @@
     <link rel="stylesheet" href=" /css/admin.css">
     <script src=" /js/jquery.js"></script>
     <script src=" /js/pintuer.js"></script>
+
 </head>
 <body onload="showUserInfo()">
-<div class="panel admin-panel">
-    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"/>增加内容</strong></div>
-    <div class="body-content">
-        <form method="post" class="form-x" action="">
-            <div class="form-group">
-
-                <div class="label">
-                    <label><img id="headImg" class="radius-circle " style="margin-left:10px" height="50" alt="" src="/images/loading.gif"/></label>
-                </div>
-                <div class="field">
-                    <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"
-                           style="float:left;">
-                    <div class="tips"> </div>
-                </div>
-            </div>
-
-
-                <div class="form-group">
-                    <div class="label">
-                        <label>用户名：</label>
-                    </div>
-                    <div class="field">
-                        <div class="tips"> <a id = "userName"></a></div>
-                    </div>
-                </div>
-
-            <div class="form-group">
-
-                <div class="label">
-                    <label>工作组：</label>
-                </div>
-                <div class="field">
-                    <input class="input" id="userWorkgroup" style=" height:30px;"></input>
-                    <div class="tips"></div>
-                </div>
-
-            </div>
-            <div class="clear"></div>
-            <div class="form-group">
-
-                <div class="label">
-                    <label>职位：</label>
-                </div>
-                <div class="field">
-                    <input class="input" id="userPosition" style=" height:30px;"></input>
-                    <div class="tips"></div>
-                </div>
-
-            </div>
-
-
-
-            <div class="clear"></div>
-            <div class="form-group">
-
-                <div class="label">
-                    <label>年龄：</label>
-                </div>
-                <div class="field">
-                    <div class="tips"> <a id = "userAge"></a></div>
-                </div>
-
-            </div>
-            <div class="form-group">
-
-                <div class="label">
-                    <label>Email：</label>
-                </div>
-                <div class="field">
-                    <input class="input" id="userEmail" style=" height:30px;"></input>
-                    <div class="tips"></div>
-                </div>
-
-            </div>
-
-            <div class="form-group">
-
-                <div class="label">
-                    <label>联系电话：</label>
-                </div>
-                <div class="field">
-                    <input class="input" id="userPhone" style=" height:30px;"></input>
-                    <div class="tips"></div>
-                </div>
-
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>创建时间：</label>
-                </div>
-                <div class="field">
-                    <div class="tips"> <a id = "userCreateddate"></a></div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="label">
-                    <label/>
-                </div>
-                <div class="field">
-                    <button class="button bg-main icon-check-square-o" type="button"> 更新</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+<script src="/js/my.js"></script>
 <script type="text/javascript">
-    var userdata="";
-    var newHeadUrl="";
+    var userdata ;
+    var newHeadUrl="" ;
+
     function showUserInfo() {
         $.ajax({
             type: "GET",
@@ -131,15 +28,13 @@
             success: function (suc) {
                 if (suc.code === 0) {
                     userdata = suc.data;
-                    console.info(userdata);
-                    $("#headImg").attr("src",suc.data.headUrl);
-                    document.getElementById("userName").innerText =suc.data.userName;
+                    document.getElementById("userName").innerText = suc.data.userName;
                     $("#userWorkgroup").val(suc.data.userWorkgroup);
                     $("#userPosition").val(suc.data.userPosition);
-                    document.getElementById("userAge").innerText =suc.data.userAge;
+                    document.getElementById("userAge").innerText = suc.data.userAge;
                     $("#userEmail").val(suc.data.userEmail);
                     $("#userPhone").val(suc.data.userPhone);
-                    document.getElementById("userCreateddate").innerText =suc.data.userCreateddate;
+                    $("#headImgU").attr("src", suc.data.headUrl);
                 } else {
                     alert(suc.msg);
                     return false;
@@ -151,7 +46,189 @@
             }
         });
     }
+    function uploadHead() {
+        var inputObj=document.createElement('input');
+        inputObj.setAttribute('id','head');
+        inputObj.setAttribute('type','file');
+        inputObj.setAttribute("style",'visibility:hidden');
+        inputObj.setAttribute("onchange","uploadImg()");
+        document.body.appendChild(inputObj);
+
+        inputObj.click();
+    }
+    function uploadImg(){
+        var data = new FormData();
+        data.append("head",$("#head")[0].files[0]);
+        $.ajax({
+            type: "POST",
+            url: "/user/uploadUserHead",
+            data:data,
+            contentType: false,    //不可缺
+            processData: false,    //不可缺;
+            dataType: "json",
+            success: function (suc) {
+                if (suc.code === 0) {
+                    $("#headImgU").attr("src", suc.msg);
+                    console.info(suc.msg);
+                    newHeadUrl = suc.msg;
+                } else {
+                    alert(suc.msg);
+                    return false;
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Network error, please check the network and try again" + XMLHttpRequest + textStatus + errorThrown);
+                return false;
+            }
+        });
+    }
+    function checkChanged() {
+
+        var var2 = $("#userWorkgroup").val();
+        var var3 = $("#userPosition").val();
+
+        var var4 = $("#userEmail").val();
+        var var5 = $("#userPhone").val();
+
+        if(newHeadUrl!=="" || var2!==userdata.userWorkgroup || var3!==userdata.userPosition || var4!==userdata.userEmail || var5!==userdata.userPhone)
+        {
+            return true;
+        }
+        return false;
+
+    }
+
+    function updateUserInfo() {
+        if (!checkChanged()) {
+            alert(" Please modify an item first");
+            return;
+        }
+        var array = getJsonFormData("#uInfoUpdate");
+        console.info(JSON.stringify(array));
+    //     //注册用户
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "/user/register",
+    //         data: JSON.stringify(array),
+    //         cache: false,
+    //         contentType: "application/json",    //不可缺
+    //         processData: false,    //不可缺
+    //         dataType: "json",
+    //         success: function (suc) {
+    //             if (suc.code === 0) {
+    //                 //回到登录页面
+    //                 setCookie("registeredUserName", $("input[name=userName]").val(), new Date(), 3600 * 2000);
+    //                 alert(suc.msg);
+    //                 window.location.href = "/login";
+    //                 return false;
+    //             } else {
+    //                 alert(suc.msg);
+    //                 return false;
+    //             }
+    //         },
+    //         error: function (XMLHttpRequest, textStatus, errorThrown) {
+    //             alert("Network error, please check the network and try again" + XMLHttpRequest + textStatus + errorThrown);
+    //             return false;
+    //         }
+    //     });
+    //     return false;
+    // }
+
+
+
+    }
 </script>
+<div class="panel admin-panel">
+    <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"/>增加内容</strong></div>
+    <div class="body-content">
+        <form id="uInfoUpdate" method="post" class="form-x" action="" >
+            <table>
+            <div class="form-group">
+
+                <div class="label">
+                    <label><img id="headImgU" class="radius-circle " style="margin-left:10px" height="50" alt=""
+                                src="/images/loading.gif"/></label>
+                </div>
+                <div class="field">
+                    <input type="button" class="button bg-blue margin-left" name="file" value="+ 浏览上传"
+                           style="float:left;" onclick="uploadHead()">
+                    <div class="tips"></div>
+                </div>
+            </div>
+                <div class="form-group">
+                    <div class="label">
+                        <label>用户名：</label>
+                    </div>
+                    <div class="field">
+                        <div class="tips"><a id="userName"></a></div>
+                    </div>
+                </div>
+
+            <div class="form-group">
+
+                <div class="label">
+                    <label>工作组：</label>
+                </div>
+                <div class="field">
+
+                    <div class="tips"> <input class="input" id="userWorkgroup" style=" height:30px;" size="50"></input></div>
+                </div>
+
+            </div>
+            <div class="clear"></div>
+            <div class="form-group">
+
+                <div class="label">
+                    <label>职位：</label>
+                </div>
+                <div class="field">
+                    <input class="input" id="userPosition" style=" height:30px;" size="50"></input>
+                    <div class="tips"></div>
+                </div>
+
+            </div>
+            <div class="clear"></div>
+            <div class="form-group">
+                <div class="label">
+                    <label>年龄：</label>
+                </div>
+                <div class="field">
+                    <div class="tips"><a id="userAge"></a></div>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <div class="label">
+                    <label>Email：</label>
+                </div>
+                <div class="field">
+                    <input class="input" id="userEmail" style=" height:30px;" size="50"></input>
+                    <div class="tips"></div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>联系电话：</label>
+                </div>
+                <div class="field">
+                    <input class="input" id="userPhone" style=" height:30px;" size="50"></input>
+                    <div class="tips"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="label">
+                    <label/>
+                </div>
+                <div class="field">
+                    <button class="button bg-main icon-check-square-o" type="button" onclick="updateUserInfo()">更新
+                    </button>
+                </div>
+            </div>
+            </table>
+        </form>
+    </div>
+</div>
 
 
 

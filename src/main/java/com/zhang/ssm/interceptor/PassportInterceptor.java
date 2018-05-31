@@ -1,5 +1,8 @@
 package com.zhang.ssm.interceptor;
 
+import com.zhang.ssm.holder.AuthCodeHolder;
+import com.zhang.ssm.holder.MonitorsScopeHolder;
+import com.zhang.ssm.holder.UserHolder;
 import com.zhang.ssm.mapper.AuthGroupMapper;
 import com.zhang.ssm.mapper.AuthOpreatorMapper;
 import com.zhang.ssm.mapper.TokenMapper;
@@ -8,9 +11,6 @@ import com.zhang.ssm.pojo.AuthGroup;
 import com.zhang.ssm.pojo.AuthOpreator;
 import com.zhang.ssm.pojo.Token;
 import com.zhang.ssm.pojo.User;
-import com.zhang.ssm.wrapperPojo.AuthCodeHolder;
-import com.zhang.ssm.wrapperPojo.MonitorsScopeHolder;
-import com.zhang.ssm.wrapperPojo.UserHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;

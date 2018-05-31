@@ -1,4 +1,4 @@
-package com.zhang.ssm.wrapperPojo;
+package com.zhang.ssm.holder;
 
 import org.springframework.stereotype.Component;
 
