@@ -15,8 +15,8 @@
 <body onload="showUserInfo()">
 <script src="/js/my.js"></script>
 <script type="text/javascript">
-    var userdata ;
-    var newHeadUrl="" ;
+    var userdata;
+    var oldHeadUrl="";
 
     function showUserInfo() {
         $.ajax({
@@ -34,7 +34,9 @@
                     document.getElementById("userAge").innerText = suc.data.userAge;
                     $("#userEmail").val(suc.data.userEmail);
                     $("#userPhone").val(suc.data.userPhone);
-                    $("#headImgU").attr("src", suc.data.headUrl);
+                    $("#headImgU").attr("src", suc.data.userHeadurl);
+                    oldHeadUrl=suc.data.userHeadurl;
+                    console.info(oldHeadUrl);
                 } else {
                     alert(suc.msg);
                     return false;
@@ -46,31 +48,31 @@
             }
         });
     }
+
     function uploadHead() {
-        var inputObj=document.createElement('input');
-        inputObj.setAttribute('id','head');
-        inputObj.setAttribute('type','file');
-        inputObj.setAttribute("style",'visibility:hidden');
-        inputObj.setAttribute("onchange","uploadImg()");
+        var inputObj = document.createElement('input');
+        inputObj.setAttribute('id', 'head');
+        inputObj.setAttribute('type', 'file');
+        inputObj.setAttribute("style", 'visibility:hidden');
+        inputObj.setAttribute("onchange", "uploadImg()");
         document.body.appendChild(inputObj);
 
         inputObj.click();
     }
-    function uploadImg(){
+
+    function uploadImg() {
         var data = new FormData();
-        data.append("head",$("#head")[0].files[0]);
+        data.append("head", $("#head")[0].files[0]);
         $.ajax({
             type: "POST",
             url: "/user/uploadUserHead",
-            data:data,
+            data: data,
             contentType: false,    //不可缺
             processData: false,    //不可缺;
             dataType: "json",
             success: function (suc) {
                 if (suc.code === 0) {
                     $("#headImgU").attr("src", suc.msg);
-                    console.info(suc.msg);
-                    newHeadUrl = suc.msg;
                 } else {
                     alert(suc.msg);
                     return false;
@@ -82,16 +84,13 @@
             }
         });
     }
-    function checkChanged() {
 
+    function checkChanged() {
         var var2 = $("#userWorkgroup").val();
         var var3 = $("#userPosition").val();
-
         var var4 = $("#userEmail").val();
         var var5 = $("#userPhone").val();
-
-        if(newHeadUrl!=="" || var2!==userdata.userWorkgroup || var3!==userdata.userPosition || var4!==userdata.userEmail || var5!==userdata.userPhone)
-        {
+        if (oldHeadUrl !== $("#headImgU").attr('src') || var2 !== userdata.userWorkgroup || var3 !== userdata.userPosition || var4 !== userdata.userEmail || var5 !== userdata.userPhone) {
             return true;
         }
         return false;
@@ -103,46 +102,44 @@
             alert(" Please modify an item first");
             return;
         }
-        var array = getJsonFormData("#uInfoUpdate");
-        console.info(JSON.stringify(array));
-    //     //注册用户
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "/user/register",
-    //         data: JSON.stringify(array),
-    //         cache: false,
-    //         contentType: "application/json",    //不可缺
-    //         processData: false,    //不可缺
-    //         dataType: "json",
-    //         success: function (suc) {
-    //             if (suc.code === 0) {
-    //                 //回到登录页面
-    //                 setCookie("registeredUserName", $("input[name=userName]").val(), new Date(), 3600 * 2000);
-    //                 alert(suc.msg);
-    //                 window.location.href = "/login";
-    //                 return false;
-    //             } else {
-    //                 alert(suc.msg);
-    //                 return false;
-    //             }
-    //         },
-    //         error: function (XMLHttpRequest, textStatus, errorThrown) {
-    //             alert("Network error, please check the network and try again" + XMLHttpRequest + textStatus + errorThrown);
-    //             return false;
-    //         }
-    //     });
-    //     return false;
-    // }
-
-
+        var res = window.confirm('确认修改？');
+        if (!res) {
+            return;
+        }
+        userdata.userHeadurl = $("#headImgU").attr('src');
+        userdata.userWorkgroup = $("#userWorkgroup").val();
+        userdata.userPosition = $("#userPosition").val();
+        userdata.userEmail = $("#userEmail").val();
+        userdata.userPhone = $("#userPhone").val();
+        $.ajax({
+            type: "POST",
+            url: "/user/updateUserInfo",
+            data: JSON.stringify(userdata),
+            cache: false,
+            contentType: "application/json",    //不可缺
+            processData: false,    //不可缺
+            dataType: "json",
+            success: function (suc) {
+                if (suc.code === 0) {
+                    return false;
+                } else {
+                    alert(suc.msg);
+                    return false;
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Network error, please check the network and try again" + XMLHttpRequest + textStatus + errorThrown);
+                return false;
+            }
+        });
 
     }
 </script>
 <div class="panel admin-panel">
     <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"/>增加内容</strong></div>
     <div class="body-content">
-        <form id="uInfoUpdate" method="post" class="form-x" action="" >
-            <table>
+        <form id="uInfoUpdate" method="post" class="form-x" action="">
+
             <div class="form-group">
 
                 <div class="label">
@@ -155,14 +152,14 @@
                     <div class="tips"></div>
                 </div>
             </div>
-                <div class="form-group">
-                    <div class="label">
-                        <label>用户名：</label>
-                    </div>
-                    <div class="field">
-                        <div class="tips"><a id="userName"></a></div>
-                    </div>
+            <div class="form-group">
+                <div class="label">
+                    <label>用户名：</label>
                 </div>
+                <div class="field">
+                    <div class="tips"><a id="userName"></a></div>
+                </div>
+            </div>
 
             <div class="form-group">
 
@@ -171,7 +168,8 @@
                 </div>
                 <div class="field">
 
-                    <div class="tips"> <input class="input" id="userWorkgroup" style=" height:30px;" size="50"></input></div>
+                    <div class="tips"><input class="input" id="userWorkgroup" style=" height:30px;" size="50"></input>
+                    </div>
                 </div>
 
             </div>
@@ -225,11 +223,9 @@
                     </button>
                 </div>
             </div>
-            </table>
         </form>
     </div>
 </div>
-
 
 
 </body>
