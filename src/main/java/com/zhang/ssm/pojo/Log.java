@@ -1,5 +1,7 @@
 package com.zhang.ssm.pojo;
 
+import java.util.Date;
+
 public class Log {
     private Integer logId;
 
@@ -8,6 +10,8 @@ public class Log {
     private Integer logExectype;
 
     private String logResult;
+
+    private Date logDuringtime;
 
     public Integer getLogId() {
         return logId;
@@ -39,5 +43,13 @@ public class Log {
 
     public void setLogResult(String logResult) {
         this.logResult = logResult == null ? null : logResult.trim();
+    }
+
+    public Date getLogDuringtime() {
+        return logDuringtime;
+    }
+
+    public void setLogDuringtime(Date logDuringtime) {
+        this.logDuringtime = logDuringtime;
     }
 }

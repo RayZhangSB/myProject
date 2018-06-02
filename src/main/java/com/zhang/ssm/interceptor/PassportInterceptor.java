@@ -60,7 +60,9 @@ public class PassportInterceptor implements HandlerInterceptor {
         if (ticket != null) {
             Token token = tokenMapper.selectByTicket(ticket);
             if (token == null || token.getTokenExpired().before(new Date()) || token.getTokenStatus() != 0) {
-                return true;
+                //用户未登录状态，直接跳转到
+                httpServletResponse.sendRedirect("/login");
+                return false;
             }
             User user = userMapper.selectByPrimaryKey(token.getUserId());
             AuthGroup authGroup = authGroupMapper.selectByPrimaryKey(user.getUserWorkgroup());

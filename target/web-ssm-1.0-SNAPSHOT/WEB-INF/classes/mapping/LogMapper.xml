@@ -1,198 +1,211 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zhang.ssm.mapper.LogMapper">
-    <resultMap id="BaseResultMap" type="com.zhang.ssm.pojo.Log">
-        <id column="log_id" property="logId" jdbcType="INTEGER"/>
-        <result column="user_id" property="userId" jdbcType="INTEGER"/>
-        <result column="log_exectype" property="logExectype" jdbcType="INTEGER"/>
-        <result column="log__result" property="logResult" jdbcType="VARCHAR"/>
-    </resultMap>
-    <sql id="Example_Where_Clause">
-        <where>
-            <foreach collection="oredCriteria" item="criteria" separator="or">
-                <if test="criteria.valid">
-                    <trim prefix="(" suffix=")" prefixOverrides="and">
-                        <foreach collection="criteria.criteria" item="criterion">
-                            <choose>
-                                <when test="criterion.noValue">
-                                    and ${criterion.condition}
-                                </when>
-                                <when test="criterion.singleValue">
-                                    and ${criterion.condition} #{criterion.value}
-                                </when>
-                                <when test="criterion.betweenValue">
-                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                                </when>
-                                <when test="criterion.listValue">
-                                    and ${criterion.condition}
-                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
-                                             separator=",">
-                                        #{listItem}
-                                    </foreach>
-                                </when>
-                            </choose>
-                        </foreach>
-                    </trim>
-                </if>
+<mapper namespace="com.zhang.ssm.mapper.LogMapper" >
+  <resultMap id="BaseResultMap" type="com.zhang.ssm.pojo.Log" >
+    <id column="log_id" property="logId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="log_exectype" property="logExectype" jdbcType="INTEGER" />
+    <result column="log__result" property="logResult" jdbcType="VARCHAR" />
+    <result column="log_duringtime" property="logDuringtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
             </foreach>
-        </where>
-    </sql>
-    <sql id="Update_By_Example_Where_Clause">
-        <where>
-            <foreach collection="example.oredCriteria" item="criteria" separator="or">
-                <if test="criteria.valid">
-                    <trim prefix="(" suffix=")" prefixOverrides="and">
-                        <foreach collection="criteria.criteria" item="criterion">
-                            <choose>
-                                <when test="criterion.noValue">
-                                    and ${criterion.condition}
-                                </when>
-                                <when test="criterion.singleValue">
-                                    and ${criterion.condition} #{criterion.value}
-                                </when>
-                                <when test="criterion.betweenValue">
-                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                                </when>
-                                <when test="criterion.listValue">
-                                    and ${criterion.condition}
-                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
-                                             separator=",">
-                                        #{listItem}
-                                    </foreach>
-                                </when>
-                            </choose>
-                        </foreach>
-                    </trim>
-                </if>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
             </foreach>
-        </where>
-    </sql>
-    <sql id="Base_Column_List">
-        log_id, user_id, log_exectype, log__result
-    </sql>
-    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.ssm.pojo.LogExample">
-        select
-        <if test="distinct">
-            distinct
+          </trim>
         </if>
-        <include refid="Base_Column_List"/>
-        from log
-        <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
-        </if>
-        <if test="orderByClause != null">
-            order by ${orderByClause}
-        </if>
-    </select>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-        select
-        <include refid="Base_Column_List"/>
-        from log
-        where log_id = #{logId,jdbcType=INTEGER}
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        DELETE FROM log
-        WHERE log_id = #{logId,jdbcType=INTEGER}
-    </delete>
-    <delete id="deleteByExample" parameterType="com.zhang.ssm.pojo.LogExample">
-        delete from log
-        <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
-        </if>
-    </delete>
-    <insert id="insert" parameterType="com.zhang.ssm.pojo.Log">
-        INSERT INTO log (log_id, user_id, log_exectype,
-                         log__result)
-        VALUES (#{logId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{logExectype,jdbcType=INTEGER},
-                #{logResult,jdbcType=VARCHAR})
-    </insert>
-    <insert id="insertSelective" parameterType="com.zhang.ssm.pojo.Log">
-        insert into log
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="logId != null">
-                log_id,
-            </if>
-            <if test="userId != null">
-                user_id,
-            </if>
-            <if test="logExectype != null">
-                log_exectype,
-            </if>
-            <if test="logResult != null">
-                log__result,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="logId != null">
-                #{logId,jdbcType=INTEGER},
-            </if>
-            <if test="userId != null">
-                #{userId,jdbcType=INTEGER},
-            </if>
-            <if test="logExectype != null">
-                #{logExectype,jdbcType=INTEGER},
-            </if>
-            <if test="logResult != null">
-                #{logResult,jdbcType=VARCHAR},
-            </if>
-        </trim>
-    </insert>
-    <select id="countByExample" parameterType="com.zhang.ssm.pojo.LogExample" resultType="java.lang.Integer">
-        select count(*) from log
-        <if test="_parameter != null">
-            <include refid="Example_Where_Clause"/>
-        </if>
-    </select>
-    <update id="updateByExampleSelective" parameterType="map">
-        update log
-        <set>
-            <if test="record.logId != null">
-                log_id = #{record.logId,jdbcType=INTEGER},
-            </if>
-            <if test="record.userId != null">
-                user_id = #{record.userId,jdbcType=INTEGER},
-            </if>
-            <if test="record.logExectype != null">
-                log_exectype = #{record.logExectype,jdbcType=INTEGER},
-            </if>
-            <if test="record.logResult != null">
-                log__result = #{record.logResult,jdbcType=VARCHAR},
-            </if>
-        </set>
-        <if test="_parameter != null">
-            <include refid="Update_By_Example_Where_Clause"/>
-        </if>
-    </update>
-    <update id="updateByExample" parameterType="map">
-        update log
-        set log_id = #{record.logId,jdbcType=INTEGER},
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    log_id, user_id, log_exectype, log__result, log_duringtime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.ssm.pojo.LogExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from log
+    where log_id = #{logId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from log
+    where log_id = #{logId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zhang.ssm.pojo.LogExample" >
+    delete from log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zhang.ssm.pojo.Log" >
+    insert into log (log_id, user_id, log_exectype, 
+      log__result, log_duringtime)
+    values (#{logId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{logExectype,jdbcType=INTEGER}, 
+      #{logResult,jdbcType=VARCHAR}, #{logDuringtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhang.ssm.pojo.Log" >
+    insert into log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="logId != null" >
+        log_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="logExectype != null" >
+        log_exectype,
+      </if>
+      <if test="logResult != null" >
+        log__result,
+      </if>
+      <if test="logDuringtime != null" >
+        log_duringtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="logId != null" >
+        #{logId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="logExectype != null" >
+        #{logExectype,jdbcType=INTEGER},
+      </if>
+      <if test="logResult != null" >
+        #{logResult,jdbcType=VARCHAR},
+      </if>
+      <if test="logDuringtime != null" >
+        #{logDuringtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zhang.ssm.pojo.LogExample" resultType="java.lang.Integer" >
+    select count(*) from log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update log
+    <set >
+      <if test="record.logId != null" >
+        log_id = #{record.logId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
         user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.logExectype != null" >
         log_exectype = #{record.logExectype,jdbcType=INTEGER},
-        log__result = #{record.logResult,jdbcType=VARCHAR}
-        <if test="_parameter != null">
-            <include refid="Update_By_Example_Where_Clause"/>
-        </if>
-    </update>
-    <update id="updateByPrimaryKeySelective" parameterType="com.zhang.ssm.pojo.Log">
-        update log
-        <set>
-            <if test="userId != null">
-                user_id = #{userId,jdbcType=INTEGER},
-            </if>
-            <if test="logExectype != null">
-                log_exectype = #{logExectype,jdbcType=INTEGER},
-            </if>
-            <if test="logResult != null">
-                log__result = #{logResult,jdbcType=VARCHAR},
-            </if>
-        </set>
-        where log_id = #{logId,jdbcType=INTEGER}
-    </update>
-    <update id="updateByPrimaryKey" parameterType="com.zhang.ssm.pojo.Log">
-        UPDATE log
-        SET user_id      = #{userId,jdbcType=INTEGER},
-            log_exectype = #{logExectype,jdbcType=INTEGER},
-            log__result  = #{logResult,jdbcType=VARCHAR}
-        WHERE log_id = #{logId,jdbcType=INTEGER}
-    </update>
+      </if>
+      <if test="record.logResult != null" >
+        log__result = #{record.logResult,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logDuringtime != null" >
+        log_duringtime = #{record.logDuringtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update log
+    set log_id = #{record.logId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      log_exectype = #{record.logExectype,jdbcType=INTEGER},
+      log__result = #{record.logResult,jdbcType=VARCHAR},
+      log_duringtime = #{record.logDuringtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhang.ssm.pojo.Log" >
+    update log
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="logExectype != null" >
+        log_exectype = #{logExectype,jdbcType=INTEGER},
+      </if>
+      <if test="logResult != null" >
+        log__result = #{logResult,jdbcType=VARCHAR},
+      </if>
+      <if test="logDuringtime != null" >
+        log_duringtime = #{logDuringtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where log_id = #{logId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhang.ssm.pojo.Log" >
+    update log
+    set user_id = #{userId,jdbcType=INTEGER},
+      log_exectype = #{logExectype,jdbcType=INTEGER},
+      log__result = #{logResult,jdbcType=VARCHAR},
+      log_duringtime = #{logDuringtime,jdbcType=TIMESTAMP}
+    where log_id = #{logId,jdbcType=INTEGER}
+  </update>
 </mapper>

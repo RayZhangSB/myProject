@@ -3,10 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-4.0.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 http://www.springframework.org/schema/mvc
 http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
@@ -87,7 +90,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
     <mvc:resources mapping="/js/**" location="WEB-INF/js/"/>
     <mvc:resources mapping="/css/**" location="WEB-INF/css/"/>
     <mvc:resources mapping="/images/**" location="WEB-INF/images/"/>
-
+    <mvc:resources mapping="/video/**" location="WEB-INF/video/"/>
 
     <mvc:interceptors>
         <mvc:interceptor>
@@ -97,12 +100,34 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
             <mvc:exclude-mapping path="/"/>
             <mvc:exclude-mapping path="/login"/>
             <bean id="commonInterceptor1" class="com.zhang.ssm.interceptor.PassportInterceptor"/>
-
         </mvc:interceptor>
-
-
         <!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 -->
     </mvc:interceptors>
+
+    <!--&lt;!&ndash; 通知 &ndash;&gt;-->
+    <!--<tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+        <!--<tx:attributes>-->
+            <!--&lt;!&ndash; 传播行为 &ndash;&gt;-->
+            <!--<tx:method name="save*" propagation="REQUIRED"/>-->
+            <!--<tx:method name="insert*" propagation="REQUIRED"/>-->
+            <!--<tx:method name="add*" propagation="REQUIRED"/>-->
+            <!--<tx:method name="create*" propagation="REQUIRED"/>-->
+            <!--<tx:method name="delete*" propagation="REQUIRED"/>-->
+            <!--<tx:method name="update*" propagation="REQUIRED"/>-->
+            <!--<tx:method name="register" propagation="REQUIRED"/>-->
+            <!--<tx:method name="find*" propagation="SUPPORTS" read-only="true"/>-->
+            <!--<tx:method name="select*" propagation="SUPPORTS" read-only="true"/>-->
+            <!--<tx:method name="get*" propagation="SUPPORTS" read-only="true"/>-->
+        <!--</tx:attributes>-->
+    <!--</tx:advice>-->
+    <!--&lt;!&ndash; 切面 &ndash;&gt;-->
+    <!--<aop:config>-->
+        <!--<aop:advisor advice-ref="txAdvice"-->
+                     <!--pointcut="execution(* com.zhang.ssm.service.*.*(..))"/>-->
+    <!--</aop:config>-->
+
+
+
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 

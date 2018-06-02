@@ -12,7 +12,6 @@ import java.io.File;
 public final class FileUtil {
     public static final String HEAD_SAVE_DIR = File.separator + "images" + File.separator + "profile_pictures" + File.separator;
 
-
     public static String getFileSuffix(String fileName) {
         return fileName.substring(fileName.lastIndexOf("."), fileName.length());
     }

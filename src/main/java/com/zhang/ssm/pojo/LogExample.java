@@ -1,6 +1,7 @@
 package com.zhang.ssm.pojo;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class LogExample {
@@ -351,6 +352,66 @@ public class LogExample {
 
         public Criteria andLogResultNotBetween(String value1, String value2) {
             addCriterion("log__result not between", value1, value2, "logResult");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogDuringtimeIsNull() {
+            addCriterion("log_duringtime is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogDuringtimeIsNotNull() {
+            addCriterion("log_duringtime is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogDuringtimeEqualTo(Date value) {
+            addCriterion("log_duringtime =", value, "logDuringtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogDuringtimeNotEqualTo(Date value) {
+            addCriterion("log_duringtime <>", value, "logDuringtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogDuringtimeGreaterThan(Date value) {
+            addCriterion("log_duringtime >", value, "logDuringtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogDuringtimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("log_duringtime >=", value, "logDuringtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogDuringtimeLessThan(Date value) {
+            addCriterion("log_duringtime <", value, "logDuringtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogDuringtimeLessThanOrEqualTo(Date value) {
+            addCriterion("log_duringtime <=", value, "logDuringtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogDuringtimeIn(List<Date> values) {
+            addCriterion("log_duringtime in", values, "logDuringtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogDuringtimeNotIn(List<Date> values) {
+            addCriterion("log_duringtime not in", values, "logDuringtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogDuringtimeBetween(Date value1, Date value2) {
+            addCriterion("log_duringtime between", value1, value2, "logDuringtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andLogDuringtimeNotBetween(Date value1, Date value2) {
+            addCriterion("log_duringtime not between", value1, value2, "logDuringtime");
             return (Criteria) this;
         }
     }

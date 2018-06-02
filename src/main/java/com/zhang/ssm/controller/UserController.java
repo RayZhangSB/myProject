@@ -69,14 +69,14 @@ public class UserController {
 
     @RequestMapping(value = "/initShowInfo", method = RequestMethod.GET)
     @ResponseBody
-    public String forUserSimpleInfo() {
-        return userService.initUserInfoShow();
+    public String getUserSimpleInfo() {
+        return userService.getUserSimpleInfo();
     }
 
 
     @RequestMapping(value = "/getUserInfo", method = RequestMethod.GET)
     @ResponseBody
-    public String forUserInfo() {
+    public String getUserInfo() {
         return userService.getUserInfo();
     }
 

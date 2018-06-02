@@ -132,7 +132,7 @@ public class UserServiceImpl implements UserService {
     }
 
 
-    public String initUserInfoShow() {
+    public String getUserSimpleInfo() {
         ResponseResult responseResult = ResponseResult.ok();
         User user = userHolder.getUser();
         if (user == null) {

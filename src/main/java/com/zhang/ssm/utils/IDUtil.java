@@ -9,13 +9,6 @@ import java.util.UUID;
 
 /**
  * 各种id生成策略
- * <p>Title: IDUtil</p>
- * <p>Description: </p>
- * <p>Company: www.itcast.com</p>
- *
- * @version 1.0
- * @author 入云龙
- * @date 2015年7月22日下午2:32:10
  */
 public final class IDUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(IDUtil.class);

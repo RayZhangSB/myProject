@@ -1,149 +1,189 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta name="renderer" content="webkit">
-    <title></title>
-    <link rel="stylesheet" href=" /css/pintuer.css">
-    <link rel="stylesheet" href=" /css/admin.css">
-    <script src=" /js/jquery.js"></script>
-    <script src=" /js/pintuer.js"></script>
-</head>
-<body>
-<div class="panel admin-panel">
-    <div class="panel-head"><strong class="icon-reorder"> 内容列表</strong></div>
-    <div class="padding border-bottom">
-        <button type="button" class="button border-yellow" onclick="window.location.href='#add'"><span
-                class="icon-plus-square-o"/> 添加内容
-        </button>
-    </div>
-    <table class="table table-hover text-center">
-        <tr>
-            <th width="10%">ID</th>
-            <th width="20%">图片</th>
-            <th width="15%">名称</th>
-            <th width="20%">描述</th>
-            <th width="10%">排序</th>
-            <th width="15%">操作</th>
-        </tr>
-
-        <tr>
-            <td>1</td>
-            <td><img src="../images/11.jpg" alt="" width="120" height="50"/></td>
-            <td>首页焦点图</td>
-            <td>描述文字....</td>
-            <td>1</td>
-            <td>
-                <div class="button-group">
-                    <a class="button border-main" href="#add"><span class="icon-edit"/> 修改</a>
-                    <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1)"><span
-                            class="icon-trash-o"/> 删除</a>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td><img src="../images/11.jpg" alt="" width="120" height="50"/></td>
-            <td>首页焦点图</td>
-            <td>描述文字....</td>
-            <td>1</td>
-            <td>
-                <div class="button-group">
-                    <a class="button border-main" href="#add"><span class="icon-edit"/> 修改</a>
-                    <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1)"><span
-                            class="icon-trash-o"/> 删除</a>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td><img src="../images/11.jpg" alt="" width="120" height="50"/></td>
-            <td>首页焦点图</td>
-            <td>描述文字....</td>
-            <td>1</td>
-            <td>
-                <div class="button-group">
-                    <a class="button border-main" href="#add"><span class="icon-edit"/> 修改</a>
-                    <a class="button border-red" href="javascript:void(0)" onclick="return del(1,1)"><span
-                            class="icon-trash-o"/> 删除</a>
-                </div>
-            </td>
-        </tr>
-
-    </table>
-</div>
-<script type="text/javascript">
-    function del(id, mid) {
-        if (confirm("您确定要删除吗?")) {
+    <meta charset="utf-8">
+    <style type="text/css">
+        #player{
+            margin: 10px;
+        }
+        .btn_e{
+            text-align: center;
+            width: 115px;
+            height: 55px;
+            background:#0099FF;
+            color:#f2f2f2;
+            margin-left: 10px;
+            padding: 10px;
+            font-size:20px;
+            font-family: 宋体,Arial;
+            font-weight:bold;
+            border-radius:28px;
+            border-width:5px ;
 
         }
-    }
-</script>
-<div class="panel admin-panel margin-top" id="add">
-    <div class="panel-head"><strong><span class="icon-pencil-square-o"/> 增加内容</strong></div>
-    <div class="body-content">
-        <form method="post" class="form-x" action="">
-            <div class="form-group">
-                <div class="label">
-                    <label>标题：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input w50" value="" name="title" data-validate="required:请输入标题"/>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>URL：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input w50" name="url" value=""/>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>图片：</label>
-                </div>
-                <div class="field">
-                    <input type="text" id="url1" name="img" class="input tips" style="width:25%; float:left;" value=""
-                           data-toggle="hover" data-place="right" data-image=""/>
-                    <input type="button" class="button bg-blue margin-left" id="image1" value="+ 浏览上传"
-                           style="float:left;">
-                    <div class="tipss">图片尺寸：1920*500</div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>描述：</label>
-                </div>
-                <div class="field">
-                    <textarea type="text" class="input" name="note" style="height:120px;" value=""/>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label>排序：</label>
-                </div>
-                <div class="field">
-                    <input type="text" class="input w50" name="sort" value="0"
-                           data-validate="required:,number:排序必须为数字"/>
-                    <div class="tips"></div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="label">
-                    <label/>
-                </div>
-                <div class="field">
-                    <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
-                </div>
-            </div>
-        </form>
+
+    </style>
+
+
+    <script src="/js/video-js-5.19.2/jquery-2.2.3.min.js"></script>
+    <link rel="stylesheet" href="/js/video-js-5.19.2/video-js.css"/>
+    <script src="/js/video-js-5.19.2/video.js"></script>
+</head>
+<body>
+
+<div id="container" style="width:1600px">
+
+    <div id="header" >
+        <h1 style="margin-bottom:0;width: 300px">多路视频监控操作台</h1>
     </div>
+
+    <div id="menu" style="height:670px;width:900px;float:left;">
+
+        <div>
+            <!--<video id = "player" style="width: 980px;height: 585px;background-color: #1e1b29"   >-->
+            <!--<source src="/video/sintel.mp4" type="video/mp4">-->
+            <!--</video>-->
+            <!--<embed align="center" type="application/hwp-webvideo-plugin" width="880" height="585" name="webVideoCtrl20180602115305" wndtype="1" playmode="1" colors="">-->
+
+        </div>
+        <div>
+            <button class="btn_e" id="btn1" style="border-color: rgb(220, 220, 220);float:left "  onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'"  >播放</button>
+            <button class="btn_e" id ="btn2"style="border-color: rgb(220, 220, 220);float:left "  onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">全屏播放</button>
+            <button class="btn_e" id="btn3"style="border-color: rgb(220, 220, 220);float:left "  onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'" >暂停</button>
+            <button class="btn_e" id ="btn4"style="border-color: rgb(220, 220, 220);float:left "  onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">抓图</button>
+            <button class="btn_e" id = "btn5" style="border-color: rgb(220, 220, 220);float:left;"  onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">录像</button>
+            <button class="btn_e" id = "btn6" style="border-color: rgb(220, 220, 220);float:left;"  onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">复位</button>
+
+            <select class="btn_e" id = "btn7" style="border-color: rgb(220, 220, 220);"  onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">
+                <option value="0">请选择</option>
+                <option value="线路1">线路1</option>
+                <option value="线路2">线路2</option>
+                <option value="线路3">线路3</option>
+                <option value="线路4">线路4</option>
+                <option value="线路5">线路5</option>
+                <option value="线路6">线路6</option>
+                <option value="线路7">线路7</option>
+                <option value="线路8">线路8</option>
+
+            </select>
+
+
+        </div>
+
+    </div>
+
+    <div id="content" style="height:670px;width:700px;float:left;">
+
+
+        <div style="float: left;width: 350px;height: 100%;background-color: blue">
+            <div >
+                <img  src="/images/ab_images/1.jpg" style="height: 220px;width: 350px">
+            </div>
+
+            <div >
+                <img  src="/images/ab_images/2.jpg" style="height: 220px;width: 350px">
+            </div>
+            <div >
+                <img  src="/images/ab_images/3.jpg" style="height: 220px;width: 350px">
+            </div>
+        </div>
+        <div  style="width: 350px;height: 100%;float:left;background-color:hotpink">
+            <div >
+                <fieldset class="localconfig">
+                    <legend>本地配置</legend>
+                    <table cellpadding="0" cellspacing="3" border="0">
+                        <tr>
+                            <td class="tt">播放性能</td>
+                            <td>
+                                <select id="netsPreach" name="netsPreach" class="sel">
+                                    <option value="0">最短延时</option>
+                                    <option value="1">实时性好</option>
+                                    <option value="2">均衡</option>
+                                    <option value="3">流畅性好</option>
+                                </select>
+                            </td>
+                            <td class="tt">图像尺寸</td>
+                            <td>
+                                <select id="wndSize" name="wndSize" class="sel">
+                                    <option value="0">充满</option>
+                                    <option value="1">4:3</option>
+                                    <option value="2">16:9</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tt">录像打包大小</td>
+                            <td>
+                                <select id="packSize" name="packSize" class="sel">
+                                    <option value="0">256M</option>
+                                    <option value="1">512M</option>
+                                    <option value="2">1G</option>
+                                </select>
+                            </td>
+                            <td class="tt">抓图文件格式</td>
+                            <td>
+                                <select id="captureFileFormat" name="captureFileFormat" class="sel">
+                                    <option value="0">JPEG</option>
+                                    <option value="1">BMP</option>
+                                    <option value="2">PNG</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tt">录像保存路径</td>
+                            <td colspan="3"><input id="recordPath" type="text" class="txt" />&nbsp;<input type="button" class="btn" value="浏览" onclick="clickOpenFileDlg('recordPath', 0);" /></td>
+                        </tr>
+
+                        <tr>
+                            <td class="tt">抓图保存路径</td>
+                            <td colspan="3"><input id="previewPicPath" type="text" class="txt" />&nbsp;<input type="button" class="btn" value="浏览" onclick="clickOpenFileDlg('previewPicPath', 0);" /></td>
+                        </tr>
+
+                        <tr>
+                            <input type="button" class="btn" value="设置" onclick="clickSetLocalCfg();" /></td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </div>
+            <div>
+                <fieldset class="operate">
+                    <legend>操作信息</legend>
+                    <div id="opinfo" class="opinfo" style="height: 150px"></div>
+                </fieldset>
+            </div>
+        </div>
+
+    </div>
+
 </div>
+<script type="text/javascript">
+    window.load=function(){
+        var oStart = document.getElementById('btn1');
+        var oVideo = document.getElementById('videojs');
+        oStart.onclick=function(){
+            oVideo.play();
+        }
+    };
+
+
+
+    videojs.options.flash.swf = '/js/video-js-5.19.2/video-js-fixed.swf';
+    videojs.options.techOrder = ['html5','flash'];
+    var player = null;
+    // var videoUrl="rtmp://127.0.0.1:10935/hls/stream_1";
+    var videoUrl="/video/sintel.mp4";
+    player = videojs("videojs",{
+        notSupportedMessage : '您的浏览器没有安装或开启Flash,戳我开启！',
+        techOrder : ["flash"],
+        autoplay : true
+    });
+    player.on("error",function(e){
+        var $e = $(".vjs-error .vjs-error-display .vjs-modal-dialog-content");
+        var $a = $("<a href='http://www.adobe.com/go/getflashplayer' target='_blank'></a>").text($e.text());
+        $e.empty().append($a);
+    });
+
+</script>
 </body>
+
 </html>

@@ -15,6 +15,7 @@ import java.util.Date;
  * @Version 1.0
  **/
 public final class DateUtil {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(DateUtil.class);
     private static SimpleDateFormat sdf;
 

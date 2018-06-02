@@ -21,7 +21,7 @@ public interface UserService {
 
     String rememberLogin(String ticket);
 
-    String initUserInfoShow();
+    String getUserSimpleInfo();
 
     String getUserInfo();
 
