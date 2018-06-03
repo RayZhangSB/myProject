@@ -29,6 +29,10 @@
     <script src="/js/video-js-5.19.2/jquery-2.2.3.min.js"></script>
     <link rel="stylesheet" href="/js/video-js-5.19.2/video-js.css"/>
     <script src="/js/video-js-5.19.2/video.js"></script>
+    <script type="text/javascript">
+        videojs.options.flash.swf = "/js/video-js-5.19.2/video-js.swf";
+        function clickSetLocalCfg(){}
+    </script>
 </head>
 <body>
 
@@ -45,31 +49,36 @@
             <!--<source src="/video/sintel.mp4" type="video/mp4">-->
             <!--</video>-->
             <!--<embed align="center" type="application/hwp-webvideo-plugin" width="880" height="585" name="webVideoCtrl20180602115305" wndtype="1" playmode="1" colors="">-->
-
+            <video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none" width="880" height="585"
+                   poster="http://video-js.zencoder.com/oceans-clip.png"
+                   data-setup="{}">
+                <!--<source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />-->
+                <source src="rtmp://live.hkstv.hk.lxdns.com/live/hks" type="rtmp/flv"/>
+            </video>
         </div>
         <div>
-            <button class="btn_e" id="btn1" style="border-color: rgb(220, 220, 220);float:left "
-                    onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">播放
-            </button>
-            <button class="btn_e" id="btn2" style="border-color: rgb(220, 220, 220);float:left "
-                    onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">全屏播放
-            </button>
-            <button class="btn_e" id="btn3" style="border-color: rgb(220, 220, 220);float:left "
-                    onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">暂停
-            </button>
+            <!--<button class="btn_e" id="btn1" style="border-color: rgb(220, 220, 220);float:left "-->
+                    <!--onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'"  onclick="Monitorplay()">播放-->
+            <!--</button>-->
+            <!--<button class="btn_e" id="btn2" style="border-color: rgb(220, 220, 220);float:left "-->
+                    <!--onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">全屏播放-->
+            <!--</button>-->
+            <!--<button class="btn_e" id="btn3" style="border-color: rgb(220, 220, 220);float:left "-->
+                    <!--onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">暂停-->
+            <!--</button>-->
             <button class="btn_e" id="btn4" style="border-color: rgb(220, 220, 220);float:left "
                     onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">抓图
             </button>
             <button class="btn_e" id="btn5" style="border-color: rgb(220, 220, 220);float:left;"
-                    onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">录像
-            </button>
-            <button class="btn_e" id="btn6" style="border-color: rgb(220, 220, 220);float:left;"
                     onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">复位
             </button>
+            <!--<button class="btn_e" id="btn6" style="border-color: rgb(220, 220, 220);float:left;"-->
+                    <!--onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">复位-->
+            <!--</button>-->
 
             <select class="btn_e" id="btn7" style="border-color: rgb(220, 220, 220);"
                     onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">
-                <option value="0">请选择</option>
+                <option value="0">线路</option>
                 <option value="线路1">线路1</option>
                 <option value="线路2">线路2</option>
                 <option value="线路3">线路3</option>
@@ -106,25 +115,7 @@
                 <fieldset class="localconfig">
                     <legend>本地配置</legend>
                     <table cellpadding="0" cellspacing="3" border="0">
-                        <tr>
-                            <td class="tt">播放性能</td>
-                            <td>
-                                <select id="netsPreach" name="netsPreach" class="sel">
-                                    <option value="0">最短延时</option>
-                                    <option value="1">实时性好</option>
-                                    <option value="2">均衡</option>
-                                    <option value="3">流畅性好</option>
-                                </select>
-                            </td>
-                            <td class="tt">图像尺寸</td>
-                            <td>
-                                <select id="wndSize" name="wndSize" class="sel">
-                                    <option value="0">充满</option>
-                                    <option value="1">4:3</option>
-                                    <option value="2">16:9</option>
-                                </select>
-                            </td>
-                        </tr>
+
                         <tr>
                             <td class="tt">录像打包大小</td>
                             <td>
@@ -145,18 +136,13 @@
                         </tr>
                         <tr>
                             <td class="tt">录像保存路径</td>
-                            <td colspan="3"><input id="recordPath" type="text" class="txt"/>&nbsp;<input type="button"
-                                                                                                         class="btn"
-                                                                                                         value="浏览"
-                                                                                                         onclick="clickOpenFileDlg('recordPath', 0);"/>
+                            <td colspan="3"><input id="recordPath" type="text" class="txt"/>&nbsp;
                             </td>
                         </tr>
 
                         <tr>
                             <td class="tt">抓图保存路径</td>
-                            <td colspan="3"><input id="previewPicPath" type="text" class="txt"/>&nbsp;<input
-                                    type="button" class="btn" value="浏览"
-                                    onclick="clickOpenFileDlg('previewPicPath', 0);"/></td>
+                            <td colspan="3"><input id="previewPicPath" type="text" class="txt"/>&nbsp;
                         </tr>
 
                         <tr>
@@ -168,7 +154,7 @@
             <div>
                 <fieldset class="operate">
                     <legend>操作信息</legend>
-                    <div id="opinfo" class="opinfo" style="height: 150px"></div>
+                    <div id="opinfo" class="opinfo" style="height:425px"></div>
                 </fieldset>
             </div>
         </div>
@@ -176,33 +162,7 @@
     </div>
 
 </div>
-<script type="text/javascript">
-    window.load = function () {
-        var oStart = document.getElementById('btn1');
-        var oVideo = document.getElementById('videojs');
-        oStart.onclick = function () {
-            oVideo.play();
-        }
-    };
 
-
-    videojs.options.flash.swf = '/js/video-js-5.19.2/video-js-fixed.swf';
-    videojs.options.techOrder = ['html5', 'flash'];
-    var player = null;
-    // var videoUrl="rtmp://127.0.0.1:10935/hls/stream_1";
-    var videoUrl = "/video/sintel.mp4";
-    player = videojs("videojs", {
-        notSupportedMessage: '您的浏览器没有安装或开启Flash,戳我开启！',
-        techOrder: ["flash"],
-        autoplay: true
-    });
-    player.on("error", function (e) {
-        var $e = $(".vjs-error .vjs-error-display .vjs-modal-dialog-content");
-        var $a = $("<a href='http://www.adobe.com/go/getflashplayer' target='_blank'></a>").text($e.text());
-        $e.empty().append($a);
-    });
-
-</script>
 </body>
 
 </html>

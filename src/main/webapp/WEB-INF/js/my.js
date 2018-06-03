@@ -80,3 +80,11 @@ function fnW(str) {
 function checkObjValid(obj) {
     return (obj !== null && obj !== undefined && obj !== "");
 }
+
+
+
+function showOPInfo(szInfo) {
+    szInfo = "<div>" + dateFormat(new Date(), "yyyy-MM-dd hh:mm:ss") + " " + szInfo + "</div>";
+    $("#opinfo").html(szInfo + $("#opinfo").html());
+}
+

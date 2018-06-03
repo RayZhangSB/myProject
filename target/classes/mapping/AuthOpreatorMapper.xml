@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhang.ssm.mapper.AuthOpreatorMapper">
+    <resultMap id="BaseResultMap" type="com.zhang.ssm.pojo.AuthOpreator">
+        <id column="auth_scope" property="authScope" jdbcType="VARCHAR"/>
+        <result column="user_authority" property="userAuthority" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Base_Column_List">
+        auth_scope, user_authority
+    </sql>
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.ssm.pojo.AuthOpreatorExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from auth_opreator
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from auth_opreator
+        where auth_scope = #{authScope,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        DELETE FROM auth_opreator
+        WHERE auth_scope = #{authScope,jdbcType=VARCHAR}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.zhang.ssm.pojo.AuthOpreatorExample">
+        delete from auth_opreator
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <insert id="insert" parameterType="com.zhang.ssm.pojo.AuthOpreator">
+        INSERT INTO auth_opreator (auth_scope, user_authority)
+        VALUES (#{authScope,jdbcType=VARCHAR}, #{userAuthority,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" parameterType="com.zhang.ssm.pojo.AuthOpreator">
+        insert into auth_opreator
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="authScope != null">
+                auth_scope,
+            </if>
+            <if test="userAuthority != null">
+                user_authority,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="authScope != null">
+                #{authScope,jdbcType=VARCHAR},
+            </if>
+            <if test="userAuthority != null">
+                #{userAuthority,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <select id="countByExample" parameterType="com.zhang.ssm.pojo.AuthOpreatorExample" resultType="java.lang.Integer">
+        select count(*) from auth_opreator
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update auth_opreator
+        <set>
+            <if test="record.authScope != null">
+                auth_scope = #{record.authScope,jdbcType=VARCHAR},
+            </if>
+            <if test="record.userAuthority != null">
+                user_authority = #{record.userAuthority,jdbcType=INTEGER},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update auth_opreator
+        set auth_scope = #{record.authScope,jdbcType=VARCHAR},
+        user_authority = #{record.userAuthority,jdbcType=INTEGER}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByPrimaryKeySelective" parameterType="com.zhang.ssm.pojo.AuthOpreator">
+        update auth_opreator
+        <set>
+            <if test="userAuthority != null">
+                user_authority = #{userAuthority,jdbcType=INTEGER},
+            </if>
+        </set>
+        where auth_scope = #{authScope,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.zhang.ssm.pojo.AuthOpreator">
+        UPDATE auth_opreator
+        SET user_authority = #{userAuthority,jdbcType=INTEGER}
+        WHERE auth_scope = #{authScope,jdbcType=VARCHAR}
+    </update>
+</mapper>
