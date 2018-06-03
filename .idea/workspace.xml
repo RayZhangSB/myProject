@@ -7,16 +7,293 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e65b417-6b6d-4c03-84df-558e2609b6df" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/console_pojo/AvailableLines.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/console_pojo/ConfigGlobal.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/console_pojo/UserConfig.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/AbDetectionController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/AbDetectionService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/ConfigUtil.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/demo.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adv.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adv.html" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/Controller/ForwardController.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/Controller/UserController.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/Service/UserService.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/Service/impl/UserServiceImpl.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/Utils/DateUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/Utils/StringUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/WrapperPOJO/ResponseResult.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/controller/MonitorController.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/holder/AuthCodeHolder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/holder/MonitorsScopeHolder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/holder/UserHolder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/interceptor/PassportInterceptor.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/mapper/AbnormalInfoMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/mapper/AuthGroupMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/mapper/AuthOpreatorMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/mapper/DeviceMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/mapper/LogMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/mapper/PointMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/mapper/TokenMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/mapper/UserMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/AbnormalInfo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/AbnormalInfoExample$Criteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/AbnormalInfoExample$Criterion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/AbnormalInfoExample$GeneratedCriteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/AbnormalInfoExample.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/AuthGroup.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/AuthGroupExample$Criteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/AuthGroupExample$Criterion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/AuthGroupExample$GeneratedCriteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/AuthGroupExample.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/AuthOpreator.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/AuthOpreatorExample$Criteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/AuthOpreatorExample$Criterion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/AuthOpreatorExample$GeneratedCriteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/AuthOpreatorExample.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/Device.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/DeviceExample$Criteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/DeviceExample$Criterion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/DeviceExample$GeneratedCriteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/DeviceExample.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/Log.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/LogExample$Criteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/LogExample$Criterion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/LogExample$GeneratedCriteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/LogExample.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/Point.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/PointExample$Criteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/PointExample$Criterion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/PointExample$GeneratedCriteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/PointExample.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/Token.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/TokenExample$Criteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/TokenExample$Criterion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/TokenExample$GeneratedCriteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/TokenExample.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/User.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/UserExample$Criteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/UserExample$Criterion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/UserExample$GeneratedCriteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/pojo/UserExample.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/service/RealMonitorDataService.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/service/impl/RealMonitorDataServiceImpl.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/utils/AuthUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/utils/CookieUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/utils/FileUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/utils/IDUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/utils/JsonUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhang/ssm/wrapperPojo/SimulationData.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ftp.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jdbc.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapping/AbnormalInfoMapper.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapping/AuthGroupMapper.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapping/AuthOpreatorMapper.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapping/DeviceMapper.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapping/LogMapper.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapping/PointMapper.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapping/TokenMapper.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapping/UserMapper.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring-mvc.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring-mybatis.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/velocity.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/testJson/testJsonUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT.war" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/Controller/ForwardController.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/Controller/UserController.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/Service/UserService.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/Service/impl/UserServiceImpl.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/Utils/DateUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/Utils/StringUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/WrapperPOJO/ResponseResult.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/controller/MonitorController.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/holder/AuthCodeHolder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/holder/MonitorsScopeHolder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/holder/UserHolder.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/interceptor/PassportInterceptor.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/mapper/AbnormalInfoMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/mapper/AuthGroupMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/mapper/AuthOpreatorMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/mapper/DeviceMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/mapper/LogMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/mapper/PointMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/mapper/TokenMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/mapper/UserMapper.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/AbnormalInfo.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/AbnormalInfoExample$Criteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/AbnormalInfoExample$Criterion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/AbnormalInfoExample$GeneratedCriteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/AbnormalInfoExample.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/AuthGroup.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/AuthGroupExample$Criteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/AuthGroupExample$Criterion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/AuthGroupExample$GeneratedCriteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/AuthGroupExample.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/AuthOpreator.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/AuthOpreatorExample$Criteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/AuthOpreatorExample$Criterion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/AuthOpreatorExample$GeneratedCriteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/AuthOpreatorExample.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/Device.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/DeviceExample$Criteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/DeviceExample$Criterion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/DeviceExample$GeneratedCriteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/DeviceExample.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/Log.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/LogExample$Criteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/LogExample$Criterion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/LogExample$GeneratedCriteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/LogExample.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/Point.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/PointExample$Criteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/PointExample$Criterion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/PointExample$GeneratedCriteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/PointExample.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/Token.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/TokenExample$Criteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/TokenExample$Criterion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/TokenExample$GeneratedCriteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/TokenExample.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/User.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/UserExample$Criteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/UserExample$Criterion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/UserExample$GeneratedCriteria.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/pojo/UserExample.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/service/RealMonitorDataService.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/service/impl/RealMonitorDataServiceImpl.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/utils/AuthUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/utils/CookieUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/utils/FileUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/utils/IDUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/utils/JsonUtil.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/com/zhang/ssm/wrapperPojo/SimulationData.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/ftp.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/jdbc.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/log4j.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/mapping/AbnormalInfoMapper.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/mapping/AuthGroupMapper.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/mapping/AuthOpreatorMapper.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/mapping/DeviceMapper.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/mapping/LogMapper.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/mapping/PointMapper.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/mapping/TokenMapper.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/mapping/UserMapper.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/spring-mvc.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/spring-mybatis.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/classes/velocity.properties" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/css/admin.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/css/common.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/css/font-awesome.min.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/css/pintuer.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/css/reset.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/favicon.ico" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/fonts/FontAwesome.otf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/fonts/fontawesome-webfont.eot" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/fonts/fontawesome-webfont.svg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/fonts/fontawesome-webfont.ttf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/fonts/fontawesome-webfont.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/fonts/fontawesome-webfont.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/images/11.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/images/ab_images/1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/images/ab_images/2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/images/ab_images/3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/images/bg.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/images/favicon.ico" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/images/loading.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/images/loading1.gif" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/images/logo_bg.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/images/logowz.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/images/passcode.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/images/tmbg-white.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/images/y.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/chart/highcharts.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/chart/modules/export-data.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/chart/modules/exporting.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/chart/modules/series-label.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/common.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/jquery.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/my.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/pintuer.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/video-js-5.19.2/ie8/videojs-ie8.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/video-js-5.19.2/ie8/videojs-ie8.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/video-js-5.19.2/jquery-2.2.3.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/video-js-5.19.2/lang/en.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/video-js-5.19.2/lang/zh-CN.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/video-js-5.19.2/video-js-fixed.swf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/video-js-5.19.2/video-js.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/video-js-5.19.2/video-js.min.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/video-js-5.19.2/video-js.swf" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/video-js-5.19.2/video.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/video-js-5.19.2/video.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/video-js-5.19.2/videojs-contrib-hls.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/video-js-5.19.2/videojs-contrib-hls4.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/js/webVideoCtrl.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/activation-1.1.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/antlr-2.7.2.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/aopalliance-1.0.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/commons-beanutils-1.7.0.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/commons-chain-1.1.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/commons-codec-1.9.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/commons-collections-3.2.1.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/commons-dbcp-1.2.2.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/commons-digester-1.8.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/commons-fileupload-1.3.1.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/commons-io-2.4.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/commons-lang-2.4.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/commons-logging-1.2.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/commons-net-3.1.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/commons-pool-1.3.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/commons-validator-1.3.1.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/dom4j-1.1.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/fastjson-1.1.41.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/freemarker-gae-2.3.18.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/jackson-annotations-2.8.0.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/jackson-core-2.8.0.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/jackson-core-asl-1.9.13.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/jackson-databind-2.8.0.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/jackson-mapper-asl-1.9.13.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/javaee-api-7.0.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/javax.mail-1.5.0.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/jstl-1.2.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/log4j-1.2.17.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/mybatis-3.2.8.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/mybatis-spring-1.2.2.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/mysql-connector-java-5.1.29.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/oro-2.0.8.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/pagehelper-3.4.2.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/slf4j-api-1.7.18.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/slf4j-log4j12-1.7.18.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/spring-aop-4.2.5.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/spring-beans-4.2.5.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/spring-context-4.2.5.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/spring-context-support-4.2.5.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/spring-core-4.2.5.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/spring-expression-4.2.5.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/spring-jdbc-4.2.5.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/spring-oxm-4.2.5.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/spring-test-4.2.5.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/spring-tx-4.2.5.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/spring-web-4.2.5.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/spring-webmvc-4.2.5.RELEASE.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/sslext-1.2-0.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/struts-core-1.3.8.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/struts-taglib-1.3.8.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/struts-tiles-1.3.8.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/velocity-1.7.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/lib/velocity-tools-2.0.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/toolbox.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/view/adv.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/view/book.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/view/cate.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/view/cateedit.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/view/column.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/view/index.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/view/info.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/view/list.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/view/login.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/view/newPassword.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/view/page.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/view/register.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/view/spy.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/view/tips.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/web-ssm-1.0-SNAPSHOT/WEB-INF/web.xml" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -48,10 +325,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/ConfigUtil.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
-              <caret line="18" column="73" lean-forward="false" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
+              <caret line="18" column="72" lean-forward="false" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#387#408#0" expanded="true" />
+                <element signature="e#388#409#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,7 +348,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/console_pojo/AvailableLines.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
-              <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+              <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#326#342#0" expanded="true" />
@@ -84,7 +361,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="528">
-              <caret line="39" column="112" lean-forward="true" selection-start-line="39" selection-start-column="112" selection-end-line="39" selection-end-column="112" />
+              <caret line="39" column="112" lean-forward="false" selection-start-line="39" selection-start-column="112" selection-end-line="39" selection-end-column="112" />
               <folding />
             </state>
           </provider>
@@ -94,7 +371,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="120" column="60" lean-forward="true" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="60" />
+              <caret line="120" column="60" lean-forward="false" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -104,13 +381,13 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/AbDetectionController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="504">
-              <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+              <caret line="25" column="17" lean-forward="false" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#555#566#0" expanded="true" />
-                <element signature="e#702#731#0" expanded="true" />
-                <element signature="e#809#810#0" expanded="true" />
-                <element signature="e#868#869#0" expanded="true" />
+                <element signature="e#703#732#0" expanded="true" />
+                <element signature="e#811#812#0" expanded="true" />
+                <element signature="e#870#871#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -129,8 +406,8 @@
       <file leaf-file-name="AbDetectionServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+            <state relative-caret-position="635">
+              <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -318,7 +595,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="75" />
     <option name="width" value="1806" />
-    <option name="height" value="987" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -878,7 +1155,7 @@
       <workItem from="1527835971849" duration="2362000" />
       <workItem from="1527901371454" duration="23928000" />
       <workItem from="1527948217021" duration="1001000" />
-      <workItem from="1527988114687" duration="18418000" />
+      <workItem from="1527988114687" duration="20203000" />
     </task>
     <task id="LOCAL-00001" summary="page complete">
       <created>1526534166783</created>
@@ -1041,7 +1318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527948615953</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="添加可扩展的用户配置和全局配置项（预留）">
+      <created>1528021943203</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1528021943203</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1077,13 +1361,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="475795000" />
+    <option name="totallyTimeSpent" value="477580000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="0" width="1806" height="987" extended-state="0" />
+    <frame x="75" y="0" width="1806" height="1038" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.056603774" sideWeight="0.5128635" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1701891" sideWeight="0.5128635" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1185,7 +1469,8 @@
     <MESSAGE value="用户头像上传" />
     <MESSAGE value="提供用户信息更新" />
     <MESSAGE value="视频监控页添加" />
-    <option name="LAST_COMMIT_MESSAGE" value="视频监控页添加" />
+    <MESSAGE value="添加可扩展的用户配置和全局配置项（预留）" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加可扩展的用户配置和全局配置项（预留）" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1210,20 +1495,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/CookieUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/DateUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/FtpUtil.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/ExceptionUtil.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/FileUtil.java">
@@ -1433,8 +1704,8 @@
         <state relative-caret-position="24">
           <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="18" />
           <folding>
-            <element signature="e#3539#4398#0" expanded="true" />
-            <element signature="e#3800#4139#0" expanded="true" />
+            <element signature="e#3539#4398#0" expanded="false" />
+            <element signature="e#3800#4139#0" expanded="false" />
             <marker date="1527989926565" expanded="true" signature="655:778" ph="{...}" />
           </folding>
         </state>
@@ -1488,18 +1759,18 @@
         <state relative-caret-position="96">
           <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
           <folding>
-            <element signature="e#335#336#0" expanded="true" />
-            <element signature="e#368#369#0" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#464#465#0" expanded="true" />
-            <element signature="e#503#504#0" expanded="true" />
-            <element signature="e#538#539#0" expanded="true" />
-            <element signature="e#594#595#0" expanded="true" />
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#686#687#0" expanded="true" />
-            <element signature="e#726#727#0" expanded="true" />
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#850#851#0" expanded="true" />
+            <element signature="e#335#336#0" expanded="false" />
+            <element signature="e#368#369#0" expanded="false" />
+            <element signature="e#420#421#0" expanded="false" />
+            <element signature="e#464#465#0" expanded="false" />
+            <element signature="e#503#504#0" expanded="false" />
+            <element signature="e#538#539#0" expanded="false" />
+            <element signature="e#594#595#0" expanded="false" />
+            <element signature="e#642#643#0" expanded="false" />
+            <element signature="e#686#687#0" expanded="false" />
+            <element signature="e#726#727#0" expanded="false" />
+            <element signature="e#792#793#0" expanded="false" />
+            <element signature="e#850#851#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1511,8 +1782,8 @@
           <folding>
             <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#fieldset#0;n#div#1;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#fieldset#0;n#div#1;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1536,10 +1807,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/ConfigUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
-          <caret line="18" column="73" lean-forward="false" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
+          <caret line="18" column="72" lean-forward="false" selection-start-line="18" selection-start-column="72" selection-end-line="18" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#387#408#0" expanded="true" />
+            <element signature="e#388#409#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1563,7 +1834,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/console_pojo/AvailableLines.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+          <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#326#342#0" expanded="true" />
@@ -1574,7 +1845,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
-          <caret line="39" column="112" lean-forward="true" selection-start-line="39" selection-start-column="112" selection-end-line="39" selection-end-column="112" />
+          <caret line="39" column="112" lean-forward="false" selection-start-line="39" selection-start-column="112" selection-end-line="39" selection-end-column="112" />
           <folding />
         </state>
       </provider>
@@ -1582,13 +1853,13 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/AbDetectionController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
-          <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+          <caret line="25" column="17" lean-forward="false" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#555#566#0" expanded="true" />
-            <element signature="e#702#731#0" expanded="true" />
-            <element signature="e#809#810#0" expanded="true" />
-            <element signature="e#868#869#0" expanded="true" />
+            <element signature="e#703#732#0" expanded="true" />
+            <element signature="e#811#812#0" expanded="true" />
+            <element signature="e#870#871#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1596,15 +1867,25 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="120" column="60" lean-forward="true" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="60" />
+          <caret line="120" column="60" lean-forward="false" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/images/passcode.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/images/logowz.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+        <state relative-caret-position="635">
+          <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
