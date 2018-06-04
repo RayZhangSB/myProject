@@ -7,6 +7,12 @@
           <element id="module-output" name="webssm" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.bytedeco:javacv:1.4.1" />
+          <element id="library" level="project" name="Maven: org.bytedeco:javacpp:1.4.1" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:opencv:3.4.1-1.4.1" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:opencv:windows-x86_64:3.4.1-1.4.1" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:ffmpeg:3.4.2-1.4.1" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:ffmpeg:windows-x86_64:3.4.2-1.4.1" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.0" />
           <element id="library" level="project" name="Maven: commons-net:commons-net:3.1" />
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />

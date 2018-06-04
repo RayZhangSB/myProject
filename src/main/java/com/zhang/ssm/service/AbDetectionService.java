@@ -1,9 +1,9 @@
 package com.zhang.ssm.service;
 
-import com.zhang.ssm.console_pojo.UserConfig;
-
 public interface AbDetectionService {
 
 
-    String setConfig(UserConfig config);
+    String addLine(String lineName,String rtspPath,String rtmpPath);
+
+    String changeLine(String lineName);
 }

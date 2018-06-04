@@ -75,6 +75,42 @@
   </build>
 
   <dependencies>
+
+    <!-- https://mvnrepository.com/artifact/org.bytedeco/javacv -->
+    <dependency>
+      <groupId>org.bytedeco</groupId>
+      <artifactId>javacv</artifactId>
+      <version>1.4.1</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.bytedeco.javacpp-presets</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.bytedeco.javacpp-presets</groupId>
+      <artifactId>opencv</artifactId>
+      <version>3.4.1-1.4.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.bytedeco.javacpp-presets</groupId>
+      <artifactId>opencv</artifactId>
+      <version>3.4.1-1.4.1</version>
+      <classifier>windows-x86_64</classifier>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.bytedeco.javacpp-presets/ffmpeg -->
+    <dependency>
+      <groupId>org.bytedeco.javacpp-presets</groupId>
+      <artifactId>ffmpeg</artifactId>
+      <version>3.4.2-1.4.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.bytedeco.javacpp-presets</groupId>
+      <artifactId>ffmpeg</artifactId>
+      <version>3.4.2-1.4.1</version>
+      <classifier>windows-x86_64</classifier>
+    </dependency>
     <!--dependency>
       <groupId>com.heitian.web</groupId>
       <artifactId>[the artifact id of the block to be mounted]</artifactId>

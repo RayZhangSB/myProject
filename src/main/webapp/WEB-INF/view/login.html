@@ -8,7 +8,96 @@
     <link rel="stylesheet" href=" /css/reset.css"/>
     <link rel="stylesheet" href=" /css/common.css"/>
     <link rel="stylesheet" href=" /css/font-awesome.min.css"/>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <!--<script type="text/javascript" src=" /js/common.js"></script>-->
+    <script type="text/javascript" src="/js/my.js"></script>
+    <script language="javascript">
+        function remLogin() {
+            var cachedName = get_cookie("registeredUserName");
+            if (checkObjValid(cachedName)) {
+                $("input[name=userName]").val(cachedName);
+            }
 
+            var ticket = get_cookie("ticket");
+            console.log(ticket);
+            if (checkObjValid(ticket)) {
+                var formData = new FormData();
+                formData.append("ticket", ticket);
+                $.ajax({
+                    type: "POST",
+                    url: "/user/rememberLogin",
+                    data: formData,
+                    contentType: false,    //不可缺
+                    processData: false,    //不可缺;
+                    dataType: "json",
+                    success: function (suc) {
+                        if (suc.code === 0) {
+                            window.location.href = "/index";
+                            return false;
+                        }
+                    },
+                });
+
+            }
+
+
+        }
+
+        function login() {
+            var userName = $("input[name=userName]").val();
+            var uPwd = $("input[name=userPassword]").val();
+            var rememberMe = "0";
+            if (document.getElementsByName("rememberMe")[0].checked) {
+                rememberMe = "1";
+            }
+
+            //验证用户名
+            if (!/^[a-zA-z]\w{6,10}$/.test(userName)) {
+                var errorMsg = "用户名格式不正确";
+                alert(errorMsg);
+                return false;
+            }
+            //验证密码
+            if (!/^[a-zA-z]\w{6,15}$/.test(uPwd)) {
+                errorMsg = "无效密码";
+                alert(errorMsg);
+                return false;
+            }
+            var formData = new FormData();
+            formData.append("userName", userName);
+            formData.append("userPassword", uPwd);
+            formData.append("rememberMe", rememberMe);
+            $.ajax({
+                type: "POST",
+                url: "/user/login",
+                data: formData,
+                cache: false,
+                contentType: false,    //不可缺
+                processData: false,    //不可缺;
+                dataType: "json",
+                success: function (suc) {
+                    if (suc.code === 0) {
+                        if (get_cookie("ticket") !== null)
+                            setCookie("logName", userName, new Date(), 3600 * 2000);
+                        window.location.href = "/index";
+                        return false;
+                    } else {
+                        alert(suc.msg);
+                        return false;
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Network error, please check the network and try again" + XMLHttpRequest + textStatus + errorThrown);
+                    return false;
+                }
+            });
+            return false;
+
+
+        }
+
+
+    </script>
 
 </head>
 <body onload="remLogin()">
@@ -62,96 +151,7 @@
 <div style="text-align:center;">
 
 </div>
-<script type="text/javascript" src="/js/jquery.js"></script>
-<!--<script type="text/javascript" src=" /js/common.js"></script>-->
-<script type="text/javascript" src="/js/my.js"></script>
-<script language="javascript">
-    function remLogin() {
-        var cachedName = get_cookie("registeredUserName");
-        if (checkObjValid(cachedName)) {
-            $("input[name=userName]").val(cachedName);
-        }
 
-        var ticket = get_cookie("ticket");
-        console.log(ticket);
-        if (checkObjValid(ticket)) {
-            var formData = new FormData();
-            formData.append("ticket", ticket);
-            $.ajax({
-                type: "POST",
-                url: "/user/rememberLogin",
-                data: formData,
-                contentType: false,    //不可缺
-                processData: false,    //不可缺;
-                dataType: "json",
-                success: function (suc) {
-                    if (suc.code === 0) {
-                        window.location.href = "/index";
-                        return false;
-                    }
-                },
-            });
-
-        }
-
-
-    }
-
-    function login() {
-        var userName = $("input[name=userName]").val();
-        var uPwd = $("input[name=userPassword]").val();
-        var rememberMe = "0";
-        if (document.getElementsByName("rememberMe")[0].checked) {
-            rememberMe = "1";
-        }
-
-        //验证用户名
-        if (!/^[a-zA-z]\w{6,10}$/.test(userName)) {
-            var errorMsg = "用户名格式不正确";
-            alert(errorMsg);
-            return false;
-        }
-        //验证密码
-        if (!/^[a-zA-z]\w{6,15}$/.test(uPwd)) {
-            errorMsg = "无效密码";
-            alert(errorMsg);
-            return false;
-        }
-        var formData = new FormData();
-        formData.append("userName", userName);
-        formData.append("userPassword", uPwd);
-        formData.append("rememberMe", rememberMe);
-        $.ajax({
-            type: "POST",
-            url: "/user/login",
-            data: formData,
-            cache: false,
-            contentType: false,    //不可缺
-            processData: false,    //不可缺;
-            dataType: "json",
-            success: function (suc) {
-                if (suc.code === 0) {
-                    if (get_cookie("ticket") !== null)
-                        setCookie("logName", userName, new Date(), 3600 * 2000);
-                    window.location.href = "/index";
-                    return false;
-                } else {
-                    alert(suc.msg);
-                    return false;
-                }
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("Network error, please check the network and try again" + XMLHttpRequest + textStatus + errorThrown);
-                return false;
-            }
-        });
-        return false;
-
-
-    }
-
-
-</script>
 
 </body>
 

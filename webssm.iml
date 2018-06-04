@@ -30,6 +30,12 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.bytedeco:javacv:1.4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.bytedeco:javacpp:1.4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.bytedeco.javacpp-presets:opencv:3.4.1-1.4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.bytedeco.javacpp-presets:opencv:windows-x86_64:3.4.1-1.4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.bytedeco.javacpp-presets:ffmpeg:3.4.2-1.4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.bytedeco.javacpp-presets:ffmpeg:windows-x86_64:3.4.2-1.4.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.8.0" level="project" />
     <orderEntry type="library" name="Maven: commons-net:commons-net:3.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.5" level="project" />

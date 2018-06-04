@@ -31,10 +31,7 @@
     <script src="/js/video-js-5.19.2/video.js"></script>
     <script src="/js/demo.js"></script>
     <script src="/js/webVideoCtrl.js"></script>
-    <script type="text/javascript">
-        videojs.options.flash.swf = "/js/video-js-5.19.2/video-js.swf";
-        function clickSetLocalCfg(){}
-    </script>
+
 </head>
 <body>
 
@@ -51,7 +48,7 @@
             <!--<source src="/video/sintel.mp4" type="video/mp4">-->
             <!--</video>-->
             <!--<embed align="center" type="application/hwp-webvideo-plugin" width="880" height="585" name="webVideoCtrl20180602115305" wndtype="1" playmode="1" colors="">-->
-            <video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none" width="880" height="585"
+            <video id="video1" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none" width="880" height="585"
                    poster=""
                    data-setup="{}">
                 <!--<source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />-->
@@ -61,27 +58,17 @@
         <div>
 
             <button class="btn_e" id="btn1" style="border-color: rgb(220, 220, 220);float:left "
-                    onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">抓图
+                    onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'" >抓图
             </button>
             <button class="btn_e" id="btn2" style="border-color: rgb(220, 220, 220);float:left;"
                     onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">复位
             </button>
-            <select class="btn_e" id="btn3" style="border-color: rgb(220, 220, 220);"
+            <select class="btn_e" id="lines" style="border-color: rgb(220, 220, 220);"
                     onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">
                 <option value="0">线路</option>
                 <option value="线路1">线路1</option>
-                <option value="线路2">线路2</option>
-                <option value="线路3">线路3</option>
-                <option value="线路4">线路4</option>
-                <option value="线路5">线路5</option>
-                <option value="线路6">线路6</option>
-                <option value="线路7">线路7</option>
-                <option value="线路8">线路8</option>
-
             </select>
-            <button class="btn_e" id="btn4" style="border-color: rgb(220, 220, 220);float:left;"
-                    onmouseover="this.style.borderColor='#f76b00'" onmouseout="this.style.borderColor='#dcdcdc'">添加线路
-            </button>
+
 
         </div>
 
@@ -90,26 +77,27 @@
     <div id="content" style="height:670px;width:700px;float:left;">
 
 
-        <div style="float: left;width: 350px;height: 100%;background-color: blue">
+        <div style="float: left;width: 350px;height: 100%;">
+            <!--/images/ab_images/3.jpg-->
             <div>
-                <img src="/images/ab_images/1.jpg" style="height: 220px;width: 350px">
+                <img src="" style="height: 220px;width: 100%">
             </div>
 
             <div>
-                <img src="/images/ab_images/2.jpg" style="height: 220px;width: 350px">
+                <img src="" style="height: 220px;width: 100%">
             </div>
             <div>
-                <img src="/images/ab_images/3.jpg" style="height: 220px;width: 350px">
+                <img src="" style="height: 220px;width: 100%">
             </div>
         </div>
-        <div style="width: 350px;height: 100%;float:left;background-color:hotpink">
+        <div style="width: 350px;height: 100%;float:left;">
             <div>
                 <fieldset class="localconfig">
                     <legend>本地配置</legend>
                     <table cellpadding="0" cellspacing="3" border="0">
 
                         <tr>
-                            <td class="tt">抓图文件格式</td>
+                            <td class="tt">抓图文件格式:</td>
                             <td>
                                 <select id="captureFileFormat" name="captureFileFormat" class="sel">
                                     <option value="0">JPEG</option>
@@ -119,7 +107,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="tt">录像保存路径</td>
+                            <td class="tt">录像保存路径:</td>
                             <td colspan="3"><input id="recordPath" type="text" class="txt"/>&nbsp;<input type="button"
                                                                                                          class="btn"
                                                                                                          value="浏览"
@@ -128,17 +116,17 @@
                         </tr>
 
                         <tr>
-                            <td class="tt">抓图保存路径</td>
+                            <td class="tt">抓图保存路径:</td>
                             <td colspan="3"><input id="crawlPicPath" type="text" class="txt"/>&nbsp;<input type="button"
                                                                                                            class="btn"
                                                                                                            value="浏览"
                                                                                                            onclick="clickOpenFileDlg('crawlPicPath', 0);"/>
                             </td>
-                            >
+
                         </tr>
 
                         <tr>
-                            <input type="button" class="btn" value="设置" onclick="clickSetLocalCfg();"/></td>
+                            <input type="button" class="btn" value="设置" onclick="clickSetLocalCfg();"/>
                         </tr>
                     </table>
                 </fieldset>
@@ -146,15 +134,78 @@
             <div>
                 <fieldset class="operate">
                     <legend>操作信息</legend>
-                    <div id="opinfo" class="opinfo" style="height:425px"></div>
+                    <div id="opinfo" class="opinfo" style="height:300px"></div>
                 </fieldset>
             </div>
+
+            <div>
+                <fieldset class="localconfig">
+                    <legend>添加线路</legend>
+                    <table cellpadding="0" cellspacing="3" border="0">
+                        <tr>
+                            <td class="tt">线路名称:</td>
+                            <td colspan="3"><input id="lineName" type="text" class="txt"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tt">rtsp路径:</td>
+                            <td colspan="3"><input id="rtspPath" type="text" class="txt"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="tt">rtmp路径:</td>
+                            <td colspan="3"><input id="rtmpPath" type="text" class="txt"/>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <input type="button" class="btn" value="添加" onclick="addNewLine();"/></td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </div>
+
+
         </div>
 
     </div>
 
 </div>
+<script type="text/javascript">
+    var video;
+    $(function () {
+        video = videojs(document.getElementById("video1"), {}, function () {
+        });
+    });
+    function clickSetLocalCfg(){}
+    function addNewLine(){}
+    $('#lines').change(function () {
+        video.pause();
+        var v=this.options[this.selectedIndex].text;
+       //根据选择的线路从服务器获取源并切换
+        $.ajax({
+            type: "POST",
+            url: "/detect/changeLine",
+            data:{"lineName":v},
+            contentType: false,    //不可缺
+            processData: false,    //不可缺;
+            dataType: "json",
+            success: function (suc) {
+                if (suc.code === 0) {
+                    $("#video1").attr("src",suc.data) ;
+                    showOPInfo(suc.msg);
+                    return false;
+                }
+                showOPInfo(suc.msg);
+            },
+        });
 
+
+
+    });
+</script>
 </body>
 
 </html>

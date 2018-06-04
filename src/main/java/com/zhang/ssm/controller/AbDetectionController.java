@@ -1,10 +1,8 @@
 package com.zhang.ssm.controller;
 
-import com.zhang.ssm.console_pojo.UserConfig;
 import com.zhang.ssm.service.AbDetectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -22,11 +20,17 @@ public class AbDetectionController {
     @Autowired
     private AbDetectionService abDetectionService;
 
-    @RequestMapping("/setConfig")
+    @RequestMapping("/addLine")
     @ResponseBody
-    public String setConfig(@RequestBody UserConfig config) {
-        return abDetectionService.setConfig(config);
+    public String addLine(String lineName,String rtspPath,String rtmpPath) {
+        return abDetectionService.addLine(lineName,rtspPath, rtmpPath);
     }
 
+
+    @RequestMapping("changeLine")
+    @ResponseBody
+    public String changeLine(String lineName){
+        return abDetectionService.changeLine(lineName);
+    }
 
 }
