@@ -19,15 +19,27 @@ import org.slf4j.LoggerFactory;
  **/
 public class VideoStreamConverter {
     private static final Logger LOGGER = LoggerFactory.getLogger(VideoStreamConverter.class);
+    private String lineName;
     private FrameRecorder recorder;
     private FrameGrabber grabber;
     private OpenCVFrameConverter.ToIplImage converter;
+    private boolean isOpened = false;
 
-    public VideoStreamConverter(FrameGrabber grabber, FrameRecorder recorder, OpenCVFrameConverter.ToIplImage converter) {
+    public VideoStreamConverter(FrameGrabber grabber, FrameRecorder recorder, OpenCVFrameConverter.ToIplImage converter, String lineName) {
         this.recorder = recorder;
         this.grabber = grabber;
         this.converter = converter;
+        this.lineName = lineName;
     }
+
+    public String getLineName() {
+        return lineName;
+    }
+
+    public boolean isOpened() {
+        return isOpened;
+    }
+
 
     public void startRecorder() {
         try {
@@ -64,6 +76,7 @@ public class VideoStreamConverter {
         opencv_core.IplImage grabbedImage = null;
         try {
             while ((grabFrame = grabber.grab()) != null) {
+                isOpened = true;
                 grabbedImage = converter.convert(grabFrame);
                 Frame rotatedFrame = converter.convert(grabbedImage);
                 if (startTime == 0) {
@@ -79,10 +92,12 @@ public class VideoStreamConverter {
         } catch (InterruptedException e) {
             LOGGER.error("推流线程被中断" + e.getMessage());
             stopAddRelease();
+
             return false;
         } catch (FrameRecorder.Exception e) {
             LOGGER.error("推流线程被中断" + e.getMessage());
             stopAddRelease();
+
             return false;
         } catch (FrameGrabber.Exception e) {
             LOGGER.error("推流线程被中断" + e.getMessage());
@@ -96,6 +111,7 @@ public class VideoStreamConverter {
             recorder.stop();
             recorder.release();
             grabber.stop();
+            isOpened = false;
         } catch (FrameRecorder.Exception e) {
             LOGGER.error("释放资源失败" + e.getMessage());
             return false;
@@ -103,6 +119,7 @@ public class VideoStreamConverter {
             LOGGER.error("释放资源失败" + e.getMessage());
             return false;
         }
+        LOGGER.info(lineName + "释放资源成功");
         return true;
     }
 

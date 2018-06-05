@@ -7,15 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e65b417-6b6d-4c03-84df-558e2609b6df" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/ExecPushStream.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/VideoStreamConverterService.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/VideoStreamConverterServiceImpl.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/ConfigUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/LineConfig.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/ExecPushStream.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/ExecPushStreamThread.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -43,34 +39,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="VideoStreamFactory.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="VideoStreamFactory.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="102" column="47" lean-forward="false" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
+            <state relative-caret-position="-747">
+              <caret line="55" column="9" lean-forward="true" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#865#888#0" expanded="true" />
                 <element signature="method#VideoStreamFactory#0;class#VideoStreamFactory#0" expanded="true" />
                 <element signature="method#getInstance#0;class#VideoStreamFactory#0" expanded="true" />
                 <element signature="method#createDefaultRecorder#0;class#VideoStreamFactory#0" expanded="true" />
                 <element signature="method#createRecorder#0;class#VideoStreamFactory#0" expanded="true" />
-                <element signature="method#createDefaultGrabber#0;class#VideoStreamFactory#0" expanded="true" />
-                <element signature="e#2753#2754#0" expanded="true" />
-                <element signature="e#2813#2814#0" expanded="true" />
+                <element signature="e#2329#2330#0" expanded="true" />
+                <element signature="e#2383#2384#0" expanded="true" />
+                <element signature="method#createGrabber#0;class#VideoStreamFactory#0" expanded="true" />
+                <element signature="e#2855#2856#0" expanded="true" />
+                <element signature="e#2915#2916#0" expanded="true" />
                 <element signature="method#createVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
-                <element signature="method#getVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
-                <element signature="e#3577#3578#0" expanded="true" />
-                <element signature="e#3633#3634#0" expanded="true" />
+                <element signature="method#delVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
+                <element signature="method#addNewLine#0;class#VideoStreamFactory#0" expanded="true" />
+                <element signature="method#checkAllSource#0;class#VideoStreamFactory#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbDetectionServiceImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AbDetectionServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="36" column="2" lean-forward="false" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
+            <state relative-caret-position="459">
+              <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
               <folding>
                 <element signature="method#changeLine#0;class#AbDetectionServiceImpl#0" expanded="true" />
               </folding>
@@ -78,16 +77,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExecPushStream.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/ExecPushStream.java">
+      <file leaf-file-name="ExecPushStreamThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/ExecPushStreamThread.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="27" />
+              <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
               <folding>
-                <element signature="e#332#333#0" expanded="true" />
-                <element signature="e#386#387#0" expanded="true" />
-                <element signature="e#411#412#0" expanded="true" />
-                <element signature="e#460#461#0" expanded="true" />
+                <element signature="e#345#346#0" expanded="true" />
+                <element signature="e#399#400#0" expanded="true" />
+                <element signature="method#run#0;class#ExecPushStreamThread#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,10 +94,15 @@
       <file leaf-file-name="VideoStreamConverter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-381">
-              <caret line="31" column="30" lean-forward="false" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="30" />
+            <state relative-caret-position="528">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#VideoStreamConverter#0;class#VideoStreamConverter#0" expanded="true" />
+                <element signature="e#1146#1147#0" expanded="true" />
+                <element signature="e#1177#1178#0" expanded="true" />
+                <element signature="e#1210#1211#0" expanded="true" />
+                <element signature="e#1241#1242#0" expanded="true" />
                 <element signature="method#startRecorder#0;class#VideoStreamConverter#0" expanded="true" />
                 <element signature="method#tryGetFirstFrame#0;class#VideoStreamConverter#0" expanded="true" />
                 <element signature="method#startPushStream#0;class#VideoStreamConverter#0" expanded="true" />
@@ -190,7 +193,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/RealMonitorDataService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/MonitorController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/info.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/newPassword.html" />
@@ -237,10 +239,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverterServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/ConfigUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/LineConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/ExecPushStream.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/ExecPushStreamThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java" />
       </list>
     </option>
   </component>
@@ -273,7 +276,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="166" />
-    <option name="width" value="1585" />
+    <option name="width" value="1760" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -846,7 +849,7 @@
       <workItem from="1527988114687" duration="20675000" />
       <workItem from="1528087110365" duration="17630000" />
       <workItem from="1528112074077" duration="2599000" />
-      <workItem from="1528163815083" duration="20166000" />
+      <workItem from="1528163815083" duration="25542000" />
     </task>
     <task id="LOCAL-00001" summary="page complete">
       <created>1526534166783</created>
@@ -1023,7 +1026,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528025849735</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="添加转换器静态工厂和转换器类，添加推流执行线程">
+      <created>1528194483814</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1528194483814</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1059,10 +1069,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="518447000" />
+    <option name="totallyTimeSpent" value="523823000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="166" y="0" width="1585" height="1038" extended-state="0" />
+    <frame x="166" y="0" width="1760" height="1038" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15906563" sideWeight="0.27575758" order="6" side_tool="true" content_ui="tabs" />
@@ -1086,7 +1096,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21913236" sideWeight="0.72424245" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26547542" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23880596" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1168,7 +1178,8 @@
     <MESSAGE value="提供用户信息更新" />
     <MESSAGE value="视频监控页添加" />
     <MESSAGE value="添加可扩展的用户配置和全局配置项（预留）" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加可扩展的用户配置和全局配置项（预留）" />
+    <MESSAGE value="添加转换器静态工厂和转换器类，添加推流执行线程" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加转换器静态工厂和转换器类，添加推流执行线程" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1187,7 +1198,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/js/video-js-5.19.2/demo.js" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/css/font-awesome.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1325,6 +1335,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
           <caret line="1" column="2" lean-forward="false" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1510,12 +1521,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://E:/program files/JAVA1.8/JDK/src.zip!/java/util/concurrent/Executors.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="87" column="49" lean-forward="false" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="52" />
+          <folding>
+            <element signature="method#newFixedThreadPool#0;class#Executors#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-381">
-          <caret line="31" column="30" lean-forward="false" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="30" />
+        <state relative-caret-position="528">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#VideoStreamConverter#0;class#VideoStreamConverter#0" expanded="true" />
+            <element signature="e#1146#1147#0" expanded="true" />
+            <element signature="e#1177#1178#0" expanded="true" />
+            <element signature="e#1210#1211#0" expanded="true" />
+            <element signature="e#1241#1242#0" expanded="true" />
             <element signature="method#startRecorder#0;class#VideoStreamConverter#0" expanded="true" />
             <element signature="method#tryGetFirstFrame#0;class#VideoStreamConverter#0" expanded="true" />
             <element signature="method#startPushStream#0;class#VideoStreamConverter#0" expanded="true" />
@@ -1524,46 +1550,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="102" column="47" lean-forward="false" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#VideoStreamFactory#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="method#getInstance#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="method#createDefaultRecorder#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="method#createRecorder#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="method#createDefaultGrabber#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="e#2753#2754#0" expanded="true" />
-            <element signature="e#2813#2814#0" expanded="true" />
-            <element signature="method#createVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="method#getVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="e#3577#3578#0" expanded="true" />
-            <element signature="e#3633#3634#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/ExecPushStream.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/ExecPushStreamThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="27" />
+          <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
           <folding>
-            <element signature="e#332#333#0" expanded="true" />
-            <element signature="e#386#387#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#460#461#0" expanded="true" />
+            <element signature="e#345#346#0" expanded="true" />
+            <element signature="e#399#400#0" expanded="true" />
+            <element signature="method#run#0;class#ExecPushStreamThread#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="36" column="2" lean-forward="false" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
+        <state relative-caret-position="459">
+          <caret line="39" column="27" lean-forward="false" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
           <folding>
             <element signature="method#changeLine#0;class#AbDetectionServiceImpl#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-747">
+          <caret line="55" column="9" lean-forward="true" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#865#888#0" expanded="true" />
+            <element signature="method#VideoStreamFactory#0;class#VideoStreamFactory#0" expanded="true" />
+            <element signature="method#getInstance#0;class#VideoStreamFactory#0" expanded="true" />
+            <element signature="method#createDefaultRecorder#0;class#VideoStreamFactory#0" expanded="true" />
+            <element signature="method#createRecorder#0;class#VideoStreamFactory#0" expanded="true" />
+            <element signature="e#2329#2330#0" expanded="true" />
+            <element signature="e#2383#2384#0" expanded="true" />
+            <element signature="method#createGrabber#0;class#VideoStreamFactory#0" expanded="true" />
+            <element signature="e#2855#2856#0" expanded="true" />
+            <element signature="e#2915#2916#0" expanded="true" />
+            <element signature="method#createVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
+            <element signature="method#delVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
+            <element signature="method#addNewLine#0;class#VideoStreamFactory#0" expanded="true" />
+            <element signature="method#checkAllSource#0;class#VideoStreamFactory#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -8,8 +8,8 @@ import org.bytedeco.javacv.OpenCVFrameConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -25,9 +25,9 @@ public class VideoStreamFactory {
 
     private static volatile VideoStreamFactory videoStreamFactory;
 
-    private final Map<String, VideoStreamConverter> videoStreamConverterMap = new ConcurrentHashMap(256);
+    private final List<VideoStreamConverter> videoStreamConverters = new ArrayList<VideoStreamConverter>(256);
 
-    private final ExecutorService executorService = Executors.newFixedThreadPool(15);
+    private final ExecutorService executorService = Executors.newFixedThreadPool(11);
 
 
     private VideoStreamFactory() {
@@ -67,40 +67,60 @@ public class VideoStreamFactory {
         return recorder;
     }
 
-    public FrameGrabber createDefaultGrabber(String inputFile, String udp_tcp) {
+    public FrameGrabber createDefaultGrabber(String inputFile) {
+        return createGrabber(inputFile, "tcp");
+    }
+
+    public FrameGrabber createGrabber(String inputFile, String udp_tcp) {
         FrameGrabber grabber = null;
         try {
             grabber = FFmpegFrameGrabber.createDefault(inputFile);
+            grabber.setOption("rtsp_transport", udp_tcp);
         } catch (FrameGrabber.Exception e) {
             LOGGER.error("create new Grabber failed" + e.getMessage());
         }
-        grabber.setOption("rtsp_transport", udp_tcp);
         return grabber;
     }
-
 
     public OpenCVFrameConverter.ToIplImage createConverter() {
         return new OpenCVFrameConverter.ToIplImage();
     }
 
     public VideoStreamConverter createVideoStreamConverter(String lineName, FrameGrabber grabber, FrameRecorder recorder, OpenCVFrameConverter.ToIplImage converter) {
-        VideoStreamConverter v = new VideoStreamConverter(grabber, recorder, converter);
-        if (this.videoStreamConverterMap.containsKey(lineName)) {
-            return getVideoStreamConverter(lineName);
+        VideoStreamConverter v = new VideoStreamConverter(grabber, recorder, converter, lineName);
+        if (!this.videoStreamConverters.contains(v)) {
+            this.videoStreamConverters.add(v);
         }
-        this.videoStreamConverterMap.put(lineName, v);
         return v;
     }
 
-    public VideoStreamConverter getVideoStreamConverter(String lineName) {
-        if (!this.videoStreamConverterMap.containsKey(lineName)) {
-            LOGGER.error("该线路不存在，请先构建新的线路");
+    public boolean delVideoStreamConverter(String lineName) {
+        for (VideoStreamConverter v : this.videoStreamConverters) {
+            if (v.getLineName().equals(lineName)) {
+                v.stopAddRelease();
+                this.videoStreamConverters.remove(v);
+                LOGGER.info("该线路已删除");
+                return true;
+            }
         }
-        return this.videoStreamConverterMap.get(lineName);
+        LOGGER.info("该线路不存在");
+        return false;
     }
 
-    public void addLine(ExecPushStream pushStream) {
+    public void addNewLine(ExecPushStreamThread pushStream) {
         this.executorService.execute(pushStream);
+        LOGGER.info("新线路开始执行");
+    }
+
+    public boolean checkAllSource() {
+        for (VideoStreamConverter v : this.videoStreamConverters) {
+            if (!v.tryGetFirstFrame()) {
+                LOGGER.error(v.getLineName() + "--" + "提取源失败，请检查设备");
+                return false;
+            }
+        }
+        LOGGER.info("所有设备均能正常取源");
+        return true;
     }
 
 }

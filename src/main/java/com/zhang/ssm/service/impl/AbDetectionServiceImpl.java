@@ -29,11 +29,15 @@ public class AbDetectionServiceImpl implements AbDetectionService {
             //这里新建一个线路的视频流转换器
             VideoStreamFactory vFactory = VideoStreamFactory.getInstance();
             FrameGrabber grabber =  vFactory.createDefaultGrabber(rtspPath,"tcp");
+
             FrameRecorder recorder =  vFactory.createDefaultRecorder(rtmpPath);
             OpenCVFrameConverter.ToIplImage converter = vFactory.createConverter();
             VideoStreamConverter videoStreamConverter =  vFactory.createVideoStreamConverter(lineName,grabber,recorder,converter);
-            ExecPushStream pushStream = new ExecPushStream(videoStreamConverter);
-            vFactory.addLine(pushStream);
+              if(!videoStreamConverter.tryGetFirstFrame()) {
+                  //抓取器测试不通过
+              }
+            ExecPushStreamThread pushStream = new ExecPushStreamThread(videoStreamConverter);
+            vFactory.addNewLine(pushStream);
 */
             if (LineConfig.RTMP_RTSP.containsKey(rtmpPath)) {
                 responseResult.setMsg(" the corresponding rtsp source changed ");
