@@ -7,26 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e65b417-6b6d-4c03-84df-558e2609b6df" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/VideoStreamConverterService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/VideoStreamConverterServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/testJavacv/test.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/webssm_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/webssm_war_exploded.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/logs/ssm.log" afterPath="$PROJECT_DIR$/logs/ssm.log" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/console_pojo/AvailableLines.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/console_pojo/ConfigGlobal.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/console_pojo/UserConfig.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/AbDetectionController.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/AbDetectionController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/AbDetectionService.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/AbDetectionService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/ConfigUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/ConfigUtil.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/common.css" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/common.css" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/demo.js" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/js/demo.js" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adv.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adv.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.html" />
-      <change beforePath="$PROJECT_DIR$/webssm.iml" afterPath="$PROJECT_DIR$/webssm.iml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/VideoStreamConverterServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/VideoStreamConverterServiceImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -53,55 +35,14 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
-              <folding>
-                <element signature="method#rememberLogin#0;class#UserServiceImpl#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VideoStreamConverterService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/VideoStreamConverterService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file leaf-file-name="VideoStreamConverterServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/VideoStreamConverterServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="59" column="17" lean-forward="false" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#convert#0;class#VideoStreamConverterServiceImpl#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adv.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adv.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-              <folding>
-                <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#7185#7815#0" expanded="true" />
-                <element signature="e#7554#7793#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -112,14 +53,17 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
               <caret line="24" column="73" lean-forward="false" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="73" />
-              <folding>
-                <element signature="e#449#460#0" expanded="true" />
-                <element signature="e#597#624#0" expanded="true" />
-                <element signature="method#addLine#0;class#AbDetectionController#0" expanded="true" />
-                <element signature="e#804#833#0" expanded="true" />
-                <element signature="e#897#898#0" expanded="true" />
-                <element signature="e#959#960#0" expanded="true" />
-              </folding>
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConfigUtil.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/ConfigUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -138,7 +82,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>status</find>
       <find>formtips</find>
       <find>==</find>
       <find>商品</find>
@@ -168,6 +111,7 @@
       <find>&lt;</find>
       <find>favicon.ico</find>
       <find>Preview</find>
+      <find>QUICKSORT_THRESHOLD</find>
     </findStrings>
     <replaceStrings>
       <replace>com.zhang.ssm.</replace>
@@ -252,9 +196,9 @@
         <option value="$PROJECT_DIR$/src/test/testJavacv/test.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/VideoStreamConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/VideoStreamConverterService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/VideoStreamConverterServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adv.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/VideoStreamConverterServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -285,11 +229,11 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="120" />
-    <option name="y" value="22" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="219" />
+    <option name="y" value="36" />
     <option name="width" value="1668" />
-    <option name="height" value="1038" />
+    <option name="height" value="905" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -337,10 +281,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -350,12 +292,119 @@
             </path>
             <path>
               <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ssm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ssm" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ssm" type="462c0819:PsiDirectoryNode" />
+              <item name="holder" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ssm" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ssm" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ssm" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.bytedeco:javacv:1.4.1" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.bytedeco:javacv:1.4.1" type="70bed36:NamedLibraryElementNode" />
+              <item name="javacv-1.4.1.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.bytedeco:javacv:1.4.1" type="70bed36:NamedLibraryElementNode" />
+              <item name="javacv-1.4.1.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="javacv" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -368,7 +417,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/SQL Dialects" value="MySQL" />
-    <property name="SearchEverywhereHistoryKey" value="DefaultLis&#9;PSI&#9;JAVA://org.springframework.beans.factory.support.DefaultListableBeanFactory&#10;Stack&#9;PSI&#9;JAVA://java.util.Stack&#10;Handler&#9;FILE&#9;jar://E:/program files/maven-ref/.m2/repository/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar!/org/springframework/web/servlet/HandlerExecutionChain.class&#10; AbstractFactoryBean&#9;PSI&#9;JAVA://org.springframework.beans.factory.config.AbstractFactoryBean" />
+    <property name="SearchEverywhereHistoryKey" value="Arrays&#9;PSI&#9;JAVA://java.util.Arrays&#10;FFmpeg&#9;PSI&#9;JAVA://org.bytedeco.javacpp.avutil#FFMPEG_VERSION&#10;DefaultLis&#9;PSI&#9;JAVA://org.springframework.beans.factory.support.DefaultListableBeanFactory&#10;Stack&#9;PSI&#9;JAVA://java.util.Stack&#10;Handler&#9;FILE&#9;jar://E:/program files/maven-ref/.m2/repository/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar!/org/springframework/web/servlet/HandlerExecutionChain.class&#10; AbstractFactoryBean&#9;PSI&#9;JAVA://org.springframework.beans.factory.config.AbstractFactoryBean" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -405,7 +454,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.test.lll">
+  <component name="RunManager" selected="Tomcat Server.mytomcat6">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -755,7 +804,8 @@
       <workItem from="1527948217021" duration="1001000" />
       <workItem from="1527988114687" duration="20675000" />
       <workItem from="1528087110365" duration="17630000" />
-      <workItem from="1528112074077" duration="1507000" />
+      <workItem from="1528112074077" duration="2599000" />
+      <workItem from="1528163815083" duration="3670000" />
     </task>
     <task id="LOCAL-00001" summary="page complete">
       <created>1526534166783</created>
@@ -968,13 +1018,14 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="497189000" />
+    <option name="totallyTimeSpent" value="501951000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="120" y="22" width="1668" height="1038" extended-state="0" />
+    <frame x="219" y="36" width="1668" height="905" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21913236" sideWeight="0.27575758" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1383812" sideWeight="0.27575758" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -995,7 +1046,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21913236" sideWeight="0.72424245" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29272726" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17575757" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1096,44 +1147,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/tips.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/RealMonitorDataServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <element signature="e#1035#1051#0" expanded="true" />
-            <element signature="e#2326#2342#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/css/style.css" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/js/video/vedio.js" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/css/video/font-awesome.min.css" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/css/video/demo.css" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="92" column="62" lean-forward="false" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/css/hk/demo.css" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/js/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -1244,7 +1257,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="20" column="26" lean-forward="false" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1252,18 +1264,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/console_pojo/UserConfig.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/console_pojo/ConfigGlobal.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/VideoStreamUtil.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/ConfigUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#353#368#0" expanded="false" />
-            <element signature="e#475#491#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="858">
@@ -1311,22 +1311,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="5" column="66" lean-forward="false" selection-start-line="5" selection-start-column="66" selection-end-line="5" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/AbDetectionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="73" lean-forward="false" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="73" />
-          <folding>
-            <element signature="e#449#460#0" expanded="true" />
-            <element signature="e#597#624#0" expanded="true" />
-            <element signature="method#addLine#0;class#AbDetectionController#0" expanded="true" />
-            <element signature="e#804#833#0" expanded="true" />
-            <element signature="e#897#898#0" expanded="true" />
-            <element signature="e#959#960#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1334,9 +1318,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="591">
           <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1348,23 +1329,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="28" column="39" lean-forward="false" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
-          <folding>
-            <element signature="method#changeLine#0;class#AbDetectionServiceImpl#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
-          <folding>
-            <element signature="method#rememberLogin#0;class#UserServiceImpl#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1372,18 +1340,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/VideoStreamConverterServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#convert#0;class#VideoStreamConverterServiceImpl#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1391,23 +1347,129 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
           <caret line="1" column="2" lean-forward="false" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/program files/maven-ref/.m2/repository/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0.jar!/org/apache/commons/beanutils/BasicDynaBean.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-144">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adv.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
+        <state relative-caret-position="-4288">
           <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="28" column="39" lean-forward="false" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/RealMonitorDataServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-238">
+          <caret line="37" column="39" lean-forward="true" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
           <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#2;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#7185#7815#0" expanded="true" />
-            <element signature="e#7554#7793#0" expanded="true" />
+            <element signature="method#getRealMonitorData#0;class#RealMonitorDataServiceImpl#0" expanded="true" />
+            <element signature="e#1035#1051#0" expanded="true" />
+            <element signature="method#getScope#0;class#RealMonitorDataServiceImpl#0" expanded="true" />
+            <element signature="e#2326#2342#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/program files/maven-ref/.m2/repository/org/bytedeco/javacpp/1.4.1/javacpp-1.4.1.jar!/org/bytedeco/javacpp/Pointer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2640">
+          <caret line="23" column="39" lean-forward="true" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/program files/maven-ref/.m2/repository/org/bytedeco/javacpp-presets/opencv/3.4.1-1.4.1/opencv-3.4.1-1.4.1.jar!/org/bytedeco/javacpp/opencv_core.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="17693" column="42" lean-forward="false" selection-start-line="17693" selection-start-column="42" selection-end-line="17693" selection-end-column="42" />
+          <folding>
+            <element signature="class#IplImage#0;class#opencv_core#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/program files/maven-ref/.m2/repository/org/bytedeco/javacpp-presets/opencv/3.4.1-1.4.1/opencv-3.4.1-1.4.1.jar!/org/bytedeco/javacpp/opencv_objdetect.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="1106" column="43" lean-forward="true" selection-start-line="1106" selection-start-column="26" selection-end-line="1106" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/program files/maven-ref/.m2/repository/org/bytedeco/javacpp-presets/ffmpeg/3.4.2-1.4.1/ffmpeg-3.4.2-1.4.1.jar!/org/bytedeco/javacpp/avutil.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-752">
+          <caret line="666" column="46" lean-forward="true" selection-start-line="666" selection-start-column="46" selection-end-line="666" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/program files/maven-ref/.m2/repository/org/bytedeco/javacv/1.4.1/javacv-1.4.1.jar!/org/bytedeco/javacv/FrameRecorder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4544">
+          <caret line="19" column="80" lean-forward="false" selection-start-line="19" selection-start-column="74" selection-end-line="19" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/VideoStreamConverterServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="59" column="17" lean-forward="false" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/program files/JAVA1.8/JDK/src.zip!/java/util/DualPivotQuicksort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-92">
+          <caret line="591" column="34" lean-forward="false" selection-start-line="591" selection-start-column="34" selection-end-line="591" selection-end-column="34" />
+          <folding>
+            <element signature="method#sort#0;class#DualPivotQuicksort#0" expanded="false" />
+            <element signature="method#sort#1;class#DualPivotQuicksort#0" expanded="false" />
+            <element signature="method#sort#3;class#DualPivotQuicksort#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/program files/JAVA1.8/JDK/src.zip!/java/util/Arrays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="143" column="29" lean-forward="false" selection-start-line="143" selection-start-column="29" selection-end-line="143" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/AbDetectionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="73" lean-forward="false" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/ConfigUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

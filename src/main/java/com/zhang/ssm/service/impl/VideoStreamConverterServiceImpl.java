@@ -19,7 +19,7 @@ import javax.swing.*;
 public class VideoStreamConverterServiceImpl implements VideoStreamConverterService {
 
 
-    public void convert(String inputFile, String outputFile, int v_fr) {
+    public  void convert(String inputFile, String outputFile, int v_fr) {
         Loader.load(opencv_objdetect.class);
         long startTime=0;
         FrameGrabber grabber = null;
@@ -54,6 +54,8 @@ public class VideoStreamConverterServiceImpl implements VideoStreamConverterServ
         }else{
             System.out.println("没有取到第一帧");
         }
+
+
         //如果想要保存图片,可以使用 opencv_imgcodecs.cvSaveImage("hello.jpg", grabbedImage);来保存图片
         FrameRecorder recorder = null;
         try {
