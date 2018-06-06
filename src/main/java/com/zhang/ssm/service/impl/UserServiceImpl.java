@@ -16,7 +16,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
@@ -81,27 +83,34 @@ public class UserServiceImpl implements UserService {
     }
 
 
-    public Map<String, Object> userLogin(String userName, String userPassword) {
+    public String userLogin(String userName, String userPassword , int rememberMe, HttpServletResponse response) {
         User res = userMapper.selectByName(userName);
-        int code = 1;
-        String msg;
-        Map<String, Object> map = new HashMap<String, Object>();
+        ResponseResult responseResult = ResponseResult.ok();
+        String ticket = null;
         if (res == null) {
-            msg = "user do not exist";
+            responseResult.setCode(1);
+            responseResult.setMsg("user do not exist");
         } else {
             if (IDUtil.encodedString(userPassword + res.getUserSalt()).equals(res.getUserPassword())) {
+                responseResult.setMsg("login success");
+                ticket = addLoginTicket(res.getUserId());
 
-                code = 0;
-                msg = "login success";
-                String ticket = addLoginTicket(res.getUserId());
-                map.put("ticket", ticket);
             } else {
-                msg = "wrong user name or password";
+                responseResult.setCode(1);
+                responseResult.setMsg("wrong user name or password");
             }
         }
-        map.put("resultJson", JsonUtil.getJSONString(code, msg));
-        return map;
-
+        try {
+                Cookie cookie = new Cookie("ticket", ticket);
+                cookie.setPath("/");
+                if (rememberMe > 0) {
+                    cookie.setMaxAge(3600 * 24 * 5);
+                }
+                response.addCookie(cookie);
+        } catch (Exception e) {
+            LOGGER.error("未能添加已登录标记" + e.getMessage());
+        }
+        return JsonUtil.objectToJson(responseResult);
     }
 
 

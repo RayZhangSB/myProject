@@ -41,34 +41,76 @@
         <property name="username" value="${username}"/>
         <property name="password" value="${password}"/>
         <!-- 初始化连接大小 -->
-        <property name="initialSize" value="${initialSize}"> </property>
+        <property name="initialSize" value="${initialSize}"></property>
         <!-- 连接池最大数量 -->
-        <property name="maxActive" value="${maxActive}"> </property>
+        <property name="maxActive" value="${maxActive}"></property>
         <!-- 连接池最大空闲 -->
-        <property name="maxIdle" value="${maxIdle}"> </property>
+        <property name="maxIdle" value="${maxIdle}"></property>
         <!-- 连接池最小空闲 -->
-        <property name="minIdle" value="${minIdle}"> </property>
+        <property name="minIdle" value="${minIdle}"></property>
         <!-- 获取连接最大等待时间 -->
-        <property name="maxWait" value="${maxWait}"> </property>
+        <property name="maxWait" value="${maxWait}"></property>
     </bean>
 
     <!-- mybatis和spring完美整合，不需要mybatis的配置映射文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!-- 自动扫描mapping.xml文件 -->
-        <property name="mapperLocations" value="classpath:mapping/*.xml"> </property>
+        <property name="mapperLocations" value="classpath:mapping/*.xml"></property>
     </bean>
 
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.zhang.ssm.mapper"/>
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"> </property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
 
 
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+    <!-- =================redis连接池================= -->
+    <!-- 配置基本参数 -->
+
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+
+        <property name="maxTotal" value="20"/>
+
+        <property name="maxIdle" value="10"/>
+
+        <property name="maxWaitMillis" value="3000"/>
+
+        <property name="testOnBorrow" value="true"/>
+
+        <property name="testOnReturn" value="true"/>
+
+    </bean>
+
+    <!-- 配置连接池 -->
+
+    <bean id="shardedJedisPool" class="redis.clients.jedis.ShardedJedisPool" scope="singleton">
+
+        <constructor-arg index="0" name="poolConfig" ref="jedisPoolConfig"/>
+
+        <constructor-arg index="1">
+
+            <list>
+
+                <bean class="redis.clients.jedis.JedisShardInfo">
+
+                    <constructor-arg name="host" value="127.0.0.1"/>
+
+                    <constructor-arg name="port" value="6379"/>
+
+                </bean>
+
+            </list>
+
+        </constructor-arg>
+
     </bean>
 
 

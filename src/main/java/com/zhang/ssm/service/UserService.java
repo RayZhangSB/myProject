@@ -4,7 +4,7 @@ import com.zhang.ssm.pojo.User;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by Zhangxq on 2016/7/15.
@@ -17,7 +17,7 @@ public interface UserService {
 
     User getUserByName(String userName);
 
-    Map<String, Object> userLogin(String userNameOrId, String userPassword);
+    String userLogin(String userName, String userPassword, int rememberMe, HttpServletResponse response);
 
     String rememberLogin(String ticket);
 
