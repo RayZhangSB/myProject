@@ -16,6 +16,7 @@ public class ExecPushStreamThread implements Runnable {
 
     public void run() {
         if (streamConverter != null) {
+            streamConverter.startGrabber();
             streamConverter.startRecorder();
             streamConverter.startPushStream();
         }

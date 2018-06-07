@@ -1,10 +1,7 @@
 package com.zhang.ssm.video_stream;
 
 import org.bytedeco.javacpp.avcodec;
-import org.bytedeco.javacv.FFmpegFrameGrabber;
-import org.bytedeco.javacv.FrameGrabber;
-import org.bytedeco.javacv.FrameRecorder;
-import org.bytedeco.javacv.OpenCVFrameConverter;
+import org.bytedeco.javacv.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,21 +41,17 @@ public class VideoStreamFactory {
         return videoStreamFactory;
     }
 
-    public FrameRecorder createDefaultRecorder(String rtmpPath) {
-        return createRecorder(rtmpPath, 1920, 1080, avcodec.AV_CODEC_ID_H264,
+    public FrameRecorder createDefaultRecorder(String dest) {
+        return createRecorder(dest, 1920, 1080, avcodec.AV_CODEC_ID_H264,
                 "flv", 25, 25);
     }
 
-    /*
-    outputfile = rtmp://ip:port/live1
-    avcodec.AV_CODEC_ID_H264  "flv"
-     */
-    public FrameRecorder createRecorder(String outputFile, int width, int height, int videoCodec, String format, int frameRate, int gopSize) {
+    public FrameRecorder createRecorder(String dest, int width, int height, int videoCodec, String format, int frameRate, int gopSize) {
         FrameRecorder recorder = null;
         try {
-            recorder = FrameRecorder.createDefault(outputFile, width, height);
-        } catch (org.bytedeco.javacv.FrameRecorder.Exception e2) {
-            LOGGER.error("create new recorder failed" + e2.getMessage());
+            recorder = FFmpegFrameRecorder.createDefault(dest, width, height);
+        } catch (org.bytedeco.javacv.FrameRecorder.Exception e) {
+            LOGGER.error("create new recorder failed" + e.getMessage());
         }
         recorder.setVideoCodec(videoCodec);
         recorder.setFormat(format);
@@ -67,14 +60,14 @@ public class VideoStreamFactory {
         return recorder;
     }
 
-    public FrameGrabber createDefaultGrabber(String inputFile) {
-        return createGrabber(inputFile, "tcp");
+    public FrameGrabber createDefaultGrabber(String src) {
+        return createGrabber(src, "tcp");
     }
 
-    public FrameGrabber createGrabber(String inputFile, String udp_tcp) {
+    public FrameGrabber createGrabber(String src, String udp_tcp) {
         FrameGrabber grabber = null;
         try {
-            grabber = FFmpegFrameGrabber.createDefault(inputFile);
+            grabber = FFmpegFrameGrabber.createDefault(src);
             grabber.setOption("rtsp_transport", udp_tcp);
         } catch (FrameGrabber.Exception e) {
             LOGGER.error("create new Grabber failed" + e.getMessage());
@@ -127,7 +120,6 @@ public class VideoStreamFactory {
         return true;
     }
 
-
     public boolean startAllConverter() {
         for (VideoStreamConverter v : this.videoStreamConverters) {
             if (!v.isOpened()) {
@@ -141,5 +133,7 @@ public class VideoStreamFactory {
 
 
     }
+
+
 
 }

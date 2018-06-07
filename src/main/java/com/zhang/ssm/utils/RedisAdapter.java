@@ -33,13 +33,4 @@ public class RedisAdapter {
 
     }
 
-    public String set(String key, String value) {
-        ShardedJedis shardedJedis = getRedisConnection();
-        return shardedJedis.set(key, value);
-    }
-
-    public String get(String key) {
-        ShardedJedis shardedJedis = getRedisConnection();
-        return  shardedJedis.get(key);
-    }
 }
