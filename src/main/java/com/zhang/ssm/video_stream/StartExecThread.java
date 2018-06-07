@@ -7,17 +7,15 @@ package com.zhang.ssm.video_stream;
  * @Date 2018/6/5 17:46
  * @Version 1.0
  **/
-public class ExecPushStreamThread implements Runnable {
+public class StartExecThread implements Runnable {
     private VideoStreamConverter streamConverter;
 
-    public ExecPushStreamThread(VideoStreamConverter streamConverter) {
+    public StartExecThread(VideoStreamConverter streamConverter) {
         this.streamConverter = streamConverter;
     }
 
     public void run() {
         if (streamConverter != null) {
-            streamConverter.startGrabber();
-            streamConverter.startRecorder();
             streamConverter.startPushStream();
         }
 

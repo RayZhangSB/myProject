@@ -75,3 +75,13 @@ Caused by: java.lang.IllegalArgumentException: Cannot load an ApplicationContext
 [INFO][main][2018-06-07 12:33:11][com.zhang.ssm.video_stream.VideoStreamConverter] - 正在尝试重新开启录制器...
 [ERROR][main][2018-06-07 12:33:11][com.zhang.ssm.video_stream.VideoStreamConverter] - 录制器启动失败--null
 [ERROR][main][2018-06-07 12:33:13][com.zhang.ssm.video_stream.VideoStreamConverter] - 推流线程被中断No video output stream (Is imageWidth > 0 && imageHeight > 0 and has start() been called?)
+[INFO][pool-1-thread-1][2018-06-07 20:49:50][testLatch.CountLatchDown$testT] - preparing----------------->thread0
+[INFO][pool-1-thread-2][2018-06-07 20:49:50][testLatch.CountLatchDown$testT] - preparing----------------->thread1
+[INFO][pool-1-thread-3][2018-06-07 20:49:50][testLatch.CountLatchDown$testT] - preparing----------------->thread2
+[INFO][pool-1-thread-4][2018-06-07 20:49:50][testLatch.CountLatchDown$testT] - preparing----------------->thread3
+[INFO][pool-1-thread-5][2018-06-07 20:49:50][testLatch.CountLatchDown$testT] - preparing----------------->thread4
+[INFO][pool-1-thread-6][2018-06-07 20:49:50][testLatch.CountLatchDown$testT] - preparing----------------->thread5
+[INFO][pool-1-thread-7][2018-06-07 20:49:50][testLatch.CountLatchDown$testT] - preparing----------------->thread6
+[INFO][pool-1-thread-8][2018-06-07 20:49:50][testLatch.CountLatchDown$testT] - preparing----------------->thread7
+[INFO][pool-1-thread-9][2018-06-07 20:49:50][testLatch.CountLatchDown$testT] - preparing----------------->thread8
+[INFO][pool-1-thread-10][2018-06-07 20:49:50][testLatch.CountLatchDown$testT] - preparing----------------->thread9

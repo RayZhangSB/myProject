@@ -40,9 +40,10 @@ public class VideoStreamConverter {
         return isOpened;
     }
 
-    public void startGrabber() {
+    public boolean startGrabber() {
         try {
             grabber.start();
+
         } catch (FrameGrabber.Exception e) {
             LOGGER.error("抓取器启动失败，正在重新启动...");
             if (grabber != null) {
@@ -51,18 +52,22 @@ public class VideoStreamConverter {
                     grabber.stop();
                     LOGGER.info("正在尝试重新开启抓取器...");
                     grabber.start();
+                    return true;
                 } catch (Exception e1) {
-                    LOGGER.error("抓取器启动失败..."+e1.getMessage());
+                    LOGGER.error("抓取器启动失败..." + e1.getMessage());
+                    return false;
                 }
 
             }
         }
-}
+        return true;
+    }
 
 
-    public void startRecorder() {
+    public boolean startRecorder() {
         try {
             recorder.start();
+
         } catch (org.bytedeco.javacv.FrameRecorder.Exception e) {
             try {
                 LOGGER.error("录制器启动失败，正在重新启动...");
@@ -71,11 +76,14 @@ public class VideoStreamConverter {
                     recorder.stop();
                     LOGGER.info("正在尝试重新开启录制器...");
                     recorder.start();
+                    return true;
                 }
             } catch (Exception e1) {
                 LOGGER.error("录制器启动失败--" + e1.getMessage());
+                return false;
             }
         }
+        return true;
     }
 
     public boolean tryGetFirstFrame() {
@@ -88,7 +96,7 @@ public class VideoStreamConverter {
         return grabFrame != null;
     }
 
-    public void getSourceInfo(){
+    public void getSourceInfo() {
         this.grabber.getFrameRate();
         this.grabber.getFormat();
         this.grabber.getVideoCodec();
@@ -118,9 +126,7 @@ public class VideoStreamConverter {
                 }
                 Thread.sleep(40);
             }
-        }
-
-        catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             LOGGER.error("推流线程被中断" + e.getMessage());
             stopAddRelease();
 
@@ -139,7 +145,7 @@ public class VideoStreamConverter {
     }
 
     public boolean stopAddRelease() {
-        if(isOpened){
+        if (isOpened) {
             return true;
         }
         try {

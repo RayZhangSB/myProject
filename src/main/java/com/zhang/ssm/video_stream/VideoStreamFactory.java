@@ -104,7 +104,7 @@ public class VideoStreamFactory {
         return false;
     }
 
-    public void addNewLine(ExecPushStreamThread pushStream) {
+    public void addNewLine(StartExecThread pushStream) {
         this.executorService.execute(pushStream);
         LOGGER.info("新线路开始执行");
     }
@@ -123,7 +123,7 @@ public class VideoStreamFactory {
     public boolean startAllConverter() {
         for (VideoStreamConverter v : this.videoStreamConverters) {
             if (!v.isOpened()) {
-                addNewLine(new ExecPushStreamThread(v));
+                addNewLine(new StartExecThread(v));
                 LOGGER.error(v.getLineName() + "--" + "启动推流失败，请检查该节点");
                 return false;
             }
@@ -133,6 +133,19 @@ public class VideoStreamFactory {
 
 
     }
+
+    public boolean startPreparing(){
+        for (VideoStreamConverter v : this.videoStreamConverters) {
+            if (!v.startGrabber() || !v.startRecorder()) {
+                LOGGER.error(v.getLineName() + "--" + "该线路连接失败，请检查该节点");
+                return false;
+            }
+        }
+        LOGGER.info("所有线路均连接正常");
+        return true;
+    }
+
+
 
 
 
