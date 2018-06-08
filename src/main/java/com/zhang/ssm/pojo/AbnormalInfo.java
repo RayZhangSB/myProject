@@ -1,7 +1,7 @@
 package com.zhang.ssm.pojo;
 
 public class AbnormalInfo {
-    private Integer abnormalInfoid;
+    private Integer id;
 
     private Integer devId;
 
@@ -11,12 +11,12 @@ public class AbnormalInfo {
 
     private String abnormalDesc;
 
-    public Integer getAbnormalInfoid() {
-        return abnormalInfoid;
+    public Integer getId() {
+        return id;
     }
 
-    public void setAbnormalInfoid(Integer abnormalInfoid) {
-        this.abnormalInfoid = abnormalInfoid;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getDevId() {

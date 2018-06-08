@@ -11,7 +11,7 @@ public interface AbnormalInfoMapper {
 
     int deleteByExample(AbnormalInfoExample example);
 
-    int deleteByPrimaryKey(Integer abnormalInfoid);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(AbnormalInfo record);
 
@@ -19,7 +19,7 @@ public interface AbnormalInfoMapper {
 
     List<AbnormalInfo> selectByExample(AbnormalInfoExample example);
 
-    AbnormalInfo selectByPrimaryKey(Integer abnormalInfoid);
+    AbnormalInfo selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") AbnormalInfo record, @Param("example") AbnormalInfoExample example);
 

@@ -1,14 +1,16 @@
 package com.zhang.ssm.video_stream;
 
+import com.zhang.ssm.utils.DateUtil;
 import org.bytedeco.javacpp.avcodec;
 import org.bytedeco.javacv.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.io.File;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * @ClassName VideoStreamFactory
@@ -18,14 +20,19 @@ import java.util.concurrent.Executors;
  * @Version 1.0
  **/
 public class VideoStreamFactory {
+    private static String AB_IMG_PATH_PREFIX="";
+
     private static final Logger LOGGER = LoggerFactory.getLogger(VideoStreamFactory.class);
 
     private static volatile VideoStreamFactory videoStreamFactory;
 
-    private final List<VideoStreamConverter> videoStreamConverters = new LinkedList<VideoStreamConverter>();
+    private static final List<VideoStreamConverter> videoStreamConverters = new LinkedList<VideoStreamConverter>();
 
     private final ExecutorService executorService = Executors.newFixedThreadPool(11);
 
+    private static final Queue<OpenCVFrameConverter.ToIplImage> abFrames = new LinkedBlockingQueue<OpenCVFrameConverter.ToIplImage>();
+
+    private static final Map<String,String> savePaths = new HashMap<String, String>(128);
 
     private VideoStreamFactory() {
     }
@@ -80,22 +87,22 @@ public class VideoStreamFactory {
     }
 
     public VideoStreamConverter createVideoStreamConverter(String lineName, FrameGrabber grabber, FrameRecorder recorder, OpenCVFrameConverter.ToIplImage converter) {
-        for (VideoStreamConverter v : this.videoStreamConverters) {
+        for (VideoStreamConverter v : videoStreamConverters) {
             if (v.getLineName().equals(lineName)) {
                 LOGGER.info("该线路已存在，若想添加新线路，请先删除原线路");
                 return v;
             }
         }
         VideoStreamConverter nv = new VideoStreamConverter(grabber, recorder, converter, lineName);
-        this.videoStreamConverters.add(nv);
+        videoStreamConverters.add(nv);
         return nv;
     }
 
     public boolean delVideoStreamConverter(String lineName) {
-        for (VideoStreamConverter v : this.videoStreamConverters) {
+        for (VideoStreamConverter v : videoStreamConverters) {
             if (v.getLineName().equals(lineName)) {
                 v.stopAddRelease();
-                this.videoStreamConverters.remove(v);
+                videoStreamConverters.remove(v);
                 LOGGER.info("该线路已删除");
                 return true;
             }
@@ -110,7 +117,7 @@ public class VideoStreamFactory {
     }
 
     public boolean checkAllSource() {
-        for (VideoStreamConverter v : this.videoStreamConverters) {
+        for (VideoStreamConverter v : videoStreamConverters) {
             if (!v.tryGetFirstFrame()) {
                 LOGGER.error(v.getLineName() + "--" + "提取源失败，请检查设备");
                 return false;
@@ -121,7 +128,7 @@ public class VideoStreamFactory {
     }
 
     public boolean startAllConverter() {
-        for (VideoStreamConverter v : this.videoStreamConverters) {
+        for (VideoStreamConverter v : videoStreamConverters) {
             if (!v.isOpened()) {
                 addNewLine(new StartExecThread(v));
                 LOGGER.error(v.getLineName() + "--" + "启动推流失败，请检查该节点");
@@ -135,7 +142,7 @@ public class VideoStreamFactory {
     }
 
     public boolean startPreparing(){
-        for (VideoStreamConverter v : this.videoStreamConverters) {
+        for (VideoStreamConverter v : videoStreamConverters) {
             if (!v.startGrabber() || !v.startRecorder()) {
                 LOGGER.error(v.getLineName() + "--" + "该线路连接失败，请检查该节点");
                 return false;
@@ -145,7 +152,28 @@ public class VideoStreamFactory {
         return true;
     }
 
-
+    public boolean makeSaveDirs(){
+        String date = DateUtil.genTime(new Date(),"yyyy-MM-dd");
+        File dir = new File(AB_IMG_PATH_PREFIX+File.separator +date);
+        try {
+            if (!(dir.exists() && dir.isDirectory())) {
+                dir.mkdir();
+            }
+            for (VideoStreamConverter v : videoStreamConverters) {
+                String lineName =  v.getLineName();
+                String  saveDir=  dir +File.separator+lineName;
+                File sDir = new File(saveDir);
+                if (!(sDir.exists() && sDir.isDirectory())) {
+                    sDir.mkdir();
+                    savePaths.put(lineName,saveDir);
+                }
+            }
+        }catch (Exception e){
+            LOGGER.error("存储异常图片的路径创建失败"+e.getMessage());
+            return false;
+        }
+        return true;
+    }
 
 
 

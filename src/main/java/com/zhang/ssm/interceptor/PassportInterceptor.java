@@ -57,7 +57,10 @@ public class PassportInterceptor implements HandlerInterceptor {
                 }
             }
         }
-        if (ticket != null) {
+
+        if(ticket == null){
+            httpServletResponse.sendRedirect("/login");
+        } else {
             Token token = tokenMapper.selectByTicket(ticket);
             if (token == null || token.getTokenExpired().before(new Date()) || token.getTokenStatus() != 0) {
                 //用户未登录状态，直接跳转到

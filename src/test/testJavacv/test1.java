@@ -6,17 +6,16 @@ import org.bytedeco.javacv.OpenCVFrameGrabber;
 import org.junit.Test;
 
 import javax.swing.*;
+import java.io.*;
 
 /**
- * @ClassName test
+ * @ClassName aearewq
  * @Description:
  * @Author Raymond Zhang
- * @Date 2018/6/4 19:22
+ * @Date 2018/6/8 15:15
  * @Version 1.0
  **/
-
-public class test {
-
+public class test1 {
 
     @Test
     public void lll() throws FrameGrabber.Exception, InterruptedException {
@@ -38,6 +37,21 @@ public class test {
 
             Thread.sleep(50);//50毫秒刷新一次图像
         }
+    }
+
+
+    @Test
+    public void savepic() throws IOException {
+        long time1 = System.currentTimeMillis();
+        File file1 = new File("C:\\Users\\Raymond Zhang\\Pictures/IU1.jpg");
+        InputStream in = new BufferedInputStream(new FileInputStream(file1));
+        byte[] r= new byte[1024];
+        int len = 0;
+        while((len = in.read(r))!= -1){
+
+        }
+        in.close();
+        System.out.println(System.currentTimeMillis()-time1);
     }
 
 

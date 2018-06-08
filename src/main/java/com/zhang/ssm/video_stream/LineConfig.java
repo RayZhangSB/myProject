@@ -1,4 +1,4 @@
-package com.zhang.ssm.utils;
+package com.zhang.ssm.video_stream;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Date 2018/6/3 18:19
  * @Version 1.0
  **/
-public class LineConfig {
+public final class LineConfig {
 
     //线路名称与rtmp地址映射
     public static final Map< String,String> LINE_RTMP_ADDRs = new ConcurrentHashMap<String,String>();

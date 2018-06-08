@@ -18,11 +18,18 @@ import org.slf4j.LoggerFactory;
  * @Version 1.0
  **/
 public class VideoStreamConverter {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(VideoStreamConverter.class);
+
     private String lineName;
+
     private FrameRecorder recorder;
+
     private FrameGrabber grabber;
+
     private OpenCVFrameConverter.ToIplImage converter;
+
+    //指示是否正在取流
     private boolean isOpened = false;
 
     public VideoStreamConverter(FrameGrabber grabber, FrameRecorder recorder, OpenCVFrameConverter.ToIplImage converter, String lineName) {
@@ -62,7 +69,6 @@ public class VideoStreamConverter {
         }
         return true;
     }
-
 
     public boolean startRecorder() {
         try {
@@ -123,6 +129,8 @@ public class VideoStreamConverter {
                 recorder.setTimestamp(1000 * (System.currentTimeMillis() - startTime));//时间戳
                 if (rotatedFrame != null) {
                     recorder.record(rotatedFrame);
+                    grabbedImage = null;
+                    grabFrame = null;
                 }
                 Thread.sleep(40);
             }

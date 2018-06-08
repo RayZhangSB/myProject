@@ -104,63 +104,63 @@ public class AbnormalInfoExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andAbnormalInfoidIsNull() {
-            addCriterion("abnormal_infoid is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalInfoidIsNotNull() {
-            addCriterion("abnormal_infoid is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalInfoidEqualTo(Integer value) {
-            addCriterion("abnormal_infoid =", value, "abnormalInfoid");
+        public Criteria andIdEqualTo(Integer value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalInfoidNotEqualTo(Integer value) {
-            addCriterion("abnormal_infoid <>", value, "abnormalInfoid");
+        public Criteria andIdNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalInfoidGreaterThan(Integer value) {
-            addCriterion("abnormal_infoid >", value, "abnormalInfoid");
+        public Criteria andIdGreaterThan(Integer value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalInfoidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("abnormal_infoid >=", value, "abnormalInfoid");
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalInfoidLessThan(Integer value) {
-            addCriterion("abnormal_infoid <", value, "abnormalInfoid");
+        public Criteria andIdLessThan(Integer value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalInfoidLessThanOrEqualTo(Integer value) {
-            addCriterion("abnormal_infoid <=", value, "abnormalInfoid");
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalInfoidIn(List<Integer> values) {
-            addCriterion("abnormal_infoid in", values, "abnormalInfoid");
+        public Criteria andIdIn(List<Integer> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalInfoidNotIn(List<Integer> values) {
-            addCriterion("abnormal_infoid not in", values, "abnormalInfoid");
+        public Criteria andIdNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalInfoidBetween(Integer value1, Integer value2) {
-            addCriterion("abnormal_infoid between", value1, value2, "abnormalInfoid");
+        public Criteria andIdBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalInfoidNotBetween(Integer value1, Integer value2) {
-            addCriterion("abnormal_infoid not between", value1, value2, "abnormalInfoid");
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 

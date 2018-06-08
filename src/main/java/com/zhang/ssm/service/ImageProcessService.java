@@ -4,7 +4,7 @@ import org.bytedeco.javacpp.opencv_core;
 
 public interface ImageProcessService {
 
-    int process(opencv_core.IplImage img);
+    void process(opencv_core.IplImage img ,String mark);
 
 
 

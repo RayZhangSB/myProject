@@ -1,5 +1,6 @@
 package com.zhang.ssm.utils;
 
+import com.zhang.ssm.video_stream.VideoStreamFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,25 @@ public class RedisAdapter {
     @Autowired
     private ShardedJedisPool shardedJedisPool;
 
+    private static volatile RedisAdapter adapter;
+
+    private RedisAdapter() {
+    }
+
+    public static RedisAdapter getInstance() {
+        if (adapter == null) {
+            synchronized (VideoStreamFactory.class) {
+                if (adapter == null) {
+                    adapter = new RedisAdapter();
+                }
+            }
+        }
+        return adapter;
+    }
+
+
     //获取redis连接
-    private ShardedJedis getRedisConnection() {
+    public  ShardedJedis getRedisConnection() {
         ShardedJedis shardJedis = null;
         try {
              shardJedis = shardedJedisPool.getResource();
@@ -32,5 +50,7 @@ public class RedisAdapter {
         return shardJedis;
 
     }
+
+
 
 }

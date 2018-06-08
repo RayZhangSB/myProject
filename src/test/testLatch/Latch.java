@@ -15,10 +15,15 @@ import java.util.concurrent.Executors;
  * @Date 2018/6/7 20:33
  * @Version 1.0
  **/
-public class CountLatchDown {
+public class Latch {
 
-    private static final Logger logger = LoggerFactory.getLogger(CountLatchDown.class);
-
+    private static final Logger logger = LoggerFactory.getLogger(Latch.class);
+    public Latch(){
+        System.out.println("父类构造器");
+    }
+    static {
+        System.out.println("父 static 块");
+    }
     public  void maiddn() throws InterruptedException {
 
         ExecutorService executorService = Executors.newFixedThreadPool(10);
@@ -33,8 +38,14 @@ public class CountLatchDown {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        new CountLatchDown().maiddn();
+            new ff();
     }
+
+
+
+
+
+
 
 
     class  testT implements Runnable{
@@ -59,6 +70,21 @@ public class CountLatchDown {
         }
     }
 
+
+
+}
+
+class ff extends Latch{
+
+    static int kk=123;
+
+    public ff(){
+        System.out.println("子类构造器");
+    }
+
+    static {
+        System.out.println("子类块");
+    }
 
 
 }

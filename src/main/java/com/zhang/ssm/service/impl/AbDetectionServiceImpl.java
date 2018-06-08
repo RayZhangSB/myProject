@@ -2,7 +2,7 @@ package com.zhang.ssm.service.impl;
 
 import com.zhang.ssm.service.AbDetectionService;
 import com.zhang.ssm.utils.JsonUtil;
-import com.zhang.ssm.utils.LineConfig;
+import com.zhang.ssm.video_stream.LineConfig;
 import com.zhang.ssm.utils.StringUtil;
 import com.zhang.ssm.wrapperPojo.ResponseResult;
 import org.springframework.stereotype.Service;

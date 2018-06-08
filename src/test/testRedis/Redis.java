@@ -232,7 +232,17 @@ public class Redis {
     }
 
     public static void main(String[] args) throws Exception {
-        recordCamera("E:\\output.mp4",25);
+//        recordCamera("E:\\output.mp4",25);
+
+        Integer a = 1;
+        Integer b =2;
+        Integer c = 3;
+        Integer d = 3;
+        Long g = 3l;
+        System.out.println(c==a+b);
+        System.out.println(c.equals(d));
+
+
     }
 
 

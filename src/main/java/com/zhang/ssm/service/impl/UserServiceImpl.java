@@ -33,16 +33,17 @@ import java.util.UUID;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
     private UserMapper userMapper;
+
     @Autowired
     private TokenMapper tokenMapper;
 
     @Autowired
     private UserHolder userHolder;
-
 
     public String registerUser(final User user) {
         User u = userMapper.selectByName(user.getUserName());
@@ -82,8 +83,7 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectByName(userName);
     }
 
-
-    public String userLogin(String userName, String userPassword , int rememberMe, HttpServletResponse response) {
+    public String userLogin(String userName, String userPassword, int rememberMe, HttpServletResponse response) {
         User res = userMapper.selectByName(userName);
         ResponseResult responseResult = ResponseResult.ok();
         String ticket = null;
@@ -101,18 +101,17 @@ public class UserServiceImpl implements UserService {
             }
         }
         try {
-                Cookie cookie = new Cookie("ticket", ticket);
-                cookie.setPath("/");
-                if (rememberMe > 0) {
-                    cookie.setMaxAge(3600 * 24 * 5);
-                }
-                response.addCookie(cookie);
+            Cookie cookie = new Cookie("ticket", ticket);
+            cookie.setPath("/");
+            if (rememberMe > 0) {
+                cookie.setMaxAge(3600 * 24 * 5);
+            }
+            response.addCookie(cookie);
         } catch (Exception e) {
             LOGGER.error("未能添加已登录标记" + e.getMessage());
         }
         return JsonUtil.objectToJson(responseResult);
     }
-
 
     public String addLoginTicket(int userId) {
         Token ticket = new Token();
@@ -139,7 +138,6 @@ public class UserServiceImpl implements UserService {
 
         return JsonUtil.objectToJson(responseResult);
     }
-
 
     public String getUserSimpleInfo() {
         ResponseResult responseResult = ResponseResult.ok();
@@ -192,7 +190,6 @@ public class UserServiceImpl implements UserService {
 
 
     }
-
 
     public String updateUserInfo(final User user) {
 
