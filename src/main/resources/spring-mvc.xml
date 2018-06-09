@@ -85,11 +85,9 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
     <!--<property name="numberToolAttribute" value="numberTool"/>-->
     <!--</bean>-->
 
-
     <mvc:resources mapping="/js/**" location="WEB-INF/js/"/>
     <mvc:resources mapping="/css/**" location="WEB-INF/css/"/>
     <mvc:resources mapping="/images/**" location="WEB-INF/images/"/>
-    <mvc:resources mapping="/video/**" location="WEB-INF/video/"/>
 
     <mvc:interceptors>
         <mvc:interceptor>
@@ -97,7 +95,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
             <mvc:mapping path="/**"/>
             <!-- 登录是生成通行证数据-->
             <mvc:exclude-mapping path="/"/>
-            <mvc:exclude-mapping path="/login"/>
+            <!--<mvc:exclude-mapping path="/login"/>-->
             <bean id="commonInterceptor1" class="com.zhang.ssm.interceptor.PassportInterceptor"/>
         </mvc:interceptor>
         <!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 -->

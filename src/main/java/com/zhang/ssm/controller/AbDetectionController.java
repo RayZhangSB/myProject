@@ -27,10 +27,16 @@ public class AbDetectionController {
     }
 
 
-    @RequestMapping("changeLine")
+    @RequestMapping("/changeLine")
     @ResponseBody
     public String changeLine(String lineName){
         return abDetectionService.changeLine(lineName);
+    }
+
+    @RequestMapping("/snapshot")
+    @ResponseBody
+    public String snapshot(String lineName) {
+        return abDetectionService.snapshot(lineName);
     }
 
 }

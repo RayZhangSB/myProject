@@ -1,7 +1,9 @@
 package com.zhang.ssm.video_stream;
 
+import com.zhang.ssm.utils.DateUtil;
 import org.bytedeco.javacpp.Loader;
 import org.bytedeco.javacpp.opencv_core;
+import org.bytedeco.javacpp.opencv_imgcodecs;
 import org.bytedeco.javacpp.opencv_objdetect;
 import org.bytedeco.javacv.Frame;
 import org.bytedeco.javacv.FrameGrabber;
@@ -9,6 +11,9 @@ import org.bytedeco.javacv.FrameRecorder;
 import org.bytedeco.javacv.OpenCVFrameConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.File;
+import java.util.Date;
 
 /**
  * @ClassName VideoStreamConverter
@@ -29,8 +34,13 @@ public class VideoStreamConverter {
 
     private OpenCVFrameConverter.ToIplImage converter;
 
+    private boolean snapshot = false;
     //指示是否正在取流
     private boolean isOpened = false;
+
+    private String snapshot_save_path_prefix = "";
+
+    private String snapshot_save_path = "";
 
     public VideoStreamConverter(FrameGrabber grabber, FrameRecorder recorder, OpenCVFrameConverter.ToIplImage converter, String lineName) {
         this.recorder = recorder;
@@ -102,6 +112,22 @@ public class VideoStreamConverter {
         return grabFrame != null;
     }
 
+    public String startSnapshot() {
+        this.snapshot = true;
+        return this.snapshot_save_path;
+    }
+
+    private void snapshotFrame(Frame frame, Date date) {
+        opencv_core.Mat mat = converter.convertToMat(frame);
+        String name = DateUtil.genTime(date, "yyyy-MM-dd-HH-mm-SS");
+        String path = snapshot_save_path_prefix + File.separator + name + ".jpg";
+        opencv_imgcodecs.imwrite(path, mat);
+        this.snapshot_save_path = path;
+        LOGGER.info("snapshot success");
+
+
+    }
+
     public void getSourceInfo() {
         this.grabber.getFrameRate();
         this.grabber.getFormat();
@@ -129,6 +155,10 @@ public class VideoStreamConverter {
                 recorder.setTimestamp(1000 * (System.currentTimeMillis() - startTime));//时间戳
                 if (rotatedFrame != null) {
                     recorder.record(rotatedFrame);
+                    if (snapshot) {
+                        snapshotFrame(grabFrame, new Date());
+                        snapshot = false;
+                    }
                     grabbedImage = null;
                     grabFrame = null;
                 }

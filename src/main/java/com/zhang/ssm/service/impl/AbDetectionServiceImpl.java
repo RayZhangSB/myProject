@@ -2,8 +2,10 @@ package com.zhang.ssm.service.impl;
 
 import com.zhang.ssm.service.AbDetectionService;
 import com.zhang.ssm.utils.JsonUtil;
-import com.zhang.ssm.video_stream.LineConfig;
 import com.zhang.ssm.utils.StringUtil;
+import com.zhang.ssm.video_stream.LineConfig;
+import com.zhang.ssm.video_stream.VideoStreamConverter;
+import com.zhang.ssm.video_stream.VideoStreamFactory;
 import com.zhang.ssm.wrapperPojo.ResponseResult;
 import org.springframework.stereotype.Service;
 
@@ -66,4 +68,24 @@ public class AbDetectionServiceImpl implements AbDetectionService {
         }
         return JsonUtil.objectToJson(responseResult);
     }
+
+    public String snapshot(String lineName) {
+        ResponseResult responseResult = ResponseResult.ok();
+        VideoStreamFactory factory = VideoStreamFactory.getInstance();
+        VideoStreamConverter converter = factory.getConverter(lineName);
+        String path = converter.startSnapshot();
+        if (StringUtil.isEmpty(path)) {
+            responseResult.setCode(1);
+            responseResult.setMsg("snapshot failed");
+        } else {
+
+            responseResult.setMsg(path);
+        }
+
+        return JsonUtil.objectToJson(responseResult);
+
+    }
+
+
+
 }

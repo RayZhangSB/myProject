@@ -59,7 +59,7 @@ public class PassportInterceptor implements HandlerInterceptor {
         }
 
         if(ticket == null){
-            httpServletResponse.sendRedirect("/login");
+//            httpServletResponse.sendRedirect("/login");
         } else {
             Token token = tokenMapper.selectByTicket(ticket);
             if (token == null || token.getTokenExpired().before(new Date()) || token.getTokenStatus() != 0) {

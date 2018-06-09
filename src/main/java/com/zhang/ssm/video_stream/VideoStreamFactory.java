@@ -7,7 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -26,7 +30,7 @@ public class VideoStreamFactory {
 
     private static volatile VideoStreamFactory videoStreamFactory;
 
-    private static final List<VideoStreamConverter> videoStreamConverters = new LinkedList<VideoStreamConverter>();
+    private static final Map<String, VideoStreamConverter> videoStreamConverterMaps = new ConcurrentHashMap<String, VideoStreamConverter>();
 
     private final ExecutorService executorService = Executors.newFixedThreadPool(11);
 
@@ -87,22 +91,22 @@ public class VideoStreamFactory {
     }
 
     public VideoStreamConverter createVideoStreamConverter(String lineName, FrameGrabber grabber, FrameRecorder recorder, OpenCVFrameConverter.ToIplImage converter) {
-        for (VideoStreamConverter v : videoStreamConverters) {
-            if (v.getLineName().equals(lineName)) {
+
+        if (videoStreamConverterMaps.containsKey(lineName)) {
                 LOGGER.info("该线路已存在，若想添加新线路，请先删除原线路");
-                return v;
+            return videoStreamConverterMaps.get(lineName);
             }
-        }
+
         VideoStreamConverter nv = new VideoStreamConverter(grabber, recorder, converter, lineName);
-        videoStreamConverters.add(nv);
+        videoStreamConverterMaps.put(lineName, nv);
         return nv;
     }
 
     public boolean delVideoStreamConverter(String lineName) {
-        for (VideoStreamConverter v : videoStreamConverters) {
+        for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
             if (v.getLineName().equals(lineName)) {
                 v.stopAddRelease();
-                videoStreamConverters.remove(v);
+                videoStreamConverterMaps.remove(lineName);
                 LOGGER.info("该线路已删除");
                 return true;
             }
@@ -117,7 +121,7 @@ public class VideoStreamFactory {
     }
 
     public boolean checkAllSource() {
-        for (VideoStreamConverter v : videoStreamConverters) {
+        for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
             if (!v.tryGetFirstFrame()) {
                 LOGGER.error(v.getLineName() + "--" + "提取源失败，请检查设备");
                 return false;
@@ -128,7 +132,7 @@ public class VideoStreamFactory {
     }
 
     public boolean startAllConverter() {
-        for (VideoStreamConverter v : videoStreamConverters) {
+        for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
             if (!v.isOpened()) {
                 addNewLine(new StartExecThread(v));
                 LOGGER.error(v.getLineName() + "--" + "启动推流失败，请检查该节点");
@@ -142,7 +146,7 @@ public class VideoStreamFactory {
     }
 
     public boolean startPreparing(){
-        for (VideoStreamConverter v : videoStreamConverters) {
+        for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
             if (!v.startGrabber() || !v.startRecorder()) {
                 LOGGER.error(v.getLineName() + "--" + "该线路连接失败，请检查该节点");
                 return false;
@@ -159,8 +163,7 @@ public class VideoStreamFactory {
             if (!(dir.exists() && dir.isDirectory())) {
                 dir.mkdir();
             }
-            for (VideoStreamConverter v : videoStreamConverters) {
-                String lineName =  v.getLineName();
+            for (String lineName : videoStreamConverterMaps.keySet()) {
                 String  saveDir=  dir +File.separator+lineName;
                 File sDir = new File(saveDir);
                 if (!(sDir.exists() && sDir.isDirectory())) {
@@ -176,5 +179,8 @@ public class VideoStreamFactory {
     }
 
 
+    public VideoStreamConverter getConverter(String lineName) {
+        return videoStreamConverterMaps.get(lineName);
+    }
 
 }
