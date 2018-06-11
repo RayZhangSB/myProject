@@ -1,8 +1,12 @@
 package com.zhang.ssm.video_stream;
 
+import com.zhang.ssm.pojo.AbnormalInfo;
 import com.zhang.ssm.utils.DateUtil;
 import org.bytedeco.javacpp.avcodec;
-import org.bytedeco.javacv.*;
+import org.bytedeco.javacv.FFmpegFrameGrabber;
+import org.bytedeco.javacv.FrameGrabber;
+import org.bytedeco.javacv.FrameRecorder;
+import org.bytedeco.javacv.OpenCVFrameConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,7 +15,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Queue;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -24,19 +27,19 @@ import java.util.concurrent.LinkedBlockingQueue;
  * @Version 1.0
  **/
 public class VideoStreamFactory {
-    private static String AB_IMG_PATH_PREFIX="";
+    private static String AB_IMG_PATH_PREFIX = "";
 
     private static final Logger LOGGER = LoggerFactory.getLogger(VideoStreamFactory.class);
 
     private static volatile VideoStreamFactory videoStreamFactory;
 
-    private static final Map<String, VideoStreamConverter> videoStreamConverterMaps = new ConcurrentHashMap<String, VideoStreamConverter>();
+    private Map<String, VideoStreamConverter> videoStreamConverterMaps = new HashMap<String, VideoStreamConverter>();
 
-    private final ExecutorService executorService = Executors.newFixedThreadPool(11);
+    private ExecutorService executorService = Executors.newFixedThreadPool(11);
 
-    private static final Queue<OpenCVFrameConverter.ToIplImage> abFrames = new LinkedBlockingQueue<OpenCVFrameConverter.ToIplImage>();
+    private Queue<AbnormalInfo> abFrames = new LinkedBlockingQueue<AbnormalInfo>();
 
-    private static final Map<String,String> savePaths = new HashMap<String, String>(128);
+    private Map<String, String> savePaths = new HashMap<String, String>(128);
 
     private VideoStreamFactory() {
     }
@@ -60,14 +63,14 @@ public class VideoStreamFactory {
     public FrameRecorder createRecorder(String dest, int width, int height, int videoCodec, String format, int frameRate, int gopSize) {
         FrameRecorder recorder = null;
         try {
-            recorder = FFmpegFrameRecorder.createDefault(dest, width, height);
+            recorder = FrameRecorder.createDefault(dest, width, height);
+            recorder.setVideoCodec(videoCodec);
+            recorder.setFormat(format);
+            recorder.setFrameRate(frameRate);
+            recorder.setGopSize(gopSize);
         } catch (org.bytedeco.javacv.FrameRecorder.Exception e) {
             LOGGER.error("create new recorder failed" + e.getMessage());
         }
-        recorder.setVideoCodec(videoCodec);
-        recorder.setFormat(format);
-        recorder.setFrameRate(frameRate);
-        recorder.setGopSize(gopSize);
         return recorder;
     }
 
@@ -86,16 +89,16 @@ public class VideoStreamFactory {
         return grabber;
     }
 
-    public OpenCVFrameConverter.ToIplImage createConverter() {
+    public OpenCVFrameConverter.ToIplImage createImgConverter() {
         return new OpenCVFrameConverter.ToIplImage();
     }
 
     public VideoStreamConverter createVideoStreamConverter(String lineName, FrameGrabber grabber, FrameRecorder recorder, OpenCVFrameConverter.ToIplImage converter) {
 
         if (videoStreamConverterMaps.containsKey(lineName)) {
-                LOGGER.info("该线路已存在，若想添加新线路，请先删除原线路");
+            LOGGER.info("该线路已存在，若想添加新线路，请先删除原线路");
             return videoStreamConverterMaps.get(lineName);
-            }
+        }
 
         VideoStreamConverter nv = new VideoStreamConverter(grabber, recorder, converter, lineName);
         videoStreamConverterMaps.put(lineName, nv);
@@ -103,15 +106,14 @@ public class VideoStreamFactory {
     }
 
     public boolean delVideoStreamConverter(String lineName) {
-        for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
-            if (v.getLineName().equals(lineName)) {
-                v.stopAddRelease();
-                videoStreamConverterMaps.remove(lineName);
-                LOGGER.info("该线路已删除");
-                return true;
-            }
+        VideoStreamConverter v = null;
+        if (videoStreamConverterMaps.containsKey(lineName) && (v = videoStreamConverterMaps.get(lineName)) != null) {
+            v.stopAddRelease();
+            videoStreamConverterMaps.remove(lineName);
+            LOGGER.info("该线路已删除");
+            return true;
         }
-        LOGGER.info("该线路不存在");
+        LOGGER.error("该线路删除失败,不存在相对应的连接");
         return false;
     }
 
@@ -131,7 +133,7 @@ public class VideoStreamFactory {
         return true;
     }
 
-    public boolean startAllConverter() {
+    public boolean startAllPush() {
         for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
             if (!v.isOpened()) {
                 addNewLine(new StartExecThread(v));
@@ -145,10 +147,10 @@ public class VideoStreamFactory {
 
     }
 
-    public boolean startPreparing(){
+    public boolean startPreparing() {
         for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
             if (!v.startGrabber() || !v.startRecorder()) {
-                LOGGER.error(v.getLineName() + "--" + "该线路连接失败，请检查该节点");
+                LOGGER.error(v.getLineName() + "--" + "该线路启用连接失败，请检查该节点");
                 return false;
             }
         }
@@ -156,23 +158,23 @@ public class VideoStreamFactory {
         return true;
     }
 
-    public boolean makeSaveDirs(){
-        String date = DateUtil.genTime(new Date(),"yyyy-MM-dd");
-        File dir = new File(AB_IMG_PATH_PREFIX+File.separator +date);
+    public boolean makeSaveDirs() {
+        String date = DateUtil.genTime(new Date(), "yyyy-MM-dd");
+        File dir = new File(AB_IMG_PATH_PREFIX + File.separator + date);
         try {
             if (!(dir.exists() && dir.isDirectory())) {
                 dir.mkdir();
             }
             for (String lineName : videoStreamConverterMaps.keySet()) {
-                String  saveDir=  dir +File.separator+lineName;
+                String saveDir = dir + File.separator + lineName;
                 File sDir = new File(saveDir);
                 if (!(sDir.exists() && sDir.isDirectory())) {
                     sDir.mkdir();
-                    savePaths.put(lineName,saveDir);
+                    savePaths.put(lineName, saveDir);
                 }
             }
-        }catch (Exception e){
-            LOGGER.error("存储异常图片的路径创建失败"+e.getMessage());
+        } catch (Exception e) {
+            LOGGER.error("存储异常图片的路径创建失败" + e.getMessage());
             return false;
         }
         return true;

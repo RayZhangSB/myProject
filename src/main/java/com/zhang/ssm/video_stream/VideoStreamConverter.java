@@ -83,7 +83,6 @@ public class VideoStreamConverter {
     public boolean startRecorder() {
         try {
             recorder.start();
-
         } catch (org.bytedeco.javacv.FrameRecorder.Exception e) {
             try {
                 LOGGER.error("录制器启动失败，正在重新启动...");
@@ -117,15 +116,12 @@ public class VideoStreamConverter {
         return this.snapshot_save_path;
     }
 
-    private void snapshotFrame(Frame frame, Date date) {
-        opencv_core.Mat mat = converter.convertToMat(frame);
+    private void snapshotFrame(opencv_core.IplImage frame, Date date) {
         String name = DateUtil.genTime(date, "yyyy-MM-dd-HH-mm-SS");
         String path = snapshot_save_path_prefix + File.separator + name + ".jpg";
-        opencv_imgcodecs.imwrite(path, mat);
+        opencv_imgcodecs.cvSaveImage(path, frame);
         this.snapshot_save_path = path;
         LOGGER.info("snapshot success");
-
-
     }
 
     public void getSourceInfo() {
@@ -146,6 +142,7 @@ public class VideoStreamConverter {
         opencv_core.IplImage grabbedImage = null;
         try {
             while ((grabFrame = grabber.grab()) != null) {
+                System.out.println("66666666666");
                 isOpened = true;
                 grabbedImage = converter.convert(grabFrame);
                 Frame rotatedFrame = converter.convert(grabbedImage);
@@ -156,13 +153,11 @@ public class VideoStreamConverter {
                 if (rotatedFrame != null) {
                     recorder.record(rotatedFrame);
                     if (snapshot) {
-                        snapshotFrame(grabFrame, new Date());
+                        snapshotFrame(grabbedImage, new Date());
                         snapshot = false;
                     }
-                    grabbedImage = null;
-                    grabFrame = null;
                 }
-                Thread.sleep(40);
+                Thread.sleep(25);
             }
         } catch (InterruptedException e) {
             LOGGER.error("推流线程被中断" + e.getMessage());

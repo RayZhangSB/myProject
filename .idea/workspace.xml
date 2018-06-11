@@ -7,18 +7,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e65b417-6b6d-4c03-84df-558e2609b6df" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/hs_err_pid11584.log" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/hs_err_pid12924.log" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/hs_err_pid13520.log" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/hs_err_pid2520.log" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/login.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/testPushStream/PushStream.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/AbDetectionController.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/AbDetectionController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/interceptor/PassportInterceptor.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/interceptor/PassportInterceptor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/AbDetectionService.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/AbDetectionService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/RedisAdapter.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/RedisAdapter.java" />
+      <change beforePath="$PROJECT_DIR$/logs/ssm.log" afterPath="$PROJECT_DIR$/logs/ssm.log" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/ImageProcessService.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/ImageProcessService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/BaseImgProcess.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/BaseImgProcess.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/font-awesome.min.css" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adv.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adv.html" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -54,105 +55,51 @@
       <file leaf-file-name="VideoStreamConverter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="116" column="39" lean-forward="false" selection-start-line="116" selection-start-column="39" selection-end-line="116" selection-end-column="39" />
+            <state relative-caret-position="2374">
+              <caret line="159" column="31" lean-forward="false" selection-start-line="159" selection-start-column="31" selection-end-line="159" selection-end-column="31" />
               <folding>
+                <element signature="method#VideoStreamConverter#0;class#VideoStreamConverter#0" expanded="true" />
+                <element signature="method#startGrabber#0;class#VideoStreamConverter#0" expanded="true" />
+                <element signature="method#startRecorder#0;class#VideoStreamConverter#0" expanded="true" />
+                <element signature="method#startSnapshot#0;class#VideoStreamConverter#0" expanded="true" />
                 <element signature="method#snapshotFrame#0;class#VideoStreamConverter#0" expanded="true" />
-                <element signature="method#startPushStream#0;class#VideoStreamConverter#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VideoStreamFactory.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="VideoStreamFactory.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="607">
-              <caret line="179" column="54" lean-forward="false" selection-start-line="179" selection-start-column="54" selection-end-line="179" selection-end-column="54" />
+            <state relative-caret-position="-1221">
+              <caret line="71" column="72" lean-forward="false" selection-start-line="71" selection-start-column="72" selection-end-line="71" selection-end-column="72" />
               <folding>
+                <element signature="e#1291#1305#0" expanded="true" />
+                <element signature="method#createDefaultRecorder#0;class#VideoStreamFactory#0" expanded="true" />
+                <element signature="e#2633#2634#0" expanded="true" />
+                <element signature="e#2681#2682#0" expanded="true" />
+                <element signature="method#createGrabber#0;class#VideoStreamFactory#0" expanded="true" />
+                <element signature="e#3144#3145#0" expanded="true" />
+                <element signature="e#3204#3205#0" expanded="true" />
                 <element signature="method#createVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
                 <element signature="method#delVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
                 <element signature="method#checkAllSource#0;class#VideoStreamFactory#0" expanded="true" />
-                <element signature="method#startAllConverter#0;class#VideoStreamFactory#0" expanded="true" />
-                <element signature="method#startPreparing#0;class#VideoStreamFactory#0" expanded="true" />
-                <element signature="method#makeSaveDirs#0;class#VideoStreamFactory#0" expanded="true" />
-                <element signature="e#6146#6147#0" expanded="true" />
-                <element signature="e#6207#6208#0" expanded="true" />
+                <element signature="e#6294#6295#0" expanded="true" />
+                <element signature="e#6355#6356#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.html">
+      <file leaf-file-name="PushStream.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/testPushStream/PushStream.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="18" />
+            <state relative-caret-position="238">
+              <caret line="26" column="7" lean-forward="false" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
               <folding>
-                <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="e#3535#4394#0" expanded="true" />
-                <marker date="1528529992532" expanded="true" signature="651:774" ph="{...}" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#recordPush#0;class#PushStream#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-              <folding>
-                <element signature="e#1220#2063#0" expanded="true" />
-                <element signature="e#2086#3803#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spring-mvc.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mvc.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="96" column="43" lean-forward="true" selection-start-line="96" selection-start-column="43" selection-end-line="96" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbDetectionServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="577">
-              <caret line="81" column="38" lean-forward="false" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
-              <folding>
-                <element signature="method#changeLine#0;class#AbDetectionServiceImpl#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbDetectionController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/AbDetectionController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
-              <folding>
-                <element signature="e#597#624#0" expanded="true" />
-                <element signature="e#804#834#0" expanded="true" />
-                <element signature="e#1057#1058#0" expanded="true" />
-                <element signature="e#1117#1118#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbDetectionService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/AbDetectionService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="10" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -238,9 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/UserConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/holder/UserConfigHolder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/ConfigGlobal.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/console_pojo/UserConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/console_pojo/AvailableLines.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/console_pojo/ConfigGlobal.java" />
@@ -266,7 +210,6 @@
         <option value="$PROJECT_DIR$/src/test/testRedis/Redis.java" />
         <option value="$PROJECT_DIR$/src/test/testLatch/CountLatchDown.java" />
         <option value="$PROJECT_DIR$/src/test/testLatch/Latch.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/FileUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/AbstractImgProcess.java" />
         <option value="$PROJECT_DIR$/src/test/testJavacv/test.java" />
@@ -275,20 +218,24 @@
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/LineConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/LineConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/ImageProcessService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/BaseImgProcess.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/RedisAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adv.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/interceptor/PassportInterceptor.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/font-awesome.min.css" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/AbDetectionService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/AbDetectionController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/ImageProcessService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/BaseImgProcess.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/login.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login1.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java" />
+        <option value="$PROJECT_DIR$/src/test/testPushStream/PushStream.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java" />
       </list>
     </option>
   </component>
@@ -319,9 +266,9 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-16" />
-    <option name="y" value="139" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="9" />
+    <option name="y" value="-16" />
     <option name="width" value="1924" />
     <option name="height" value="1038" />
   </component>
@@ -371,6 +318,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -561,10 +510,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -614,7 +561,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.mytomcat6">
+  <component name="RunManager" selected="Application.PushStream">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -622,14 +569,14 @@
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
     </configuration>
-    <configuration name="CountLatchDown" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Latch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="testLatch.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="testLatch.CountLatchDown" />
+      <option name="MAIN_CLASS_NAME" value="testLatch.Latch" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -641,14 +588,14 @@
       <module name="webssm" />
       <envs />
     </configuration>
-    <configuration name="Latch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="PushStream" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="testLatch.*" />
+          <option name="PATTERN" value="testPushStream.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="testLatch.Latch" />
+      <option name="MAIN_CLASS_NAME" value="testPushStream.PushStream" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -693,19 +640,19 @@
       <module name="" />
       <envs />
     </configuration>
-    <configuration name="CountLatchDown.maiddn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PushStream.push" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="testLatch.*" />
+          <option name="PATTERN" value="testPushStream.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="webssm" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="testLatch" />
-      <option name="MAIN_CLASS_NAME" value="testLatch.CountLatchDown" />
-      <option name="METHOD_NAME" value="maiddn" />
+      <option name="PACKAGE_NAME" value="testPushStream" />
+      <option name="MAIN_CLASS_NAME" value="testPushStream.PushStream" />
+      <option name="METHOD_NAME" value="push" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -903,18 +850,18 @@
       <item index="0" class="java.lang.String" itemvalue="Maven.Unnamed" />
       <item index="1" class="java.lang.String" itemvalue="Tomcat Server.mytomcat6" />
       <item index="2" class="java.lang.String" itemvalue="Application.Redis" />
-      <item index="3" class="java.lang.String" itemvalue="Application.CountLatchDown" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Latch" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.CountLatchDown.maiddn" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.test1.savepic" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Latch" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.test1.savepic" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.PushStream.push" />
+      <item index="6" class="java.lang.String" itemvalue="Application.PushStream" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.test1.savepic" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Latch" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Redis" />
-        <item index="3" class="java.lang.String" itemvalue="Application.CountLatchDown" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.CountLatchDown.maiddn" />
+        <item index="0" class="java.lang.String" itemvalue="Application.PushStream" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.PushStream.push" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.test1.savepic" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Latch" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Redis" />
       </list>
     </recent_temporary>
   </component>
@@ -1015,7 +962,10 @@
       <workItem from="1528375457107" duration="3110000" />
       <workItem from="1528420372270" duration="10894000" />
       <workItem from="1528451489969" duration="1383000" />
-      <workItem from="1528514072262" duration="11164000" />
+      <workItem from="1528514072262" duration="12265000" />
+      <workItem from="1528618755180" duration="3316000" />
+      <workItem from="1528697083289" duration="6685000" />
+      <workItem from="1528704329216" duration="8730000" />
     </task>
     <task id="LOCAL-00001" summary="page complete">
       <created>1526534166783</created>
@@ -1213,60 +1163,68 @@
       <option name="project" value="LOCAL" />
       <updated>1528206674333</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="添加单线路snapshot功能">
+      <created>1528533772183</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1528533772183</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CountLatchDown_maiddn - 2018.06.07 at 20h 46m 21s.xml">
-      <configuration name="CountLatchDown.maiddn" configurationId="JUnit" />
+    <history-entry file="PushStream_push - 2018.06.11 at 16h 49m 53s.xml">
+      <configuration name="PushStream.push" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CountLatchDown_maiddn - 2018.06.07 at 20h 46m 36s.xml">
-      <configuration name="CountLatchDown.maiddn" configurationId="JUnit" />
+    <history-entry file="PushStream_push - 2018.06.11 at 16h 50m 21s.xml">
+      <configuration name="PushStream.push" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CountLatchDown_maiddn - 2018.06.07 at 20h 48m 09s.xml">
-      <configuration name="CountLatchDown.maiddn" configurationId="JUnit" />
+    <history-entry file="PushStream_push - 2018.06.11 at 16h 51m 54s.xml">
+      <configuration name="PushStream.push" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CountLatchDown_maiddn - 2018.06.07 at 20h 48m 56s.xml">
-      <configuration name="CountLatchDown.maiddn" configurationId="JUnit" />
+    <history-entry file="PushStream_push - 2018.06.11 at 16h 53m 54s.xml">
+      <configuration name="PushStream.push" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Redis_converter - 2018.06.07 at 14h 26m 17s.xml">
-      <configuration name="Redis.converter" configurationId="JUnit" />
+    <history-entry file="PushStream_push - 2018.06.11 at 17h 30m 36s.xml">
+      <configuration name="PushStream.push" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Redis_redisFrameSave - 2018.06.07 at 13h 05m 39s.xml">
-      <configuration name="Redis.redisFrameSave" configurationId="JUnit" />
+    <history-entry file="PushStream_push - 2018.06.11 at 18h 24m 54s.xml">
+      <configuration name="PushStream.push" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Redis_redisFrameSave - 2018.06.07 at 13h 06m 04s.xml">
-      <configuration name="Redis.redisFrameSave" configurationId="JUnit" />
+    <history-entry file="PushStream_push - 2018.06.11 at 18h 25m 23s.xml">
+      <configuration name="PushStream.push" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Redis_redisFrameSave - 2018.06.07 at 13h 07m 18s.xml">
-      <configuration name="Redis.redisFrameSave" configurationId="JUnit" />
+    <history-entry file="PushStream_push - 2018.06.11 at 18h 28m 56s.xml">
+      <configuration name="PushStream.push" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Redis_redisFrameSave - 2018.06.07 at 13h 09m 23s.xml">
-      <configuration name="Redis.redisFrameSave" configurationId="JUnit" />
+    <history-entry file="PushStream_push - 2018.06.11 at 18h 58m 09s.xml">
+      <configuration name="PushStream.push" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="test1_savepic - 2018.06.08 at 15h 21m 59s.xml">
-      <configuration name="test1.savepic" configurationId="JUnit" />
+    <history-entry file="PushStream_push - 2018.06.11 at 18h 58m 16s.xml">
+      <configuration name="PushStream.push" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="590444000" />
+    <option name="totallyTimeSpent" value="610276000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-16" y="139" width="1924" height="1038" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44827586" sideWeight="0.21143757" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16831683" sideWeight="0.24010417" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.027604166" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.014309764" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.014309764" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44827586" sideWeight="0.7885624" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47964796" sideWeight="0.76979166" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38487208" sideWeight="0.68010575" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1274,10 +1232,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30367073" sideWeight="0.78174186" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16831683" sideWeight="0.75989586" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2570829" sideWeight="0.79844964" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20729166" sideWeight="0.79844964" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26023555" sideWeight="0.2015504" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1335,7 +1293,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="sub page over" />
     <MESSAGE value="登录+增加笔记页面" />
     <MESSAGE value="增加上传图片功能" />
     <MESSAGE value="ajax_异步上传" />
@@ -1360,7 +1317,8 @@
     <MESSAGE value="添加转换器静态工厂和转换器类，添加推流执行线程" />
     <MESSAGE value="添加线路资源释放和删除功能" />
     <MESSAGE value="添加所有线路同时开启功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加所有线路同时开启功能" />
+    <MESSAGE value="添加单线路snapshot功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加单线路snapshot功能" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1412,77 +1370,11 @@
           <option name="timeStamp" value="95" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="96" />
+      <option name="time" value="107" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://E:/program files/maven-ref/.m2/repository/org/bytedeco/javacpp-presets/opencv/3.4.1-1.4.1/opencv-3.4.1-1.4.1.jar!/org/bytedeco/javacpp/helper/opencv_core.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-473">
-          <caret line="2241" column="37" lean-forward="false" selection-start-line="2241" selection-start-column="37" selection-end-line="2241" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/program files/maven-ref/.m2/repository/org/bytedeco/javacpp/1.4.1/javacpp-1.4.1.jar!/org/bytedeco/javacpp/indexer/Indexable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/testRedis/Redis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="242" column="30" lean-forward="false" selection-start-line="242" selection-start-column="30" selection-end-line="242" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/testLatch/Latch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="85" column="34" lean-forward="true" selection-start-line="85" selection-start-column="34" selection-end-line="85" selection-end-column="34" />
-          <folding>
-            <element signature="e#489#490#0" expanded="false" />
-            <element signature="e#532#533#0" expanded="false" />
-            <element signature="initializer##0;class#Latch#0" expanded="false" />
-            <element signature="method#maiddn#0;class#Latch#0" expanded="false" />
-            <element signature="method#main#0;class#Latch#0" expanded="false" />
-            <element signature="e#1717#1718#0" expanded="false" />
-            <element signature="e#1760#1761#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/AuthGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/AuthOpreator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/Device.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/AbnormalInfoExample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/Log.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -1526,13 +1418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="23" column="38" lean-forward="false" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/program files/maven-ref/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar!/org/apache/log4j/helpers/CyclicBuffer.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1551,13 +1436,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/AbnormalInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1613,33 +1491,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/ImageProcessService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/BaseImgProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding>
-            <element signature="e#368#369#0" expanded="false" />
-            <element signature="e#400#401#0" expanded="false" />
-            <element signature="method#classify#0;class#BaseImgProcess#0" expanded="false" />
-            <element signature="method#process#0;class#BaseImgProcess#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/RedisAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="21" column="53" lean-forward="false" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
-          <folding>
-            <element signature="method#getRedisConnection#0;class#RedisAdapter#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1655,7 +1510,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="79">
           <caret line="93" column="0" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1663,7 +1517,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1671,9 +1524,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="79" column="5" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="81" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!block;n#getDateNow#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1681,7 +1531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="4" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1710,18 +1559,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="45" column="96" lean-forward="false" selection-start-line="45" selection-start-column="96" selection-end-line="45" selection-end-column="96" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-          <folding>
-            <element signature="e#1220#2063#0" expanded="true" />
-            <element signature="e#2086#3803#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1729,7 +1566,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1737,11 +1573,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
           <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="e#3535#4394#0" expanded="true" />
-            <marker date="1528529992532" expanded="true" signature="651:774" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1765,7 +1596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="784">
           <caret line="53" column="56" lean-forward="true" selection-start-line="53" selection-start-column="56" selection-end-line="53" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1777,53 +1607,278 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/css/login.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="81" column="38" lean-forward="false" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
+        <state relative-caret-position="1416">
+          <caret line="59" column="3" lean-forward="false" selection-start-line="59" selection-start-column="3" selection-end-line="59" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login1.html" />
+    <entry file="jar://E:/program files/maven-ref/.m2/repository/org/bytedeco/javacpp-presets/opencv/3.4.1-1.4.1/opencv-3.4.1-1.4.1.jar!/org/bytedeco/javacpp/opencv_imgproc.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1920">
+          <caret line="69" column="13" lean-forward="false" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/BaseImgProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
           <folding>
-            <element signature="method#changeLine#0;class#AbDetectionServiceImpl#0" expanded="true" />
+            <element signature="method#process#0;class#BaseImgProcess#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="179" column="54" lean-forward="false" selection-start-line="179" selection-start-column="54" selection-end-line="179" selection-end-column="54" />
+        <state relative-caret-position="24">
+          <caret line="9" column="62" lean-forward="false" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/AbnormalInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/AbDetectionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
           <folding>
-            <element signature="method#createVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="method#delVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="method#checkAllSource#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="method#startAllConverter#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="method#startPreparing#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="method#makeSaveDirs#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="e#6146#6147#0" expanded="true" />
-            <element signature="e#6207#6208#0" expanded="true" />
+            <element signature="e#597#624#0" expanded="false" />
+            <element signature="e#804#834#0" expanded="false" />
+            <element signature="e#1058#1059#0" expanded="false" />
+            <element signature="e#1118#1119#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="689">
+          <caret line="81" column="38" lean-forward="false" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
+          <folding>
+            <element signature="method#changeLine#0;class#AbDetectionServiceImpl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/ImageProcessService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="43" lean-forward="false" selection-start-line="0" selection-start-column="43" selection-end-line="0" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/program files/maven-ref/.m2/repository/org/bytedeco/javacpp-presets/ffmpeg/3.4.2-1.4.1/ffmpeg-3.4.2-1.4.1.jar!/org/bytedeco/javacpp/avformat.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="380" column="29" lean-forward="false" selection-start-line="380" selection-start-column="29" selection-end-line="380" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/program files/maven-ref/.m2/repository/org/bytedeco/javacv/1.4.1/javacv-1.4.1.jar!/org/bytedeco/javacv/FFmpegFrameGrabber.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="93" column="66" lean-forward="false" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="66" />
+          <folding>
+            <marker date="1528111042979" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1528111042979" expanded="false" signature="143:2069" ph="..." />
+            <marker date="1528111042979" expanded="false" signature="3345:3465" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="3552:3610" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="3699:3757" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="3845:3945" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="3997:4904" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="4946:4957" ph=" { " />
+            <marker date="1528111042979" expanded="false" signature="4986:4992" ph=" }" />
+            <marker date="1528111042979" expanded="false" signature="5041:5145" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="5202:5312" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="5357:5394" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="5438:8433" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="8482:8539" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="8570:8581" ph=" { " />
+            <marker date="1528111042979" expanded="false" signature="8610:8616" ph=" }" />
+            <marker date="1528111042979" expanded="false" signature="8647:8658" ph=" { " />
+            <marker date="1528111042979" expanded="false" signature="8687:8693" ph=" }" />
+            <marker date="1528111042979" expanded="false" signature="8723:8734" ph=" { " />
+            <marker date="1528111042979" expanded="false" signature="8780:8786" ph=" }" />
+            <marker date="1528111042979" expanded="false" signature="8817:8828" ph=" { " />
+            <marker date="1528111042979" expanded="false" signature="8910:8916" ph=" }" />
+            <marker date="1528111042979" expanded="false" signature="8949:9064" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="9098:9216" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="9252:9376" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="9410:9764" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="9796:9807" ph=" { " />
+            <marker date="1528111042979" expanded="false" signature="9885:9891" ph=" }" />
+            <marker date="1528111042979" expanded="false" signature="9926:10027" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="10064:10381" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="10415:10426" ph=" { " />
+            <marker date="1528111042979" expanded="false" signature="10458:10464" ph=" }" />
+            <marker date="1528111042979" expanded="false" signature="10504:11093" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="11133:11471" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="11503:11514" ph=" { " />
+            <marker date="1528111042979" expanded="false" signature="11592:11598" ph=" }" />
+            <marker date="1528111042979" expanded="false" signature="11633:11734" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="11769:12136" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="12169:12290" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="12334:12647" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="12696:13026" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="13075:13405" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="13472:13526" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="13598:13819" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="13891:14055" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="14119:14200" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="14269:14338" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="14407:14476" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="14573:18232" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="18268:18279" ph=" { " />
+            <marker date="1528111042979" expanded="false" signature="18316:18322" ph=" }" />
+            <marker date="1528111042979" expanded="false" signature="18357:18368" ph=" { " />
+            <marker date="1528111042979" expanded="false" signature="18416:18422" ph=" }" />
+            <marker date="1528111042979" expanded="false" signature="18464:18570" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="18612:18756" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="18803:18814" ph=" { " />
+            <marker date="1528111042979" expanded="false" signature="18829:18835" ph=" }" />
+            <marker date="1528111042979" expanded="false" signature="18878:18913" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="18955:28438" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="28474:29758" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="29800:29831" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="29876:30446" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="30497:32590" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="32643:39126" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="39169:39232" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="39280:39344" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="39394:39458" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="39509:39572" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="39693:45721" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="45773:46045" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="46058:46392" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="46454:47379" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="46479:46490" ph="{}" />
+            <marker date="1528111042979" expanded="false" signature="46558:47373" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="47455:48124" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="47480:47491" ph="{}" />
+            <marker date="1528111042979" expanded="false" signature="47564:48118" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/program files/maven-ref/.m2/repository/org/bytedeco/javacv/1.4.1/javacv-1.4.1.jar!/org/bytedeco/javacv/FFmpegFrameRecorder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="772" column="38" lean-forward="true" selection-start-line="772" selection-start-column="38" selection-end-line="772" selection-end-column="38" />
+          <folding>
+            <marker date="1528111042979" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1528111042979" expanded="false" signature="143:2039" ph="..." />
+            <marker date="1528111042979" expanded="false" signature="3549:3605" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="3700:3756" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="3808:4716" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="4778:4789" ph=" { " />
+            <marker date="1528111042979" expanded="false" signature="4827:4833" ph=" }" />
+            <marker date="1528111042979" expanded="false" signature="4901:4912" ph=" { " />
+            <marker date="1528111042979" expanded="false" signature="4956:4962" ph=" }" />
+            <marker date="1528111042979" expanded="false" signature="5039:5100" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="5183:5250" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="5346:5431" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="5533:6068" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="6147:6250" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="6343:6456" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="6568:6696" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="6741:6778" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="6822:10373" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="10422:10479" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="10512:10523" ph=" { " />
+            <marker date="1528111042979" expanded="false" signature="10602:10608" ph=" }" />
+            <marker date="1528111042979" expanded="false" signature="10658:10825" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="10858:10964" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="11011:11118" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="11185:11248" ph="{...}" />
+            <marker date="1528111042979" expanded="true" signature="11291:11326" ph="{...}" />
+            <marker date="1528111042979" expanded="true" signature="11368:33702" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="33744:34698" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="34753:34792" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="34864:35440" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="35584:40960" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="41031:41088" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="41194:49691" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="49756:50753" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="50806:52126" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="52208:53063" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="53128:54169" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="54182:54458" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="54536:55097" ph="{...}" />
+            <marker date="1528111042979" expanded="false" signature="54562:54573" ph="{}" />
+            <marker date="1528111042979" expanded="false" signature="54646:55091" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/program files/maven-ref/.m2/repository/org/bytedeco/javacv/1.4.1/javacv-1.4.1.jar!/org/bytedeco/javacv/FrameRecorder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="104" column="32" lean-forward="false" selection-start-line="104" selection-start-column="32" selection-end-line="104" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/testPushStream/PushStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="26" column="7" lean-forward="false" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#recordPush#0;class#PushStream#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="116" column="39" lean-forward="false" selection-start-line="116" selection-start-column="39" selection-end-line="116" selection-end-column="39" />
+        <state relative-caret-position="2374">
+          <caret line="159" column="31" lean-forward="false" selection-start-line="159" selection-start-column="31" selection-end-line="159" selection-end-column="31" />
           <folding>
+            <element signature="method#VideoStreamConverter#0;class#VideoStreamConverter#0" expanded="true" />
+            <element signature="method#startGrabber#0;class#VideoStreamConverter#0" expanded="true" />
+            <element signature="method#startRecorder#0;class#VideoStreamConverter#0" expanded="true" />
+            <element signature="method#startSnapshot#0;class#VideoStreamConverter#0" expanded="true" />
             <element signature="method#snapshotFrame#0;class#VideoStreamConverter#0" expanded="true" />
-            <element signature="method#startPushStream#0;class#VideoStreamConverter#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/AbDetectionController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+        <state relative-caret-position="-1221">
+          <caret line="71" column="72" lean-forward="false" selection-start-line="71" selection-start-column="72" selection-end-line="71" selection-end-column="72" />
           <folding>
-            <element signature="e#597#624#0" expanded="true" />
-            <element signature="e#804#834#0" expanded="true" />
-            <element signature="e#1057#1058#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
+            <element signature="e#1291#1305#0" expanded="true" />
+            <element signature="method#createDefaultRecorder#0;class#VideoStreamFactory#0" expanded="true" />
+            <element signature="e#2633#2634#0" expanded="true" />
+            <element signature="e#2681#2682#0" expanded="true" />
+            <element signature="method#createGrabber#0;class#VideoStreamFactory#0" expanded="true" />
+            <element signature="e#3144#3145#0" expanded="true" />
+            <element signature="e#3204#3205#0" expanded="true" />
+            <element signature="method#createVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
+            <element signature="method#delVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
+            <element signature="method#checkAllSource#0;class#VideoStreamFactory#0" expanded="true" />
+            <element signature="e#6294#6295#0" expanded="true" />
+            <element signature="e#6355#6356#0" expanded="true" />
           </folding>
         </state>
       </provider>

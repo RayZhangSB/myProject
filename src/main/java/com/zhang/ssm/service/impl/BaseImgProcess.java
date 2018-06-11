@@ -13,21 +13,23 @@ import org.bytedeco.javacpp.opencv_core;
 public class BaseImgProcess implements ImageProcessService {
 
 
-    public boolean preProcess(opencv_core.IplImage img) {
+    public boolean preProcess(opencv_core.Mat mat) {
+//        opencv_imgproc
             return false;
     }
 
 
-    public  void classify(opencv_core.IplImage img ,String path) {
+    public  void classify(opencv_core.Mat mat ,String path) {
         //将图片存储到某个目录，按天和按线路名存储
 
 
     }
 
     @Override
-    public void process(opencv_core.IplImage img ,String mark) {
-        if(preProcess(img)){
-             classify(img,mark);
+    public void process(opencv_core.Mat mat ,String mark) {
+
+        if(preProcess(mat)){
+             classify(mat,mark);
         }
 
     }
