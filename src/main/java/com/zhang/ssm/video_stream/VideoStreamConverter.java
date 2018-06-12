@@ -38,6 +38,8 @@ public class VideoStreamConverter {
     //指示是否正在取流
     private boolean isOpened = false;
 
+    private boolean stop = false;
+
     private String snapshot_save_path_prefix = "";
 
     private String snapshot_save_path = "";
@@ -141,8 +143,7 @@ public class VideoStreamConverter {
         Frame grabFrame = null;
         opencv_core.IplImage grabbedImage = null;
         try {
-            while ((grabFrame = grabber.grab()) != null) {
-                System.out.println("66666666666");
+            while (!stop && (grabFrame = grabber.grab()) != null) {
                 isOpened = true;
                 grabbedImage = converter.convert(grabFrame);
                 Frame rotatedFrame = converter.convert(grabbedImage);
@@ -178,10 +179,12 @@ public class VideoStreamConverter {
     }
 
     public boolean stopAddRelease() {
-        if (isOpened) {
+        if (!isOpened) {
             return true;
         }
         try {
+            stop = true;
+            Thread.sleep(40);
             recorder.stop();
             recorder.release();
             grabber.stop();
@@ -190,6 +193,9 @@ public class VideoStreamConverter {
             LOGGER.error("释放资源失败" + e.getMessage());
             return false;
         } catch (FrameGrabber.Exception e) {
+            LOGGER.error("释放资源失败" + e.getMessage());
+            return false;
+        } catch (InterruptedException e) {
             LOGGER.error("释放资源失败" + e.getMessage());
             return false;
         }

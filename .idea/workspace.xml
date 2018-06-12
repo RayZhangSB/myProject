@@ -7,20 +7,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e65b417-6b6d-4c03-84df-558e2609b6df" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/hs_err_pid11584.log" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/hs_err_pid12924.log" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/hs_err_pid13520.log" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/hs_err_pid2520.log" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/login.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/testPushStream/PushStream.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/mapper/LineInfoMapper.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/LineInfo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/LineInfoExample.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mapping/LineInfoMapper.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/logs/ssm.log" afterPath="$PROJECT_DIR$/logs/ssm.log" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/ImageProcessService.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/ImageProcessService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/BaseImgProcess.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/BaseImgProcess.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/AbnormalInfo.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/AbnormalInfo.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/AbnormalInfoExample.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/AbnormalInfoExample.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/Device.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/Device.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/DeviceExample.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/DeviceExample.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/AbnormalInfoMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapping/AbnormalInfoMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapping/DeviceMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapping/DeviceMapper.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -55,14 +54,11 @@
       <file leaf-file-name="VideoStreamConverter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2374">
-              <caret line="159" column="31" lean-forward="false" selection-start-line="159" selection-start-column="31" selection-end-line="159" selection-end-column="31" />
+            <state relative-caret-position="-888">
+              <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
               <folding>
-                <element signature="method#VideoStreamConverter#0;class#VideoStreamConverter#0" expanded="true" />
-                <element signature="method#startGrabber#0;class#VideoStreamConverter#0" expanded="true" />
-                <element signature="method#startRecorder#0;class#VideoStreamConverter#0" expanded="true" />
-                <element signature="method#startSnapshot#0;class#VideoStreamConverter#0" expanded="true" />
-                <element signature="method#snapshotFrame#0;class#VideoStreamConverter#0" expanded="true" />
+                <element signature="method#startPushStream#0;class#VideoStreamConverter#0" expanded="true" />
+                <element signature="method#stopAddRelease#0;class#VideoStreamConverter#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,35 +67,67 @@
       <file leaf-file-name="VideoStreamFactory.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1221">
-              <caret line="71" column="72" lean-forward="false" selection-start-line="71" selection-start-column="72" selection-end-line="71" selection-end-column="72" />
+            <state relative-caret-position="-456">
+              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
-                <element signature="e#1291#1305#0" expanded="true" />
-                <element signature="method#createDefaultRecorder#0;class#VideoStreamFactory#0" expanded="true" />
-                <element signature="e#2633#2634#0" expanded="true" />
-                <element signature="e#2681#2682#0" expanded="true" />
-                <element signature="method#createGrabber#0;class#VideoStreamFactory#0" expanded="true" />
-                <element signature="e#3144#3145#0" expanded="true" />
-                <element signature="e#3204#3205#0" expanded="true" />
-                <element signature="method#createVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
+                <element signature="method#createRecorder#0;class#VideoStreamFactory#0" expanded="true" />
                 <element signature="method#delVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
-                <element signature="method#checkAllSource#0;class#VideoStreamFactory#0" expanded="true" />
-                <element signature="e#6294#6295#0" expanded="true" />
-                <element signature="e#6355#6356#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PushStream.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/testPushStream/PushStream.java">
+      <file leaf-file-name="AbDetectionServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="26" column="7" lean-forward="false" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+            <state relative-caret-position="504">
+              <caret line="54" column="15" lean-forward="false" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#recordPush#0;class#PushStream#0" expanded="true" />
+                <element signature="initializer##0;class#AbDetectionServiceImpl#0" expanded="true" />
+                <element signature="method#changeLine#0;class#AbDetectionServiceImpl#0" expanded="true" />
+                <element signature="method#snapshot#0;class#AbDetectionServiceImpl#0" expanded="true" />
+                <element signature="method#delLine#0;class#AbDetectionServiceImpl#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LineInfoMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/LineInfoMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="94" column="19" lean-forward="false" selection-start-line="94" selection-start-column="14" selection-end-line="94" selection-end-column="26" />
+              <folding>
+                <marker date="1528788838346" expanded="true" signature="3481:3586" ph="select from line_info" />
+                <marker date="1528788838346" expanded="true" signature="3673:3732" ph="delete from line_info... " />
+                <marker date="1528788838346" expanded="true" signature="3812:3884" ph="delete from line_info... " />
+                <marker date="1528788838346" expanded="true" signature="3985:4006" ph="delete from line_info... " />
+                <marker date="1528788838346" expanded="true" signature="4184:4381" ph="insert into line_info... " />
+                <marker date="1528788838346" expanded="true" signature="5349:5379" ph="select count... line_info" />
+                <marker date="1528788838346" expanded="true" signature="6188:6410" ph="update line_info... " />
+                <marker date="1528788838346" expanded="true" signature="6619:6986" ph="update line_info... " />
+                <marker date="1528788838346" expanded="true" signature="7083:7280" ph="update line_info... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LineInfoMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/mapper/LineInfoMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbnormalInfoMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/mapper/AbnormalInfoMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -185,8 +213,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/console_pojo/UserConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/console_pojo/AvailableLines.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/console_pojo/ConfigGlobal.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/VideoStreamUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/ForwardController.java" />
@@ -224,7 +250,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/spring-mvc.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/interceptor/PassportInterceptor.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/css/font-awesome.min.css" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/AbDetectionService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/AbDetectionController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/ImageProcessService.java" />
@@ -233,9 +258,12 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login1.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.html" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java" />
         <option value="$PROJECT_DIR$/src/test/testPushStream/PushStream.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapping/LineInfoMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/mapper/LineInfoMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -267,10 +295,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="9" />
-    <option name="y" value="-16" />
-    <option name="width" value="1924" />
-    <option name="height" value="1038" />
+    <option name="x" value="120" />
+    <option name="y" value="31" />
+    <option name="width" value="1602" />
+    <option name="height" value="987" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -319,7 +347,6 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -352,33 +379,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ssm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webssm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webssm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="holder" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webssm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
@@ -424,25 +424,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webssm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
               <item name="video_stream" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webssm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ssm" type="462c0819:PsiDirectoryNode" />
-              <item name="wrapperPojo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
@@ -456,42 +438,8 @@
               <item name="webssm" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webssm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webssm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webssm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="fonts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webssm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapping" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="webssm" type="b2602c69:ProjectViewProjectNode" />
@@ -504,14 +452,15 @@
               <item name="webssm" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="testJavacv" type="462c0819:PsiDirectoryNode" />
+              <item name="testPushStream" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -528,12 +477,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\Learning\gooddemo1\webssm\src\main\java\com\zhang\ssm\pojo" />
-      <recent name="F:\Learning\gooddemo1\webssm\src\main\resources\mapping" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Learning\gooddemo1\webssm\src\main\java\com\zhang\ssm\mapper" />
-      <recent name="F:\Learning\gooddemo1\webssm\src\main\webapp\WEB-INF\js" />
-      <recent name="F:\Learning\gooddemo1\webssm\src\main\webapp\WEB-INF\js\video-js-5.19.2" />
+      <recent name="F:\Learning\gooddemo1\webssm\src\main\webapp\WEB-INF\css\hk" />
+      <recent name="F:\Learning\gooddemo1\webssm\src\main\webapp\WEB-INF\js\hk" />
+      <recent name="F:\Learning\gooddemo1\webssm\src\main\webapp\WEB-INF\js\chart" />
+      <recent name="F:\Learning\gooddemo1\webssm\src\main\webapp\WEB-INF\images" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.zhang.ssm.mapper" />
@@ -541,12 +490,12 @@
       <recent name="com.heitian.ssm.model" />
       <recent name="com.heitian.ssm.controller" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Learning\gooddemo1\webssm\src\main\resources\mapping" />
       <recent name="F:\Learning\gooddemo1\webssm\src\main\java\com\zhang\ssm\mapper" />
-      <recent name="F:\Learning\gooddemo1\webssm\src\main\webapp\WEB-INF\css\hk" />
-      <recent name="F:\Learning\gooddemo1\webssm\src\main\webapp\WEB-INF\js\hk" />
-      <recent name="F:\Learning\gooddemo1\webssm\src\main\webapp\WEB-INF\js\chart" />
-      <recent name="F:\Learning\gooddemo1\webssm\src\main\webapp\WEB-INF\images" />
+      <recent name="F:\Learning\gooddemo1\webssm\src\main\java\com\zhang\ssm\pojo" />
+      <recent name="F:\Learning\gooddemo1\webssm\src\main\webapp\WEB-INF\js" />
+      <recent name="F:\Learning\gooddemo1\webssm\src\main\webapp\WEB-INF\js\video-js-5.19.2" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -966,6 +915,7 @@
       <workItem from="1528618755180" duration="3316000" />
       <workItem from="1528697083289" duration="6685000" />
       <workItem from="1528704329216" duration="8730000" />
+      <workItem from="1528765793014" duration="9213000" />
     </task>
     <task id="LOCAL-00001" summary="page complete">
       <created>1526534166783</created>
@@ -1206,11 +1156,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="610276000" />
+    <option name="totallyTimeSpent" value="619489000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16831683" sideWeight="0.24010417" order="6" side_tool="true" content_ui="tabs" />
@@ -1220,13 +1169,12 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.027604166" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.014309764" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47964796" sideWeight="0.76979166" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38487208" sideWeight="0.68010575" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1235,7 +1183,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16831683" sideWeight="0.75989586" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20729166" sideWeight="0.79844964" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25677082" sideWeight="0.79844964" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26023555" sideWeight="0.2015504" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1244,6 +1192,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38487208" sideWeight="0.68010575" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2676887" sideWeight="0.48713645" order="8" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1375,78 +1324,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/LogExample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/mapper/AbnormalInfoMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/AbnormalInfoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1384">
-          <caret line="93" column="20" lean-forward="false" selection-start-line="93" selection-start-column="14" selection-end-line="93" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" column="10" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/program files/maven-ref/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar!/org/apache/log4j/helpers/CyclicBuffer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/program files/maven-ref/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar!/org/apache/log4j/Level.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-288">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/program files/maven-ref/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar!/org/apache/log4j/Layout.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/utils/DateUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/program files/JAVA1.8/JDK/src.zip!/java/io/File.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-358">
@@ -1543,7 +1420,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="13" column="11" lean-forward="true" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1603,7 +1479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1626,9 +1501,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-          <folding>
-            <element signature="method#process#0;class#BaseImgProcess#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1639,34 +1511,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/AbnormalInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/controller/AbDetectionController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
-          <folding>
-            <element signature="e#597#624#0" expanded="false" />
-            <element signature="e#804#834#0" expanded="false" />
-            <element signature="e#1058#1059#0" expanded="false" />
-            <element signature="e#1118#1119#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
-          <caret line="81" column="38" lean-forward="false" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
-          <folding>
-            <element signature="method#changeLine#0;class#AbDetectionServiceImpl#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1674,7 +1522,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1689,7 +1536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="380" column="29" lean-forward="false" selection-start-line="380" selection-start-column="29" selection-end-line="380" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1697,85 +1543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
           <caret line="93" column="66" lean-forward="false" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="66" />
-          <folding>
-            <marker date="1528111042979" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1528111042979" expanded="false" signature="143:2069" ph="..." />
-            <marker date="1528111042979" expanded="false" signature="3345:3465" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="3552:3610" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="3699:3757" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="3845:3945" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="3997:4904" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="4946:4957" ph=" { " />
-            <marker date="1528111042979" expanded="false" signature="4986:4992" ph=" }" />
-            <marker date="1528111042979" expanded="false" signature="5041:5145" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="5202:5312" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="5357:5394" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="5438:8433" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="8482:8539" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="8570:8581" ph=" { " />
-            <marker date="1528111042979" expanded="false" signature="8610:8616" ph=" }" />
-            <marker date="1528111042979" expanded="false" signature="8647:8658" ph=" { " />
-            <marker date="1528111042979" expanded="false" signature="8687:8693" ph=" }" />
-            <marker date="1528111042979" expanded="false" signature="8723:8734" ph=" { " />
-            <marker date="1528111042979" expanded="false" signature="8780:8786" ph=" }" />
-            <marker date="1528111042979" expanded="false" signature="8817:8828" ph=" { " />
-            <marker date="1528111042979" expanded="false" signature="8910:8916" ph=" }" />
-            <marker date="1528111042979" expanded="false" signature="8949:9064" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="9098:9216" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="9252:9376" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="9410:9764" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="9796:9807" ph=" { " />
-            <marker date="1528111042979" expanded="false" signature="9885:9891" ph=" }" />
-            <marker date="1528111042979" expanded="false" signature="9926:10027" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="10064:10381" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="10415:10426" ph=" { " />
-            <marker date="1528111042979" expanded="false" signature="10458:10464" ph=" }" />
-            <marker date="1528111042979" expanded="false" signature="10504:11093" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="11133:11471" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="11503:11514" ph=" { " />
-            <marker date="1528111042979" expanded="false" signature="11592:11598" ph=" }" />
-            <marker date="1528111042979" expanded="false" signature="11633:11734" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="11769:12136" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="12169:12290" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="12334:12647" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="12696:13026" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="13075:13405" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="13472:13526" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="13598:13819" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="13891:14055" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="14119:14200" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="14269:14338" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="14407:14476" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="14573:18232" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="18268:18279" ph=" { " />
-            <marker date="1528111042979" expanded="false" signature="18316:18322" ph=" }" />
-            <marker date="1528111042979" expanded="false" signature="18357:18368" ph=" { " />
-            <marker date="1528111042979" expanded="false" signature="18416:18422" ph=" }" />
-            <marker date="1528111042979" expanded="false" signature="18464:18570" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="18612:18756" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="18803:18814" ph=" { " />
-            <marker date="1528111042979" expanded="false" signature="18829:18835" ph=" }" />
-            <marker date="1528111042979" expanded="false" signature="18878:18913" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="18955:28438" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="28474:29758" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="29800:29831" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="29876:30446" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="30497:32590" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="32643:39126" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="39169:39232" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="39280:39344" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="39394:39458" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="39509:39572" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="39693:45721" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="45773:46045" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="46058:46392" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="46454:47379" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="46479:46490" ph="{}" />
-            <marker date="1528111042979" expanded="false" signature="46558:47373" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="47455:48124" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="47480:47491" ph="{}" />
-            <marker date="1528111042979" expanded="false" signature="47564:48118" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1783,49 +1550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
           <caret line="772" column="38" lean-forward="true" selection-start-line="772" selection-start-column="38" selection-end-line="772" selection-end-column="38" />
-          <folding>
-            <marker date="1528111042979" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1528111042979" expanded="false" signature="143:2039" ph="..." />
-            <marker date="1528111042979" expanded="false" signature="3549:3605" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="3700:3756" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="3808:4716" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="4778:4789" ph=" { " />
-            <marker date="1528111042979" expanded="false" signature="4827:4833" ph=" }" />
-            <marker date="1528111042979" expanded="false" signature="4901:4912" ph=" { " />
-            <marker date="1528111042979" expanded="false" signature="4956:4962" ph=" }" />
-            <marker date="1528111042979" expanded="false" signature="5039:5100" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="5183:5250" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="5346:5431" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="5533:6068" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="6147:6250" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="6343:6456" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="6568:6696" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="6741:6778" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="6822:10373" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="10422:10479" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="10512:10523" ph=" { " />
-            <marker date="1528111042979" expanded="false" signature="10602:10608" ph=" }" />
-            <marker date="1528111042979" expanded="false" signature="10658:10825" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="10858:10964" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="11011:11118" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="11185:11248" ph="{...}" />
-            <marker date="1528111042979" expanded="true" signature="11291:11326" ph="{...}" />
-            <marker date="1528111042979" expanded="true" signature="11368:33702" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="33744:34698" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="34753:34792" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="34864:35440" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="35584:40960" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="41031:41088" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="41194:49691" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="49756:50753" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="50806:52126" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="52208:53063" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="53128:54169" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="54182:54458" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="54536:55097" ph="{...}" />
-            <marker date="1528111042979" expanded="false" signature="54562:54573" ph="{}" />
-            <marker date="1528111042979" expanded="false" signature="54646:55091" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1833,52 +1557,166 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="313">
           <caret line="104" column="32" lean-forward="false" selection-start-line="104" selection-start-column="32" selection-end-line="104" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/AbnormalInfoExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/testPushStream/PushStream.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/DeviceExample.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="26" column="7" lean-forward="false" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/LineInfoExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/Device.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/LineInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/mapper/DeviceMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/AbnormalInfoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#recordPush#0;class#PushStream#0" expanded="true" />
+            <marker date="1528780126815" expanded="true" signature="3583:3692" ph="select from abnormal_info" />
+            <marker date="1528780126815" expanded="true" signature="3778:3841" ph="delete from abnormal_info... " />
+            <marker date="1528780126815" expanded="true" signature="3945:3970" ph="delete from abnormal_info... " />
+            <marker date="1528780126815" expanded="true" signature="4150:4416" ph="insert into abnormal_info... " />
+            <marker date="1528780126815" expanded="true" signature="5583:5617" ph="select count... abnormal_info" />
+            <marker date="1528780126815" expanded="true" signature="6568:6873" ph="update abnormal_info... " />
+            <marker date="1528780126815" expanded="true" signature="7084:7584" ph="update abnormal_info... " />
+            <marker date="1528780126815" expanded="true" signature="7684:7957" ph="update abnormal_info... " />
+            <marker date="1528780126815" expanded="true" signature="11343:11452" ph="select from abnormal_info" />
+            <marker date="1528780126815" expanded="true" signature="11538:11601" ph="delete from abnormal_info... " />
+            <marker date="1528780126815" expanded="true" signature="11705:11730" ph="delete from abnormal_info... " />
+            <marker date="1528780126815" expanded="true" signature="11910:12175" ph="insert into abnormal_info... " />
+            <marker date="1528780126815" expanded="true" signature="13341:13375" ph="select count... abnormal_info" />
+            <marker date="1528780126815" expanded="true" signature="14325:14629" ph="update abnormal_info... " />
+            <marker date="1528780126815" expanded="true" signature="14840:15339" ph="update abnormal_info... " />
+            <marker date="1528780126815" expanded="true" signature="15439:15711" ph="update abnormal_info... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/mapper/AbnormalInfoMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/pojo/AbnormalInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapping/LineInfoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="94" column="19" lean-forward="false" selection-start-line="94" selection-start-column="14" selection-end-line="94" selection-end-column="26" />
+          <folding>
+            <marker date="1528788838346" expanded="true" signature="3481:3586" ph="select from line_info" />
+            <marker date="1528788838346" expanded="true" signature="3673:3732" ph="delete from line_info... " />
+            <marker date="1528788838346" expanded="true" signature="3812:3884" ph="delete from line_info... " />
+            <marker date="1528788838346" expanded="true" signature="3985:4006" ph="delete from line_info... " />
+            <marker date="1528788838346" expanded="true" signature="4184:4381" ph="insert into line_info... " />
+            <marker date="1528788838346" expanded="true" signature="5349:5379" ph="select count... line_info" />
+            <marker date="1528788838346" expanded="true" signature="6188:6410" ph="update line_info... " />
+            <marker date="1528788838346" expanded="true" signature="6619:6986" ph="update line_info... " />
+            <marker date="1528788838346" expanded="true" signature="7083:7280" ph="update line_info... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/mapper/LineInfoMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/service/impl/AbDetectionServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="54" column="15" lean-forward="false" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
+          <folding>
+            <element signature="initializer##0;class#AbDetectionServiceImpl#0" expanded="true" />
+            <element signature="method#changeLine#0;class#AbDetectionServiceImpl#0" expanded="true" />
+            <element signature="method#snapshot#0;class#AbDetectionServiceImpl#0" expanded="true" />
+            <element signature="method#delLine#0;class#AbDetectionServiceImpl#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamConverter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2374">
-          <caret line="159" column="31" lean-forward="false" selection-start-line="159" selection-start-column="31" selection-end-line="159" selection-end-column="31" />
+        <state relative-caret-position="-888">
+          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
           <folding>
-            <element signature="method#VideoStreamConverter#0;class#VideoStreamConverter#0" expanded="true" />
-            <element signature="method#startGrabber#0;class#VideoStreamConverter#0" expanded="true" />
-            <element signature="method#startRecorder#0;class#VideoStreamConverter#0" expanded="true" />
-            <element signature="method#startSnapshot#0;class#VideoStreamConverter#0" expanded="true" />
-            <element signature="method#snapshotFrame#0;class#VideoStreamConverter#0" expanded="true" />
+            <element signature="method#startPushStream#0;class#VideoStreamConverter#0" expanded="true" />
+            <element signature="method#stopAddRelease#0;class#VideoStreamConverter#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/testPushStream/PushStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1005">
+          <caret line="39" column="89" lean-forward="true" selection-start-line="39" selection-start-column="89" selection-end-line="39" selection-end-column="89" />
+          <folding>
+            <element signature="method#main#0;class#PushStream#0" expanded="true" />
+            <element signature="method#recordPush#0;class#PushStream#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhang/ssm/video_stream/VideoStreamFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1221">
-          <caret line="71" column="72" lean-forward="false" selection-start-line="71" selection-start-column="72" selection-end-line="71" selection-end-column="72" />
+        <state relative-caret-position="-456">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
-            <element signature="e#1291#1305#0" expanded="true" />
-            <element signature="method#createDefaultRecorder#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="e#2633#2634#0" expanded="true" />
-            <element signature="e#2681#2682#0" expanded="true" />
-            <element signature="method#createGrabber#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="e#3144#3145#0" expanded="true" />
-            <element signature="e#3204#3205#0" expanded="true" />
-            <element signature="method#createVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
+            <element signature="method#createRecorder#0;class#VideoStreamFactory#0" expanded="true" />
             <element signature="method#delVideoStreamConverter#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="method#checkAllSource#0;class#VideoStreamFactory#0" expanded="true" />
-            <element signature="e#6294#6295#0" expanded="true" />
-            <element signature="e#6355#6356#0" expanded="true" />
           </folding>
         </state>
       </provider>

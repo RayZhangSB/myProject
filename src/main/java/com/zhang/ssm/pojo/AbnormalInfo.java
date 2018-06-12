@@ -3,13 +3,13 @@ package com.zhang.ssm.pojo;
 public class AbnormalInfo {
     private Integer id;
 
-    private Integer devId;
+    private String lineName;
 
     private Integer abnormalCode;
 
-    private String abnormalImgurl;
+    private String abnormalImgUrl;
 
-    private String abnormalDesc;
+    private Integer processed;
 
     public Integer getId() {
         return id;
@@ -19,12 +19,12 @@ public class AbnormalInfo {
         this.id = id;
     }
 
-    public Integer getDevId() {
-        return devId;
+    public String getLineName() {
+        return lineName;
     }
 
-    public void setDevId(Integer devId) {
-        this.devId = devId;
+    public void setLineName(String lineName) {
+        this.lineName = lineName == null ? null : lineName.trim();
     }
 
     public Integer getAbnormalCode() {
@@ -35,19 +35,19 @@ public class AbnormalInfo {
         this.abnormalCode = abnormalCode;
     }
 
-    public String getAbnormalImgurl() {
-        return abnormalImgurl;
+    public String getAbnormalImgUrl() {
+        return abnormalImgUrl;
     }
 
-    public void setAbnormalImgurl(String abnormalImgurl) {
-        this.abnormalImgurl = abnormalImgurl == null ? null : abnormalImgurl.trim();
+    public void setAbnormalImgUrl(String abnormalImgUrl) {
+        this.abnormalImgUrl = abnormalImgUrl == null ? null : abnormalImgUrl.trim();
     }
 
-    public String getAbnormalDesc() {
-        return abnormalDesc;
+    public Integer getProcessed() {
+        return processed;
     }
 
-    public void setAbnormalDesc(String abnormalDesc) {
-        this.abnormalDesc = abnormalDesc == null ? null : abnormalDesc.trim();
+    public void setProcessed(Integer processed) {
+        this.processed = processed;
     }
 }

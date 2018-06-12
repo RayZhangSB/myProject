@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zhang.ssm.mapper.DeviceMapper">
-    <resultMap id="BaseResultMap" type="com.zhang.ssm.pojo.Device">
-        <id column="dev_id" property="devId" jdbcType="INTEGER"/>
-        <result column="dev_name" property="devName" jdbcType="VARCHAR"/>
-        <result column="dev_url" property="devUrl" jdbcType="VARCHAR"/>
-        <result column="dev_point" property="devPoint" jdbcType="INTEGER"/>
-        <result column="dev_status" property="devStatus" jdbcType="INTEGER"/>
+<mapper namespace="com.zhang.ssm.mapper.LineInfoMapper">
+    <resultMap id="BaseResultMap" type="com.zhang.ssm.pojo.LineInfo">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="line_name" property="lineName" jdbcType="VARCHAR"/>
+        <result column="stream_url" property="streamUrl" jdbcType="VARCHAR"/>
+        <result column="src_url" property="srcUrl" jdbcType="VARCHAR"/>
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -69,15 +68,15 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-        dev_id, dev_name, dev_url, dev_point, dev_status
+        id, line_name, stream_url, src_url
     </sql>
-    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.ssm.pojo.DeviceExample">
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhang.ssm.pojo.LineInfoExample">
         select
         <if test="distinct">
             distinct
         </if>
         <include refid="Base_Column_List"/>
-        from device
+        from line_info
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
         </if>
@@ -88,85 +87,80 @@
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
-        from device
-        where dev_id = #{devId,jdbcType=INTEGER}
+        from line_info
+        where id = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        DELETE FROM device
-        WHERE dev_id = #{devId,jdbcType=INTEGER}
+        DELETE FROM line_info
+        WHERE id = #{id,jdbcType=INTEGER}
     </delete>
-    <delete id="deleteByExample" parameterType="com.zhang.ssm.pojo.DeviceExample">
-        delete from device
+    <delete id="deleteByName" parameterType="java.lang.String">
+        DELETE FROM line_info
+        WHERE line_name = #{lineName,jdbcType=VARCHAR}
+    </delete>
+    <delete id="deleteByExample" parameterType="com.zhang.ssm.pojo.LineInfoExample">
+        delete from line_info
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
         </if>
     </delete>
-    <insert id="insert" parameterType="com.zhang.ssm.pojo.Device">
-        INSERT INTO device (dev_id, dev_name, dev_url,
-                            dev_point, dev_status)
-        VALUES (#{devId,jdbcType=INTEGER}, #{devName,jdbcType=VARCHAR}, #{devUrl,jdbcType=VARCHAR},
-                #{devPoint,jdbcType=INTEGER}, #{devStatus,jdbcType=INTEGER})
+    <insert id="insert" parameterType="com.zhang.ssm.pojo.LineInfo">
+        INSERT INTO line_info (id, line_name, stream_url,
+                               src_url)
+        VALUES (#{id,jdbcType=INTEGER}, #{lineName,jdbcType=VARCHAR}, #{streamUrl,jdbcType=VARCHAR},
+                #{srcUrl,jdbcType=VARCHAR})
     </insert>
-    <insert id="insertSelective" parameterType="com.zhang.ssm.pojo.Device">
-        insert into device
+    <insert id="insertSelective" parameterType="com.zhang.ssm.pojo.LineInfo">
+        insert into line_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="devId != null">
-                dev_id,
+            <if test="id != null">
+                id,
             </if>
-            <if test="devName != null">
-                dev_name,
+            <if test="lineName != null">
+                line_name,
             </if>
-            <if test="devUrl != null">
-                dev_url,
+            <if test="streamUrl != null">
+                stream_url,
             </if>
-            <if test="devPoint != null">
-                dev_point,
-            </if>
-            <if test="devStatus != null">
-                dev_status,
+            <if test="srcUrl != null">
+                src_url,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="devId != null">
-                #{devId,jdbcType=INTEGER},
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
             </if>
-            <if test="devName != null">
-                #{devName,jdbcType=VARCHAR},
+            <if test="lineName != null">
+                #{lineName,jdbcType=VARCHAR},
             </if>
-            <if test="devUrl != null">
-                #{devUrl,jdbcType=VARCHAR},
+            <if test="streamUrl != null">
+                #{streamUrl,jdbcType=VARCHAR},
             </if>
-            <if test="devPoint != null">
-                #{devPoint,jdbcType=INTEGER},
-            </if>
-            <if test="devStatus != null">
-                #{devStatus,jdbcType=INTEGER},
+            <if test="srcUrl != null">
+                #{srcUrl,jdbcType=VARCHAR},
             </if>
         </trim>
     </insert>
-    <select id="countByExample" parameterType="com.zhang.ssm.pojo.DeviceExample" resultType="java.lang.Integer">
-        select count(*) from device
+    <select id="countByExample" parameterType="com.zhang.ssm.pojo.LineInfoExample" resultType="java.lang.Integer">
+        select count(*) from line_info
         <if test="_parameter != null">
             <include refid="Example_Where_Clause"/>
         </if>
     </select>
     <update id="updateByExampleSelective" parameterType="map">
-        update device
+        update line_info
         <set>
-            <if test="record.devId != null">
-                dev_id = #{record.devId,jdbcType=INTEGER},
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=INTEGER},
             </if>
-            <if test="record.devName != null">
-                dev_name = #{record.devName,jdbcType=VARCHAR},
+            <if test="record.lineName != null">
+                line_name = #{record.lineName,jdbcType=VARCHAR},
             </if>
-            <if test="record.devUrl != null">
-                dev_url = #{record.devUrl,jdbcType=VARCHAR},
+            <if test="record.streamUrl != null">
+                stream_url = #{record.streamUrl,jdbcType=VARCHAR},
             </if>
-            <if test="record.devPoint != null">
-                dev_point = #{record.devPoint,jdbcType=INTEGER},
-            </if>
-            <if test="record.devStatus != null">
-                dev_status = #{record.devStatus,jdbcType=INTEGER},
+            <if test="record.srcUrl != null">
+                src_url = #{record.srcUrl,jdbcType=VARCHAR},
             </if>
         </set>
         <if test="_parameter != null">
@@ -174,40 +168,35 @@
         </if>
     </update>
     <update id="updateByExample" parameterType="map">
-        update device
-        set dev_id = #{record.devId,jdbcType=INTEGER},
-        dev_name = #{record.devName,jdbcType=VARCHAR},
-        dev_url = #{record.devUrl,jdbcType=VARCHAR},
-        dev_point = #{record.devPoint,jdbcType=INTEGER},
-        dev_status = #{record.devStatus,jdbcType=INTEGER}
+        update line_info
+        set id = #{record.id,jdbcType=INTEGER},
+        line_name = #{record.lineName,jdbcType=VARCHAR},
+        stream_url = #{record.streamUrl,jdbcType=VARCHAR},
+        src_url = #{record.srcUrl,jdbcType=VARCHAR}
         <if test="_parameter != null">
             <include refid="Update_By_Example_Where_Clause"/>
         </if>
     </update>
-    <update id="updateByPrimaryKeySelective" parameterType="com.zhang.ssm.pojo.Device">
-        update device
+    <update id="updateByPrimaryKeySelective" parameterType="com.zhang.ssm.pojo.LineInfo">
+        update line_info
         <set>
-            <if test="devName != null">
-                dev_name = #{devName,jdbcType=VARCHAR},
+            <if test="lineName != null">
+                line_name = #{lineName,jdbcType=VARCHAR},
             </if>
-            <if test="devUrl != null">
-                dev_url = #{devUrl,jdbcType=VARCHAR},
+            <if test="streamUrl != null">
+                stream_url = #{streamUrl,jdbcType=VARCHAR},
             </if>
-            <if test="devPoint != null">
-                dev_point = #{devPoint,jdbcType=INTEGER},
-            </if>
-            <if test="devStatus != null">
-                dev_status = #{devStatus,jdbcType=INTEGER},
+            <if test="srcUrl != null">
+                src_url = #{srcUrl,jdbcType=VARCHAR},
             </if>
         </set>
-        where dev_id = #{devId,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.zhang.ssm.pojo.Device">
-        UPDATE device
-        SET dev_name   = #{devName,jdbcType=VARCHAR},
-            dev_url    = #{devUrl,jdbcType=VARCHAR},
-            dev_point  = #{devPoint,jdbcType=INTEGER},
-            dev_status = #{devStatus,jdbcType=INTEGER}
-        WHERE dev_id = #{devId,jdbcType=INTEGER}
+    <update id="updateByPrimaryKey" parameterType="com.zhang.ssm.pojo.LineInfo">
+        UPDATE line_info
+        SET line_name  = #{lineName,jdbcType=VARCHAR},
+            stream_url = #{streamUrl,jdbcType=VARCHAR},
+            src_url    = #{srcUrl,jdbcType=VARCHAR}
+        WHERE id = #{id,jdbcType=INTEGER}
     </update>
 </mapper>

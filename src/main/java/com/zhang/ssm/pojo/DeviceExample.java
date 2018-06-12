@@ -234,6 +234,76 @@ public class DeviceExample {
             return (Criteria) this;
         }
 
+        public Criteria andDevUrlIsNull() {
+            addCriterion("dev_url is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevUrlIsNotNull() {
+            addCriterion("dev_url is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevUrlEqualTo(String value) {
+            addCriterion("dev_url =", value, "devUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevUrlNotEqualTo(String value) {
+            addCriterion("dev_url <>", value, "devUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevUrlGreaterThan(String value) {
+            addCriterion("dev_url >", value, "devUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("dev_url >=", value, "devUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevUrlLessThan(String value) {
+            addCriterion("dev_url <", value, "devUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevUrlLessThanOrEqualTo(String value) {
+            addCriterion("dev_url <=", value, "devUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevUrlLike(String value) {
+            addCriterion("dev_url like", value, "devUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevUrlNotLike(String value) {
+            addCriterion("dev_url not like", value, "devUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevUrlIn(List<String> values) {
+            addCriterion("dev_url in", values, "devUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevUrlNotIn(List<String> values) {
+            addCriterion("dev_url not in", values, "devUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevUrlBetween(String value1, String value2) {
+            addCriterion("dev_url between", value1, value2, "devUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andDevUrlNotBetween(String value1, String value2) {
+            addCriterion("dev_url not between", value1, value2, "devUrl");
+            return (Criteria) this;
+        }
+
         public Criteria andDevPointIsNull() {
             addCriterion("dev_point is null");
             return (Criteria) this;

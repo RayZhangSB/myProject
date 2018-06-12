@@ -3,14 +3,14 @@ package com.zhang.ssm.pojo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AbnormalInfoExample {
+public class LineInfoExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public AbnormalInfoExample() {
+    public LineInfoExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -234,193 +234,143 @@ public class AbnormalInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalCodeIsNull() {
-            addCriterion("abnormal_code is null");
+        public Criteria andStreamUrlIsNull() {
+            addCriterion("stream_url is null");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalCodeIsNotNull() {
-            addCriterion("abnormal_code is not null");
+        public Criteria andStreamUrlIsNotNull() {
+            addCriterion("stream_url is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalCodeEqualTo(Integer value) {
-            addCriterion("abnormal_code =", value, "abnormalCode");
+        public Criteria andStreamUrlEqualTo(String value) {
+            addCriterion("stream_url =", value, "streamUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalCodeNotEqualTo(Integer value) {
-            addCriterion("abnormal_code <>", value, "abnormalCode");
+        public Criteria andStreamUrlNotEqualTo(String value) {
+            addCriterion("stream_url <>", value, "streamUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalCodeGreaterThan(Integer value) {
-            addCriterion("abnormal_code >", value, "abnormalCode");
+        public Criteria andStreamUrlGreaterThan(String value) {
+            addCriterion("stream_url >", value, "streamUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalCodeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("abnormal_code >=", value, "abnormalCode");
+        public Criteria andStreamUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("stream_url >=", value, "streamUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalCodeLessThan(Integer value) {
-            addCriterion("abnormal_code <", value, "abnormalCode");
+        public Criteria andStreamUrlLessThan(String value) {
+            addCriterion("stream_url <", value, "streamUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalCodeLessThanOrEqualTo(Integer value) {
-            addCriterion("abnormal_code <=", value, "abnormalCode");
+        public Criteria andStreamUrlLessThanOrEqualTo(String value) {
+            addCriterion("stream_url <=", value, "streamUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalCodeIn(List<Integer> values) {
-            addCriterion("abnormal_code in", values, "abnormalCode");
+        public Criteria andStreamUrlLike(String value) {
+            addCriterion("stream_url like", value, "streamUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalCodeNotIn(List<Integer> values) {
-            addCriterion("abnormal_code not in", values, "abnormalCode");
+        public Criteria andStreamUrlNotLike(String value) {
+            addCriterion("stream_url not like", value, "streamUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalCodeBetween(Integer value1, Integer value2) {
-            addCriterion("abnormal_code between", value1, value2, "abnormalCode");
+        public Criteria andStreamUrlIn(List<String> values) {
+            addCriterion("stream_url in", values, "streamUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalCodeNotBetween(Integer value1, Integer value2) {
-            addCriterion("abnormal_code not between", value1, value2, "abnormalCode");
+        public Criteria andStreamUrlNotIn(List<String> values) {
+            addCriterion("stream_url not in", values, "streamUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalImgUrlIsNull() {
-            addCriterion("abnormal_img_url is null");
+        public Criteria andStreamUrlBetween(String value1, String value2) {
+            addCriterion("stream_url between", value1, value2, "streamUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalImgUrlIsNotNull() {
-            addCriterion("abnormal_img_url is not null");
+        public Criteria andStreamUrlNotBetween(String value1, String value2) {
+            addCriterion("stream_url not between", value1, value2, "streamUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalImgUrlEqualTo(String value) {
-            addCriterion("abnormal_img_url =", value, "abnormalImgUrl");
+        public Criteria andSrcUrlIsNull() {
+            addCriterion("src_url is null");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalImgUrlNotEqualTo(String value) {
-            addCriterion("abnormal_img_url <>", value, "abnormalImgUrl");
+        public Criteria andSrcUrlIsNotNull() {
+            addCriterion("src_url is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalImgUrlGreaterThan(String value) {
-            addCriterion("abnormal_img_url >", value, "abnormalImgUrl");
+        public Criteria andSrcUrlEqualTo(String value) {
+            addCriterion("src_url =", value, "srcUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalImgUrlGreaterThanOrEqualTo(String value) {
-            addCriterion("abnormal_img_url >=", value, "abnormalImgUrl");
+        public Criteria andSrcUrlNotEqualTo(String value) {
+            addCriterion("src_url <>", value, "srcUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalImgUrlLessThan(String value) {
-            addCriterion("abnormal_img_url <", value, "abnormalImgUrl");
+        public Criteria andSrcUrlGreaterThan(String value) {
+            addCriterion("src_url >", value, "srcUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalImgUrlLessThanOrEqualTo(String value) {
-            addCriterion("abnormal_img_url <=", value, "abnormalImgUrl");
+        public Criteria andSrcUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("src_url >=", value, "srcUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalImgUrlLike(String value) {
-            addCriterion("abnormal_img_url like", value, "abnormalImgUrl");
+        public Criteria andSrcUrlLessThan(String value) {
+            addCriterion("src_url <", value, "srcUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalImgUrlNotLike(String value) {
-            addCriterion("abnormal_img_url not like", value, "abnormalImgUrl");
+        public Criteria andSrcUrlLessThanOrEqualTo(String value) {
+            addCriterion("src_url <=", value, "srcUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalImgUrlIn(List<String> values) {
-            addCriterion("abnormal_img_url in", values, "abnormalImgUrl");
+        public Criteria andSrcUrlLike(String value) {
+            addCriterion("src_url like", value, "srcUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalImgUrlNotIn(List<String> values) {
-            addCriterion("abnormal_img_url not in", values, "abnormalImgUrl");
+        public Criteria andSrcUrlNotLike(String value) {
+            addCriterion("src_url not like", value, "srcUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalImgUrlBetween(String value1, String value2) {
-            addCriterion("abnormal_img_url between", value1, value2, "abnormalImgUrl");
+        public Criteria andSrcUrlIn(List<String> values) {
+            addCriterion("src_url in", values, "srcUrl");
             return (Criteria) this;
         }
 
-        public Criteria andAbnormalImgUrlNotBetween(String value1, String value2) {
-            addCriterion("abnormal_img_url not between", value1, value2, "abnormalImgUrl");
+        public Criteria andSrcUrlNotIn(List<String> values) {
+            addCriterion("src_url not in", values, "srcUrl");
             return (Criteria) this;
         }
 
-        public Criteria andProcessedIsNull() {
-            addCriterion("processed is null");
+        public Criteria andSrcUrlBetween(String value1, String value2) {
+            addCriterion("src_url between", value1, value2, "srcUrl");
             return (Criteria) this;
         }
 
-        public Criteria andProcessedIsNotNull() {
-            addCriterion("processed is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andProcessedEqualTo(Integer value) {
-            addCriterion("processed =", value, "processed");
-            return (Criteria) this;
-        }
-
-        public Criteria andProcessedNotEqualTo(Integer value) {
-            addCriterion("processed <>", value, "processed");
-            return (Criteria) this;
-        }
-
-        public Criteria andProcessedGreaterThan(Integer value) {
-            addCriterion("processed >", value, "processed");
-            return (Criteria) this;
-        }
-
-        public Criteria andProcessedGreaterThanOrEqualTo(Integer value) {
-            addCriterion("processed >=", value, "processed");
-            return (Criteria) this;
-        }
-
-        public Criteria andProcessedLessThan(Integer value) {
-            addCriterion("processed <", value, "processed");
-            return (Criteria) this;
-        }
-
-        public Criteria andProcessedLessThanOrEqualTo(Integer value) {
-            addCriterion("processed <=", value, "processed");
-            return (Criteria) this;
-        }
-
-        public Criteria andProcessedIn(List<Integer> values) {
-            addCriterion("processed in", values, "processed");
-            return (Criteria) this;
-        }
-
-        public Criteria andProcessedNotIn(List<Integer> values) {
-            addCriterion("processed not in", values, "processed");
-            return (Criteria) this;
-        }
-
-        public Criteria andProcessedBetween(Integer value1, Integer value2) {
-            addCriterion("processed between", value1, value2, "processed");
-            return (Criteria) this;
-        }
-
-        public Criteria andProcessedNotBetween(Integer value1, Integer value2) {
-            addCriterion("processed not between", value1, value2, "processed");
+        public Criteria andSrcUrlNotBetween(String value1, String value2) {
+            addCriterion("src_url not between", value1, value2, "srcUrl");
             return (Criteria) this;
         }
     }

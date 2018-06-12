@@ -5,6 +5,8 @@ public class Device {
 
     private String devName;
 
+    private String devUrl;
+
     private Integer devPoint;
 
     private Integer devStatus;
@@ -23,6 +25,14 @@ public class Device {
 
     public void setDevName(String devName) {
         this.devName = devName == null ? null : devName.trim();
+    }
+
+    public String getDevUrl() {
+        return devUrl;
+    }
+
+    public void setDevUrl(String devUrl) {
+        this.devUrl = devUrl == null ? null : devUrl.trim();
     }
 
     public Integer getDevPoint() {
