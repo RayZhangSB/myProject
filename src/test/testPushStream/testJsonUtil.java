@@ -1,4 +1,4 @@
-package testJson;
+package testPushStream;
 
 import com.zhang.ssm.utils.JsonUtil;
 import com.zhang.ssm.wrapperPojo.ResponseResult;

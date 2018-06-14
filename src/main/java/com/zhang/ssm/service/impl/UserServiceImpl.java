@@ -219,7 +219,7 @@ public class UserServiceImpl implements UserService {
             // 获得项目的路径
             ServletContext sc = request.getSession().getServletContext();
             // 上传位置
-            String savePath = sc.getRealPath(File.separator + "WEB-INF" + FileUtil.HEAD_SAVE_DIR) + File.separator; // 设定文件保存的目录
+            String savePath = sc.getRealPath(FileUtil.HEAD_SAVE_DIR) + File.separator; // 设定文件保存的目录
 
 
             File saveDir = new File(savePath);

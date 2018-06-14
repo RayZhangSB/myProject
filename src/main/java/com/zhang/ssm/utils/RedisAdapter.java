@@ -15,14 +15,14 @@ import redis.clients.jedis.ShardedJedisPool;
  * @Version 1.0
  **/
 @Repository("redisClientApi")
-public class RedisAdapter {
+public final class RedisAdapter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RedisAdapter.class);
     @Autowired
     private static ShardedJedisPool shardedJedisPool;
 
     //获取redis连接
-    public  ShardedJedis getRedisConnection() {
+    public static  ShardedJedis getRedisConn() {
         ShardedJedis shardJedis = null;
         try {
              shardJedis = shardedJedisPool.getResource();

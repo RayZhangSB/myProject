@@ -78,16 +78,15 @@
 
 
         <div style="float: left;width: 350px;height: 100%;">
-            <!--/images/ab_images/3.jpg-->
             <div>
-                <img src="" style="height: 220px;width: 100%">
+                <img id="ab_img1" src="/images/ab_images/1.jpg" style="height: 220px;width: 100%">
             </div>
 
             <div>
-                <img src="" style="height: 220px;width: 100%">
+                <img id="ab_img2" src="/images/ab_images/2.jpg" style="height: 220px;width: 100%">
             </div>
             <div>
-                <img src="" style="height: 220px;width: 100%">
+                <img id="ab_img3" src="/images/ab_images/3.jpg" style="height: 220px;width: 100%">
             </div>
         </div>
         <div style="width: 350px;height: 100%;float:left;">
@@ -178,6 +177,26 @@
     $(function () {
         video = videojs(document.getElementById("video1"), {}, function () {
         });
+        // setInterval(function () {
+        //     var v=this.options[this.selectedIndex].text;
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "/detect/freshAbImgShow",
+        //         data:{"lineName":v},
+        //         contentType: false,    //不可缺
+        //         processData: false,    //不可缺;
+        //         dataType: "json",
+        //         success: function (suc) {
+        //             if (suc.code === 0) {
+        //                 $("#ab_img1").attr("src","/images/ab_images/1.jpg") ;
+        //                 $("#ab_img2").attr("src","/images/ab_images/2.jpg") ;
+        //                 $("#ab_img3").attr("src","/images/ab_images/3.jpg") ;
+        //                 showOPInfo(suc.msg);
+        //                 return false;
+        //             }
+        //         },
+        //     });
+        // }, 1000); //每隔一秒执行一次
     });
     function clickSetLocalCfg(){}
     function addNewLine(){}

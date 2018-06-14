@@ -1,5 +1,7 @@
 package com.zhang.ssm.service;
 
+import javax.servlet.http.HttpServletRequest;
+
 public interface AbDetectionService {
 
 
@@ -8,4 +10,6 @@ public interface AbDetectionService {
     String changeLine(String lineName);
 
     String snapshot(String lineName);
+
+    String freshAbImgShow(String lineName,HttpServletRequest request);
 }

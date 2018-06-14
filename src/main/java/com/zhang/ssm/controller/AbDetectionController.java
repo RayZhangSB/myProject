@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @ClassName AbDetectionController
  * @Description:
@@ -37,6 +39,12 @@ public class AbDetectionController {
     @ResponseBody
     public String snapshot(String lineName) {
         return abDetectionService.snapshot(lineName);
+    }
+
+    @RequestMapping("/freshAbImgShow")
+    @ResponseBody
+    public String freshAbImgShow(String lineName, HttpServletRequest request){
+        return abDetectionService.freshAbImgShow(lineName,request);
     }
 
 }

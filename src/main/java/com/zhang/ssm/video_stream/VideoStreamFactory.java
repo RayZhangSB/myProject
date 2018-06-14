@@ -1,7 +1,5 @@
 package com.zhang.ssm.video_stream;
 
-import com.zhang.ssm.pojo.AbnormalInfo;
-import com.zhang.ssm.utils.DateUtil;
 import org.bytedeco.javacpp.avcodec;
 import org.bytedeco.javacv.FFmpegFrameGrabber;
 import org.bytedeco.javacv.FrameGrabber;
@@ -10,14 +8,10 @@ import org.bytedeco.javacv.OpenCVFrameConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Queue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * @ClassName VideoStreamFactory
@@ -27,7 +21,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  * @Version 1.0
  **/
 public class VideoStreamFactory {
-    private static String AB_IMG_PATH_PREFIX = "";
+
 
     private static final Logger LOGGER = LoggerFactory.getLogger(VideoStreamFactory.class);
 
@@ -36,10 +30,6 @@ public class VideoStreamFactory {
     private Map<String, VideoStreamConverter> videoStreamConverterMaps = new HashMap<String, VideoStreamConverter>();
 
     private ExecutorService executorService = Executors.newFixedThreadPool(11);
-
-    private Queue<AbnormalInfo> abFrames = new LinkedBlockingQueue<AbnormalInfo>();
-
-    private Map<String, String> savePaths = new HashMap<String, String>(128);
 
     private VideoStreamFactory() {
     }
@@ -157,29 +147,6 @@ public class VideoStreamFactory {
         LOGGER.info("所有线路均连接正常");
         return true;
     }
-
-    public boolean makeSaveDirs() {
-        String date = DateUtil.genTime(new Date(), "yyyy-MM-dd");
-        File dir = new File(AB_IMG_PATH_PREFIX + File.separator + date);
-        try {
-            if (!(dir.exists() && dir.isDirectory())) {
-                dir.mkdir();
-            }
-            for (String lineName : videoStreamConverterMaps.keySet()) {
-                String saveDir = dir + File.separator + lineName;
-                File sDir = new File(saveDir);
-                if (!(sDir.exists() && sDir.isDirectory())) {
-                    sDir.mkdir();
-                    savePaths.put(lineName, saveDir);
-                }
-            }
-        } catch (Exception e) {
-            LOGGER.error("存储异常图片的路径创建失败" + e.getMessage());
-            return false;
-        }
-        return true;
-    }
-
 
     public VideoStreamConverter getConverter(String lineName) {
         return videoStreamConverterMaps.get(lineName);

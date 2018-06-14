@@ -1,4 +1,4 @@
-package testRedis;
+package testPushStream;
 
 import com.zhang.ssm.video_stream.VideoStreamConverter;
 import org.bytedeco.javacpp.Loader;
@@ -22,7 +22,7 @@ import java.io.*;
  * @Date 2018/6/6 9:22
  * @Version 1.0
  **/
-public class Redis {
+public class TESTRedis {
     @Test
     public void re() {
         //Connecting to Redis server on localhost
@@ -90,22 +90,20 @@ public class Redis {
 
     @Test
     public void redisFrameSave() throws FrameGrabber.Exception {
-        //Frame 没法序列化
-        String host  = "localhost";
-        int port = 6379;
-        Jedis jedis = new Jedis(host,port);
-        String src = "E:\\HKfiles\\web\\RecordFiles\\2018-04-15/0415-fire.mp4";
-        FrameGrabber  grabber = FFmpegFrameGrabber.createDefault(new File(src));
-        OpenCVFrameConverter.ToIplImage a = new OpenCVFrameConverter.ToIplImage();
-        grabber.start();
-        Frame grabFrame = grabber.grab();
-        opencv_core.IplImage grabbedImage = a.convert(grabFrame);
-        ImgR imgR = new ImgR("lll",grabbedImage,System.currentTimeMillis(),0);
-        jedis.set("ppp".getBytes(),serialize(grabbedImage));
-        byte[] byt=jedis.get("ppp".getBytes());
-        Object obj=unserizlize(byt);
-        if(obj instanceof opencv_core.IplImage){
-            System.out.println(obj);
+//        //Frame 没法序列化
+//        String host  = "localhost";
+//        int port = 6379;
+//        Jedis jedis = new Jedis(host,port);
+//
+//
+//        jedis.lpush("imglist","C:\\Users\\Raymond Zhang\\Pictures\\IU1.jpg");
+//        jedis.lpush("imglist","C:\\Users\\Raymond Zhang\\Pictures\\IU2.jpg");
+//        jedis.lpush("imglist","C:\\Users\\Raymond Zhang\\Pictures\\IU3.jpg");
+//
+//        List<String> images = jedis.lrange("imglist",-3,-1);
+        String[] i = new String[3];
+        for(String k : i ){
+            System.out.println(k);
         }
 
 

@@ -1,5 +1,7 @@
 package com.zhang.ssm.pojo;
 
+import java.util.Date;
+
 public class AbnormalInfo {
     private Integer id;
 
@@ -10,6 +12,8 @@ public class AbnormalInfo {
     private String abnormalImgUrl;
 
     private Integer processed;
+
+    private Date createTime;
 
     public Integer getId() {
         return id;
@@ -49,5 +53,13 @@ public class AbnormalInfo {
 
     public void setProcessed(Integer processed) {
         this.processed = processed;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }
