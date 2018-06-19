@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.List;
-import java.util.Map;
 
 
 public final class JsonUtil {
@@ -65,15 +64,7 @@ public final class JsonUtil {
         return json.toJSONString();
     }
 
-    public static String getJSONString(int code, String msg, Map<String, Object> map) {
-        JSONObject json = new JSONObject();
-        json.put("code", code);
-        json.put("msg", msg);
-        for (Map.Entry<String, Object> entry : map.entrySet()) {
-            json.put(entry.getKey(), entry.getValue());
-        }
-        return json.toJSONString();
-    }
+
 
 
 }

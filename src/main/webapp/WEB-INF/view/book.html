@@ -10,151 +10,187 @@
     <link rel="stylesheet" href=" /css/admin.css">
     <script src=" /js/jquery.js"></script>
     <script src=" /js/pintuer.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/css/demo.css">
+    <link rel="stylesheet" type="text/css" href="/css/icon.css">
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
 </head>
 <body>
 <form method="post" action="">
     <div class="panel admin-panel">
         <div class="panel-head"><strong class="icon-reorder"> 留言管理</strong></div>
-        <div class="padding border-bottom">
-            <ul class="search">
-                <li>
-                    <button type="button" class="button border-green" id="checkall"><span class="icon-check"/> 全选
-                    </button>
-                    <button type="submit" class="button border-red"><span class="icon-trash-o"/> 批量删除</button>
-                </li>
-            </ul>
-        </div>
-        <table class="table table-hover text-center">
+        <table id="dg" title="Abnormal Info Table" style="width:1610px;height:650px" data-options="
+				rownumbers:true,
+				singleSelect:true,
+				autoRowHeight:false,
+				pagination:true,
+
+				pageSize:10">
+            <thead>
             <tr>
-                <th width="120">ID</th>
-                <th>姓名</th>
-                <th>电话</th>
-                <th>邮箱</th>
-                <th>其他</th>
-                <th width="25%">内容</th>
-                <th width="120">留言时间</th>
-                <th>操作</th>
+                <th  field="id" width="250px" align="center">Abnormal_Info Id</th>
+                <th field="lineName" width="250px" align="center">Line_Name</th>
+                <th  field="abnormalCode" width="200px" align="center">Abnormal_Code</th>
+                <th  field="abnormalImgUrl" width="350px" align="center">Abnormal_Img_Url</th>
+                <th  field="processed" width="200px" align="center">Processed</th>
+                <th  field="createTime" width="250px" align="center" >Create_Time</th>
             </tr>
-            <tr>
-                <td><input type="checkbox" name="id[]" value="1"/>
-                    1
-                </td>
-                <td>神夜</td>
-                <td>13420925611</td>
-                <td>564379992@qq.com</td>
-                <td>深圳市民治街道</td>
-                <td>这是一套后台UI，喜欢的朋友请多多支持谢谢。</td>
-                <td>2016-07-01</td>
-                <td>
-                    <div class="button-group"><a class="button border-red" href="javascript:void(0)"
-                                                 onclick="return del(1)"><span class="icon-trash-o"/> 删除</a></div>
-                </td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="id[]" value="1"/>
-                    1
-                </td>
-                <td>神夜</td>
-                <td>13420925611</td>
-                <td>564379992@qq.com</td>
-                <td>深圳市民治街道</td>
-                <td>这是一套后台UI，喜欢的朋友请多多支持谢谢。</td>
-                <td>2016-07-01</td>
-                <td>
-                    <div class="button-group"><a class="button border-red" href="javascript:void(0)"
-                                                 onclick="return del(1)"><span class="icon-trash-o"/> 删除</a></div>
-                </td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="id[]" value="1"/>
-                    1
-                </td>
-                <td>神夜</td>
-                <td>13420925611</td>
-                <td>564379992@qq.com</td>
-                <td>深圳市民治街道</td>
-                <td>这是一套后台UI，喜欢的朋友请多多支持谢谢。</td>
-                <td>2016-07-01</td>
-                <td>
-                    <div class="button-group"><a class="button border-red" href="javascript:void(0)"
-                                                 onclick="return del(1)"><span class="icon-trash-o"/> 删除</a></div>
-                </td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="id[]" value="1"/>
-                    1
-                </td>
-                <td>神夜</td>
-                <td>13420925611</td>
-                <td>564379992@qq.com</td>
-                <td>深圳市民治街道</td>
-                <td>这是一套后台UI，喜欢的朋友请多多支持谢谢。</td>
-                <td>2016-07-01</td>
-                <td>
-                    <div class="button-group"><a class="button border-red" href="javascript:void(0)"
-                                                 onclick="return del(1)"><span class="icon-trash-o"/> 删除</a></div>
-                </td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="id[]" value="1"/>
-                    1
-                </td>
-                <td>神夜</td>
-                <td>13420925611</td>
-                <td>564379992@qq.com</td>
-                <td>深圳市民治街道</td>
-                <td>这是一套后台UI，喜欢的朋友请多多支持谢谢。</td>
-                <td>2016-07-01</td>
-                <td>
-                    <div class="button-group"><a class="button border-red" href="javascript:void(0)"
-                                                 onclick="return del(1)"><span class="icon-trash-o"/> 删除</a></div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="8">
-                    <div class="pagelist"><a href="">上一页</a> <span class="current">1</span><a href="">2</a><a
-                            href="">3</a><a href="">下一页</a><a href="">尾页</a></div>
-                </td>
-            </tr>
+            </thead>
         </table>
+        <script>
+            (function($){
+                function pagerFilter(data){
+                    if ($.isArray(data)){	// is array
+                        data = {
+                            total: data.length,
+                            rows: data
+                        }
+                    }
+                    var target = this;
+                    var dg = $(target);
+                    var state = dg.data('datagrid');
+                    var opts = dg.datagrid('options');
+                    if (!state.allRows){
+                        state.allRows = (data.rows);
+                    }
+                    if (!opts.remoteSort && opts.sortName){
+                        var names = opts.sortName.split(',');
+                        var orders = opts.sortOrder.split(',');
+                        state.allRows.sort(function(r1,r2){
+                            var r = 0;
+                            for(var i=0; i<names.length; i++){
+                                var sn = names[i];
+                                var so = orders[i];
+                                var col = $(target).datagrid('getColumnOption', sn);
+                                var sortFunc = col.sorter || function(a,b){
+                                    return a==b ? 0 : (a>b?1:-1);
+                                };
+                                r = sortFunc(r1[sn], r2[sn]) * (so=='asc'?1:-1);
+                                if (r != 0){
+                                    return r;
+                                }
+                            }
+                            return r;
+                        });
+                    }
+                    var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+                    var end = start + parseInt(opts.pageSize);
+                    data.rows = state.allRows.slice(start, end);
+                    return data;
+                }
+
+                var loadDataMethod = $.fn.datagrid.methods.loadData;
+                var deleteRowMethod = $.fn.datagrid.methods.deleteRow;
+                $.extend($.fn.datagrid.methods, {
+                    clientPaging: function(jq){
+                        return jq.each(function(){
+                            var dg = $(this);
+                            var state = dg.data('datagrid');
+                            var opts = state.options;
+                            opts.loadFilter = pagerFilter;
+                            var onBeforeLoad = opts.onBeforeLoad;
+                            opts.onBeforeLoad = function(param){
+                                state.allRows = null;
+                                return onBeforeLoad.call(this, param);
+                            }
+                            var pager = dg.datagrid('getPager');
+                            pager.pagination({
+                                onSelectPage:function(pageNum, pageSize){
+                                    opts.pageNumber = pageNum;
+                                    opts.pageSize = pageSize;
+                                    pager.pagination('refresh',{
+                                        pageNumber:pageNum,
+                                        pageSize:pageSize
+                                    });
+                                    dg.datagrid('loadData',state.allRows);
+                                }
+                            });
+                            $(this).datagrid('loadData', state.data);
+                            if (opts.url){
+                                $(this).datagrid('reload');
+                            }
+                        });
+                    },
+                    loadData: function(jq, data){
+                        jq.each(function(){
+                            $(this).data('datagrid').allRows = null;
+                        });
+                        return loadDataMethod.call($.fn.datagrid.methods, jq, data);
+                    },
+                    deleteRow: function(jq, index){
+                        return jq.each(function(){
+                            var row = $(this).datagrid('getRows')[index];
+                            deleteRowMethod.call($.fn.datagrid.methods, $(this), index);
+                            var state = $(this).data('datagrid');
+                            if (state.options.loadFilter == pagerFilter){
+                                for(var i=0; i<state.allRows.length; i++){
+                                    if (state.allRows[i] == row){
+                                        state.allRows.splice(i,1);
+                                        break;
+                                    }
+                                }
+                                $(this).datagrid('loadData', state.allRows);
+                            }
+                        });
+                    },
+                    getAllRows: function(jq){
+                        return jq.data('datagrid').allRows;
+                    }
+                })
+            })(jQuery);
+
+            function getData(){
+                var rows = [];
+                for(var i=1; i<=100; i++){
+                    var amount = Math.floor(Math.random()*1000);
+                    var price = Math.floor(Math.random()*1000);
+                    rows.push({
+                        id: 'Inv No '+i,
+                        lineName:  amount*price,
+                        abnormalCode: 'Name '+i,
+                        abnormalImgUrl: amount,
+                        processed: price,
+                        createTime: $.fn.datebox.defaults.formatter(new Date()),
+                    });
+                }
+                return rows;
+                $.ajax({
+                    type: "POST",
+                    url: "/detect/getAbnormalInfo",
+                    contentType: false,    //不可缺
+                    processData: false,    //不可缺;
+                    dataType: "json",
+                    // async: false,
+                    success: function (suc) {
+                        if (suc.code === 0) {
+                           return suc.data;
+                        } else {
+                            alert(suc.msg);
+                            return false;
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("Network error, please check the network and try again" + XMLHttpRequest + textStatus + errorThrown);
+                        return false;
+                    }
+                });
+
+
+
+
+            }
+
+
+
+
+
+            $(function(){
+                $('#dg').datagrid({data:getData()}).datagrid('clientPaging');
+            });
+        </script>
+
+
     </div>
 </form>
-<script type="text/javascript">
-
-    function del(id) {
-        if (confirm("您确定要删除吗?")) {
-
-        }
-    }
-
-    $("#checkall").click(function () {
-        $("input[name='id[]']").each(function () {
-            if (this.checked) {
-                this.checked = false;
-            }
-            else {
-                this.checked = true;
-            }
-        });
-    })
-
-    function DelSelect() {
-        var Checkbox = false;
-        $("input[name='id[]']").each(function () {
-            if (this.checked == true) {
-                Checkbox = true;
-            }
-        });
-        if (Checkbox) {
-            var t = confirm("您确认要删除选中的内容吗？");
-            if (t == false) return false;
-        }
-        else {
-            alert("请选择您要删除的内容!");
-            return false;
-        }
-    }
-
-</script>
 </body>
 </html>

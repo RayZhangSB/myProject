@@ -32,6 +32,7 @@ public class test1 {
         ab_info.setAbnormalCode(0);
         ab_info.setProcessed(0);
         ab.insert(ab_info);
+
     }
 
 

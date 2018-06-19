@@ -47,4 +47,11 @@ public class AbDetectionController {
         return abDetectionService.freshAbImgShow(lineName,request);
     }
 
+    @RequestMapping("/getAbnormalInfo")
+    @ResponseBody
+    public String getAbnormalInfo(){
+        return abDetectionService.getAbnormalInfo();
+    }
+
+
 }

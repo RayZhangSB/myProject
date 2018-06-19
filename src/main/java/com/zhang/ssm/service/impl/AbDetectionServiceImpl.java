@@ -1,8 +1,11 @@
 package com.zhang.ssm.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.zhang.ssm.mapper.AbnormalInfoMapper;
 import com.zhang.ssm.mapper.LineInfoMapper;
 import com.zhang.ssm.pojo.AbnormalInfo;
+import com.zhang.ssm.pojo.AbnormalInfoExample;
 import com.zhang.ssm.pojo.LineInfo;
 import com.zhang.ssm.service.AbDetectionService;
 import com.zhang.ssm.utils.FileUtil;
@@ -157,6 +160,20 @@ public class AbDetectionServiceImpl implements AbDetectionService {
             }
             responseResult.setMsg("detect new abnormal event");
         }
+        return JsonUtil.objectToJson(responseResult);
+    }
+
+    public String getAbnormalInfo(){
+        ResponseResult responseResult = ResponseResult.ok();
+        String res = null;
+        try {
+            List<AbnormalInfo> dat = abnormalInfoMapper.selectByExample(new AbnormalInfoExample());
+            res = JSON.toJSONStringWithDateFormat(dat, "yyyy-MM-dd HH:mm:ss", SerializerFeature.WriteDateUseDateFormat);
+        }catch (Exception e){
+            responseResult.setCode(1);
+            responseResult.setMsg("fetch Abnormal Info error" +e.getMessage());
+        }
+        responseResult.setData(res);
         return JsonUtil.objectToJson(responseResult);
     }
 
