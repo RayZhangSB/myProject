@@ -18,6 +18,7 @@ public final class StringUtil {
     public static boolean isEmpty(String str) {
         return str == null || "".equals(str);
     }
+
     public static String[] splitString(String str, String regex) {
         return str.split(regex);
     }

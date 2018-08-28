@@ -22,7 +22,7 @@ import java.io.*;
  * @Date 2018/6/6 9:22
  * @Version 1.0
  **/
-public class TESTRedis {
+public class TestRedis {
     @Test
     public void re() {
         //Connecting to Redis server on localhost
@@ -91,20 +91,22 @@ public class TESTRedis {
     @Test
     public void redisFrameSave() throws FrameGrabber.Exception {
 //        //Frame 没法序列化
-//        String host  = "localhost";
-//        int port = 6379;
-//        Jedis jedis = new Jedis(host,port);
-//
-//
-//        jedis.lpush("imglist","C:\\Users\\Raymond Zhang\\Pictures\\IU1.jpg");
+        String host  = "localhost";
+        int port = 6379;
+        Jedis jedis = new Jedis(host,port);
+        long time =System.currentTimeMillis();
+
+
+        jedis.lpush("imglist","C:\\Users\\Raymond Zhang\\Pictures\\IU1.jpg");
+        System.out.println(System.currentTimeMillis()-time);
 //        jedis.lpush("imglist","C:\\Users\\Raymond Zhang\\Pictures\\IU2.jpg");
 //        jedis.lpush("imglist","C:\\Users\\Raymond Zhang\\Pictures\\IU3.jpg");
 //
 //        List<String> images = jedis.lrange("imglist",-3,-1);
-        String[] i = new String[3];
-        for(String k : i ){
-            System.out.println(k);
-        }
+//        String[] i = new String[3];
+//        for(String k : i ){
+//            System.out.println(k);
+//        }
 
 
     }

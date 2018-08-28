@@ -8,6 +8,7 @@ package com.zhang.ssm.video_stream;
  * @Version 1.0
  **/
 public class StartExecThread implements Runnable {
+
     private VideoStreamConverter streamConverter;
 
     public StartExecThread(VideoStreamConverter streamConverter) {

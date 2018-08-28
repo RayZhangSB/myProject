@@ -160,22 +160,64 @@ public class AbDetectionServiceImpl implements AbDetectionService {
             }
             responseResult.setMsg("detect new abnormal event");
         }
+        sj.close();
         return JsonUtil.objectToJson(responseResult);
     }
 
-    public String getAbnormalInfo(){
+    public String getAbnormalInfo() {
         ResponseResult responseResult = ResponseResult.ok();
         String res = null;
         try {
             List<AbnormalInfo> dat = abnormalInfoMapper.selectByExample(new AbnormalInfoExample());
             res = JSON.toJSONStringWithDateFormat(dat, "yyyy-MM-dd HH:mm:ss", SerializerFeature.WriteDateUseDateFormat);
-        }catch (Exception e){
+        } catch (Exception e) {
             responseResult.setCode(1);
-            responseResult.setMsg("fetch Abnormal Info error" +e.getMessage());
+            responseResult.setMsg("fetch Abnormal Info error" + e.getMessage());
         }
+
         responseResult.setData(res);
         return JsonUtil.objectToJson(responseResult);
     }
 
+    private ResponseResult prepareForStart() {
+        ResponseResult responseResult = ResponseResult.ok();
+        StringBuilder msg = new StringBuilder();
+        List<String> result1 = vFactory.startPreparing();
+        List<String> result2 = vFactory.checkSourceByGrab();
+        boolean b1 = result1.size() < 1;
+        boolean b2 = result2.size() < 1;
+        if (b1 && b2) {
+            responseResult.setMsg("All line are ready");
+        } else {
+            responseResult.setCode(2);
+            if (!b1) {
+                for (String s : result1) {
+                    msg.append(s);
+                    msg.append(",");
+                }
+                responseResult.setMsg("following lines can't contact success :" + msg);
+            } else {
+                for (String s : result2) {
+                    msg.append(s);
+                    msg.append(",");
+                }
+                responseResult.setMsg("following lines can't grab a frame :" + msg);
+            }
+        }
+        return responseResult;
+
+    }
+
+    public String start() {
+        ResponseResult prepareResult = prepareForStart();
+        if (prepareResult.getCode() == 0) {
+            vFactory.startAllPush();
+        }
+        return JsonUtil.objectToJson(prepareResult);
+    }
+
+    public void stop(){
+        vFactory.stopAllPush();
+    }
 
 }

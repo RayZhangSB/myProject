@@ -5,6 +5,7 @@ import com.zhang.ssm.utils.DateUtil;
 import com.zhang.ssm.utils.JsonUtil;
 import com.zhang.ssm.utils.RedisAdapter;
 import com.zhang.ssm.utils.StringUtil;
+import com.zhang.ssm.video_stream.handler.BasicImgProcessHandler;
 import org.bytedeco.javacpp.opencv_core;
 import org.bytedeco.javacpp.opencv_imgcodecs;
 import org.slf4j.Logger;
@@ -32,9 +33,19 @@ public class ImageProcess {
 
     private static AtomicInteger id_count = new AtomicInteger(4001) ;
 
-    public boolean preProcess(opencv_core.Mat mat) {
+    private ImgProcessHandler imgProcessHandler;
+
+
+
+
+    public void setImgProcessHandler(ImgProcessHandler imgProcessHandler) {
+        this.imgProcessHandler = imgProcessHandler;
+    }
+
+    public Object preProcess(opencv_core.Mat mat) {
 //        opencv_imgproc
-        return false;
+        setImgProcessHandler(new BasicImgProcessHandler());
+        return imgProcessHandler.preProcess(mat);
     }
 
 
@@ -50,22 +61,22 @@ public class ImageProcess {
             opencv_imgcodecs.imwrite(path,mat);
             ShardedJedis sj= RedisAdapter.getRedisConn();
             AbnormalInfo ab_info  = new AbnormalInfo();
-            ab_info.setId(id_count.get());
+            ab_info.setId(id_count.incrementAndGet());
             ab_info.setCreateTime(date);
             ab_info.setAbnormalImgUrl(path);
             ab_info.setAbnormalCode(0);
             ab_info.setProcessed(0);
             sj.lpush(lineName+"_"+"unprocessed", JsonUtil.objectToJson(ab_info));
-            id_count.incrementAndGet();
+            sj.close();
         }
 
     }
 
 
     public void process(opencv_core.Mat mat ,String lineName,Date date) {
-
-        if(preProcess(mat)){
-            classify(mat,lineName,date);
+        Object m = preProcess(mat);
+        if(m!=null){
+            classify((opencv_core.Mat)m,lineName,date);
         }
 
     }

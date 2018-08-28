@@ -8,7 +8,9 @@ import org.bytedeco.javacv.OpenCVFrameConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -29,7 +31,7 @@ public class VideoStreamFactory {
 
     private Map<String, VideoStreamConverter> videoStreamConverterMaps = new HashMap<String, VideoStreamConverter>();
 
-    private ExecutorService executorService = Executors.newFixedThreadPool(11);
+    private ExecutorService executorService = Executors.newFixedThreadPool(12);
 
     private VideoStreamFactory() {
     }
@@ -84,12 +86,10 @@ public class VideoStreamFactory {
     }
 
     public VideoStreamConverter createVideoStreamConverter(String lineName, FrameGrabber grabber, FrameRecorder recorder, OpenCVFrameConverter.ToIplImage converter) {
-
         if (videoStreamConverterMaps.containsKey(lineName)) {
             LOGGER.info("该线路已存在，若想添加新线路，请先删除原线路");
             return videoStreamConverterMaps.get(lineName);
         }
-
         VideoStreamConverter nv = new VideoStreamConverter(grabber, recorder, converter, lineName);
         videoStreamConverterMaps.put(lineName, nv);
         return nv;
@@ -112,44 +112,45 @@ public class VideoStreamFactory {
         LOGGER.info("新线路开始执行");
     }
 
-    public boolean checkAllSource() {
+    public List<String> checkSourceByGrab() {
+        List<String> failedLines = new ArrayList<String>();
         for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
             if (!v.tryGetFirstFrame()) {
-                LOGGER.error(v.getLineName() + "--" + "提取源失败，请检查设备");
-                return false;
+                failedLines.add(v.getLineName());
             }
         }
-        LOGGER.info("所有设备均能正常取源");
-        return true;
+        return failedLines;
     }
 
-    public boolean startAllPush() {
+    public void startAllPush() {
         for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
             if (!v.isOpened()) {
                 addNewLine(new StartExecThread(v));
-                LOGGER.error(v.getLineName() + "--" + "启动推流失败，请检查该节点");
-                return false;
             }
         }
-        LOGGER.info("所有设备均推流正常");
-        return true;
-
-
     }
 
-    public boolean startPreparing() {
+    public List<String> startPreparing() {
+        List<String> failedLines = new ArrayList<String>();
         for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
             if (!v.startGrabber() || !v.startRecorder()) {
-                LOGGER.error(v.getLineName() + "--" + "该线路启用连接失败，请检查该节点");
-                return false;
+                failedLines.add(v.getLineName());
+                return failedLines;
             }
         }
-        LOGGER.info("所有线路均连接正常");
-        return true;
+        return failedLines;
     }
 
     public VideoStreamConverter getConverter(String lineName) {
         return videoStreamConverterMaps.get(lineName);
+    }
+
+    public void stopAllPush(){
+        for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
+            if (v.isOpened()) {
+                v.stopAddRelease();
+            }
+        }
     }
 
 }

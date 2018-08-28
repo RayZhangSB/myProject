@@ -3,6 +3,7 @@ package testPushStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.LinkedList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.ExecutorService;
@@ -38,7 +39,16 @@ public class Latch {
     }
 
     public static void main(String[] args) throws InterruptedException {
-            new ff();
+        LinkedList<Integer> a = new LinkedList<Integer>();
+        a.offer(1);
+        a.offer(2);
+        a.offer(3);
+        for(int i:a){
+            System.out.println(i);
+        }
+
+
+
     }
 
 

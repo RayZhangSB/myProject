@@ -77,7 +77,6 @@ public class RealMonitorDataServiceImpl implements RealMonitorDataService {
                 map.put(limit, "");
             }
             responseResult.setData(map);
-            limitDevs = null;
         }
         return JsonUtil.objectToJson(responseResult);
     }

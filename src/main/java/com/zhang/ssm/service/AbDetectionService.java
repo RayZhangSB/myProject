@@ -14,4 +14,8 @@ public interface AbDetectionService {
     String freshAbImgShow(String lineName,HttpServletRequest request);
 
     String getAbnormalInfo();
+
+    String start();
+
+    void stop();
 }

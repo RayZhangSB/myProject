@@ -35,15 +35,19 @@ public class PassportInterceptor implements HandlerInterceptor {
 
     @Autowired
     private UserHolder userHolder;
+
     @Autowired
     private MonitorsScopeHolder monitors;
+
     @Autowired
     private AuthCodeHolder authCodeHolder;
 
     @Autowired
     private AuthGroupMapper authGroupMapper;
+
     @Autowired
     private AuthOpreatorMapper authOpreatorMapper;
+
     /*
     对所有访问拦截查询是否已登录，是则将用户信息写入到线程私有变量
      */
