@@ -21,42 +21,63 @@ public class BasicImgProcessHandler implements ImgProcessHandler {
 
     private static final int BG_THRESHOLD = 30;
 
+    private static final int BACKWARD_LENGTH = 8;
+
     private int val;
+
+    private int maxVal = Integer.MIN_VALUE;
 
     private int idx = -1;
 
+    private boolean abnormal_appear = false;
+
     @Override
     public Object preProcess(opencv_core.Mat mat) {
-        val = caulateVal(mat);
-        if (DiffByInterval(mat)) {
-            if (idx > 0) {
-                int i = 1;
-                for (opencv_core.Mat m : backward) {
-                    if (i == idx) {
-                        if (caulateValByBackGround(m, background)) {
-                            return m;
+        val = caculateVal(mat);
+        updateVal(val);
+        Object res = null;
+        if (abnormal_appear) {
+            if (backward.size() < BACKWARD_LENGTH) {
+                if (val > maxVal) {
+                    maxVal = val;
+                    idx = backward.size();
+                }
+                backward.offer(mat);
+            } else { //backward.size()==BACKWARD_LENGTH
+                if (idx > 0) {
+                    int i = 1;
+                    for (opencv_core.Mat m : backward) {
+                        if (i == idx) {
+                            if (caculateValByBackGround(m, background)) {
+                                res = m;
+                            }
+                            abnormal_appear = false;
+                            break;
                         }
+                        ++i;
                     }
-                    ++i;
                 }
             }
 
+        } else {
+            if (DiffByInterval(mat)) {
+                abnormal_appear = true;
+            }
         }
-        return null;
+        return res;
     }
 
-    private int caulateIntervalDiff(LinkedList<Integer> queue) {
+    private int caculateIntervalDiff(LinkedList<Integer> queue) {
         int i = 0;
         int oldSum = 0;
         int newSum = 0;
-        int max = Integer.MIN_VALUE;
         for (int j : queue) {
             if (i < DIFF_INTERVAL) {
                 oldSum += j;
             }
             if (i > DIFF_INTERVAL) {
-                if (max < j) {
-                    max = j;
+                if (maxVal < j) {
+                    maxVal = j;
                     idx = i - DIFF_INTERVAL;
                 }
                 newSum += j;
@@ -66,33 +87,40 @@ public class BasicImgProcessHandler implements ImgProcessHandler {
         return newSum - oldSum;
     }
 
-    private int caulateVal(opencv_core.Mat mat) {
+    private int caculateVal(opencv_core.Mat mat) {
         return 0;
     }
 
 
     private boolean DiffByInterval(opencv_core.Mat mat) {
+        updateBackward(mat);
+        int diff = 0;
+        if (queue.size() >= QUEUE_MAX_LENGTH) {
+            diff = caculateIntervalDiff(queue);
 
-        int diff;
-        if (queue.size() >= DIFF_INTERVAL) {
+        }
+        return diff > DIFF_THRESHOLD;
+    }
+
+    private boolean caculateValByBackGround(opencv_core.Mat mat, opencv_core.Mat background) {
+        //mat-background
+
+        int backwardVal = val - 1;
+        return backwardVal > BG_THRESHOLD;
+    }
+
+    private void updateVal(int val) {
+        if (queue.size() >= QUEUE_MAX_LENGTH) {
+            queue.pollFirst();
+        }
+        queue.offer(val);
+    }
+
+    private void updateBackward(opencv_core.Mat mat) {
+        if (backward.size() >= DIFF_INTERVAL) {
             backward.pollFirst();
         }
         backward.offer(mat);
-        if (queue.size() >= QUEUE_MAX_LENGTH) {
-            diff = caulateIntervalDiff(queue);
-            queue.pollFirst();
-            if (diff > DIFF_THRESHOLD) {
-                return true;
-            }
-        }
-        queue.offer(val);
-        return false;
-    }
-
-    private boolean caulateValByBackGround(opencv_core.Mat mat, opencv_core.Mat background) {
-        //mat-background
-        int backwardVal = val - 1;
-        return backwardVal > BG_THRESHOLD;
     }
 
 }
