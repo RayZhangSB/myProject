@@ -6,13 +6,13 @@
     <title>登录界面</title>
 
 </head>
-<body onload="remLogin()">
-<link rel="stylesheet" type="text/css" href="/css/reset.css"/>
-<link rel="stylesheet" type="text/css" href="/css/common.css"/>
-<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css"/>
-<script type="text/javascript" src='/js/jquery.js'></script>
+<body onload="">
+<link rel="stylesheet" type="text/css" href="/cctv/css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="/cctv/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="/cctv/css/font-awesome.min.css"/>
+<script type="text/javascript" src='/cctv/js/jquery.js'></script>
 <!--&lt;!&ndash;<script type="text/javascript" src=" /js/common.js"></script>&ndash;&gt;-->
-<script type="text/javascript" src="/js/my.js"></script>
+<script type="text/javascript" src="/cctv/js/my.js"></script>
 
 <script language="javascript">
     function get_cookie(Name) {
@@ -37,34 +37,34 @@
         return (obj !== null && obj !== undefined && obj !== "");
     }
 
-    function remLogin() {
-        var cachedName = get_cookie("registeredUserName");
-        if (checkObjValid(cachedName)) {
-            $("input[name=userName]").val(cachedName);
-        }
-        var ticket = get_cookie("ticket");
-        if (checkObjValid(ticket)) {
-            var formData = new FormData();
-            formData.append("ticket", ticket);
-            $.ajax({
-                type: "POST",
-                url: "/user/rememberLogin",
-                data: formData,
-                contentType: false,    //不可缺
-                processData: false,    //不可缺;
-                dataType: "json",
-                success: function (suc) {
-                    if (suc.code === 0) {
-                        window.location.href = "/index";
-                        return false;
-                    }
-                },
-            });
-
-        }
-
-
-    }
+    // function remLogin() {
+    //     var cachedName = get_cookie("registeredUserName");
+    //     if (checkObjValid(cachedName)) {
+    //         $("input[name=userName]").val(cachedName);
+    //     }
+    //     var ticket = get_cookie("ticket");
+    //     if (checkObjValid(ticket)) {
+    //         var formData = new FormData();
+    //         formData.append("ticket", ticket);
+    //         $.ajax({
+    //             type: "POST",
+    //             url: "/user/rememberLogin",
+    //             data: formData,
+    //             contentType: false,    //不可缺
+    //             processData: false,    //不可缺;
+    //             dataType: "json",
+    //             success: function (suc) {
+    //                 if (suc.code === 0) {
+    //                     window.location.href = "/index";
+    //                     return false;
+    //                 }
+    //             },
+    //         });
+    //
+    //     }
+    //
+    //
+    // }
 
     function login() {
         var userName = $("input[name=userName]").val();
@@ -92,7 +92,7 @@
         formData.append("rememberMe", rememberMe);
         $.ajax({
             type: "POST",
-            url: "/user/login",
+            url: "/cctv/user/login",
             data: formData,
             cache: false,
             contentType: false,    //不可缺
@@ -102,7 +102,7 @@
                 if (suc.code === 0) {
                     if (get_cookie("ticket") !== null)
                         setCookie("logName", userName, new Date(), 3600 * 2000);
-                    window.location.href = "/index";
+                    window.location.href ='/cctv/main';
                     return false;
                 } else {
                     alert(suc.msg);

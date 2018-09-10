@@ -58,7 +58,7 @@ public class AbDetectionServiceImpl implements AbDetectionService {
             responseResult.setCode(1);
             responseResult.setMsg("the line had add before");
         } else {
-            LineConfig.LINE_RTMP_ADDRs.put(lineName, rtmpPath);
+            LineConfig.addNewLineMap(lineName, rtspPath, rtmpPath);
 /*
             //这里新建一个线路的视频流转换器
             VideoStreamFactory vFactory = VideoStreamFactory.getInstance();
@@ -72,7 +72,7 @@ public class AbDetectionServiceImpl implements AbDetectionService {
               }
             vFactory.addNewLine( new ExecPushStreamThread(videoStreamConverter));
 */
-            LineConfig.RTMP_RTSP.put(rtmpPath, rtspPath);
+
             ImageProcess.makeSaveDirs(lineName);
             LineInfo info = new LineInfo();
             info.setLineName(lineName);
@@ -121,9 +121,7 @@ public class AbDetectionServiceImpl implements AbDetectionService {
         ResponseResult responseResult = ResponseResult.ok();
         try {
             vFactory.delVideoStreamConverter(lineName);
-            String key2 = LineConfig.LINE_RTMP_ADDRs.get(lineName);
-            LineConfig.RTMP_RTSP.remove(key2);
-            LineConfig.LINE_RTMP_ADDRs.remove(lineName);
+            LineConfig.removeLineMap(lineName);
             lineInfoMapper.deleteByName(lineName);
         } catch (Exception e) {
             LOGGER.error("delete line failed" + e.getMessage());
@@ -178,7 +176,7 @@ public class AbDetectionServiceImpl implements AbDetectionService {
         responseResult.setData(res);
         return JsonUtil.objectToJson(responseResult);
     }
-
+/*
     private ResponseResult prepareForStart() {
         ResponseResult responseResult = ResponseResult.ok();
         StringBuilder msg = new StringBuilder();
@@ -207,12 +205,11 @@ public class AbDetectionServiceImpl implements AbDetectionService {
         return responseResult;
 
     }
-
+*/
     public String start() {
-        ResponseResult prepareResult = prepareForStart();
-        if (prepareResult.getCode() == 0) {
-            vFactory.startAllPush();
-        }
+        ResponseResult prepareResult =ResponseResult.ok();
+        String resultMsg = vFactory.startAllPush();
+        prepareResult.setMsg(resultMsg);
         return JsonUtil.objectToJson(prepareResult);
     }
 

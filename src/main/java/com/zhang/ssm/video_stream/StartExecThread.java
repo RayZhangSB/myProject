@@ -17,7 +17,9 @@ public class StartExecThread implements Runnable {
 
     public void run() {
         if (streamConverter != null) {
-            streamConverter.startPushStream();
+
+                streamConverter.startPushStream();
+
         }
 
     }

@@ -31,9 +31,11 @@ public class BasicImgProcessHandler implements ImgProcessHandler {
 
     private boolean abnormal_appear = false;
 
+    private int initCount = 0;
+
     @Override
     public Object preProcess(opencv_core.Mat mat) {
-        val = caculateVal(mat);
+        val = calculateVal(mat);
         updateVal(val);
         Object res = null;
         if (abnormal_appear) {
@@ -48,10 +50,13 @@ public class BasicImgProcessHandler implements ImgProcessHandler {
                     int i = 1;
                     for (opencv_core.Mat m : backward) {
                         if (i == idx) {
-                            if (caculateValByBackGround(m, background)) {
+                            if (calculateValByBackGround(m, background)) {
                                 res = m;
                             }
                             abnormal_appear = false;
+                            for (int j = 0; j < BACKWARD_LENGTH - DIFF_INTERVAL; j++) {
+                                backward.pollFirst();
+                            }
                             break;
                         }
                         ++i;
@@ -61,16 +66,22 @@ public class BasicImgProcessHandler implements ImgProcessHandler {
 
         } else {
             if (DiffByInterval(mat)) {
+                if (initCount == 10) {
+                    background = mat;
+                } else {
+                    initCount++;
+                }
                 abnormal_appear = true;
             }
         }
         return res;
     }
 
-    private int caculateIntervalDiff(LinkedList<Integer> queue) {
+    private int calculateIntervalDiff(LinkedList<Integer> queue) {
         int i = 0;
         int oldSum = 0;
         int newSum = 0;
+        maxVal = Integer.MIN_VALUE;
         for (int j : queue) {
             if (i < DIFF_INTERVAL) {
                 oldSum += j;
@@ -87,7 +98,7 @@ public class BasicImgProcessHandler implements ImgProcessHandler {
         return newSum - oldSum;
     }
 
-    private int caculateVal(opencv_core.Mat mat) {
+    private int calculateVal(opencv_core.Mat mat) {
         return 0;
     }
 
@@ -96,13 +107,13 @@ public class BasicImgProcessHandler implements ImgProcessHandler {
         updateBackward(mat);
         int diff = 0;
         if (queue.size() >= QUEUE_MAX_LENGTH) {
-            diff = caculateIntervalDiff(queue);
+            diff = calculateIntervalDiff(queue);
 
         }
         return diff > DIFF_THRESHOLD;
     }
 
-    private boolean caculateValByBackGround(opencv_core.Mat mat, opencv_core.Mat background) {
+    private boolean calculateValByBackGround(opencv_core.Mat mat, opencv_core.Mat background) {
         //mat-background
 
         int backwardVal = val - 1;

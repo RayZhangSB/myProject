@@ -29,9 +29,10 @@ public class VideoStreamFactory {
 
     private static volatile VideoStreamFactory videoStreamFactory;
 
-    private Map<String, VideoStreamConverter> videoStreamConverterMaps = new HashMap<String, VideoStreamConverter>();
+    public Map<String, VideoStreamConverter> videoStreamConverterMaps = new HashMap<String, VideoStreamConverter>();
 
     private ExecutorService executorService = Executors.newFixedThreadPool(12);
+
 
     private VideoStreamFactory() {
     }
@@ -98,7 +99,7 @@ public class VideoStreamFactory {
     public boolean delVideoStreamConverter(String lineName) {
         VideoStreamConverter v = null;
         if (videoStreamConverterMaps.containsKey(lineName) && (v = videoStreamConverterMaps.get(lineName)) != null) {
-            v.stopAddRelease();
+            v.stopAndRelease();
             videoStreamConverterMaps.remove(lineName);
             LOGGER.info("该线路已删除");
             return true;
@@ -107,11 +108,28 @@ public class VideoStreamFactory {
         return false;
     }
 
-    public void addNewLine(StartExecThread pushStream) {
-        this.executorService.execute(pushStream);
-        LOGGER.info("新线路开始执行");
+    public String addNewLine(VideoStreamConverter v) {
+        String name = v.getLineName();
+        if(v.isOpened()){
+            return "line"+name+"have started;";
+        }
+        boolean prepare = v.startGrabber() && v.startRecorder();
+        String msg =null;
+        if (prepare) {
+            this.executorService.execute(new StartExecThread(v));
+            LOGGER.info("新线路开始执行");
+            msg = name+"start  success;";
+        }else{
+            msg = "start  failed,please check "+name+" is correct;";
+        }
+        return msg;
+
+
     }
 
+    /*
+    在未启动之前，对每条线路做抓帧测试
+     */
     public List<String> checkSourceByGrab() {
         List<String> failedLines = new ArrayList<String>();
         for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
@@ -122,24 +140,14 @@ public class VideoStreamFactory {
         return failedLines;
     }
 
-    public void startAllPush() {
+    public String startAllPush() {
+        StringBuilder msg = new StringBuilder();
         for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
-            if (!v.isOpened()) {
-                addNewLine(new StartExecThread(v));
-            }
+                msg.append(addNewLine(v));
         }
+        return msg.toString();
     }
 
-    public List<String> startPreparing() {
-        List<String> failedLines = new ArrayList<String>();
-        for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
-            if (!v.startGrabber() || !v.startRecorder()) {
-                failedLines.add(v.getLineName());
-                return failedLines;
-            }
-        }
-        return failedLines;
-    }
 
     public VideoStreamConverter getConverter(String lineName) {
         return videoStreamConverterMaps.get(lineName);
@@ -147,10 +155,17 @@ public class VideoStreamFactory {
 
     public void stopAllPush(){
         for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
-            if (v.isOpened()) {
-                v.stopAddRelease();
-            }
+                v.stopAndRelease();
         }
+    }
+
+
+    public void addConverterToMap(String lineName,String rtspPath,String rtmpPath){
+        FrameGrabber grabber =  videoStreamFactory.createDefaultGrabber(rtspPath);
+        FrameRecorder recorder =  videoStreamFactory.createDefaultRecorder(rtmpPath);
+        OpenCVFrameConverter.ToIplImage converter = videoStreamFactory.createImgConverter();
+        VideoStreamConverter videoStreamConverter =  videoStreamFactory.createVideoStreamConverter(lineName,grabber,recorder,converter);
+        videoStreamConverterMaps.put(lineName,videoStreamConverter);
     }
 
 }

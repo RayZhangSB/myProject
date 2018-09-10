@@ -1,4 +1,4 @@
-package testPushStream;
+package pack;
 
 import com.zhang.ssm.pojo.AbnormalInfo;
 import com.zhang.ssm.video_stream.VideoStreamConverter;
@@ -25,11 +25,11 @@ public class PushStream {
 
 
     public static void main(String[] a) throws FrameGrabber.Exception {
-        String src = "E:\\recorder\\test.mp4";
-        String dest= "rtmp://127.0.0.1:1935/live/stream";
+        String src = "rtsp://admin:ma12345678@192.168.1.88/h264/ch0/main/av_stream";
+        String dest= "rtmp://127.0.0.1/live/stream";
         VideoStreamFactory factory = VideoStreamFactory.getInstance();
         FrameGrabber grabber= FFmpegFrameGrabber.createDefault(src);
-       FrameRecorder recorder=factory.createRecorder(dest,640,360, avcodec.AV_CODEC_ID_H264,"flv",25,25);
+       FrameRecorder recorder=factory.createRecorder(dest,1920,1080, avcodec.AV_CODEC_ID_H264,"flv",25,25);
         VideoStreamConverter v =factory.createVideoStreamConverter("xxx",grabber,recorder,factory.createImgConverter());
 //        VideoStreamConverter v = new VideoStreamConverter(grabber, recorder, factory.createImgConverter(), "fsdf");
         v.startGrabber();
@@ -70,7 +70,7 @@ public class PushStream {
         FrameRecorder recorder;
         try {
             recorder = FrameRecorder.createDefault(outputFile, 1280, 720);
-        } catch (org.bytedeco.javacv.FrameRecorder.Exception e) {
+        } catch (FrameRecorder.Exception e) {
             throw e;
         }
         recorder.setVideoCodec(avcodec.AV_CODEC_ID_H264); // avcodec.AV_CODEC_ID_H264
@@ -80,7 +80,7 @@ public class PushStream {
         System.out.println("准备开始推流...");
         try {
             recorder.start();
-        } catch (org.bytedeco.javacv.FrameRecorder.Exception e) {
+        } catch (FrameRecorder.Exception e) {
             try {
                 System.out.println("录制器启动失败，正在重新启动...");
                 if(recorder!=null)
@@ -91,7 +91,7 @@ public class PushStream {
                     recorder.start();
                 }
 
-            } catch (org.bytedeco.javacv.FrameRecorder.Exception e1) {
+            } catch (FrameRecorder.Exception e1) {
                 throw e;
             }
         }

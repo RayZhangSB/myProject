@@ -38,7 +38,7 @@ public class VideoStreamConverter {
     //指示是否正在取流
     private boolean isOpened = false;
 
-    private boolean stop = false;
+    private  boolean  stop = false;
 
     private String snapshot_save_path_prefix = "";
 
@@ -159,25 +159,25 @@ public class VideoStreamConverter {
                         snapshot = false;
                     }
                 }
-                Thread.sleep(25);
+                Thread.sleep(5);
             }
         } catch (InterruptedException e) {
             LOGGER.error("推流线程被中断" + e.getMessage());
-            stopAddRelease();
+            stopAndRelease();
             return false;
         } catch (FrameRecorder.Exception e) {
             LOGGER.error("推流线程被中断" + e.getMessage());
-            stopAddRelease();
+            stopAndRelease();
             return false;
         } catch (FrameGrabber.Exception e) {
             LOGGER.error("推流线程被中断" + e.getMessage());
-            stopAddRelease();
+            stopAndRelease();
             return false;
         }
         return true;
     }
 
-    public boolean stopAddRelease() {
+    public boolean stopAndRelease() {
         if (!isOpened) {
             return true;
         }

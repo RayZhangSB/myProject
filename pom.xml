@@ -79,6 +79,13 @@
                     <target>1.6</target>
                 </configuration>
             </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <configuration>
+              <warName>cctv</warName>
+            </configuration>
+          </plugin>
         </plugins>
 
 
