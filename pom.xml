@@ -40,6 +40,8 @@
     <!-- log4j日志包版本号 -->
     <slf4j.version>1.7.18</slf4j.version>
     <log4j.version>1.2.17</log4j.version>
+      <javacpp.platform.linux>linux-x86_64</javacpp.platform.linux>
+      <javacpp.platform.win>windows-x86_64</javacpp.platform.win>
 
   </properties>
 
@@ -99,45 +101,89 @@
       <version>2.8.0</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.bytedeco/javacv -->
-    <dependency>
+      <!--<dependency>-->
+      <!--<groupId>org.bytedeco</groupId>-->
+      <!--<artifactId>javacv-platform</artifactId>-->
+      <!--<version>1.4.1</version>-->
+      <!--<exclusions>-->
+      <!--<exclusion>-->
+      <!--<groupId>org.bytedeco.javacpp-presets</groupId>-->
+      <!--<artifactId>*</artifactId>-->
+
+      <!--</exclusion>-->
+      <!--</exclusions>-->
+      <!--</dependency>-->
+      <!--<dependency>-->
+      <!--<groupId>org.bytedeco</groupId>-->
+      <!--<artifactId>javacpp</artifactId>-->
+      <!--<version>1.4.1</version>-->
+      <!--</dependency>-->
+
+      <!--<dependency>-->
+      <!--<groupId>org.bytedeco.javacpp-presets</groupId>-->
+      <!--<artifactId>ffmpeg-platform</artifactId>-->
+      <!--<version>3.4.2-1.4.1</version>-->
+      <!--</dependency>-->
+
+
+      <!--<dependency>-->
+      <!--<groupId>org.bytedeco.javacpp-presets</groupId>-->
+      <!--<artifactId>opencv-platform</artifactId>-->
+      <!--<version>3.4.1-1.4.1</version>-->
+      <!--</dependency>-->
+
+
+      <dependency>
       <groupId>org.bytedeco</groupId>
-      <artifactId>javacv</artifactId>
+          <artifactId>javacv-platform</artifactId>
       <version>1.4.1</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.bytedeco.javacpp-presets</groupId>
-          <artifactId>*</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
-    <dependency>
-      <groupId>org.bytedeco.javacpp-presets</groupId>
-      <artifactId>opencv</artifactId>
-      <version>3.4.1-1.4.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.bytedeco.javacpp-presets</groupId>
-      <artifactId>opencv</artifactId>
-      <version>3.4.1-1.4.1</version>
-      <classifier>windows-x86_64</classifier>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.bytedeco.javacpp-presets/ffmpeg -->
-    <dependency>
-      <groupId>org.bytedeco.javacpp-presets</groupId>
-      <artifactId>ffmpeg</artifactId>
-      <version>3.4.2-1.4.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.bytedeco.javacpp-presets</groupId>
-      <artifactId>ffmpeg</artifactId>
-      <version>3.4.2-1.4.1</version>
-      <classifier>windows-x86_64</classifier>
-    </dependency>
-    <!--dependency>
-      <groupId>com.heitian.web</groupId>
-      <artifactId>[the artifact id of the block to be mounted]</artifactId>
-      <version>1.0-SNAPSHOT</version>
-    </dependency-->
+
+
+      <!--<dependency>-->
+      <!--<groupId>org.bytedeco.javacpp-presets</groupId>-->
+      <!--<artifactId>ffmpeg</artifactId>-->
+      <!--<version>3.4.2-1.4.1</version>-->
+      <!--<classifier>${javacpp.platform.win}</classifier>-->
+      <!--</dependency>-->
+      <!--<dependency>-->
+      <!--<groupId>org.bytedeco.javacpp-presets</groupId>-->
+      <!--<artifactId>opencv-platform</artifactId>-->
+      <!--<version>3.4.1-1.4.1</version>-->
+      <!--<classifier>${javacpp.platform.win}</classifier>-->
+      <!--</dependency>-->
+
+      <!--<dependency>-->
+      <!--<groupId>org.bytedeco.javacpp-presets</groupId>-->
+      <!--<artifactId>opencv</artifactId>-->
+      <!--<version>3.4.1-1.4.1</version>-->
+      <!--<classifier>${javacpp.platform.linux}</classifier>-->
+      <!--</dependency>-->
+      <!--<dependency>-->
+      <!--<groupId>org.bytedeco.javacpp-presets</groupId>-->
+      <!--<artifactId>ffmpeg</artifactId>-->
+      <!--<version>3.4.2-1.4.1</version>-->
+      <!--<classifier>${javacpp.platform.linux}</classifier>-->
+      <!--</dependency>-->
+      <!--<dependency>-->
+      <!--<groupId>org.bytedeco.javacpp-presets</groupId>-->
+      <!--<artifactId>opencv-platform</artifactId>-->
+      <!--<version>3.4.1-1.4.1</version>-->
+
+      <!--</dependency>-->
+      <!--<dependency>-->
+      <!--<groupId>org.bytedeco.javacpp-presets</groupId>-->
+      <!--<artifactId>ffmpeg-platform</artifactId>-->
+      <!--<version>3.4.2-1.4.1</version>-->
+
+      <!--</dependency>-->
+
+
+      <!--dependency>
+        <groupId>com.heitian.web</groupId>
+        <artifactId>[the artifact id of the block to be mounted]</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency-->
       <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
       <dependency>
           <groupId>com.fasterxml.jackson.core</groupId>

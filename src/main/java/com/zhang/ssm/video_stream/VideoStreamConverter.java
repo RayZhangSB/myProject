@@ -38,17 +38,43 @@ public class VideoStreamConverter {
     //指示是否正在取流
     private boolean isOpened = false;
 
-    private  boolean  stop = false;
+    private boolean stop = false;
 
     private String snapshot_save_path_prefix = "";
 
     private String snapshot_save_path;
+
+    private boolean released = false;
 
     public VideoStreamConverter(FrameGrabber grabber, FrameRecorder recorder, OpenCVFrameConverter.ToIplImage converter, String lineName) {
         this.recorder = recorder;
         this.grabber = grabber;
         this.converter = converter;
         this.lineName = lineName;
+    }
+
+    public FrameRecorder getRecorder() {
+        return recorder;
+    }
+
+    public void setRecorder(FrameRecorder recorder) {
+        this.recorder = recorder;
+    }
+
+    public FrameGrabber getGrabber() {
+        return grabber;
+    }
+
+    public void setGrabber(FrameGrabber grabber) {
+        this.grabber = grabber;
+    }
+
+    public OpenCVFrameConverter.ToIplImage getConverter() {
+        return converter;
+    }
+
+    public void setConverter(OpenCVFrameConverter.ToIplImage converter) {
+        this.converter = converter;
     }
 
     public String getLineName() {
@@ -159,7 +185,7 @@ public class VideoStreamConverter {
                         snapshot = false;
                     }
                 }
-                Thread.sleep(5);
+                Thread.sleep(25);
             }
         } catch (InterruptedException e) {
             LOGGER.error("推流线程被中断" + e.getMessage());
@@ -185,7 +211,7 @@ public class VideoStreamConverter {
             stop = true;
             Thread.sleep(40);
             recorder.stop();
-            recorder.release();
+//            recorder.release();
             grabber.stop();
             isOpened = false;
         } catch (FrameRecorder.Exception e) {
@@ -203,9 +229,16 @@ public class VideoStreamConverter {
             converter = null;
             isOpened = false;
             stop = false;
+            released = false;
         }
         LOGGER.info(lineName + "释放资源成功");
         return true;
     }
+
+
+    public boolean is_released() {
+        return grabber == null || recorder == null || released;
+    }
+
 
 }

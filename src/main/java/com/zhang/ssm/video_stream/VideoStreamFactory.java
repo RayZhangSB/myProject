@@ -9,9 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -29,7 +29,7 @@ public class VideoStreamFactory {
 
     private static volatile VideoStreamFactory videoStreamFactory;
 
-    public Map<String, VideoStreamConverter> videoStreamConverterMaps = new HashMap<String, VideoStreamConverter>();
+    public Map<String, VideoStreamConverter> videoStreamConverterMaps = new ConcurrentHashMap<String, VideoStreamConverter>(16);
 
     private ExecutorService executorService = Executors.newFixedThreadPool(12);
 
@@ -110,17 +110,24 @@ public class VideoStreamFactory {
 
     public String addNewLine(VideoStreamConverter v) {
         String name = v.getLineName();
-        if(v.isOpened()){
-            return "line"+name+"have started;";
+        if (v.isOpened()) {
+            return "line" + name + "have started;";
         }
-        boolean prepare = v.startGrabber() && v.startRecorder();
-        String msg =null;
-        if (prepare) {
+        boolean b1 = v.startGrabber();
+        boolean b2 = v.startRecorder();
+        if (!b1) {
+            LOGGER.info("grabber start error");
+        }
+        if (!b2) {
+            LOGGER.info("recorder start error");
+        }
+        String msg = null;
+        if (b1 && b2) {
             this.executorService.execute(new StartExecThread(v));
             LOGGER.info("新线路开始执行");
-            msg = name+"start  success;";
-        }else{
-            msg = "start  failed,please check "+name+" is correct;";
+            msg = name + "start  success;";
+        } else {
+            msg = "start  failed,please check " + name + " is correct;";
         }
         return msg;
 
@@ -134,6 +141,7 @@ public class VideoStreamFactory {
         List<String> failedLines = new ArrayList<String>();
         for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
             if (!v.tryGetFirstFrame()) {
+                LOGGER.info(v.getLineName() + "can‘t grab correct");
                 failedLines.add(v.getLineName());
             }
         }
@@ -143,7 +151,7 @@ public class VideoStreamFactory {
     public String startAllPush() {
         StringBuilder msg = new StringBuilder();
         for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
-                msg.append(addNewLine(v));
+            msg.append(addNewLine(v));
         }
         return msg.toString();
     }
@@ -153,19 +161,31 @@ public class VideoStreamFactory {
         return videoStreamConverterMaps.get(lineName);
     }
 
-    public void stopAllPush(){
+    public void stopAllPush() {
         for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
-                v.stopAndRelease();
+            v.stopAndRelease();
         }
     }
 
 
-    public void addConverterToMap(String lineName,String rtspPath,String rtmpPath){
-        FrameGrabber grabber =  videoStreamFactory.createDefaultGrabber(rtspPath);
-        FrameRecorder recorder =  videoStreamFactory.createDefaultRecorder(rtmpPath);
+    public void addConverterToMap(String lineName, String rtspPath, String rtmpPath) {
+        FrameGrabber grabber = videoStreamFactory.createDefaultGrabber(rtspPath);
+        FrameRecorder recorder = videoStreamFactory.createDefaultRecorder(rtmpPath);
         OpenCVFrameConverter.ToIplImage converter = videoStreamFactory.createImgConverter();
-        VideoStreamConverter videoStreamConverter =  videoStreamFactory.createVideoStreamConverter(lineName,grabber,recorder,converter);
-        videoStreamConverterMaps.put(lineName,videoStreamConverter);
+        VideoStreamConverter videoStreamConverter = videoStreamFactory.createVideoStreamConverter(lineName, grabber, recorder, converter);
+        videoStreamConverterMaps.put(lineName, videoStreamConverter);
     }
 
+
+    public void fixConverter(VideoStreamConverter v, String rtspPath, String rtmpPath) {
+        if (v.getGrabber() == null) {
+            v.setGrabber(videoStreamFactory.createDefaultGrabber(rtspPath));
+        }
+        if (v.getGrabber() == null) {
+            v.setRecorder(videoStreamFactory.createDefaultRecorder(rtmpPath));
+        }
+        if (v.getRecorder() == null) {
+            v.setConverter(videoStreamFactory.createImgConverter());
+        }
+    }
 }

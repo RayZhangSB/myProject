@@ -31,7 +31,6 @@ public  class LineConfig {
 
 
      public static void removeLineMap(String lineName){
-
          String key2 = LineConfig.LINE_RTMP_ADDRs.get(lineName);
          LineConfig.RTMP_RTSP.remove(key2);
          LineConfig.LINE_RTMP_ADDRs.remove(lineName);

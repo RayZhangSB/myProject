@@ -25,10 +25,11 @@ public class PushStream {
 
 
     public static void main(String[] a) throws FrameGrabber.Exception {
-        String src = "rtsp://admin:ma12345678@192.168.1.88/h264/ch0/main/av_stream";
+        String src = "rtsp://admin:ma12345678@169.254.1.170/h264/ch0/main/av_stream";
         String dest= "rtmp://127.0.0.1/live/stream";
         VideoStreamFactory factory = VideoStreamFactory.getInstance();
-        FrameGrabber grabber= FFmpegFrameGrabber.createDefault(src);
+
+        FrameGrabber grabber = factory.createGrabber(src, "tcp");           //FFmpegFrameGrabber.createDefault(src);
        FrameRecorder recorder=factory.createRecorder(dest,1920,1080, avcodec.AV_CODEC_ID_H264,"flv",25,25);
         VideoStreamConverter v =factory.createVideoStreamConverter("xxx",grabber,recorder,factory.createImgConverter());
 //        VideoStreamConverter v = new VideoStreamConverter(grabber, recorder, factory.createImgConverter(), "fsdf");

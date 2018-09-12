@@ -7,10 +7,14 @@ import com.zhang.ssm.video_stream.LineConfig;
 import com.zhang.ssm.video_stream.VideoStreamConverter;
 import com.zhang.ssm.video_stream.VideoStreamFactory;
 import com.zhang.ssm.wrapperPojo.ResponseResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class GetStreamServiceImpl implements GetStreamService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(GetStreamServiceImpl.class);
 
     private static VideoStreamFactory vFactory;
 
@@ -21,22 +25,27 @@ public class GetStreamServiceImpl implements GetStreamService {
     @Override
     public String startLine(String lineName) {
         ResponseResult responseResult = ResponseResult.ok();
-        if(StringUtil.isNotEmpty(lineName)) {
+        if (StringUtil.isNotEmpty(lineName)) {
             if (LineConfig.LINE_RTMP_ADDRs.containsKey(lineName)) {
+                String rtmpPath = LineConfig.LINE_RTMP_ADDRs.get(lineName);
+                String rtspPath = LineConfig.RTMP_RTSP.get(rtmpPath);
+                responseResult.setData(rtmpPath);
                 VideoStreamConverter streamConverter;
-                if(!vFactory.videoStreamConverterMaps.containsKey(lineName)){
-                    String rtmpPath = LineConfig.LINE_RTMP_ADDRs.get(lineName);
-                    String rtspPath = LineConfig.RTMP_RTSP.get(rtmpPath);
+                if (!vFactory.videoStreamConverterMaps.containsKey(lineName) || (streamConverter = vFactory.videoStreamConverterMaps.get(lineName)) == null) {
                     vFactory.addConverterToMap(lineName, rtspPath, rtmpPath);
+                } else {
+                    if (streamConverter.is_released()) {
+                        vFactory.fixConverter(streamConverter, rtspPath, rtmpPath);
+                    }
                 }
-                streamConverter=vFactory.videoStreamConverterMaps.get(lineName);
-                String result =  vFactory.addNewLine(streamConverter);
+                streamConverter = vFactory.videoStreamConverterMaps.get(lineName);
+                String result = vFactory.addNewLine(streamConverter);
                 responseResult.setMsg(result);
             } else {
                 responseResult.setCode(1);
                 responseResult.setMsg("there is no corresponding line,please input again");
             }
-        }else{
+        } else {
 
             responseResult.setCode(1);
             responseResult.setMsg("lineName is null for start line");
@@ -47,7 +56,7 @@ public class GetStreamServiceImpl implements GetStreamService {
     @Override
     public String stopLine(String lineName) {
         ResponseResult responseResult = ResponseResult.ok();
-        if(StringUtil.isNotEmpty(lineName)) {
+        if (StringUtil.isNotEmpty(lineName)) {
             if (LineConfig.LINE_RTMP_ADDRs.containsKey(lineName)) {
                 VideoStreamConverter streamConverter = vFactory.videoStreamConverterMaps.get(lineName);
                 streamConverter.stopAndRelease();
@@ -55,7 +64,7 @@ public class GetStreamServiceImpl implements GetStreamService {
                 responseResult.setCode(1);
                 responseResult.setMsg("there is no corresponding line");
             }
-        }else{
+        } else {
 
             responseResult.setCode(1);
             responseResult.setMsg("lineName is null for stop line");
@@ -81,7 +90,7 @@ public class GetStreamServiceImpl implements GetStreamService {
         if (LineConfig.LINE_RTMP_ADDRs.containsKey(lineName) && vFactory.videoStreamConverterMaps.containsKey(lineName)) {
             VideoStreamConverter streamConverter = vFactory.videoStreamConverterMaps.get(lineName);
             streamConverter.stopAndRelease();
-        }else {
+        } else {
             vFactory.addConverterToMap(lineName, rtspPath, rtmpPath);
         }
         LineConfig.addNewLineMap(lineName, rtspPath, rtmpPath);
@@ -89,8 +98,6 @@ public class GetStreamServiceImpl implements GetStreamService {
         responseResult.setMsg("the line set success");
         return JsonUtil.objectToJson(responseResult);
     }
-
-
 
 
 }
