@@ -25,7 +25,7 @@ public class PushStream {
 
 
     public static void main(String[] a) throws FrameGrabber.Exception {
-        String src = "rtsp://admin:ma12345678@169.254.1.170/h264/ch0/main/av_stream";
+        String src = "rtsp://admin:ma12345678@192.168.1.88/h264/ch0/main/av_stream";
         String dest= "rtmp://127.0.0.1/live/stream";
         VideoStreamFactory factory = VideoStreamFactory.getInstance();
 

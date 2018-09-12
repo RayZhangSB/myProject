@@ -10,6 +10,8 @@
     <script src="/cctv/js/jquery.js"></script>
     <script src="/cctv/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script src="/cctv/js/video-js-5.19.2/video.js"></script>
+    <script src="/cctv/js/video-js-5.19.2/ie8/videojs-ie8.js"></script>
+
     <style>
 
         .player-1-dimensions {
@@ -189,7 +191,7 @@
                            width="100%"
                            poster="/cctv/images/y.jpg"
                            data-setup="{}">
-                        <source src="rtmp://127.0.0.1/live/stream8" type="rtmp/flv"/>
+                        <source src="rtmp://127.0.0.1/live/stream" type="rtmp/flv"/>
                         <!--<source src="oceans-clip.mp4" type='video/mp4' />-->
                     </video>
                 </div>
@@ -266,6 +268,7 @@
     <!--</div>-->
 </div>
 
+<script> videojs.options.flash.swf = "/cctv/js/video-js-5.19.2/video-js.swf"; </script>
 
 <script type="text/javascript">
     var lineNames = ["线路1", "线路2", "线路3", "线路4", "线路5", "线路6", "线路7", "线路8"];
@@ -316,8 +319,6 @@
         var videoId = "player-" + (idx + 1);
         video = videojs(document.getElementById(videoId), {}, function () {
         });
-        video.pause();
-
         var formData = new FormData();
         formData.append("lineName", lineName);
         formData.append("rtmpPath", $("#rtmpPath").val());
@@ -332,7 +333,10 @@
             // async: false,
             success: function (suc) {
                 console.info(suc);
+                video.pause();
                 video.src(suc.data);
+                video.load();
+                video.play();
                 alert(suc.msg);
                 return false;
             },

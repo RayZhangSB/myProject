@@ -59,13 +59,14 @@ public class GetStreamServiceImpl implements GetStreamService {
         if (StringUtil.isNotEmpty(lineName)) {
             if (LineConfig.LINE_RTMP_ADDRs.containsKey(lineName)) {
                 VideoStreamConverter streamConverter = vFactory.videoStreamConverterMaps.get(lineName);
-                streamConverter.stopAndRelease();
+                if (!(streamConverter == null || streamConverter.is_released())) {
+                    streamConverter.stopAndRelease();
+                }
             } else {
                 responseResult.setCode(1);
                 responseResult.setMsg("there is no corresponding line");
             }
         } else {
-
             responseResult.setCode(1);
             responseResult.setMsg("lineName is null for stop line");
         }
@@ -90,6 +91,7 @@ public class GetStreamServiceImpl implements GetStreamService {
         if (LineConfig.LINE_RTMP_ADDRs.containsKey(lineName) && vFactory.videoStreamConverterMaps.containsKey(lineName)) {
             VideoStreamConverter streamConverter = vFactory.videoStreamConverterMaps.get(lineName);
             streamConverter.stopAndRelease();
+            vFactory.videoStreamConverterMaps.remove(lineName);
         } else {
             vFactory.addConverterToMap(lineName, rtspPath, rtmpPath);
         }

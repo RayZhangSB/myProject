@@ -88,7 +88,9 @@ public class VideoStreamConverter {
     public boolean startGrabber() {
         try {
             grabber.start();
-
+            while (grabber.grab() == null) {
+                grabber.restart();
+            }
         } catch (FrameGrabber.Exception e) {
             LOGGER.error("抓取器启动失败，正在重新启动...");
             if (grabber != null) {
@@ -210,9 +212,10 @@ public class VideoStreamConverter {
         try {
             stop = true;
             Thread.sleep(40);
-            recorder.stop();
-//            recorder.release();
             grabber.stop();
+            grabber.release();
+            recorder.stop();
+            recorder.release();
             isOpened = false;
         } catch (FrameRecorder.Exception e) {
             LOGGER.error("释放资源失败" + e.getMessage());
