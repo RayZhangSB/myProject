@@ -1,6 +1,7 @@
 package pack;
 
-import com.zhang.ssm.pojo.AbnormalInfo;
+import com.zhang.ssm.service.GetStreamService;
+import com.zhang.ssm.service.impl.GetStreamServiceImpl;
 import com.zhang.ssm.video_stream.VideoStreamConverter;
 import com.zhang.ssm.video_stream.VideoStreamFactory;
 import org.bytedeco.javacpp.Loader;
@@ -9,10 +10,6 @@ import org.bytedeco.javacpp.opencv_core;
 import org.bytedeco.javacpp.opencv_objdetect;
 import org.bytedeco.javacv.*;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 /**
  * @ClassName PushStream
@@ -121,15 +118,14 @@ public class PushStream {
 
 
     @Test
-    public void jjj(){
-        int i = 0;
-        List<AbnormalInfo> ff = new ArrayList<AbnormalInfo>();
-        while(i<4) {
-            AbnormalInfo dd = new AbnormalInfo();
-            Date d = new Date();
-            dd.setCreateTime(d);
-            ff.add(dd);
-        }
+    public void testStartLine() {
+        String lineName = "线路7";
+        GetStreamService service = new GetStreamServiceImpl();
+        service.startLine(lineName);
+
+
+
+
 
     }
 

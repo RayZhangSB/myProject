@@ -64,9 +64,9 @@
     </style>
 </head>
 <body>
-<div style="position: absolute;top: 50%;left:50%;display: none" id="wait_for_load">
+<div style="position: absolute;top: 45%;left:45%;right: 50%;bottom:50%;display: none" id="wait_for_load">
 
-    <img alt="加载中.." src="/cctv/images/loading1.gif">
+    <img alt="加载中.." style="width: 180px;height: 180px" src="/cctv/images/loading1.gif">
 </div>
 <div class="container">
     <div class="row">
@@ -388,10 +388,14 @@
             success: function (suc) {
                 $("#wait_for_load").modal("hide");
                 console.info(suc);
-                video.pause();
-                video.src(suc.data);
-                video.load();
-                video.play();
+
+                if (suc.code === 0) {
+                    video.pause();
+                    video.src(suc.data);
+                    video.load();
+                    video.play();
+                }
+
                 alert(suc.msg);
 
                 return true;
@@ -430,7 +434,7 @@
 
     function stopAllLine() {
         for (var i = 0; i < 8; i++) {
-            var videoId = "player-" + (idx + 1);
+            var videoId = "player-" + (i + 1);
             video = videojs(document.getElementById(videoId), {}, function () {
             });
             video.pause();

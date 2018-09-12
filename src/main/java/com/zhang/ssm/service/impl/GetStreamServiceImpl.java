@@ -31,19 +31,28 @@ public class GetStreamServiceImpl implements GetStreamService {
                 String rtspPath = LineConfig.RTMP_RTSP.get(rtmpPath);
                 responseResult.setData(rtmpPath);
                 VideoStreamConverter streamConverter;
-                if (!vFactory.videoStreamConverterMaps.containsKey(lineName) || (streamConverter = vFactory.videoStreamConverterMaps.get(lineName)) == null) {
-                    vFactory.addConverterToMap(lineName, rtspPath, rtmpPath);
-                } else {
-                    if (streamConverter.is_released()) {
-                        vFactory.fixConverter(streamConverter, rtspPath, rtmpPath);
+                if (vFactory.getMap().containsKey(lineName)) {
+                    streamConverter = vFactory.getConverter(lineName);
+                    if (streamConverter == null) {
+                        vFactory.addConverterToMap(lineName, rtspPath, rtmpPath);
+                        streamConverter = vFactory.getConverter(lineName);
+                        String result = vFactory.addNewLine(streamConverter);
+                        responseResult.setMsg(result);
+                    } else {
+                        String result = vFactory.addNewLine(streamConverter);
+                        responseResult.setMsg(result);
                     }
+                } else {
+                    vFactory.addConverterToMap(lineName, rtspPath, rtmpPath);
+                    streamConverter = vFactory.getConverter(lineName);
+                    String result = vFactory.addNewLine(streamConverter);
+                    responseResult.setMsg(result);
                 }
-                streamConverter = vFactory.videoStreamConverterMaps.get(lineName);
-                String result = vFactory.addNewLine(streamConverter);
-                responseResult.setMsg(result);
+
+
             } else {
                 responseResult.setCode(1);
-                responseResult.setMsg("there is no corresponding line,please input again");
+                responseResult.setMsg("there is no corresponding line,please input again or set a new line");
             }
         } else {
 
@@ -58,17 +67,35 @@ public class GetStreamServiceImpl implements GetStreamService {
         ResponseResult responseResult = ResponseResult.ok();
         if (StringUtil.isNotEmpty(lineName)) {
             if (LineConfig.LINE_RTMP_ADDRs.containsKey(lineName)) {
-                VideoStreamConverter streamConverter = vFactory.videoStreamConverterMaps.get(lineName);
-                if (!(streamConverter == null || streamConverter.is_released())) {
-                    streamConverter.stopAndRelease();
+                if (vFactory.getMap().containsKey(lineName)) {
+                    vFactory.stop(lineName);
                 }
+                responseResult.setMsg("the line " + lineName + " stopped");
             } else {
                 responseResult.setCode(1);
-                responseResult.setMsg("there is no corresponding line");
+                responseResult.setMsg("there is no corresponding line to stop");
             }
         } else {
             responseResult.setCode(1);
             responseResult.setMsg("lineName is null for stop line");
+        }
+        return JsonUtil.objectToJson(responseResult);
+    }
+
+    @Override
+    public String releaseLine(String lineName) {
+        ResponseResult responseResult = ResponseResult.ok();
+        if (StringUtil.isNotEmpty(lineName)) {
+            if (LineConfig.LINE_RTMP_ADDRs.containsKey(lineName)) {
+                vFactory.release(lineName);
+                responseResult.setMsg("the line " + lineName + " is released");
+            } else {
+                responseResult.setCode(1);
+                responseResult.setMsg("there is no corresponding line to release");
+            }
+        } else {
+            responseResult.setCode(1);
+            responseResult.setMsg("lineName is null to release ");
         }
         return JsonUtil.objectToJson(responseResult);
     }
@@ -88,10 +115,10 @@ public class GetStreamServiceImpl implements GetStreamService {
     @Override
     public String setLine(String lineName, String rtspPath, String rtmpPath) {
         ResponseResult responseResult = ResponseResult.ok();
-        if (LineConfig.LINE_RTMP_ADDRs.containsKey(lineName) && vFactory.videoStreamConverterMaps.containsKey(lineName)) {
-            VideoStreamConverter streamConverter = vFactory.videoStreamConverterMaps.get(lineName);
+        if (LineConfig.LINE_RTMP_ADDRs.containsKey(lineName) && vFactory.getMap().containsKey(lineName)) {
+            VideoStreamConverter streamConverter = vFactory.getConverter(lineName);
             streamConverter.stopAndRelease();
-            vFactory.videoStreamConverterMaps.remove(lineName);
+            vFactory.getMap().remove(lineName);
         } else {
             vFactory.addConverterToMap(lineName, rtspPath, rtmpPath);
         }

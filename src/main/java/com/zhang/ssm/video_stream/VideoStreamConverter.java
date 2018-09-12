@@ -38,13 +38,12 @@ public class VideoStreamConverter {
     //指示是否正在取流
     private boolean isOpened = false;
 
-    private boolean stop = false;
+    private boolean stop_running = false;
 
     private String snapshot_save_path_prefix = "";
 
     private String snapshot_save_path;
 
-    private boolean released = false;
 
     public VideoStreamConverter(FrameGrabber grabber, FrameRecorder recorder, OpenCVFrameConverter.ToIplImage converter, String lineName) {
         this.recorder = recorder;
@@ -81,15 +80,26 @@ public class VideoStreamConverter {
         return lineName;
     }
 
-    public boolean isOpened() {
+    public boolean isRunning() {
         return isOpened;
     }
 
     public boolean startGrabber() {
         try {
-            grabber.start();
-            while (grabber.grab() == null) {
-                grabber.restart();
+            if (grabber != null) {
+                grabber.stop();
+                grabber.start();
+                int count_tryStart = 0;
+                while (grabber.grab() == null) {
+                    count_tryStart++;
+                    grabber.restart();
+                    if (count_tryStart >= 50) {
+                        return false;
+                    }
+                }
+            } else {
+                LOGGER.error("请设置正确的抓取器...");
+                return false;
             }
         } catch (FrameGrabber.Exception e) {
             LOGGER.error("抓取器启动失败，正在重新启动...");
@@ -111,7 +121,13 @@ public class VideoStreamConverter {
 
     public boolean startRecorder() {
         try {
-            recorder.start();
+            if (recorder != null) {
+                recorder.stop();
+                recorder.start();
+            } else {
+                LOGGER.error("请设置正确的录制器...");
+                return false;
+            }
         } catch (org.bytedeco.javacv.FrameRecorder.Exception e) {
             try {
                 LOGGER.error("录制器启动失败，正在重新启动...");
@@ -170,7 +186,7 @@ public class VideoStreamConverter {
         Frame grabFrame = null;
         opencv_core.IplImage grabbedImage = null;
         try {
-            while (!stop && (grabFrame = grabber.grab()) != null) {
+            while (!stop_running && (grabFrame = grabber.grab()) != null) {
                 if (!isOpened) {
                     isOpened = true;
                 }
@@ -189,6 +205,7 @@ public class VideoStreamConverter {
                 }
                 Thread.sleep(25);
             }
+            isOpened = false;
         } catch (InterruptedException e) {
             LOGGER.error("推流线程被中断" + e.getMessage());
             stopAndRelease();
@@ -206,17 +223,41 @@ public class VideoStreamConverter {
     }
 
     public boolean stopAndRelease() {
-        if (!isOpened) {
+        if (!stop()) {
             return true;
         }
         try {
-            stop = true;
+            if (grabber != null) {
+                grabber.release();
+            }
+            if (recorder != null) {
+                recorder.release();
+            }
+        } catch (FrameRecorder.Exception e) {
+            LOGGER.error("释放资源失败" + e.getMessage());
+            return false;
+        } catch (FrameGrabber.Exception e) {
+            LOGGER.error("释放资源失败" + e.getMessage());
+            return false;
+        } finally {
+            recorder = null;
+            grabber = null;
+            converter = null;
+        }
+        LOGGER.info(lineName + "释放资源成功");
+        return true;
+    }
+
+
+    public boolean stop() {
+        if (!isRunning()) {
+            return true;
+        }
+        try {
+            stop_running = true;
             Thread.sleep(40);
             grabber.stop();
-            grabber.release();
             recorder.stop();
-            recorder.release();
-            isOpened = false;
         } catch (FrameRecorder.Exception e) {
             LOGGER.error("释放资源失败" + e.getMessage());
             return false;
@@ -227,20 +268,11 @@ public class VideoStreamConverter {
             LOGGER.error("释放资源失败" + e.getMessage());
             return false;
         } finally {
-            recorder = null;
-            grabber = null;
-            converter = null;
             isOpened = false;
-            stop = false;
-            released = false;
+            stop_running = false;
         }
         LOGGER.info(lineName + "释放资源成功");
         return true;
-    }
-
-
-    public boolean is_released() {
-        return grabber == null || recorder == null || released;
     }
 
 

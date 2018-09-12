@@ -29,7 +29,7 @@ public class VideoStreamFactory {
 
     private static volatile VideoStreamFactory videoStreamFactory;
 
-    public Map<String, VideoStreamConverter> videoStreamConverterMaps = new ConcurrentHashMap<String, VideoStreamConverter>(16);
+    private Map<String, VideoStreamConverter> videoStreamConverterMaps = new ConcurrentHashMap<String, VideoStreamConverter>(16);
 
     private ExecutorService executorService = Executors.newFixedThreadPool(12);
 
@@ -96,21 +96,20 @@ public class VideoStreamFactory {
         return nv;
     }
 
-    public boolean delVideoStreamConverter(String lineName) {
-        VideoStreamConverter v = null;
+    public void delVideoStreamConverter(String lineName) {
+        VideoStreamConverter v;
         if (videoStreamConverterMaps.containsKey(lineName) && (v = videoStreamConverterMaps.get(lineName)) != null) {
             v.stopAndRelease();
             videoStreamConverterMaps.remove(lineName);
             LOGGER.info("该线路已删除");
-            return true;
+        } else {
+            LOGGER.error("该线路删除失败,不存在相对应的连接");
         }
-        LOGGER.error("该线路删除失败,不存在相对应的连接");
-        return false;
     }
 
     public String addNewLine(VideoStreamConverter v) {
         String name = v.getLineName();
-        if (v.isOpened()) {
+        if (v.isRunning()) {
             return "line" + name + "have started;";
         }
         boolean b1 = v.startGrabber();
@@ -163,7 +162,14 @@ public class VideoStreamFactory {
 
     public void stopAllPush() {
         for (VideoStreamConverter v : videoStreamConverterMaps.values()) {
-            v.stopAndRelease();
+            if (v != null)
+                v.stop();
+        }
+    }
+
+    public void releaseAllPush() {
+        for (String name : videoStreamConverterMaps.keySet()) {
+            release(name);
         }
     }
 
@@ -177,15 +183,24 @@ public class VideoStreamFactory {
     }
 
 
-    public void fixConverter(VideoStreamConverter v, String rtspPath, String rtmpPath) {
-        if (v.getGrabber() == null) {
-            v.setGrabber(videoStreamFactory.createDefaultGrabber(rtspPath));
-        }
-        if (v.getGrabber() == null) {
-            v.setRecorder(videoStreamFactory.createDefaultRecorder(rtmpPath));
-        }
-        if (v.getRecorder() == null) {
-            v.setConverter(videoStreamFactory.createImgConverter());
+    public void release(String lineName) {
+        VideoStreamConverter v = videoStreamConverterMaps.get(lineName);
+        if (v != null && v.stopAndRelease()) {
+            videoStreamConverterMaps.remove(v.getLineName());
+            LineConfig.removeLineMap(v.getLineName());
         }
     }
+
+    public void stop(String lineName) {
+        VideoStreamConverter v = videoStreamConverterMaps.get(lineName);
+        if (v != null) {
+            v.stop();
+        }
+    }
+
+    public Map<String, VideoStreamConverter> getMap() {
+        return videoStreamConverterMaps;
+    }
+
+
 }

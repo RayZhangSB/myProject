@@ -5,6 +5,8 @@ public interface GetStreamService {
 
     String stopLine(String lineName);
 
+    String releaseLine(String lineName);
+
     String startAllLine();
 
     String stopAllLine();
