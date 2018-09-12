@@ -64,7 +64,7 @@
     </style>
 </head>
 <body>
-<div style="position: absolute;top: 45%;left:45%;right: 50%;bottom:50%;display: none" id="wait_for_load">
+<div style="position: absolute;top: 45%;left:45%;right: 50%;bottom:50%;z-index: 1000;display: none" id="wait_for_load">
 
     <img alt="加载中.." style="width: 180px;height: 180px" src="/cctv/images/loading1.gif">
 </div>
@@ -229,7 +229,7 @@
             </table>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-3">
-            <h3 style="color: #ebcccc">终止线路</h3>
+            <h3 style="color: #ebcccc">停止线路</h3>
             <table cellpadding="0" cellspacing="3" border="0">
                 <tr>
                     <td style="text-decoration:underline;" class="tt1">线路名:</td>
@@ -238,7 +238,7 @@
                 </tr>
 
                 <tr>
-                    <input type="button" style="padding: 8px;border-color: lime" class="btn" value="终止"
+                    <input type="button" style="padding: 8px;border-color: lime" class="btn" value="停止"
                            onclick="stopLine();"/>
                 </tr>
             </table>
@@ -254,6 +254,20 @@
                 <tr>
                     <input type="button" style="padding: 8px;border-color: lime" class="btn" value="启动"
                            onclick="startLine();"/>
+                </tr>
+            </table>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <h3 style="color: #ebcccc">释放线路</h3>
+            <table cellpadding="0" cellspacing="3" border="0">
+                <tr>
+                    <td style="text-decoration:underline;" class="tt1">线路名:</td>
+                    <td colspan="3"><input id="releaseLineName" type="text" class="txt"/>
+                    </td>
+                </tr>
+                <tr>
+                    <input type="button" style="padding: 8px;border-color: lime" class="btn" value="释放"
+                           onclick="releaseLine();"/>
                 </tr>
             </table>
         </div>
@@ -407,6 +421,43 @@
             }
         });
     }
+
+    function releaseLine() {
+        var lineName = $("#releaseLineName").val();
+        var idx = indexOfArray(lineNames, lineName);
+        if (idx < -1) {
+            alert("Input name is not expected");
+            return;
+        }
+        var videoId = "player-" + (idx + 1);
+        video = videojs(document.getElementById(videoId), {}, function () {
+        });
+        video.pause();
+        var formData = new FormData();
+        formData.append("lineName", lineName);
+        $("#wait_for_load").modal("show");
+        $.ajax({
+            type: "POST",
+            url: "/cctv/line/release",
+            contentType: false,    //不可缺
+            processData: false,    //不可缺;
+            dataType: "json",
+            data: formData,
+            // async: false,
+            success: function (suc) {
+                $("#wait_for_load").modal("hide");
+                console.info(suc);
+                alert(suc.msg);
+                return true;
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                $("#wait_for_load").modal("hide");
+                alert("error.ajax" + textStatus + errorThrown);
+                return false;
+            }
+        });
+    }
+
 
     function startAllLine() {
         $("#wait_for_load").modal("show");

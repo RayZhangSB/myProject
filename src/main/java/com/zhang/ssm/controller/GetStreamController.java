@@ -26,6 +26,12 @@ public class GetStreamController {
         return getStreamService.startLine(lineName);
     }
 
+    @RequestMapping("/release")
+    @ResponseBody
+    public String releaseLine(String lineName) {
+        return getStreamService.releaseLine(lineName);
+    }
+
     @RequestMapping("/stop")
     @ResponseBody
     public String stopLine(String lineName) {

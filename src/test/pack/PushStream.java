@@ -122,8 +122,8 @@ public class PushStream {
         String lineName = "线路7";
         GetStreamService service = new GetStreamServiceImpl();
         service.startLine(lineName);
-
-
+        service.stopLine(lineName);
+        service.startLine(lineName);
 
 
 

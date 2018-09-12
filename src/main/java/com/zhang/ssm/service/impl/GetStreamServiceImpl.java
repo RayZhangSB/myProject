@@ -25,10 +25,11 @@ public class GetStreamServiceImpl implements GetStreamService {
     @Override
     public String startLine(String lineName) {
         ResponseResult responseResult = ResponseResult.ok();
+        String msg;
         if (StringUtil.isNotEmpty(lineName)) {
-            if (LineConfig.LINE_RTMP_ADDRs.containsKey(lineName)) {
-                String rtmpPath = LineConfig.LINE_RTMP_ADDRs.get(lineName);
-                String rtspPath = LineConfig.RTMP_RTSP.get(rtmpPath);
+            if (LineConfig.existLine(lineName)) {
+                String rtmpPath = LineConfig.getObjPath(lineName);
+                String rtspPath = LineConfig.getSourcePath(rtmpPath);
                 responseResult.setData(rtmpPath);
                 VideoStreamConverter streamConverter;
                 if (vFactory.getMap().containsKey(lineName)) {
@@ -52,12 +53,15 @@ public class GetStreamServiceImpl implements GetStreamService {
 
             } else {
                 responseResult.setCode(1);
-                responseResult.setMsg("there is no corresponding line,please input again or set a new line");
+                msg = "there is no corresponding line,please input again or set a new line";
+                LOGGER.info(msg);
+                responseResult.setMsg(msg);
             }
         } else {
-
             responseResult.setCode(1);
-            responseResult.setMsg("lineName is null for start line");
+            msg = "lineName is null for start line";
+            LOGGER.info(msg);
+            responseResult.setMsg(msg);
         }
         return JsonUtil.objectToJson(responseResult);
     }
@@ -65,19 +69,26 @@ public class GetStreamServiceImpl implements GetStreamService {
     @Override
     public String stopLine(String lineName) {
         ResponseResult responseResult = ResponseResult.ok();
+        String msg;
         if (StringUtil.isNotEmpty(lineName)) {
-            if (LineConfig.LINE_RTMP_ADDRs.containsKey(lineName)) {
+            if (LineConfig.existLine(lineName)) {
                 if (vFactory.getMap().containsKey(lineName)) {
                     vFactory.stop(lineName);
                 }
-                responseResult.setMsg("the line " + lineName + " stopped");
+                msg = "the line " + lineName + " stopped";
+                LOGGER.info(msg);
+                responseResult.setMsg(msg);
             } else {
                 responseResult.setCode(1);
-                responseResult.setMsg("there is no corresponding line to stop");
+                msg = "there is no corresponding line to stop";
+                LOGGER.info(msg);
+                responseResult.setMsg(msg);
             }
         } else {
             responseResult.setCode(1);
-            responseResult.setMsg("lineName is null for stop line");
+            msg = "lineName is null for stop line";
+            LOGGER.info(msg);
+            responseResult.setMsg(msg);
         }
         return JsonUtil.objectToJson(responseResult);
     }
@@ -85,17 +96,25 @@ public class GetStreamServiceImpl implements GetStreamService {
     @Override
     public String releaseLine(String lineName) {
         ResponseResult responseResult = ResponseResult.ok();
+        String msg;
         if (StringUtil.isNotEmpty(lineName)) {
-            if (LineConfig.LINE_RTMP_ADDRs.containsKey(lineName)) {
+            if (LineConfig.existLine(lineName)) {
                 vFactory.release(lineName);
-                responseResult.setMsg("the line " + lineName + " is released");
+                msg = "the line " + lineName + " is released";
+                LOGGER.info(msg);
+                responseResult.setMsg(msg);
+
             } else {
                 responseResult.setCode(1);
-                responseResult.setMsg("there is no corresponding line to release");
+                msg = "there is no corresponding line to release";
+                LOGGER.info(msg);
+                responseResult.setMsg(msg);
             }
         } else {
             responseResult.setCode(1);
-            responseResult.setMsg("lineName is null to release ");
+            msg = "lineName is null to release ";
+            LOGGER.info(msg);
+            responseResult.setMsg(msg);
         }
         return JsonUtil.objectToJson(responseResult);
     }
@@ -115,7 +134,7 @@ public class GetStreamServiceImpl implements GetStreamService {
     @Override
     public String setLine(String lineName, String rtspPath, String rtmpPath) {
         ResponseResult responseResult = ResponseResult.ok();
-        if (LineConfig.LINE_RTMP_ADDRs.containsKey(lineName) && vFactory.getMap().containsKey(lineName)) {
+        if (LineConfig.existLine(lineName) && vFactory.getMap().containsKey(lineName)) {
             VideoStreamConverter streamConverter = vFactory.getConverter(lineName);
             streamConverter.stopAndRelease();
             vFactory.getMap().remove(lineName);

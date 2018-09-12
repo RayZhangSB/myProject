@@ -13,10 +13,10 @@ import java.util.concurrent.ConcurrentHashMap;
 public  class LineConfig {
 
     //线路名称与rtmp地址映射
-    public static final Map< String,String> LINE_RTMP_ADDRs = new ConcurrentHashMap<String,String>();
+    private static final Map<String, String> LINE_RTMP_ADDRs = new ConcurrentHashMap<String, String>();
 
     //rtmp推流地址与设备rtsp地址映射
-    public static final Map< String,String> RTMP_RTSP = new ConcurrentHashMap<String, String>();
+    private static final Map<String, String> RTMP_RTSP = new ConcurrentHashMap<String, String>();
 
     static {
         LINE_RTMP_ADDRs.put("线路7","rtmp://127.0.0.1/live/stream");
@@ -37,6 +37,16 @@ public  class LineConfig {
 
      }
 
+    public static boolean existLine(String lineName) {
+        return LINE_RTMP_ADDRs.containsKey(lineName);
+    }
 
+    public static String getObjPath(String lineName) {
+        return LINE_RTMP_ADDRs.get(lineName);
+    }
+
+    public static String getSourcePath(String rtmpPath) {
+        return RTMP_RTSP.get(rtmpPath);
+    }
 
 }

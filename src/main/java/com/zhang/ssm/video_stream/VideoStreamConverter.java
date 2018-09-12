@@ -36,7 +36,7 @@ public class VideoStreamConverter {
 
     private boolean snapshot = false;
     //指示是否正在取流
-    private boolean isOpened = false;
+    private boolean has_Opened = false;
 
     private boolean stop_running = false;
 
@@ -44,6 +44,7 @@ public class VideoStreamConverter {
 
     private String snapshot_save_path;
 
+    private boolean recorder_started = false;
 
     public VideoStreamConverter(FrameGrabber grabber, FrameRecorder recorder, OpenCVFrameConverter.ToIplImage converter, String lineName) {
         this.recorder = recorder;
@@ -81,7 +82,7 @@ public class VideoStreamConverter {
     }
 
     public boolean isRunning() {
-        return isOpened;
+        return has_Opened;
     }
 
     public boolean startGrabber() {
@@ -121,9 +122,13 @@ public class VideoStreamConverter {
 
     public boolean startRecorder() {
         try {
+            if (recorder_started) {
+                return true;
+            }
             if (recorder != null) {
                 recorder.stop();
                 recorder.start();
+                recorder_started = true;
             } else {
                 LOGGER.error("请设置正确的录制器...");
                 return false;
@@ -136,6 +141,7 @@ public class VideoStreamConverter {
                     recorder.stop();
                     LOGGER.info("正在尝试重新开启录制器...");
                     recorder.start();
+                    recorder_started = true;
                     return true;
                 }
             } catch (Exception e1) {
@@ -187,8 +193,8 @@ public class VideoStreamConverter {
         opencv_core.IplImage grabbedImage = null;
         try {
             while (!stop_running && (grabFrame = grabber.grab()) != null) {
-                if (!isOpened) {
-                    isOpened = true;
+                if (!has_Opened) {
+                    has_Opened = true;
                 }
                 grabbedImage = converter.convert(grabFrame);
                 Frame rotatedFrame = converter.convert(grabbedImage);
@@ -205,7 +211,7 @@ public class VideoStreamConverter {
                 }
                 Thread.sleep(25);
             }
-            isOpened = false;
+            has_Opened = false;
         } catch (InterruptedException e) {
             LOGGER.error("推流线程被中断" + e.getMessage());
             stopAndRelease();
@@ -243,6 +249,7 @@ public class VideoStreamConverter {
             recorder = null;
             grabber = null;
             converter = null;
+            recorder_started = false;
         }
         LOGGER.info(lineName + "释放资源成功");
         return true;
@@ -257,18 +264,20 @@ public class VideoStreamConverter {
             stop_running = true;
             Thread.sleep(40);
             grabber.stop();
-            recorder.stop();
-        } catch (FrameRecorder.Exception e) {
-            LOGGER.error("释放资源失败" + e.getMessage());
-            return false;
-        } catch (FrameGrabber.Exception e) {
+//            recorder.stop();
+        }
+//        catch (FrameRecorder.Exception e) {
+//            LOGGER.error("释放资源失败" + e.getMessage());
+//            return false;
+//        }
+        catch (FrameGrabber.Exception e) {
             LOGGER.error("释放资源失败" + e.getMessage());
             return false;
         } catch (InterruptedException e) {
             LOGGER.error("释放资源失败" + e.getMessage());
             return false;
         } finally {
-            isOpened = false;
+            has_Opened = false;
             stop_running = false;
         }
         LOGGER.info(lineName + "释放资源成功");

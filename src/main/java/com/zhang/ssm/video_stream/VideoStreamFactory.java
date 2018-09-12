@@ -120,7 +120,7 @@ public class VideoStreamFactory {
         if (!b2) {
             LOGGER.info("recorder start error");
         }
-        String msg = null;
+        String msg;
         if (b1 && b2) {
             this.executorService.execute(new StartExecThread(v));
             LOGGER.info("新线路开始执行");
@@ -187,7 +187,7 @@ public class VideoStreamFactory {
         VideoStreamConverter v = videoStreamConverterMaps.get(lineName);
         if (v != null && v.stopAndRelease()) {
             videoStreamConverterMaps.remove(v.getLineName());
-            LineConfig.removeLineMap(v.getLineName());
+//            LineConfig.removeLineMap(v.getLineName());
         }
     }
 
